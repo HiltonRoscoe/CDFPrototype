@@ -61,7 +61,8 @@
 			<cdf:ContestId>
 				<xsl:value-of select="concat('_', eml:ContestIdentifier/@IdNumber)"/>
 			</cdf:ContestId>
-			<xsl:apply-templates select="eml:BallotChoices/eml:Candidate"/>
+			<xsl:apply-templates select="eml:BallotChoices/(eml:Candidate|eml:WriteInCandidate)"/>			
+			<cdf:Undervotes><xsl:value-of select="eml:MaxVotes - count(eml:BallotChoices/eml:Candidate[eml:Selected=true()])" /> </cdf:Undervotes>
 		</cdf:ContestLink>
 	</xsl:template>
 	<xsl:template match="eml:Candidate">
@@ -80,6 +81,22 @@
 			<cdf:Position>
 				<xsl:value-of select="position()"/>
 			</cdf:Position>
+		</cdf:ContestSelectionLink>
+	</xsl:template>
+	<xsl:template match="eml:WriteInCandidate">
+		<cdf:ContestSelectionLink xsi:type="cdf:WriteIn">			
+			<cdf:Mark>
+				<cdf:NumberVotes>
+					<xsl:choose>
+						<xsl:when test="eml:Selected = 'true'">1</xsl:when>
+						<xsl:otherwise>0</xsl:otherwise>
+					</xsl:choose>
+				</cdf:NumberVotes>
+			</cdf:Mark>
+			<cdf:Position>
+				<xsl:value-of select="position()"/>
+			</cdf:Position>
+			<cdf:Text><xsl:value-of select="eml:Name" /></cdf:Text>
 		</cdf:ContestSelectionLink>
 	</xsl:template>
 </xsl:stylesheet>
