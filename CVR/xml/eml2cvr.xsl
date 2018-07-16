@@ -5,9 +5,7 @@
 	<!-- global mode templates, for reusable object generation -->
 	<xsl:template match="eml:Candidate" mode="global">
 		<cdf:Candidate>
-			<xsl:attribute name="ObjectId">
-				<xsl:value-of select="concat('_',eml:CandidateIdentifier/@IdNumber)"/>
-			</xsl:attribute>
+			<xsl:attribute name="ObjectId"><xsl:value-of select="concat('_',eml:CandidateIdentifier/@IdNumber)"/></xsl:attribute>
 			<cdf:Name>
 				<xsl:value-of select="eml:CandidateFullName/eml:NameElement"/>
 			</cdf:Name>
@@ -15,14 +13,10 @@
 	</xsl:template>
 	<xsl:template match="eml:Contest" mode="global">
 		<cdf:Contest xsi:type="cdf:CandidateContest">
-			<xsl:attribute name="ObjectId">
-				<xsl:value-of select="concat('_',eml:ContestIdentifier/@IdNumber)"/>
-			</xsl:attribute>
+			<xsl:attribute name="ObjectId"><xsl:value-of select="concat('_',eml:ContestIdentifier/@IdNumber)"/></xsl:attribute>
 			<xsl:for-each select="eml:BallotChoices/eml:Candidate">
 				<cdf:ContestSelection xsi:type="cdf:CandidateSelection">
-					<xsl:attribute name="ObjectId">
-						<xsl:value-of select="concat('_CS',eml:CandidateIdentifier/@IdNumber)"/>
-					</xsl:attribute>
+					<xsl:attribute name="ObjectId"><xsl:value-of select="concat('_CS',eml:CandidateIdentifier/@IdNumber)"/></xsl:attribute>
 					<cdf:CandidateIds>
 						<xsl:value-of select="concat('_',eml:CandidateIdentifier/@IdNumber)"/>
 					</cdf:CandidateIds>
@@ -34,22 +28,26 @@
 		</cdf:Contest>
 	</xsl:template>
 	<xsl:template match="eml:EMLHeader">
-		<a>what dis</a>
 	</xsl:template>
 	<xsl:template match="/eml:EML">
 		<cdf:CastVoteRecordReport xsi:schemaLocation="NIST_V0_cast_vote_records.xsd file:///C:/Users/john/Documents/GitHub/CastVoteRecords/NIST_V0_cast_vote_records.xsd">
 			<xsl:apply-templates/>
 			<cdf:Election>
-				<xsl:attribute name="ObjectId">
-					<xsl:value-of select="concat('_',eml:Ballots/eml:EventIdentifier/@IdNumber)"/>
-				</xsl:attribute>
+				<xsl:attribute name="ObjectId"><xsl:value-of select="concat('_',eml:Ballots/eml:EventIdentifier/@IdNumber)"/></xsl:attribute>
 				<xsl:apply-templates select="eml:Ballots/eml:Ballot/eml:Election/eml:Contest/eml:BallotChoices/eml:Candidate" mode="global">
 				</xsl:apply-templates>
 				<xsl:apply-templates select="eml:Ballots/eml:Ballot/eml:Election/eml:Contest" mode="global">
 				</xsl:apply-templates>
 			</cdf:Election>
-			<cdf:Notes>Example using the NIST CVR CDF</cdf:Notes>
 			<cdf:GeneratedDate>2018-07-15T00:00:00Z</cdf:GeneratedDate>
+			<cdf:GpUnit ObjectId="rd" xsi:type="cdf:ReportingDevice">
+				<cdf:OtherType>reporting-device</cdf:OtherType>
+				<cdf:Type>other</cdf:Type>
+				<cdf:Application>Ballot Marker</cdf:Application>
+				<cdf:Manufacturer>Hilton Roscoe LLC</cdf:Manufacturer>
+			</cdf:GpUnit>
+			<cdf:Notes>Example using the NIST CVR CDF</cdf:Notes>
+			<cdf:ReportGeneratingDeviceIds>rd</cdf:ReportGeneratingDeviceIds>
 			<cdf:ReportType>originating-device-export</cdf:ReportType>
 			<cdf:Version>1.0</cdf:Version>
 		</cdf:CastVoteRecordReport>
@@ -99,21 +97,23 @@
 		</xsl:if>
 	</xsl:template>
 	<xsl:template match="eml:WriteInCandidate">
-		<cdf:ContestSelectionLink xsi:type="cdf:WriteIn">
-			<cdf:Mark>
-				<cdf:NumberVotes>
-					<xsl:choose>
-						<xsl:when test="eml:Selected = 'true'">1</xsl:when>
-						<xsl:otherwise>0</xsl:otherwise>
-					</xsl:choose>
-				</cdf:NumberVotes>
-			</cdf:Mark>
-			<cdf:Position>
-				<xsl:value-of select="position()"/>
-			</cdf:Position>
-			<cdf:Text>
-				<xsl:value-of select="eml:Name"/>
-			</cdf:Text>
-		</cdf:ContestSelectionLink>
+		<xsl:if test="eml:Selected = 'true'">
+			<cdf:ContestSelectionLink xsi:type="cdf:WriteIn">
+				<cdf:Mark>
+					<cdf:NumberVotes>
+						<xsl:choose>
+							<xsl:when test="eml:Selected = 'true'">1</xsl:when>
+							<xsl:otherwise>0</xsl:otherwise>
+						</xsl:choose>
+					</cdf:NumberVotes>
+				</cdf:Mark>
+				<cdf:Position>
+					<xsl:value-of select="position()"/>
+				</cdf:Position>
+				<cdf:Text>
+					<xsl:value-of select="eml:Name"/>
+				</cdf:Text>
+			</cdf:ContestSelectionLink>
+		</xsl:if>
 	</xsl:template>
 </xsl:stylesheet>
