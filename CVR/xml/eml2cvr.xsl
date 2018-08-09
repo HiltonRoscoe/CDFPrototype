@@ -77,18 +77,23 @@
 		</cdf:ContestLink>
 	</xsl:template>
 	<xsl:template match="eml:Candidate">
-		<xsl:if test="eml:Selected = 'true'">
+		<xsl:if test="eml:Selected">
 			<cdf:ContestSelectionLink>
 				<cdf:ContestSelectionId>
 					<xsl:value-of select="concat('_', eml:CandidateIdentifier/@IdNumber)"/>
 				</cdf:ContestSelectionId>
-				<cdf:Mark>
+				<cdf:Mark>				
 					<cdf:NumberVotes>
 						<xsl:choose>
 							<xsl:when test="eml:Selected = 'true'">1</xsl:when>
 							<xsl:otherwise>0</xsl:otherwise>
 						</xsl:choose>
 					</cdf:NumberVotes>
+		<xsl:if test="eml:Selected != 'true'">
+					<cdf:Rank>
+						<xsl:value-of select="eml:Selected" />
+					</cdf:Rank>
+		</xsl:if>
 				</cdf:Mark>
 				<cdf:Position>
 					<xsl:value-of select="position()"/>
