@@ -6,6 +6,10 @@
 	<xsl:template match="eml:Candidate" mode="global">
 		<cdf:Candidate>
 			<xsl:attribute name="ObjectId"><xsl:value-of select="concat('_',eml:CandidateIdentifier/@IdNumber)"/></xsl:attribute>
+			<cdf:Code>
+				<cdf:Type>local-level</cdf:Type>
+				<cdf:Value><xsl:value-of select="eml:CandidateIdentifier/@IdNumber"/></cdf:Value>
+			</cdf:Code>
 			<cdf:Name>
 				<xsl:value-of select="eml:CandidateFullName/eml:NameElement"/>
 			</cdf:Name>
@@ -36,10 +40,20 @@
 				<xsl:attribute name="ObjectId"><xsl:value-of select="concat('_',eml:Ballots/eml:EventIdentifier/@IdNumber)"/></xsl:attribute>
 				<xsl:apply-templates select="eml:Ballots/eml:Ballot/eml:Election/eml:Contest/eml:BallotChoices/eml:Candidate" mode="global">
 				</xsl:apply-templates>
+				<cdf:Code>
+					<cdf:Type>local-level</cdf:Type>
+					<cdf:Value>
+						<xsl:value-of select="eml:Ballots/eml:Ballot/eml:Election/eml:ElectionIdentifier/@IdNumber"/>
+					</cdf:Value>
+				</cdf:Code>
 				<xsl:apply-templates select="eml:Ballots/eml:Ballot/eml:Election/eml:Contest" mode="global">
 				</xsl:apply-templates>
 				<cdf:ElectionScopeId>gpu-precinct</cdf:ElectionScopeId>
+				<cdf:Name>
+					<xsl:value-of select="eml:Ballots/eml:Ballot/eml:Election/eml:ElectionIdentifier/eml:ElectionName"/>
+				</cdf:Name>
 			</cdf:Election>
+			<!-- XSL 1.0 doesn't have date function -->
 			<cdf:GeneratedDate>2018-07-15T00:00:00Z</cdf:GeneratedDate>
 			<cdf:GpUnit ObjectId="rd" xsi:type="cdf:ReportingDevice">
 				<cdf:OtherType>reporting-device</cdf:OtherType>
@@ -47,10 +61,12 @@
 				<cdf:Application>Ballot Marker</cdf:Application>
 				<cdf:Manufacturer>Hilton Roscoe LLC</cdf:Manufacturer>
 			</cdf:GpUnit>
-				<cdf:GpUnit ObjectId="gpu-precinct">				
+			<cdf:GpUnit ObjectId="gpu-precinct">
 				<cdf:Code>
 					<cdf:Type>local-level</cdf:Type>
-					<cdf:Value><xsl:value-of select="eml:Ballots/eml:Ballot/eml:ReportingUnitIdentifier/@IdNumber" /></cdf:Value>
+					<cdf:Value>
+						<xsl:value-of select="eml:Ballots/eml:Ballot/eml:ReportingUnitIdentifier/@IdNumber"/>
+					</cdf:Value>
 				</cdf:Code>
 				<cdf:Type>precinct</cdf:Type>
 			</cdf:GpUnit>
@@ -61,20 +77,20 @@
 		</cdf:CastVoteRecordReport>
 	</xsl:template>
 	<xsl:template match="eml:Ballots">
-	<cdf:CVRHistory>
-		<cdf:CVR>			
-			<cdf:BallotStyleId>
-				<xsl:value-of select="concat('_', eml:Ballot/eml:BallotIdentifier/@IdNumber)"/>
-			</cdf:BallotStyleId>
-			<xsl:apply-templates select="eml:Ballot/eml:Election/eml:Contest"/>
-			<cdf:ElectionId>
-				<xsl:value-of select="concat('_',eml:EventIdentifier/@IdNumber)"/>
-			</cdf:ElectionId>
-			<cdf:IsCurrent>true</cdf:IsCurrent>			
-			<cdf:OtherBallotStatus>cast</cdf:OtherBallotStatus>
-			<cdf:Type>original</cdf:Type>
-		</cdf:CVR>			
-	</cdf:CVRHistory>
+		<cdf:CVRHistory>
+			<cdf:CVR>
+				<cdf:BallotStyleId>
+					<xsl:value-of select="concat('_', eml:Ballot/eml:BallotIdentifier/@IdNumber)"/>
+				</cdf:BallotStyleId>
+				<xsl:apply-templates select="eml:Ballot/eml:Election/eml:Contest"/>
+				<cdf:ElectionId>
+					<xsl:value-of select="concat('_',eml:EventIdentifier/@IdNumber)"/>
+				</cdf:ElectionId>
+				<cdf:IsCurrent>true</cdf:IsCurrent>
+				<cdf:OtherBallotStatus>cast</cdf:OtherBallotStatus>
+				<cdf:Type>original</cdf:Type>
+			</cdf:CVR>
+		</cdf:CVRHistory>
 	</xsl:template>
 	<xsl:template match="eml:Contest">
 		<cdf:CVRContest>
@@ -95,7 +111,7 @@
 				</cdf:ContestSelectionId>
 				<cdf:Position>
 					<xsl:value-of select="position()"/>
-				</cdf:Position>			
+				</cdf:Position>
 				<cdf:SelectionIndication>
 					<cdf:IsAllocable>
 						<xsl:choose>
@@ -109,7 +125,7 @@
 							<xsl:value-of select="eml:Selected"/>
 						</cdf:Rank>
 					</xsl:if>
-				</cdf:SelectionIndication>				
+				</cdf:SelectionIndication>
 			</cdf:CVRContestSelection>
 		</xsl:if>
 	</xsl:template>
