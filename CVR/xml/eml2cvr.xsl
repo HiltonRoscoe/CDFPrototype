@@ -72,7 +72,7 @@
 			</cdf:ContestId>
 			<xsl:apply-templates select="eml:BallotChoices/*[self::eml:Candidate or self::eml:WriteInCandidate]"/>
 			<cdf:Undervotes>
-				<xsl:value-of select="eml:MaxVotes - count(eml:BallotChoices/*[self::eml:Candidate or self::eml:WriteInCandidate][eml:Selected=true()])"/>
+				<xsl:value-of select="eml:MaxVotes - count(eml:BallotChoices/*[self::eml:Candidate or self::eml:WriteInCandidate][eml:Selected])"/>
 			</cdf:Undervotes>
 		</cdf:ContestLink>
 	</xsl:template>
@@ -82,18 +82,18 @@
 				<cdf:ContestSelectionId>
 					<xsl:value-of select="concat('_', eml:CandidateIdentifier/@IdNumber)"/>
 				</cdf:ContestSelectionId>
-				<cdf:Mark>				
+				<cdf:Mark>
 					<cdf:NumberVotes>
 						<xsl:choose>
-							<xsl:when test="eml:Selected = 'true'">1</xsl:when>
+							<xsl:when test="eml:Selected">1</xsl:when>
 							<xsl:otherwise>0</xsl:otherwise>
 						</xsl:choose>
 					</cdf:NumberVotes>
-		<xsl:if test="eml:Selected != 'true'">
-					<cdf:Rank>
-						<xsl:value-of select="eml:Selected" />
-					</cdf:Rank>
-		</xsl:if>
+					<xsl:if test="eml:Selected and eml:Selected != 'true'">
+						<cdf:Rank>
+							<xsl:value-of select="eml:Selected"/>
+						</cdf:Rank>
+					</xsl:if>
 				</cdf:Mark>
 				<cdf:Position>
 					<xsl:value-of select="position()"/>
@@ -102,12 +102,12 @@
 		</xsl:if>
 	</xsl:template>
 	<xsl:template match="eml:WriteInCandidate">
-		<xsl:if test="eml:Selected = 'true'">
+		<xsl:if test="eml:Selected">
 			<cdf:ContestSelectionLink xsi:type="cdf:WriteIn">
 				<cdf:Mark>
 					<cdf:NumberVotes>
 						<xsl:choose>
-							<xsl:when test="eml:Selected = 'true'">1</xsl:when>
+							<xsl:when test="eml:Selected">1</xsl:when>
 							<xsl:otherwise>0</xsl:otherwise>
 						</xsl:choose>
 					</cdf:NumberVotes>
@@ -115,6 +115,11 @@
 				<cdf:Position>
 					<xsl:value-of select="position()"/>
 				</cdf:Position>
+				<xsl:if test="eml:Selected and eml:Selected != 'true'">
+					<cdf:Rank>
+						<xsl:value-of select="eml:Selected"/>
+					</cdf:Rank>
+				</xsl:if>
 				<cdf:Text>
 					<xsl:value-of select="eml:Name"/>
 				</cdf:Text>
