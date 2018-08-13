@@ -22,6 +22,12 @@
 			<cdf:Name>
 				<xsl:value-of select="eml:CandidateFullName/eml:NameElement"/>
 			</cdf:Name>
+			<xsl:if test="eml:Affiliation/eml:AffiliationIdentifier/eml:RegisteredName">
+				<cdf:PartyId>
+					<xsl:value-of
+						select="concat('_', eml:Affiliation/eml:AffiliationIdentifier/eml:RegisteredName)"/>
+				</cdf:PartyId>
+			</xsl:if>
 		</cdf:Candidate>
 	</xsl:template>
 	<xsl:template match="eml:Contest" mode="global">
@@ -88,7 +94,7 @@
 					<xsl:value-of
 						select="eml:Ballots/eml:Ballot/eml:Election/eml:ElectionIdentifier/eml:ElectionName"
 					/>
-				</cdf:Name>			
+				</cdf:Name>
 			</cdf:Election>
 			<!-- XSL 1.0 doesn't have date function -->
 			<cdf:GeneratedDate>2018-07-15T00:00:00Z</cdf:GeneratedDate>
