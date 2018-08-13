@@ -5,9 +5,7 @@
 	<!-- global mode templates, for reusable object generation -->
 	<xsl:template match="eml:Candidate" mode="global">
 		<cdf:Candidate>
-			<xsl:attribute name="ObjectId">
-				<xsl:value-of select="concat('_',eml:CandidateIdentifier/@IdNumber)"/>
-			</xsl:attribute>
+			<xsl:attribute name="ObjectId"><xsl:value-of select="concat('_',eml:CandidateIdentifier/@IdNumber)"/></xsl:attribute>
 			<cdf:Code>
 				<cdf:Type>local-level</cdf:Type>
 				<cdf:Value>
@@ -21,20 +19,16 @@
 	</xsl:template>
 	<xsl:template match="eml:Contest" mode="global">
 		<cdf:Contest xsi:type="cdf:CandidateContest">
-			<xsl:attribute name="ObjectId">
-				<xsl:value-of select="concat('_',eml:ContestIdentifier/@IdNumber)"/>
-			</xsl:attribute>
-			<xsl:for-each select="eml:BallotChoices/eml:Candidate">
+			<xsl:attribute name="ObjectId"><xsl:value-of select="concat('_',eml:ContestIdentifier/@IdNumber)"/></xsl:attribute>
 			<cdf:Code>
 				<cdf:Type>local-level</cdf:Type>
 				<cdf:Value>
 					<xsl:value-of select="eml:CandidateIdentifier/@IdNumber"/>
 				</cdf:Value>
-			</cdf:Code>				
+			</cdf:Code>
+			<xsl:for-each select="eml:BallotChoices/eml:Candidate">
 				<cdf:ContestSelection xsi:type="cdf:CandidateSelection">
-					<xsl:attribute name="ObjectId">
-						<xsl:value-of select="concat('_CS',eml:CandidateIdentifier/@IdNumber)"/>
-					</xsl:attribute>
+					<xsl:attribute name="ObjectId"><xsl:value-of select="concat('_CS',eml:CandidateIdentifier/@IdNumber)"/></xsl:attribute>
 					<cdf:CandidateIds>
 						<xsl:value-of select="concat('_',eml:CandidateIdentifier/@IdNumber)"/>
 					</cdf:CandidateIds>
@@ -44,13 +38,14 @@
 				<xsl:value-of select="eml:ContestIdentifier/eml:ContestName"/>
 			</cdf:Name>
 			<cdf:VoteVariation>
-			<xsl:choose>
-				<xsl:when test="eml:VotingMethod = 'FPP'">n-of-m</xsl:when>
-				<xsl:when test="eml:VotingMethod = 'IRV'">rcv</xsl:when>
-				<xsl:when test="eml:VotingMethod = 'cumulative'">cumulative</xsl:when>
-				<xsl:when test="eml:VotingMethod = 'approval'">approval</xsl:when>
-			</xsl:choose>				
+				<xsl:choose>
+					<xsl:when test="eml:VotingMethod = 'FPP'">n-of-m</xsl:when>
+					<xsl:when test="eml:VotingMethod = 'IRV'">rcv</xsl:when>
+					<xsl:when test="eml:VotingMethod = 'cumulative'">cumulative</xsl:when>
+					<xsl:when test="eml:VotingMethod = 'approval'">approval</xsl:when>
+				</xsl:choose>
 			</cdf:VoteVariation>
+			<cdf:VotesAllowed><xsl:value-of select="eml:MaxVotes" /></cdf:VotesAllowed>
 		</cdf:Contest>
 	</xsl:template>
 	<xsl:template match="eml:EMLHeader">
@@ -59,9 +54,7 @@
 		<cdf:CastVoteRecordReport xsi:schemaLocation="NIST_V0_cast_vote_records.xsd file:///C:/Users/john/Documents/GitHub/CastVoteRecords/NIST_V0_cast_vote_records.xsd">
 			<xsl:apply-templates/>
 			<cdf:Election>
-				<xsl:attribute name="ObjectId">
-					<xsl:value-of select="concat('_',eml:Ballots/eml:EventIdentifier/@IdNumber)"/>
-				</xsl:attribute>
+				<xsl:attribute name="ObjectId"><xsl:value-of select="concat('_',eml:Ballots/eml:EventIdentifier/@IdNumber)"/></xsl:attribute>
 				<xsl:apply-templates select="eml:Ballots/eml:Ballot/eml:Election/eml:Contest/eml:BallotChoices/eml:Candidate" mode="global">
 				</xsl:apply-templates>
 				<cdf:Code>
@@ -111,6 +104,7 @@
 					<xsl:value-of select="concat('_',eml:EventIdentifier/@IdNumber)"/>
 				</cdf:ElectionId>
 				<cdf:IsCurrent>true</cdf:IsCurrent>
+				<cdf:OriginatingDevice>rd</cdf:OriginatingDevice>
 				<cdf:OtherBallotStatus>cast</cdf:OtherBallotStatus>
 				<cdf:Type>original</cdf:Type>
 			</cdf:CVR>
