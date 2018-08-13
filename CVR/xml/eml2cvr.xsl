@@ -88,14 +88,7 @@
 					<xsl:value-of
 						select="eml:Ballots/eml:Ballot/eml:Election/eml:ElectionIdentifier/eml:ElectionName"
 					/>
-				</cdf:Name>
-				<!--<xsl:for-each
-					select="eml:Ballots/eml:Ballot/eml:Election/eml:Contest/eml:BallotChoices/eml:Candidate/eml:Affiliation/eml:AffiliationIdentifier[count(. | key('party-by-name', eml:RegisteredName)[1]) = 1]">				
-					<xsl:for-each select="key('party-by-name', eml:RegisteredName)">
-						<cdf:Party> THING! <Name><xsl:value-of select="."/></Name>
-						</cdf:Party>
-					</xsl:for-each>
-				</xsl:for-each>-->
+				</cdf:Name>			
 			</cdf:Election>
 			<!-- XSL 1.0 doesn't have date function -->
 			<cdf:GeneratedDate>2018-07-15T00:00:00Z</cdf:GeneratedDate>
@@ -116,6 +109,17 @@
 				<cdf:Type>precinct</cdf:Type>
 			</cdf:GpUnit>
 			<cdf:Notes>Example using the NIST CVR CDF</cdf:Notes>
+			<xsl:for-each
+				select="eml:Ballots/eml:Ballot/eml:Election/eml:Contest/eml:BallotChoices/eml:Candidate/eml:Affiliation/eml:AffiliationIdentifier[count(. | key('party-by-name', eml:RegisteredName)[1]) = 1]">
+				<cdf:Party>
+					<xsl:attribute name="ObjectId">
+						<xsl:value-of select="concat('_', eml:RegisteredName)"/>
+					</xsl:attribute>
+					<cdf:Name>
+						<xsl:value-of select="eml:RegisteredName"/>
+					</cdf:Name>
+				</cdf:Party>
+			</xsl:for-each>
 			<cdf:ReportGeneratingDeviceIds>rd</cdf:ReportGeneratingDeviceIds>
 			<cdf:ReportType>originating-device-export</cdf:ReportType>
 			<cdf:Version>1.0</cdf:Version>
@@ -123,10 +127,10 @@
 	</xsl:template>
 	<xsl:template match="eml:Ballots">
 		<cdf:CVRHistory>
-			<cdf:CVR>				
+			<cdf:CVR>
 				<cdf:BallotStyleId>
 					<xsl:value-of select="concat('_', eml:Ballot/eml:BallotIdentifier/@IdNumber)"/>
-				</cdf:BallotStyleId>				
+				</cdf:BallotStyleId>
 				<xsl:apply-templates select="eml:Ballot/eml:Election/eml:Contest"/>
 				<cdf:ElectionId>
 					<xsl:value-of select="concat('_', eml:EventIdentifier/@IdNumber)"/>
@@ -134,7 +138,7 @@
 				<cdf:IsCurrent>true</cdf:IsCurrent>
 				<cdf:OriginatingDevice>rd</cdf:OriginatingDevice>
 				<cdf:OtherBallotStatus>cast</cdf:OtherBallotStatus>
-				<cdf:Status>other</cdf:Status>				
+				<cdf:Status>other</cdf:Status>
 				<cdf:Type>original</cdf:Type>
 			</cdf:CVR>
 		</cdf:CVRHistory>
@@ -181,8 +185,17 @@
 	</xsl:template>
 	<xsl:template match="eml:WriteInCandidate">
 		<xsl:if test="eml:Selected">
-			<cdf:CVRContestSelection xsi:type="cdf:WriteIn">
+			<cdf:CVRContestSelection xsi:type="cdf:CVRWriteIn">
+				<cdf:Position>
+					<xsl:value-of select="position()"/>
+				</cdf:Position>
 				<cdf:SelectionIndication>
+					<cdf:IsAllocable>
+						<xsl:choose>
+							<xsl:when test="eml:Selected">yes</xsl:when>
+							<xsl:otherwise>no</xsl:otherwise>
+						</xsl:choose>
+					</cdf:IsAllocable>
 					<cdf:NumberVotes>
 						<xsl:choose>
 							<xsl:when test="eml:Selected">1</xsl:when>
@@ -195,10 +208,7 @@
 						</cdf:Rank>
 					</xsl:if>
 				</cdf:SelectionIndication>
-				<cdf:Position>
-					<xsl:value-of select="position()"/>
-				</cdf:Position>
-			
+				<cdf:IsAllocable>unknown</cdf:IsAllocable>
 				<cdf:Text>
 					<xsl:value-of select="eml:Name"/>
 				</cdf:Text>
