@@ -204,8 +204,8 @@ can be represented with the following xml fragment:
         <cdf:SelectionIndication>
             <cdf:IsAllocable>unknown</cdf:IsAllocable>
             <cdf:NumberVotes>1</cdf:NumberVotes>
-            <cdf:Type>needs-adjudication</cdf:Type>
         </cdf:SelectionIndication>
+        <cdf:Status>needs-adjudication</cdf:Status>
         <cdf:Text>John Smith</cdf:Text>
     </cdf:CVRContestSelection>
     <cdf:Undervotes>0</cdf:Undervotes>

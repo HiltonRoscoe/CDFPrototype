@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cdf:CastVoteRecordReport xmlns:cdf="NIST_V0_cast_vote_records.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<cdf:CastVoteRecordReport xmlns:cdf="NIST_V0_cast_vote_records.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="NIST_V0_cast_vote_records.xsd file:///C:/Users/john/Documents/GitHub/CastVoteRecords/NIST_V0_cast_vote_records.xsd">
 	<cdf:CVR>
 		<cdf:BallotStyleId>_01-0052-01</cdf:BallotStyleId>
 		<cdf:CVRSnapshot>
 			<cdf:CVRContest>
 				<cdf:ContestId>_1GO</cdf:ContestId>
-				<cdf:Undervotes>1</cdf:Undervotes>
+				<cdf:CVRContestSelection xsi:type="cdf:CVRWriteIn">
+					<cdf:Position>4</cdf:Position>
+					<cdf:SelectionIndication>
+						<cdf:IsAllocable>unknown</cdf:IsAllocable>
+						<cdf:NumberVotes>1</cdf:NumberVotes>						
+					</cdf:SelectionIndication>				
+					<cdf:Status>needs-adjudication</cdf:Status>
+					<cdf:Text>John Smith</cdf:Text>					
+				</cdf:CVRContestSelection>
+				<cdf:Undervotes>0</cdf:Undervotes>
 			</cdf:CVRContest>
 			<cdf:CVRContest>
 				<cdf:ContestId>_2AG</cdf:ContestId>
@@ -1060,9 +1069,9 @@
 		<cdf:Name/>
 	</cdf:Party>
 	<cdf:ReportGeneratingDeviceIds>rd</cdf:ReportGeneratingDeviceIds>
-	<cdf:ReportingDevice ObjectId="rd">
+	<cdf:ReportingDevice ObjectId="rd">				
 		<cdf:Application>Ballot Marker</cdf:Application>
-		<cdf:Manufacturer>Hilton Roscoe LLC</cdf:Manufacturer>
+		<cdf:Manufacturer>Hilton Roscoe LLC</cdf:Manufacturer>		
 	</cdf:ReportingDevice>
 	<cdf:ReportType>originating-device-export</cdf:ReportType>
 	<cdf:Version>1.0.0</cdf:Version>
