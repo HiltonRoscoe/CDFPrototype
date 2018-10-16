@@ -28,6 +28,8 @@ These example show how to use the NIST CVR CDF to represent various different vo
 
 ## Basic Example
 
+> This section uses [Example 1](xml/example_1.xml)
+
 Consider the following contest:
 
 **For Treasurer of State**
@@ -71,7 +73,6 @@ By doing the same for `_5TS`, we can see this does indeed represent a contest se
     <cdf:VoteVariation>n-of-m</cdf:VoteVariation>
     <cdf:VotesAllowed>1</cdf:VotesAllowed>
 </cdf:Contest>
-
 ```
 
 `SelectionIndication` may appear to be superfluous, don't we already know the outcome for this contest? As we'll find this element will come in handy.
