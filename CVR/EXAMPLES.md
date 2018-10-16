@@ -185,6 +185,8 @@ Note that the marks are still accounted for, even though the votes will not be a
 
 ### Basic Write-In
 
+Consider the following contest:
+
 **Governor**
 
 - [ ] Edward FitzGerald
@@ -216,9 +218,7 @@ Note that this fragment is from an originating device, such that we do not yet k
 
 The text of the write-in is `John Smith`. This is represented using the `cdf:Text` element.
 
-(REMOVE?) The contest option position (e.g. an oval) was selected. This is represented by the emission of `cdf:SelectionIndication`. 
-
-> Note that the `cdf:SelectionIndication` represents both the selection of the write-in contest option *and* the write-in itself. Thus it is not possible to say that the selection of the write-in is valid, but the write-in provided is not.
+> Note that the `cdf:SelectionIndication` represents both the selection of the *write-in contest option* *and* the write-in itself. Thus it is not possible to say that the selection of the write-in option is valid, but the write-in name provided is not.
 
 ### Adjudication of Write-Ins
 
