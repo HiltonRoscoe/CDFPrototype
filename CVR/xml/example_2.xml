@@ -1,0 +1,237 @@
+<CastVoteRecordReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="NIST_V0_cast_vote_records.xsd file:///C:/Users/john/Documents/GitHub/CastVoteRecords/NIST_V0_cast_vote_records.xsd" xmlns="NIST_V0_cast_vote_records.xsd">
+<!-- 5.1 Examples -->
+	<CVR>
+		<BallotImage>
+			<Image FileName="CVR1_Ballot.jpg" MimeType="image/jpeg"/>
+		</BallotImage>
+		<CVRSnapshot>
+			<CVRContest>
+				<ContestId>_C1</ContestId>
+				<CVRContestSelection>
+					<ContestSelectionId>_C1CS1</ContestSelectionId>
+					<SelectionIndication>
+						<IsAllocable>yes</IsAllocable>
+						<NumberVotes>1</NumberVotes>
+					</SelectionIndication>
+				</CVRContestSelection>
+			</CVRContest>
+			<IsCurrent>true</IsCurrent>
+			<Type>original</Type>
+		</CVRSnapshot>
+		<ElectionId>_EL7</ElectionId>
+		<SequenceNumber>1</SequenceNumber>
+	</CVR>
+	<CVR>
+		<BallotImage>
+			<Image FileName="CVR2_Ballot.jpg" MimeType="image/jpeg"/>
+		</BallotImage>
+		<CVRSnapshot>
+			<CVRContest>
+				<ContestId>_C1</ContestId>
+				<CVRContestSelection>
+					<ContestSelectionId>_C1CS2</ContestSelectionId>
+					<SelectionIndication>
+						<IsAllocable>yes</IsAllocable>
+						<NumberVotes>1</NumberVotes>
+					</SelectionIndication>
+				</CVRContestSelection>
+			</CVRContest>
+			<IsCurrent>true</IsCurrent>
+			<Type>original</Type>
+		</CVRSnapshot>
+		<ElectionId>_EL7</ElectionId>
+		<SequenceNumber>2</SequenceNumber>
+	</CVR>
+	<CVR>
+		<CVRSnapshot>
+			<CVRContest>
+				<ContestId>_C1</ContestId>
+				<CVRContestSelection>
+					<ContestSelectionId>_C1CS1</ContestSelectionId>
+					<SelectionIndication xsi:type="Mark">
+						<IsAllocable>yes</IsAllocable>
+						<NumberVotes>1</NumberVotes>
+						<Position>1</Position>
+						<MarkMetric>
+							<Type>AJAX</Type>
+							<Value>95</Value>
+						</MarkMetric>
+					</SelectionIndication>
+					<SelectionIndication xsi:type="Mark">
+						<IsAllocable>no</IsAllocable>
+						<NumberVotes>1</NumberVotes>
+						<Position>3</Position>
+						<MarkMetric>
+							<Type>AJAX</Type>
+							<Value>13</Value>
+						</MarkMetric>
+					</SelectionIndication>
+					<TotalNumberVotes>1</TotalNumberVotes>
+				</CVRContestSelection>
+			</CVRContest>
+			<IsCurrent>true</IsCurrent>
+			<Type>interpreted</Type>
+		</CVRSnapshot>
+		<ElectionId>_EL7</ElectionId>
+		<SequenceNumber>1</SequenceNumber>
+	</CVR>
+	<CVR>
+		<CVRSnapshot>
+			<CVRContest>
+				<ContestId>_C1</ContestId>
+				<CVRContestSelection>
+					<ContestSelectionId>_C1CS2</ContestSelectionId>
+					<SelectionIndication xsi:type="Mark">
+						<IsAllocable>no</IsAllocable>
+						<NumberVotes>1</NumberVotes>
+						<Position>2</Position>
+						<Status>invalidated-rules</Status>
+						<MarkMetric>
+							<Type>AJAX</Type>
+							<Value>96</Value>
+						</MarkMetric>
+					</SelectionIndication>
+					<SelectionIndication xsi:type="Mark">
+						<IsAllocable>no</IsAllocable>
+						<NumberVotes>1</NumberVotes>
+						<Position>3</Position>
+						<MarkMetric>
+							<Type>AJAX</Type>
+							<Value>98</Value>
+						</MarkMetric>
+					</SelectionIndication>
+					<TotalNumberVotes>0</TotalNumberVotes>
+				</CVRContestSelection>
+				<Status>overvoted</Status>
+			</CVRContest>
+			<IsCurrent>true</IsCurrent>
+			<Type>interpreted</Type>
+		</CVRSnapshot>
+		<ElectionId>_EL7</ElectionId>
+		<SequenceNumber>2</SequenceNumber>
+	</CVR>
+	<!-- 5.3 Example -->
+	<CVR>
+		<CVRSnapshot>
+			<Annotation>
+				<AdjudicatorName>Mark Kennamond</AdjudicatorName>
+				<Message>Valid, Donny Nolte</Message>
+				<TimeStamp>2018-05-16T12:10:09</TimeStamp>
+			</Annotation>
+			<CVRContest>
+				<ContestId>_C1</ContestId>
+				<CVRContestSelection xsi:type="CVRWriteIn">
+					<ContestSelectionId>_C1CS1</ContestSelectionId>
+					<TotalNumberVotes>1</TotalNumberVotes>
+					<Text>Donald Nolte</Text>
+					<WriteInImage>
+						<Hash>
+							<Type>sha-512</Type>
+							<Value>156CEAE1FE594978F870E7D80DA8BAD838D9C
+                            060EBBFC6521AAA93E5776250BB2C21350192B36
+                            10677B988A8AF808827B50A33624FEBBB4C2068E
+                            5470C830174</Value>
+						</Hash>
+						<Image FileName="CVR1WRTIN2.JPG" MimeType="image/jpeg"/>
+					</WriteInImage>
+				</CVRContestSelection>
+			</CVRContest>
+			<IsCurrent>true</IsCurrent>
+			<Type>original</Type>
+		</CVRSnapshot>
+		<ElectionId>_EL7</ElectionId>
+		<SequenceNumber>61</SequenceNumber>
+	</CVR>
+	<!-- 5.4 Example -->
+	<CVR>
+		<CVRSnapshot>
+			<CVRContest>
+				<ContestId>_C1</ContestId>
+				<CVRContestSelection>
+					<ContestSelectionId>_C1CS1</ContestSelectionId>
+					<Rank>3</Rank>
+					<SelectionIndication>
+						<IsAllocable>yes</IsAllocable>
+						<NumberVotes>1</NumberVotes>
+						<Position>3</Position>
+					</SelectionIndication>
+				</CVRContestSelection>
+				<CVRContestSelection>
+					<ContestSelectionId>_C1CS2</ContestSelectionId>
+					<Rank>2</Rank>
+					<SelectionIndication>
+						<IsAllocable>yes</IsAllocable>
+						<NumberVotes>1</NumberVotes>
+						<Position>2</Position>
+					</SelectionIndication>
+				</CVRContestSelection>
+				<CVRContestSelection>
+					<ContestSelectionId>_C1CS3</ContestSelectionId>
+					<SelectionIndication>
+						<IsAllocable>no</IsAllocable>
+						<NumberVotes>1</NumberVotes>
+						<Position>4</Position>
+					</SelectionIndication>
+					<SelectionIndication>
+						<IsAllocable>no</IsAllocable>
+						<NumberVotes>1</NumberVotes>
+						<Position>1</Position>
+					</SelectionIndication>					
+				</CVRContestSelection>
+			</CVRContest>
+			<IsCurrent>true</IsCurrent>
+			<Type>original</Type>			
+		</CVRSnapshot>
+		<ElectionId>_EL7</ElectionId>
+		<SequenceNumber>57</SequenceNumber>
+	</CVR>
+	<Election ObjectId="_EL7">
+		<Candidate ObjectId="_C1CN1">
+			<Code>
+				<Type>local-level</Type>
+				<Value>_C1CN1</Value>
+			</Code>
+		</Candidate>
+			<Candidate ObjectId="_C1CN2">
+			<Code>
+				<Type>local-level</Type>
+				<Value>_C1CN3</Value>
+			</Code>
+		</Candidate>
+		<Candidate ObjectId="_C1CN3">
+			<Code>
+				<Type>local-level</Type>
+				<Value>_C1CN3</Value>
+			</Code>
+		</Candidate>
+		<Code>
+			<Type>local-level</Type>
+			<Value>EL7</Value>
+		</Code>
+		<Contest ObjectId="_C1" xsi:type="CandidateContest">
+			<Code>
+				<Type>local-level</Type>
+				<Value>C1</Value>
+			</Code>
+			<ContestSelection ObjectId="_C1CS1" xsi:type="CandidateSelection">
+				<CandidateIds>_C1CN1</CandidateIds>
+			</ContestSelection>
+			<ContestSelection ObjectId="_C1CS2" xsi:type="CandidateSelection">
+				<CandidateIds>_C1CN2</CandidateIds>
+			</ContestSelection>
+				<ContestSelection ObjectId="_C1CS3" xsi:type="CandidateSelection">
+				<CandidateIds>_C1CN3</CandidateIds>
+			</ContestSelection>
+		</Contest>
+		<ElectionScopeId>_GP1</ElectionScopeId>
+	</Election>
+	<GeneratedDate>2018-05-15T17:32:52</GeneratedDate>
+	<GpUnit ObjectId="_GP1">
+		<Type>precinct</Type>
+	</GpUnit>
+	<ReportGeneratingDeviceIds>_EL7</ReportGeneratingDeviceIds>
+	<ReportingDevice ObjectId="_RD1">
+		<SerialNumber>1038495</SerialNumber>
+	</ReportingDevice>
+	<Version>1.0.0</Version>
+</CastVoteRecordReport>
