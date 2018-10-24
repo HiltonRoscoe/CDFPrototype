@@ -247,7 +247,6 @@
 						</cdf:Rank>
 					</xsl:if>
 				</cdf:SelectionIndication>
-				<cdf:IsAllocable>unknown</cdf:IsAllocable>
 				<cdf:Text>
 					<xsl:value-of select="eml:Name"/>
 				</cdf:Text>
