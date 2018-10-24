@@ -391,9 +391,9 @@ Consider the following contest:
 
 |Contest Option|1st  |2nd  |3rd  |
 |--------------|-----|-----|-----|
-|Ilene Shapiro | [ ] | [x] | [ ] |
-|Debbie Walsh  | [x] | [ ] | [ ] |
-|Sandra Kurt   | [ ] | [ ] | [x] |
+|Ilene Shapiro |`[ ]`|`[x]`|`[ ]`|
+|Debbie Walsh  |`[x]`|`[ ]`|`[ ]`|
+|Sandra Kurt   |`[ ]`|`[ ]`|`[x]`|
 
 ```xml
 <cdf:CVRContest>
@@ -442,9 +442,9 @@ Consider the following contest:
 
 |Contest Option|1st  |2nd  |3rd  |
 |--------------|-----|-----|-----|
-|Ilene Shapiro | [ ] | [x] | [ ] |
-|Debbie Walsh  | [x] | [ ] | [x] |
-|Sandra Kurt   | [ ] | [ ] | [ ] |
+|Ilene Shapiro |`[ ]`|`[x]`|`[ ]`|
+|Debbie Walsh  |`[x]`|`[ ]`|`[x]`|
+|Sandra Kurt   |`[ ]`|`[ ]`|`[ ]`|
 
 If the ballot was hand marked, then the following CVR could be constructed:
 
