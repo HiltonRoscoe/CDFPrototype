@@ -25,7 +25,7 @@
             - [Storing Image Data](#storing-image-data)
     - [Voting Method Support](#voting-method-support)
         - [Rank Choice Voting](#rank-choice-voting)
-    - [Cumulative Voting](#cumulative-voting)
+        - [Cumulative Voting](#cumulative-voting)
 
 <!-- /TOC -->
 
@@ -434,7 +434,7 @@ Consider the following contest:
 
 Each candidate may be ranked using the `Rank` attribute. The rank may or may not be the same as the `Position`.
 
-## Cumulative Voting
+### Cumulative Voting
 
 Consider the following contest:
 
@@ -509,4 +509,4 @@ If the same vote was cast on a ballot marking device, the CVR could be simplifie
 </cdf:CVRContest>
 ```
 
-The representation of the indication for **Ilene Shapiro** is unchanged, but Debbie Walsh's votes have been consolidating into a single `SelectionIndication`, with a `NumberVotes` of `2`.
+The representation of the indication for **Ilene Shapiro** is unchanged, but Debbie Walsh's votes have been consolidated into a single `SelectionIndication`, with a `NumberVotes` of `2`.
