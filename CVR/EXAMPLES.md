@@ -17,6 +17,7 @@
     - [Write-Ins](#write-ins)
         - [Basic Write-In](#basic-write-in)
         - [Explanation](#explanation)
+        - [Write-In Counter](#write-in-counter)
         - [Adjudication of Write-Ins](#adjudication-of-write-ins)
     - [CVR Snapshots](#cvr-snapshots)
     - [Secondary Information](#secondary-information)
@@ -29,11 +30,12 @@
 
 <!-- /TOC -->
 
-These example show how to use the NIST CVR Common Data Format (CDF) to represent various voting scenarios.
+These example show how to use the NIST CVR Common Data Format (1500-103 CDF) to represent various voting scenarios.
 
 ## Assumptions
 
 - This document uses the ballot semantics model built by the Election Modeling Working Group.
+- Readers of this document are expected to have a working understanding of XML.
 
 ## Anatomy of a CVR
 
@@ -248,8 +250,6 @@ Can be represented with the XML below:
 
 Note that the marks are still accounted for, even though the votes will not be allocated to the contest option accumulators for Connie Pillich nor John Mandel, but instead to the overvote accumulator.
 
-
-
 > If the CVR producer wants a downstream processor to adjudicate the selection indications, it should set `IsAllocable` to `unknown`.
 
 ## Write-Ins
@@ -265,7 +265,7 @@ Consider the following contest:
 - [ ] Anita Rios
 - [x] Write-In (John Smith)
 
-can be represented with the following xml fragment:
+can be represented with the following XML fragment:
 
 ```xml
 <cdf:CVRContest>
@@ -285,19 +285,30 @@ can be represented with the following xml fragment:
 
 ### Explanation
 
-Note that this fragment is from an originating device, such that we do not yet know the validity of the write-in. Still we can say some things about it.
+Note that this fragment is from an *creating device*, and thus we do not yet know the validity of the write-in. Still we can say some things about it.
 
-The text of the write-in is `John Smith`. This is represented using the `cdf:Text` element.
+The text of the write-in is `John Smith`. This is represented using the `Text` element.
 
 > Note that the `cdf:SelectionIndication` represents both the selection of the *write-in contest option* *and* the write-in itself. Thus it is not possible to say that the selection of the write-in option is valid, but the write-in name provided is not.
+
+If John Smith was determined to be a valid write-in, then the following may occur:
+
+- `IsAllocable` is set to `yes`
+- `CVRContestSelection` is linked to the associated `ContestSelection`
+
+> Some systems may not be capable of tabulating votes for the candidate underlying a write-in.
+
+### Write-In Counter
+
+If desired, the `CVRContest` may contain the number of `WriteIns`, i.e the number of write-in contest options selected. This includes options that were selected, but no candidate was specified (e.g. a filled oval with an empty line).
 
 ### Adjudication of Write-Ins
 
 Adjudication can do two things
 
-1. Determine if the name represents a valid contest selection. I.e. does the write-in text represent a valid write-in option?
+1. Determine if the name represents a valid contest selection, i.e. does the write-in text represent a valid write-in option?
 
-2. Determine if the contest selection should be allocated. This is different from (1), as even if it is determined that the write-in text represents a valid write-in option, it may be overwritten by interpretation of voter intent.
+2. Determine if the contest selection should be allocated. This is different from (1), as even if it is determined that the write-in text represents a valid write-in option, it may be overwritten by interpretation of voter intent. (REMOVE BASED ON NEW INTERPERTATION OF SPEC?)
 
 ## CVR Snapshots
 
@@ -306,7 +317,7 @@ The CVR can be used throughout various points in the election lifecycle:
 - Capture of contest selections
 - Interpretation of contest selections
 - Adjudication of contest selections
-- Others
+- Other operations
 
 If a downstream system needs to modify the CVR, such as to add a `CVRContestSelection` as the result of adjudication, a new CVRSnapshot should be created.
 
@@ -338,7 +349,7 @@ Consider the following XML fragment:
 
 This represents a CVR having a single voted contest, in which the allocation of the indication is `unknown` (e.g. the mark is marginal). The `Status` of the `CVRSnapshot` is `needs-adjudication` so as to flag a downstream system.
 
-An adjudicator takes a look at the mark, and determines that it does not convey voter intent to make a selection for `Mark Zetzer`, `IsAllocable` is set to `false`, and a new `CVRSnapshot` is created recording this action:
+An adjudicator takes a look at the mark, and determines that there is not voter intent to make a selection for `Mark Zetzer`. Thus, `IsAllocable` is set to `false`, and a new `CVRSnapshot` is created recording this action:
 
 ```xml
 <cdf:CVRSnapshot>
@@ -368,10 +379,11 @@ An adjudicator takes a look at the mark, and determines that it does not convey 
 </cdf:CVRSnapshot>
 ```
 
-(ADD STUFF ABOUT ADJUDICATOR)
+Information about the adjudication is conveyed via the `Annotation` element. We can see the name of the adjudicator and the a description of the changes to the CVR. There can be as many `Annotation` elements as required to describe the changes made to the CVR.
 
-The `CVR` may contain as many `CVRSnapshots` as required, but only one should be marked as the current tabulable record (`IsCurrent` set to `true`).
+> Each `CVRSnapshot` should represent a set of changes to a CVR during a phase of processing. It is not necessary to create a separate `CVRSnapshot` for every change.
 
+> The `CVR` may contain as many `CVRSnapshots` as required, but only one should be marked as the current tabulable record (`IsCurrent` set to `true`).
 
 ## Secondary Information
 
@@ -390,15 +402,16 @@ Ballot images can either be referenced from the CVR as a URI, or stored within i
 ```
 
 #### Storing Image Data
+
 ```xml
-    <BallotImage>
-            <Image FileName="CVR1_Ballot.jpg" MimeType="image/jpeg"/>
-        </BallotImage>
+<BallotImage>
+    <Image FileName="CVR1_Ballot.jpg" MimeType="image/jpeg">Q1ZSIEltYWdl</Image>
+</BallotImage>
 ```
 
 ## Voting Method Support
 
-The NIST CVR CDF supports all major voting methods currently in use in the United States. 
+The NIST CVR CDF supports all major voting methods currently in use in the United States.
 
 ### Rank Choice Voting
 
