@@ -39,9 +39,9 @@ These example show how to use the NIST CVR Common Data Format (CDF) to represent
 
 > This section uses [Example 2](xml/example_2.xml)
 
-The CDF specification permits a wide range of data to be stored in a CVR, ranging from minimal information about the voted contests and contest selections to expanded information about all contests on the ballot as well as other items. This section explains the construction of a minimal 1500-103 instance, containing only the voted contests and candidates that were selected by the voter. It contains two CVRs, each indicating a selection for a candidate in a contest. Each CVR also references an image of the corresponding scanned ballot.
+The CVR specification permits a wide range of data to be stored in a CVR, ranging from minimal information about the voted contests and contest selections to expanded information about all contests on the ballot as well as other items. This section explains the construction of a minimal 1500-103 instance, containing only the contests and candidates that were selected by the voter. It contains two CVRs, each indicating a selection for a candidate in a contest. Each CVR also references an image of the corresponding scanned ballot.
 
-> A 1500-103 instance (i.e. XML or JSON) may contain one or more `CVRs`, which in turn must contain one or more `CVRSnapshots`, each representing a CVR at specific point in time.
+> A 1500-103 instance (in XML or JSON) may contain one or more `CVRs`, which in turn must contain one or more `CVRSnapshots`, each representing a CVR at specific point in time.
 
 The file is divided roughly into two parts: the CVR elements at the beginning followed by other elements for defining the election and its contests, candidates, and contest selections so that the CVR elements can link to them as necessary. [Lines 188-227](https://github.com/HiltonRoscoe/CDFPrototype/blob/902f72bdc1399f9b6a8164ac85e75be0d14d4588/CVR/xml/example_2.xml#L188-L227) describes an election containing the contest, candidate, and contest selection definitions.
 
@@ -57,9 +57,9 @@ so that CVR elements can link to this contest definition by using the `ObjectId`
 
 [Lines 3-44](https://github.com/HiltonRoscoe/CDFPrototype/blob/902f72bdc1399f9b6a8164ac85e75be0d14d4588/CVR/xml/example_2.xml#L3-L44) contain the CVR elements. Each `CVR` element includes at least one `CVRSnapshot`.
 
-> Each `CVRSnapshot` represents a particular `Type`, such as the `original`  captured from a scanner, after it has been `interpreted` (i.e. business rules have been applied), or otherwise `modified`.
+> Each `CVRSnapshot` represents a particular `Type`, such as the `original` captured from a scanner, after it has been `interpreted` (i.e. business rules have been applied), or otherwise `modified`.
 
-`CVRSnapshot` element includes one or more `CVRContest`, which links to the voted contest whose object identifier is `_C1`, thereby uniquely identifying that contest within the report file. It then includes `CVRContestSelection`, which links to a contest option that was selected by the voter.  Each `CVR` element also includes an optional sequence number; this isn’t required but could be helpful to auditors.
+`CVRSnapshot` element includes one or more `CVRContest`, which links to the voted contest whose object identifier is `_C1`, thereby uniquely identifying that contest within the report file. It then includes `CVRContestSelection`, which links to a contest option that was selected by the voter.  Each `CVR` element also includes an optional sequence number (`SequenceNumber`); this isn’t required but could be helpful to auditors.
 
 ## Basic Example
 
@@ -84,8 +84,9 @@ can be represented with the following XML fragment:
             <cdf:IsAllocable>yes</cdf:IsAllocable>
             <cdf:NumberVotes>1</cdf:NumberVotes>
         </cdf:SelectionIndication>
+        <cdf:TotalNumberVotes>0</cdf:TotalNumberVotes>
     </cdf:CVRContestSelection>
-    <cdf:Undervotes>0</cdf:Undervotes>
+    ...
 </cdf:CVRContest>
 ```
 
@@ -99,7 +100,7 @@ The `cdf:ContestSelectionId` value of `_1ECP` represents the reference to the se
 </cdf:Candidate>
 ```
 
-By doing the same for `_5TS`, we can see this does indeed represent a contest selection of **Connie Pillich** for **Treasurer of State**.
+By dereferencing `_5TS`, we can see this does indeed represent a contest selection of **Connie Pillich** for **Treasurer of State**.
 
 ```xml
 <cdf:Contest xsi:type="cdf:CandidateContest" ObjectId="_5TS">
@@ -118,7 +119,7 @@ By doing the same for `_5TS`, we can see this does indeed represent a contest se
 
 ## SelectionIndication
 
-`SelectionIndication` is used to convey those selections that are potentially allocable to a contest option. Indications can come from the following sources:
+`SelectionIndication` is used to convey those selections that are potentially allocable to a *contest option*. Indications can come from the following sources:
 
 - A `Mark` made by the voter on a paper ballot
 - A `Mark` made by a marking device onto a full face paper ballot

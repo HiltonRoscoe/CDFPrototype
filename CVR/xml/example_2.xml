@@ -1,5 +1,5 @@
-<CastVoteRecordReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="NIST_V0_cast_vote_records.xsd file:///C:/Users/john/Documents/GitHub/CastVoteRecords/NIST_V0_cast_vote_records.xsd" xmlns="NIST_V0_cast_vote_records.xsd">
-<!-- 5.1 Examples -->
+<CastVoteRecordReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="NIST_V0_cast_vote_records.xsd">
+	<!-- 5.1 Examples -->
 	<CVR>
 		<BallotImage>
 			<Image FileName="CVR1_Ballot.jpg" MimeType="image/jpeg"/>
@@ -13,6 +13,7 @@
 						<IsAllocable>yes</IsAllocable>
 						<NumberVotes>1</NumberVotes>
 					</SelectionIndication>
+					<TotalNumberVotes>1</TotalNumberVotes>
 				</CVRContestSelection>
 			</CVRContest>
 			<IsCurrent>true</IsCurrent>
@@ -34,6 +35,7 @@
 						<IsAllocable>yes</IsAllocable>
 						<NumberVotes>1</NumberVotes>
 					</SelectionIndication>
+					<TotalNumberVotes>1</TotalNumberVotes>
 				</CVRContestSelection>
 			</CVRContest>
 			<IsCurrent>true</IsCurrent>
@@ -52,19 +54,13 @@
 						<IsAllocable>yes</IsAllocable>
 						<NumberVotes>1</NumberVotes>
 						<Position>1</Position>
-						<MarkMetric>
-							<Type>AJAX</Type>
-							<Value>95</Value>
-						</MarkMetric>
+						<MarkMetricValue>95</MarkMetricValue>
 					</SelectionIndication>
 					<SelectionIndication xsi:type="Mark">
 						<IsAllocable>no</IsAllocable>
 						<NumberVotes>1</NumberVotes>
 						<Position>3</Position>
-						<MarkMetric>
-							<Type>AJAX</Type>
-							<Value>13</Value>
-						</MarkMetric>
+						<MarkMetricValue>13</MarkMetricValue>
 					</SelectionIndication>
 					<TotalNumberVotes>1</TotalNumberVotes>
 				</CVRContestSelection>
@@ -86,19 +82,13 @@
 						<NumberVotes>1</NumberVotes>
 						<Position>2</Position>
 						<Status>invalidated-rules</Status>
-						<MarkMetric>
-							<Type>AJAX</Type>
-							<Value>96</Value>
-						</MarkMetric>
+						<MarkMetricValue>96</MarkMetricValue>
 					</SelectionIndication>
 					<SelectionIndication xsi:type="Mark">
 						<IsAllocable>no</IsAllocable>
 						<NumberVotes>1</NumberVotes>
 						<Position>3</Position>
-						<MarkMetric>
-							<Type>AJAX</Type>
-							<Value>98</Value>
-						</MarkMetric>
+						<MarkMetricValue>98</MarkMetricValue>
 					</SelectionIndication>
 					<TotalNumberVotes>0</TotalNumberVotes>
 				</CVRContestSelection>
@@ -155,6 +145,7 @@
 						<NumberVotes>1</NumberVotes>
 						<Position>3</Position>
 					</SelectionIndication>
+					<TotalNumberVotes>1</TotalNumberVotes>
 				</CVRContestSelection>
 				<CVRContestSelection>
 					<ContestSelectionId>_C1CS2</ContestSelectionId>
@@ -164,6 +155,7 @@
 						<NumberVotes>1</NumberVotes>
 						<Position>2</Position>
 					</SelectionIndication>
+					<TotalNumberVotes>1</TotalNumberVotes>
 				</CVRContestSelection>
 				<CVRContestSelection>
 					<ContestSelectionId>_C1CS3</ContestSelectionId>
@@ -176,11 +168,12 @@
 						<IsAllocable>no</IsAllocable>
 						<NumberVotes>1</NumberVotes>
 						<Position>1</Position>
-					</SelectionIndication>					
+					</SelectionIndication>
+					<TotalNumberVotes>0</TotalNumberVotes>
 				</CVRContestSelection>
 			</CVRContest>
 			<IsCurrent>true</IsCurrent>
-			<Type>original</Type>			
+			<Type>original</Type>
 		</CVRSnapshot>
 		<ElectionId>_EL7</ElectionId>
 		<SequenceNumber>57</SequenceNumber>
@@ -192,7 +185,7 @@
 				<Value>_C1CN1</Value>
 			</Code>
 		</Candidate>
-			<Candidate ObjectId="_C1CN2">
+		<Candidate ObjectId="_C1CN2">
 			<Code>
 				<Type>local-level</Type>
 				<Value>_C1CN3</Value>
@@ -219,7 +212,7 @@
 			<ContestSelection ObjectId="_C1CS2" xsi:type="CandidateSelection">
 				<CandidateIds>_C1CN2</CandidateIds>
 			</ContestSelection>
-				<ContestSelection ObjectId="_C1CS3" xsi:type="CandidateSelection">
+			<ContestSelection ObjectId="_C1CS3" xsi:type="CandidateSelection">
 				<CandidateIds>_C1CN3</CandidateIds>
 			</ContestSelection>
 		</Contest>

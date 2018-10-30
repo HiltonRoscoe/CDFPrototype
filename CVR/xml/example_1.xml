@@ -9,9 +9,10 @@
 					<cdf:Position>4</cdf:Position>
 					<cdf:SelectionIndication>
 						<cdf:IsAllocable>unknown</cdf:IsAllocable>
-						<cdf:NumberVotes>1</cdf:NumberVotes>						
-					</cdf:SelectionIndication>				
+						<cdf:NumberVotes>1</cdf:NumberVotes>
+					</cdf:SelectionIndication>
 					<cdf:Status>needs-adjudication</cdf:Status>
+					<cdf:TotalNumberVotes>0</cdf:TotalNumberVotes>
 					<cdf:Text>John Smith</cdf:Text>					
 				</cdf:CVRContestSelection>
 				<cdf:Undervotes>0</cdf:Undervotes>
@@ -37,7 +38,18 @@
 						<cdf:IsAllocable>yes</cdf:IsAllocable>
 						<cdf:NumberVotes>1</cdf:NumberVotes>
 					</cdf:SelectionIndication>
+					<cdf:TotalNumberVotes>0</cdf:TotalNumberVotes>
 				</cdf:CVRContestSelection>
+				<cdf:CVRContestSelection>
+					<cdf:ContestSelectionId>_1EJM</cdf:ContestSelectionId>
+					<cdf:Position>2</cdf:Position>
+					<cdf:SelectionIndication>
+						<cdf:IsAllocable>yes</cdf:IsAllocable>
+						<cdf:NumberVotes>1</cdf:NumberVotes>
+					</cdf:SelectionIndication>
+					<cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
+				</cdf:CVRContestSelection>
+				<cdf:Overvotes>1</cdf:Overvotes>
 				<cdf:Undervotes>0</cdf:Undervotes>
 			</cdf:CVRContest>
 			<cdf:CVRContest>
@@ -124,6 +136,52 @@
 			<cdf:OtherStatus>cast</cdf:OtherStatus>
 			<cdf:Status>other</cdf:Status>
 			<cdf:Type>original</cdf:Type>
+		</cdf:CVRSnapshot>
+		<cdf:ElectionId>_AK2014General</cdf:ElectionId>
+	</cdf:CVR>
+	<cdf:CVR>
+		<cdf:BallotStyleId>_01-0052-01</cdf:BallotStyleId>
+		<cdf:CVRSnapshot>
+			<cdf:CVRContest>
+				<cdf:ContestId>_6RC</cdf:ContestId>
+				<cdf:CVRContestSelection>
+					<cdf:ContestSelectionId>_1FMZ</cdf:ContestSelectionId>
+					<cdf:Position>1</cdf:Position>
+					<cdf:SelectionIndication xsi:type="cdf:Mark">
+						<cdf:IsAllocable>unknown</cdf:IsAllocable>
+						<cdf:NumberVotes>1</cdf:NumberVotes>
+						<cdf:MarkMetricValue>98</cdf:MarkMetricValue>
+					</cdf:SelectionIndication>
+					<cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
+				</cdf:CVRContestSelection>
+				<cdf:Undervotes>0</cdf:Undervotes>
+			</cdf:CVRContest>
+			<cdf:IsCurrent>false</cdf:IsCurrent>
+			<cdf:Status>needs-adjudication</cdf:Status>
+			<cdf:Type>original</cdf:Type>
+		</cdf:CVRSnapshot>
+		<cdf:CVRSnapshot>
+			<cdf:Annotation>
+				<cdf:AdjudicatorName>Mark Kennamond</cdf:AdjudicatorName>
+				<cdf:Message>Resting Mark, Mark Zetzer</cdf:Message>
+				<cdf:TimeStamp>2018-05-16T12:10:09</cdf:TimeStamp>
+			</cdf:Annotation>
+			<cdf:CVRContest>
+				<cdf:ContestId>_6RC</cdf:ContestId>
+				<cdf:CVRContestSelection>
+					<cdf:ContestSelectionId>_1FMZ</cdf:ContestSelectionId>
+					<cdf:Position>1</cdf:Position>
+					<cdf:SelectionIndication xsi:type="cdf:Mark">
+						<cdf:IsAllocable>no</cdf:IsAllocable>
+						<cdf:NumberVotes>1</cdf:NumberVotes>
+						<cdf:MarkMetricValue>98</cdf:MarkMetricValue>
+					</cdf:SelectionIndication>
+					<cdf:TotalNumberVotes>0</cdf:TotalNumberVotes>
+				</cdf:CVRContestSelection>
+				<cdf:Undervotes>1</cdf:Undervotes>
+			</cdf:CVRContest>
+			<cdf:IsCurrent>true</cdf:IsCurrent>
+			<cdf:Type>interpreted</cdf:Type>
 		</cdf:CVRSnapshot>
 		<cdf:ElectionId>_AK2014General</cdf:ElectionId>
 	</cdf:CVR>
@@ -1069,9 +1127,9 @@
 		<cdf:Name/>
 	</cdf:Party>
 	<cdf:ReportGeneratingDeviceIds>rd</cdf:ReportGeneratingDeviceIds>
-	<cdf:ReportingDevice ObjectId="rd">				
+	<cdf:ReportingDevice ObjectId="rd">
 		<cdf:Application>Ballot Marker</cdf:Application>
-		<cdf:Manufacturer>Hilton Roscoe LLC</cdf:Manufacturer>		
+		<cdf:Manufacturer>Hilton Roscoe LLC</cdf:Manufacturer>
 	</cdf:ReportingDevice>
 	<cdf:ReportType>originating-device-export</cdf:ReportType>
 	<cdf:Version>1.0.0</cdf:Version>
