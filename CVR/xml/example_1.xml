@@ -1130,6 +1130,7 @@
 	<cdf:ReportingDevice ObjectId="rd">
 		<cdf:Application>Ballot Marker</cdf:Application>
 		<cdf:Manufacturer>Hilton Roscoe LLC</cdf:Manufacturer>
+		<cdf:MarkMetricType>AJAX</cdf:MarkMetricType>
 	</cdf:ReportingDevice>
 	<cdf:ReportType>originating-device-export</cdf:ReportType>
 	<cdf:Version>1.0.0</cdf:Version>

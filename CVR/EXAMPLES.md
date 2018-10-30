@@ -139,15 +139,21 @@ By dereferencing `_5TS`, we can see this does indeed represent a contest selecti
 
 #### Mark Metrics
 
-A `Mark` may be associated with one or more `MarkMetric`, which is a implementation dependent measure of an mark.
+A `Mark` may be associated with one or more `MarkMetric`, which is a implementation dependent measure of a mark.
 
 For example:
 
 ```xml
-<cdf:MarkMetric>
-    <cdf:Type>AJAX</cdf:Type>
-    <cdf:Value>98</cdf:Value>
-</cdf:MarkMetric>
+<cdf:MarkMetric>98</cdf:MarkMetric>
+```
+
+The metric used is expected to be the same for all marks originating from the same device. When a metric is used, its type **must** be specified under the CVR's `CreatingDevice`.
+
+```xml
+<cdf:ReportingDevice ObjectId="rd">
+    ...
+    <cdf:MarkMetricType>AJAX</cdf:MarkMetricType>
+</cdf:ReportingDevice>
 ```
 
 The mark has a quality measurement of type AJAX (a fictional quality measurement) and quality score of 98 (0 is the worst, 100 is the best).
@@ -180,7 +186,15 @@ If a mark was present, but was not captured in the initial CVR, then it should b
 
 > `Mark` should be used to capture marks that are *machine readable* only. This usually means marks that fall within the *contest option position*. Marks that convey voter intent but fall outside the target area should be handled as `SelectionIndications`.
 
-Conversely, if a `Mark` is determined to not be a selection for a given contest option, then set `IsAllocable` to `false`.
+Conversely, if a `Mark` is determined to not be a selection for a given contest option, then set `IsAllocable` to `no`.
+
+```xml
+<cdf:SelectionIndication xsi:type="Mark">
+    <cdf:IsAllocable>no</cdf:IsAllocable>
+    <cdf:NumberVotes>1</cdf:NumberVotes>
+    <cdf:Status>adjudicated</cdf:Status>
+</cdf:SelectionIndication>
+```
 
 ### Handling of Marks
 
@@ -189,6 +203,8 @@ Marks should be treated as indelible. They can be added, but never removed from 
 ### Meaning of `IsAllocable`
 
 As we mentioned above, marks are indelible, so we cannot just omit marks as shorthand for a mark not indicating a contest selection (i.e. after adjudication). This is where `IsAllocable` comes in. `IsAllocable` tells us whether the indication (and the associated number of votes) should be allocated to the contest option's accumulator (counter).
+
+> IsAllocable should be determined based on facts about the `Indication`/`Mark` *alone*. This means, for example, that IsAllocable should be set to `yes` even if it is invalided due to contest rules.
 
 > Previous drafts of the spec used a complex set of statuses that the consumer was required to interpret. By using a single flag, we know if the mark counts, and the statuses can tell us why.
 
