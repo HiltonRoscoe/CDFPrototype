@@ -30,7 +30,7 @@
 
 <!-- /TOC -->
 
-These example show how to use the NIST CVR Common Data Format (1500-103 CDF) to represent various voting scenarios.
+These examples show how to use the NIST CVR Common Data Format (1500-103 CDF) to represent various voting scenarios.
 
 ## Assumptions
 
@@ -45,9 +45,10 @@ The CVR specification permits a wide range of data to be stored in a CVR, rangin
 
 > A 1500-103 instance (in XML or JSON) may contain one or more `CVRs`, which in turn must contain one or more `CVRSnapshots`, each representing a CVR at specific point in time.
 
-The file is divided roughly into two parts: the CVR elements at the beginning followed by other elements for defining the election and its contests, candidates, and contest selections so that the CVR elements can link to them as necessary. [Lines 188-227](https://github.com/HiltonRoscoe/CDFPrototype/blob/902f72bdc1399f9b6a8164ac85e75be0d14d4588/CVR/xml/example_2.xml#L188-L227) describes an election containing the contest, candidate, and contest selection definitions.
+The file is divided roughly into two parts: the CVR elements at the beginning followed by other elements for defining the election and its contests, candidates, and contest selections so that the CVR elements can link to them as necessary. [Lines 181-220](https://github.com/HiltonRoscoe/CDFPrototype/blob/5efac5b395d178d83aaa06cefea6c02c449ded2f/CVR/xml/example_2.xml#L181-L220) describes an election containing the contest, candidate, and contest selection definitions.
 
- The CVR elements link to these items by using identifiers defined in the contest, candidate, and contest selection's `ObjectId` attributes. For example, the contest definition [starting on line 211](https://github.com/HiltonRoscoe/CDFPrototype/blob/902f72bdc1399f9b6a8164ac85e75be0d14d4588/CVR/xml/example_2.xml#L211-L225) contains:
+ The CVR elements link to these items by using identifiers defined in the contest, candidate, and contest selection's `ObjectId` attributes. For example, the contest definition [starting on line 204](https://github.com/HiltonRoscoe/CDFPrototype/blob/5efac5b395d178d83aaa06cefea6c02c449ded2f/CVR/xml/example_2.xml#L204-L218
+) contains:
 
 ```xml
 <Contest ObjectId="_C1" xsi:type="CandidateContest">
@@ -57,7 +58,7 @@ so that CVR elements can link to this contest definition by using the `ObjectId`
 
 > Note that the object identifiers are not the same as the codes that a jurisdiction may use to identify contests or candidates. The object identifiers are entirely unique to a CVR report; the exporting application must add them as it builds the report file. These identifiers are used only as a means for linking contest, contest selections, etc., together within the report file.
 
-[Lines 3-44](https://github.com/HiltonRoscoe/CDFPrototype/blob/902f72bdc1399f9b6a8164ac85e75be0d14d4588/CVR/xml/example_2.xml#L3-L44) contain the CVR elements. Each `CVR` element includes at least one `CVRSnapshot`.
+[Lines 3-180](https://github.com/HiltonRoscoe/CDFPrototype/blob/5efac5b395d178d83aaa06cefea6c02c449ded2f/CVR/xml/example_2.xml#L3-L180) contain the CVR elements. Each `CVR` element includes at least one `CVRSnapshot`.
 
 > Each `CVRSnapshot` represents a particular `Type`, such as the `original` captured from a scanner, after it has been `interpreted` (i.e. business rules have been applied), or otherwise `modified`.
 
@@ -132,6 +133,8 @@ By dereferencing `_5TS`, we can see this does indeed represent a contest selecti
 
 `SelectionIndication` has a subtype, `Mark`, which should be used whenever a mark is placed upon a *contest option position* of a full face paper ballot.
 
+> Barcodes placed onto a piece of paper are not considered marks.
+
 ```xml
 <cdf:SelectionIndication xsi:type="Mark">
     <cdf:IsAllocable>yes</cdf:IsAllocable>
@@ -146,10 +149,13 @@ A `Mark` may be associated with one or more `MarkMetric`, which is a implementat
 For example:
 
 ```xml
+<cdf:IsGenerated>false</cdf:IsGenerated>
 <cdf:MarkMetric>98</cdf:MarkMetric>
 ```
 
-The metric used is expected to be the same for all marks originating from the same device. When a metric is used, its type **must** be specified under the CVR's `CreatingDevice`.
+`IsGenerated` is optional, but should be included when the origin of the mark is known.
+
+ When a metric is used, its type **must** be specified under the CVR's `CreatingDevice`.
 
 ```xml
 <cdf:ReportingDevice ObjectId="rd">
@@ -157,6 +163,8 @@ The metric used is expected to be the same for all marks originating from the sa
     <cdf:MarkMetricType>AJAX</cdf:MarkMetricType>
 </cdf:ReportingDevice>
 ```
+
+The metric used is expected to be the same for all marks originating from the same device.
 
 The mark has a quality measurement of type AJAX (a fictional quality measurement) and quality score of 98 (0 is the worst, 100 is the best).
 
