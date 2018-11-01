@@ -2,18 +2,22 @@
 <cdf:CastVoteRecordReport xmlns:cdf="NIST_V0_cast_vote_records.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="NIST_V0_cast_vote_records.xsd file:///C:/Users/john/Documents/GitHub/CastVoteRecords/NIST_V0_cast_vote_records.xsd">
 	<cdf:CVR>
 		<cdf:BallotStyleId>_01-0052-01</cdf:BallotStyleId>
-		<cdf:CVRSnapshot>
+		<cdf:CurrentSnapshotId>css-01</cdf:CurrentSnapshotId>
+		<cdf:CVRSnapshot ObjectId="css-01">
 			<cdf:CVRContest>
 				<cdf:ContestId>_1GO</cdf:ContestId>
-				<cdf:CVRContestSelection xsi:type="cdf:CVRWriteIn">
-					<cdf:Position>4</cdf:Position>
-					<cdf:SelectionIndication>
+				<cdf:CVRContestSelection>
+					<cdf:CVRContestSelectionPosition>
+						<cdf:CVRWriteIn>
+							<cdf:Text>John Smith</cdf:Text>
+						</cdf:CVRWriteIn>
 						<cdf:IsAllocable>unknown</cdf:IsAllocable>
+						<cdf:IsIndication>true</cdf:IsIndication>
 						<cdf:NumberVotes>1</cdf:NumberVotes>
-					</cdf:SelectionIndication>
+					</cdf:CVRContestSelectionPosition>
+					<cdf:Position>4</cdf:Position>
 					<cdf:Status>needs-adjudication</cdf:Status>
 					<cdf:TotalNumberVotes>0</cdf:TotalNumberVotes>
-					<cdf:Text>John Smith</cdf:Text>					
 				</cdf:CVRContestSelection>
 				<cdf:Undervotes>0</cdf:Undervotes>
 			</cdf:CVRContest>
@@ -32,21 +36,23 @@
 			<cdf:CVRContest>
 				<cdf:ContestId>_5TS</cdf:ContestId>
 				<cdf:CVRContestSelection>
-					<cdf:ContestSelectionId>_1ECP</cdf:ContestSelectionId>
-					<cdf:Position>1</cdf:Position>
-					<cdf:SelectionIndication>
+					<cdf:ContestSelectionId>_1ECP</cdf:ContestSelectionId>					
+					<cdf:CVRContestSelectionPosition>
 						<cdf:IsAllocable>yes</cdf:IsAllocable>
+						<cdf:IsIndication>true</cdf:IsIndication>
 						<cdf:NumberVotes>1</cdf:NumberVotes>
-					</cdf:SelectionIndication>
-					<cdf:TotalNumberVotes>0</cdf:TotalNumberVotes>
+					</cdf:CVRContestSelectionPosition>
+					<cdf:Position>1</cdf:Position>
+					<cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
 				</cdf:CVRContestSelection>
 				<cdf:CVRContestSelection>
-					<cdf:ContestSelectionId>_1EJM</cdf:ContestSelectionId>
-					<cdf:Position>2</cdf:Position>
-					<cdf:SelectionIndication>
+					<cdf:ContestSelectionId>_1EJM</cdf:ContestSelectionId>					
+					<cdf:CVRContestSelectionPosition>
 						<cdf:IsAllocable>yes</cdf:IsAllocable>
+						<cdf:IsIndication>true</cdf:IsIndication>
 						<cdf:NumberVotes>1</cdf:NumberVotes>
-					</cdf:SelectionIndication>
+					</cdf:CVRContestSelectionPosition>
+					<cdf:Position>2</cdf:Position>
 					<cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
 				</cdf:CVRContestSelection>
 				<cdf:Overvotes>1</cdf:Overvotes>
@@ -132,7 +138,6 @@
 				<cdf:ContestId>_25CA2</cdf:ContestId>
 				<cdf:Undervotes>1</cdf:Undervotes>
 			</cdf:CVRContest>
-			<cdf:IsCurrent>true</cdf:IsCurrent>
 			<cdf:OtherStatus>cast</cdf:OtherStatus>
 			<cdf:Status>other</cdf:Status>
 			<cdf:Type>original</cdf:Type>
@@ -141,26 +146,27 @@
 	</cdf:CVR>
 	<cdf:CVR>
 		<cdf:BallotStyleId>_01-0052-01</cdf:BallotStyleId>
-		<cdf:CVRSnapshot>
+		<cdf:CurrentSnapshotId>css-02</cdf:CurrentSnapshotId>
+		<cdf:CVRSnapshot ObjectId="css-02">
 			<cdf:CVRContest>
 				<cdf:ContestId>_6RC</cdf:ContestId>
 				<cdf:CVRContestSelection>
-					<cdf:ContestSelectionId>_1FMZ</cdf:ContestSelectionId>
-					<cdf:Position>1</cdf:Position>
-					<cdf:SelectionIndication xsi:type="cdf:Mark">
+					<cdf:ContestSelectionId>_1FMZ</cdf:ContestSelectionId>					
+					<cdf:CVRContestSelectionPosition xsi:type="cdf:Mark">
 						<cdf:IsAllocable>unknown</cdf:IsAllocable>
+						<cdf:IsIndication>true</cdf:IsIndication>
 						<cdf:NumberVotes>1</cdf:NumberVotes>
 						<cdf:MarkMetricValue>98</cdf:MarkMetricValue>
-					</cdf:SelectionIndication>
+					</cdf:CVRContestSelectionPosition>
+					<cdf:Position>1</cdf:Position>
 					<cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
 				</cdf:CVRContestSelection>
 				<cdf:Undervotes>0</cdf:Undervotes>
-			</cdf:CVRContest>
-			<cdf:IsCurrent>false</cdf:IsCurrent>
+			</cdf:CVRContest>			
 			<cdf:Status>needs-adjudication</cdf:Status>
 			<cdf:Type>original</cdf:Type>
 		</cdf:CVRSnapshot>
-		<cdf:CVRSnapshot>
+		<cdf:CVRSnapshot ObjectId="css-03">
 			<cdf:Annotation>
 				<cdf:AdjudicatorName>Mark Kennamond</cdf:AdjudicatorName>
 				<cdf:Message>Resting Mark, Mark Zetzer</cdf:Message>
@@ -169,18 +175,17 @@
 			<cdf:CVRContest>
 				<cdf:ContestId>_6RC</cdf:ContestId>
 				<cdf:CVRContestSelection>
-					<cdf:ContestSelectionId>_1FMZ</cdf:ContestSelectionId>
-					<cdf:Position>1</cdf:Position>
-					<cdf:SelectionIndication xsi:type="cdf:Mark">
-						<cdf:IsAllocable>no</cdf:IsAllocable>
+					<cdf:ContestSelectionId>_1FMZ</cdf:ContestSelectionId>					
+					<cdf:CVRContestSelectionPosition xsi:type="cdf:Mark">						
+						<cdf:IsIndication>false</cdf:IsIndication>
 						<cdf:NumberVotes>1</cdf:NumberVotes>
-						<cdf:MarkMetricValue>98</cdf:MarkMetricValue>
-					</cdf:SelectionIndication>
+						<cdf:MarkMetricValue>98</cdf:MarkMetricValue>						
+					</cdf:CVRContestSelectionPosition>
+					<cdf:Position>1</cdf:Position>
 					<cdf:TotalNumberVotes>0</cdf:TotalNumberVotes>
 				</cdf:CVRContestSelection>
 				<cdf:Undervotes>1</cdf:Undervotes>
-			</cdf:CVRContest>
-			<cdf:IsCurrent>true</cdf:IsCurrent>
+			</cdf:CVRContest>			
 			<cdf:Type>interpreted</cdf:Type>
 		</cdf:CVRSnapshot>
 		<cdf:ElectionId>_AK2014General</cdf:ElectionId>
