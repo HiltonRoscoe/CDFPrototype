@@ -6,7 +6,8 @@
     - [Assumptions](#assumptions)
     - [Anatomy of a CVR](#anatomy-of-a-cvr)
     - [Basic Example](#basic-example)
-    - [SelectionIndication](#selectionindication)
+    - [CVRContestSelectionPosition](#cvrcontestselectionposition)
+        - [Position and Rank](#position-and-rank)
         - [Voter Made `Marks` (Paper Only)](#voter-made-marks-paper-only)
             - [Mark Metrics](#mark-metrics)
         - [Machine Generated Indications](#machine-generated-indications)
@@ -82,13 +83,14 @@ can be represented with the following XML fragment:
     <cdf:ContestId>_5TS</cdf:ContestId>
     <cdf:CVRContestSelection>
         <cdf:ContestSelectionId>_1ECP</cdf:ContestSelectionId>
-        <cdf:Position>1</cdf:Position>
-        <cdf:SelectionIndication>
+        <cdf:CVRContestSelectionPosition>
             <cdf:IsAllocable>yes</cdf:IsAllocable>
+            <cdf:IsIndication>true</cdf:IsIndication>
             <cdf:NumberVotes>1</cdf:NumberVotes>
-        </cdf:SelectionIndication>
+        </cdf:CVRContestSelectionPosition>
+        <cdf:Position>1</cdf:Position>
         <cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
-    </cdf:CVRContestSelection>
+</cdf:CVRContestSelection>
     ...
 </cdf:CVRContest>
 ```
@@ -114,15 +116,47 @@ By dereferencing `_5TS`, we can see this does indeed represent a contest selecti
 </cdf:Contest>
 ```
 
-> Note that the object identifiers (`ObjectId`) are not the same as the codes that a jurisdiction may use to identify contests or candidates. The object identifiers are entirely unique to a CVR report; the exporting application must add them as it builds the report file. These identifiers should only be used to link contest, contest selections, etc., together within the report file.
+> Note that an object identifier (`ObjectId`) is not the same as the codes that a jurisdiction may use to identify contests or candidates. An object identifier is entirely unique to a CVR report; the exporting application must add them as it builds the report file. These identifiers should only be used to link contests, contest selections, etc., together within the report file.
 
-`SelectionIndication` may appear to be superfluous, don't we already know the outcome for this contest? As we'll find out this element will come in handy.
+`CVRContestSelectionPosition` may appear to be superfluous, don't we already know the outcome for this contest? As we'll find out this element will come in handy.
 
-> For a contest selection that is not a write-in, `SelectionIndication` is always required. (REMOVE?)
+## CVRContestSelectionPosition
 
-## SelectionIndication
+(ADD INTRO SECTION HERE)
 
-`SelectionIndication` is used to convey those selections that are potentially allocable to a *contest option*. Indications can come from the following sources:
+### Position and Rank
+
+`CVRContestSelectionPosition` taken with `CVRContestSelection` identifies the location on the ballot where a selection can be made.
+
+Consider the following contest:
+
+**Member of County Council at Large**
+
+|Contest Option|1st  |2nd  |3rd  |
+|--------------|-----|-----|-----|
+|Ilene Shapiro |`[x]`|`[ ]`|`[ ]`|
+|Debbie Walsh  |`[ ]`|`[ ]`|`[x]`|
+|Sandra Kurt   |`[ ]`|`[X]`|`[ ]`|
+
+Corresponds to the following XML fragment:
+
+```xml
+<cdf:CVRContestSelection>
+    <cdf:ContestSelectionId>_1HSK</cdf:ContestSelectionId>
+    <cdf:Position>2</cdf:Position>
+    <cdf:SelectionIndication>
+        <cdf:IsAllocable>yes</cdf:IsAllocable>
+        <cdf:IsIndication>true</cdf:IsIndication>
+        <cdf:NumberVotes>1</cdf:NumberVotes>
+        <cdf:Position>2</cdf:Position>
+    </cdf:SelectionIndication>
+    <cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
+</cdf:CVRContestSelection>
+```
+
+Sandra Kurt (`_1HSK`) is ranked 2nd, and her position on the ballot is third. This is represented by setting `CVRContestSelection/Position` to `3` and `SelectionIndication/Position` to `2`.
+
+It conveys the selections that are potentially allocable to a *contest option*. We call these *selection indications*. Indications can come from the following sources:
 
 - A `Mark` made by the voter on a paper ballot
 - A `Mark` made by a marking device onto a full face paper ballot
