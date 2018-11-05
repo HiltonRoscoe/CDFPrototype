@@ -324,17 +324,18 @@ can be represented with the following XML fragment:
 ```xml
 <cdf:CVRContest>
     <cdf:ContestId>_1GO</cdf:ContestId>
-    <cdf:CVRContestSelection xsi:type="cdf:CVRWriteIn">
-        <cdf:Position>4</cdf:Position>
-        <cdf:SelectionIndication>
+    <cdf:CVRContestSelection>
+        <cdf:CVRContestSelectionPosition>
+            <cdf:CVRWriteIn>
+                <cdf:Text>John Smith</cdf:Text>
+            </cdf:CVRWriteIn>
+            <cdf:HasIndication>yes</cdf:HasIndication>
             <cdf:IsAllocable>unknown</cdf:IsAllocable>
             <cdf:NumberVotes>1</cdf:NumberVotes>
-        </cdf:SelectionIndication>
+        </cdf:CVRContestSelectionPosition>
+        <cdf:Position>4</cdf:Position>
         <cdf:Status>needs-adjudication</cdf:Status>
-        <cdf:TotalNumberVotes>0</cdf:TotalNumberVotes>
-        <cdf:Text>John Smith</cdf:Text>
     </cdf:CVRContestSelection>
-    <cdf:Undervotes>0</cdf:Undervotes>
 </cdf:CVRContest>
 ```
 
@@ -344,7 +345,7 @@ Note that this fragment is the `original` CVR from an *creating device*, and thu
 
 The text of the write-in is `John Smith`. This is represented using the `Text` element.
 
-> Note that the `cdf:SelectionIndication` represents both the selection of the *write-in contest option* *and* the write-in itself. Thus it is not possible to say that the selection of the write-in option is valid, but the write-in name provided is not.
+> Note that the `CVRContestSelectionPosition` represents both the selection of the *write-in contest option* *and* the write-in itself. Thus it is not possible to say that the selection of the write-in option is valid, but the write-in name provided is not.
 
 If John Smith was determined to be a valid write-in, then the following may occur:
 
@@ -363,7 +364,7 @@ Adjudication can do two things
 
 1. Determine if the name represents a valid contest selection, i.e. does the write-in text represent a valid write-in option?
 
-2. Determine if the contest selection should be allocated. This is different from (1), as even if it is determined that the write-in text represents a valid write-in option, it may be overwritten by interpretation of voter intent. (REMOVE BASED ON NEW INTERPERTATION OF SPEC?)
+2. Determine if the contest selection should be allocated. This is different from (1), as even if it is determined that the write-in text represents a valid write-in option, it may be overwritten by interpretation of voter intent.
 
 ## CVR Snapshots
 
@@ -379,34 +380,36 @@ If a downstream system needs to modify the CVR, such as to add a `CVRContestSele
 Consider the following XML fragment:
 
 ```xml
-<cdf:CVRSnapshot>
+<cdf:CVRSnapshot ObjectId="css-02">
     <cdf:CVRContest>
         <cdf:ContestId>_6RC</cdf:ContestId>
         <cdf:CVRContestSelection>
             <cdf:ContestSelectionId>_1FMZ</cdf:ContestSelectionId>
-            <cdf:Position>1</cdf:Position>
-            <cdf:SelectionIndication xsi:type="cdf:Mark">
+            <cdf:CVRContestSelectionPosition>
+                <cdf:HasIndication>yes</cdf:HasIndication>
                 <cdf:IsAllocable>unknown</cdf:IsAllocable>
+                <cdf:Mark>
+                    <cdf:MarkMetricValue>98</cdf:MarkMetricValue>
+                </cdf:Mark>
                 <cdf:NumberVotes>1</cdf:NumberVotes>
-                <cdf:MarkMetricValue>98</cdf:MarkMetricValue>
-            </cdf:SelectionIndication>
+            </cdf:CVRContestSelectionPosition>
+            <cdf:Position>1</cdf:Position>
             <cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
         </cdf:CVRContestSelection>
         <cdf:Undervotes>0</cdf:Undervotes>
     </cdf:CVRContest>
-    <cdf:IsCurrent>false</cdf:IsCurrent>
     <cdf:Status>needs-adjudication</cdf:Status>
     <cdf:Type>original</cdf:Type>
 </cdf:CVRSnapshot>
 ```
 
-This represents a CVR having a single voted contest, in which the allocation of the indication is `unknown` (e.g. the mark is marginal). The `Status` of the `CVRSnapshot` is `needs-adjudication` so as to flag a downstream system.
+This represents a CVR having a single voted contest, in which the allocation of the indication is `unknown` (e.g. the mark is marginal) (NO LONGER TRUE?). The `Status` of the `CVRSnapshot` is `needs-adjudication` so as to flag a downstream system.
 
 An adjudicator takes a look at the mark, and determines that there is not voter intent to make a selection for `Mark Zetzer`. Thus, `IsAllocable` is set to `false`, and a new `CVRSnapshot` is created recording this action:
 
 ```xml
 ...
-<cdf:CVRSnapshot>
+<cdf:CVRSnapshot ObjectId="css-03">
     <cdf:Annotation>
         <cdf:AdjudicatorName>Mark Kennamond</cdf:AdjudicatorName>
         <cdf:Message>Resting Mark, Mark Zetzer</cdf:Message>
@@ -416,17 +419,19 @@ An adjudicator takes a look at the mark, and determines that there is not voter 
         <cdf:ContestId>_6RC</cdf:ContestId>
         <cdf:CVRContestSelection>
             <cdf:ContestSelectionId>_1FMZ</cdf:ContestSelectionId>
-            <cdf:Position>1</cdf:Position>
-            <cdf:SelectionIndication xsi:type="cdf:Mark">
-                <cdf:IsAllocable>no</cdf:IsAllocable>
+            <cdf:CVRContestSelectionPosition>
+                <cdf:HasIndication>no</cdf:HasIndication>
+                <cdf:Mark>
+                    <cdf:IsGenerated>true</cdf:IsGenerated>
+                    <cdf:MarkMetricValue>98</cdf:MarkMetricValue>
+                </cdf:Mark>
                 <cdf:NumberVotes>1</cdf:NumberVotes>
-                <cdf:MarkMetricValue>98</cdf:MarkMetricValue>
-            </cdf:SelectionIndication>
+            </cdf:CVRContestSelectionPosition>
+            <cdf:Position>1</cdf:Position>
             <cdf:TotalNumberVotes>0</cdf:TotalNumberVotes>
         </cdf:CVRContestSelection>
         <cdf:Undervotes>1</cdf:Undervotes>
     </cdf:CVRContest>
-    <cdf:IsCurrent>true</cdf:IsCurrent>
     <cdf:Type>interpreted</cdf:Type>
 </cdf:CVRSnapshot>
 ```
@@ -435,7 +440,7 @@ Information about the adjudication is conveyed via the `Annotation` element. We 
 
 > Each `CVRSnapshot` should represent a set of changes to a CVR during a phase of processing. It is not necessary to create a separate `CVRSnapshot` for every change.
 
-> The `CVR` may contain as many `CVRSnapshots` as required, but only one should be marked as the current tabulable record (`IsCurrent` set to `true`).
+(ADD INFORMATION ABOUT CURRENT CVR LINK)
 
 ## Secondary Information
 

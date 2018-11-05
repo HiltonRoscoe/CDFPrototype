@@ -11,7 +11,7 @@
 						<cdf:CVRWriteIn>
 							<cdf:Text>John Smith</cdf:Text>
 						</cdf:CVRWriteIn>
-						<cdf:HasIndication>true</cdf:HasIndication>
+						<cdf:HasIndication>yes</cdf:HasIndication>
 						<cdf:IsAllocable>unknown</cdf:IsAllocable>						
 						<cdf:NumberVotes>1</cdf:NumberVotes>
 					</cdf:CVRContestSelectionPosition>
@@ -33,12 +33,13 @@
 				<cdf:ContestId>_4SS</cdf:ContestId>
 				<cdf:Undervotes>1</cdf:Undervotes>
 			</cdf:CVRContest>
+			<!-- Basic Example -->
 			<cdf:CVRContest>
 				<cdf:ContestId>_5TS</cdf:ContestId>
 				<cdf:CVRContestSelection>
 					<cdf:ContestSelectionId>_1ECP</cdf:ContestSelectionId>					
 					<cdf:CVRContestSelectionPosition>						
-						<cdf:HasIndication>true</cdf:HasIndication>
+						<cdf:HasIndication>yes</cdf:HasIndication>
 						<cdf:IsAllocable>yes</cdf:IsAllocable>
 						<cdf:NumberVotes>1</cdf:NumberVotes>
 					</cdf:CVRContestSelectionPosition>
@@ -48,7 +49,7 @@
 				<cdf:CVRContestSelection>
 					<cdf:ContestSelectionId>_1EJM</cdf:ContestSelectionId>					
 					<cdf:CVRContestSelectionPosition>
-						<cdf:HasIndication>true</cdf:HasIndication>						
+						<cdf:HasIndication>yes</cdf:HasIndication>						
 						<cdf:IsAllocable>yes</cdf:IsAllocable>						
 						<cdf:NumberVotes>1</cdf:NumberVotes>
 					</cdf:CVRContestSelectionPosition>
@@ -153,7 +154,7 @@
 				<cdf:CVRContestSelection>
 					<cdf:ContestSelectionId>_1FMZ</cdf:ContestSelectionId>					
 					<cdf:CVRContestSelectionPosition>
-						<cdf:HasIndication>true</cdf:HasIndication>
+						<cdf:HasIndication>yes</cdf:HasIndication>
 						<cdf:IsAllocable>unknown</cdf:IsAllocable>						
 						<cdf:Mark>							
 							<cdf:MarkMetricValue>98</cdf:MarkMetricValue>
@@ -179,8 +180,9 @@
 				<cdf:CVRContestSelection>
 					<cdf:ContestSelectionId>_1FMZ</cdf:ContestSelectionId>					
 					<cdf:CVRContestSelectionPosition>						
-						<cdf:HasIndication>false</cdf:HasIndication>
+						<cdf:HasIndication>no</cdf:HasIndication>
 						<cdf:Mark>
+							<cdf:IsGenerated>true</cdf:IsGenerated>
 							<cdf:MarkMetricValue>98</cdf:MarkMetricValue>						
 						</cdf:Mark>
 						<cdf:NumberVotes>1</cdf:NumberVotes>						
