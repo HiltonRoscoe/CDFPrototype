@@ -1,6 +1,6 @@
 ## Anatomy of a CVR
 
-This specification permits a wide range of data to be stored in a CVR, ranging from minimal information about the voted contests and contest selections to expanded information about all contests on the ballot as well as other items. This section explains the construction of a minimal 1500-103 instance, containing only the voted contests and candidates that were selected by the voter. It contains two CVRs, each indicating a selection for a candidate in the contest. Each CVR also references an image of the corresponding scanned ballot.
+The CDF specification permits a wide range of data to be stored in a CVR, ranging from minimal information about the voted contests and contest selections to expanded information about all contests on the ballot as well as other items. This section explains the construction of a minimal 1500-103 instance, containing only the voted contests and candidates that were selected by the voter. It contains two CVRs, each indicating a selection for a candidate in the contest. Each CVR also references an image of the corresponding scanned ballot.
 
 > A 1500-103 instance (i.e. XML or JSON) may contain one or more `CVRs`, which in turn must contain one or more `CVRSnapshots`, each representing a CVR at specific point in time.
 
