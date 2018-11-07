@@ -1,22 +1,23 @@
-<CastVoteRecordReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="NIST_V0_cast_vote_records.xsd">
+<CastVoteRecordReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="NIST_V0_cast_vote_records.xsd" xsi:schemaLocation="NIST_V0_cast_vote_records.xsd file:///C:/Users/john/Documents/GitHub/CastVoteRecords/NIST_V0_cast_vote_records.xsd">
 	<!-- 5.1 Examples -->
 	<CVR>
 		<BallotImage>
 			<Image FileName="CVR1_Ballot.jpg" MimeType="image/jpeg"/>
 		</BallotImage>
-		<CVRSnapshot>
+		<CurrentSnapshotId>cvr-001</CurrentSnapshotId>
+		<CVRSnapshot ObjectId="cvr-001">
 			<CVRContest>
 				<ContestId>_C1</ContestId>
 				<CVRContestSelection>
 					<ContestSelectionId>_C1CS1</ContestSelectionId>
-					<SelectionIndication>
+					<SelectionPosition>
+						<HasIndication>yes</HasIndication>
 						<IsAllocable>yes</IsAllocable>
 						<NumberVotes>1</NumberVotes>
-					</SelectionIndication>
+					</SelectionPosition>
 					<TotalNumberVotes>1</TotalNumberVotes>
 				</CVRContestSelection>
 			</CVRContest>
-			<IsCurrent>true</IsCurrent>
 			<Type>original</Type>
 		</CVRSnapshot>
 		<ElectionId>_EL7</ElectionId>
@@ -26,75 +27,87 @@
 		<BallotImage>
 			<Image FileName="CVR2_Ballot.jpg" MimeType="image/jpeg"/>
 		</BallotImage>
-		<CVRSnapshot>
+		<CurrentSnapshotId>cvr-002</CurrentSnapshotId>
+		<CVRSnapshot ObjectId="cvr-002">
 			<CVRContest>
 				<ContestId>_C1</ContestId>
 				<CVRContestSelection>
 					<ContestSelectionId>_C1CS2</ContestSelectionId>
-					<SelectionIndication>
+					<SelectionPosition>
+						<HasIndication>yes</HasIndication>
 						<IsAllocable>yes</IsAllocable>
 						<NumberVotes>1</NumberVotes>
-					</SelectionIndication>
+					</SelectionPosition>
 					<TotalNumberVotes>1</TotalNumberVotes>
 				</CVRContestSelection>
 			</CVRContest>
-			<IsCurrent>true</IsCurrent>
 			<Type>original</Type>
 		</CVRSnapshot>
 		<ElectionId>_EL7</ElectionId>
 		<SequenceNumber>2</SequenceNumber>
 	</CVR>
 	<CVR>
-		<CVRSnapshot>
+		<CurrentSnapshotId>cvr-003</CurrentSnapshotId>
+		<CVRSnapshot ObjectId="cvr-003">
 			<CVRContest>
 				<ContestId>_C1</ContestId>
 				<CVRContestSelection>
 					<ContestSelectionId>_C1CS1</ContestSelectionId>
-					<SelectionIndication xsi:type="Mark">
+					<SelectionPosition>
+						<HasIndication>yes</HasIndication>
 						<IsAllocable>yes</IsAllocable>
+						<Mark>
+							<MarkMetricValue>95</MarkMetricValue>
+						</Mark>
 						<NumberVotes>1</NumberVotes>
 						<Position>1</Position>
-						<MarkMetricValue>95</MarkMetricValue>
-					</SelectionIndication>
-					<SelectionIndication xsi:type="Mark">
-						<IsAllocable>no</IsAllocable>
+					</SelectionPosition>
+					<SelectionPosition>
+						<HasIndication>no</HasIndication>
+						<Mark>
+							<MarkMetricValue>13</MarkMetricValue>
+						</Mark>
 						<NumberVotes>1</NumberVotes>
 						<Position>3</Position>
-						<MarkMetricValue>13</MarkMetricValue>
-					</SelectionIndication>
+					</SelectionPosition>
 					<TotalNumberVotes>1</TotalNumberVotes>
 				</CVRContestSelection>
 			</CVRContest>
-			<IsCurrent>true</IsCurrent>
 			<Type>interpreted</Type>
 		</CVRSnapshot>
 		<ElectionId>_EL7</ElectionId>
 		<SequenceNumber>1</SequenceNumber>
 	</CVR>
 	<CVR>
-		<CVRSnapshot>
+		<CurrentSnapshotId>cvr-004</CurrentSnapshotId>
+		<CVRSnapshot ObjectId="cvr-004">
 			<CVRContest>
 				<ContestId>_C1</ContestId>
 				<CVRContestSelection>
 					<ContestSelectionId>_C1CS2</ContestSelectionId>
-					<SelectionIndication xsi:type="Mark">
+					<SelectionPosition>
+						<HasIndication>yes</HasIndication>
 						<IsAllocable>no</IsAllocable>
+						<Mark>
+							<MarkMetricValue>96</MarkMetricValue>
+						</Mark>
 						<NumberVotes>1</NumberVotes>
 						<Position>2</Position>
 						<Status>invalidated-rules</Status>
-						<MarkMetricValue>96</MarkMetricValue>
-					</SelectionIndication>
-					<SelectionIndication xsi:type="Mark">
+					</SelectionPosition>
+					<SelectionPosition>
+						<HasIndication>yes</HasIndication>
 						<IsAllocable>no</IsAllocable>
+						<Mark>
+							<MarkMetricValue>98</MarkMetricValue>
+						</Mark>
 						<NumberVotes>1</NumberVotes>
 						<Position>3</Position>
-						<MarkMetricValue>98</MarkMetricValue>
-					</SelectionIndication>
+					</SelectionPosition>
 					<TotalNumberVotes>0</TotalNumberVotes>
 				</CVRContestSelection>
 				<Status>overvoted</Status>
 			</CVRContest>
-			<IsCurrent>true</IsCurrent>
 			<Type>interpreted</Type>
 		</CVRSnapshot>
 		<ElectionId>_EL7</ElectionId>
@@ -102,7 +115,8 @@
 	</CVR>
 	<!-- 5.3 Example -->
 	<CVR>
-		<CVRSnapshot>
+		<CurrentSnapshotId>cvr-005</CurrentSnapshotId>
+		<CVRSnapshot ObjectId="cvr-005">
 			<Annotation>
 				<AdjudicatorName>Mark Kennamond</AdjudicatorName>
 				<Message>Valid, Donny Nolte</Message>
@@ -110,23 +124,29 @@
 			</Annotation>
 			<CVRContest>
 				<ContestId>_C1</ContestId>
-				<CVRContestSelection xsi:type="CVRWriteIn">
+				<CVRContestSelection>
 					<ContestSelectionId>_C1CS1</ContestSelectionId>
-					<TotalNumberVotes>1</TotalNumberVotes>
-					<Text>Donald Nolte</Text>
-					<WriteInImage>
-						<Hash>
-							<Type>sha-512</Type>
-							<Value>156CEAE1FE594978F870E7D80DA8BAD838D9C
+					<SelectionPosition>
+						<CVRWriteIn>
+							<Text>Donald Nolte</Text>
+							<WriteInImage>
+								<Hash>
+									<Type>sha-512</Type>
+									<Value>156CEAE1FE594978F870E7D80DA8BAD838D9C
                             060EBBFC6521AAA93E5776250BB2C21350192B36
                             10677B988A8AF808827B50A33624FEBBB4C2068E
                             5470C830174</Value>
-						</Hash>
-						<Image FileName="CVR1WRTIN2.JPG" MimeType="image/jpeg"/>
-					</WriteInImage>
+								</Hash>
+								<Image FileName="CVR1WRTIN2.JPG" MimeType="image/jpeg"/>
+							</WriteInImage>
+						</CVRWriteIn>
+						<HasIndication>yes</HasIndication>
+						<IsAllocable>yes</IsAllocable>
+						<NumberVotes>1</NumberVotes>
+					</SelectionPosition>
+					<TotalNumberVotes>1</TotalNumberVotes>
 				</CVRContestSelection>
 			</CVRContest>
-			<IsCurrent>true</IsCurrent>
 			<Type>original</Type>
 		</CVRSnapshot>
 		<ElectionId>_EL7</ElectionId>
@@ -134,45 +154,49 @@
 	</CVR>
 	<!-- 5.4 Example -->
 	<CVR>
-		<CVRSnapshot>
+		<CurrentSnapshotId>cvr-006</CurrentSnapshotId>
+		<CVRSnapshot ObjectId="cvr-006">
 			<CVRContest>
 				<ContestId>_C1</ContestId>
 				<CVRContestSelection>
-					<ContestSelectionId>_C1CS1</ContestSelectionId>
+					<ContestSelectionId>_C1CS1</ContestSelectionId>				
 					<Rank>3</Rank>
-					<SelectionIndication>
+						<SelectionPosition>
+						<HasIndication>yes</HasIndication>
 						<IsAllocable>yes</IsAllocable>
 						<NumberVotes>1</NumberVotes>
 						<Position>3</Position>
-					</SelectionIndication>
+					</SelectionPosition>
 					<TotalNumberVotes>1</TotalNumberVotes>
 				</CVRContestSelection>
 				<CVRContestSelection>
-					<ContestSelectionId>_C1CS2</ContestSelectionId>
+					<ContestSelectionId>_C1CS2</ContestSelectionId>				
 					<Rank>2</Rank>
-					<SelectionIndication>
+						<SelectionPosition>
+						<HasIndication>yes</HasIndication>
 						<IsAllocable>yes</IsAllocable>
 						<NumberVotes>1</NumberVotes>
 						<Position>2</Position>
-					</SelectionIndication>
+					</SelectionPosition>
 					<TotalNumberVotes>1</TotalNumberVotes>
 				</CVRContestSelection>
 				<CVRContestSelection>
 					<ContestSelectionId>_C1CS3</ContestSelectionId>
-					<SelectionIndication>
+					<SelectionPosition>
+						<HasIndication>yes</HasIndication>
 						<IsAllocable>no</IsAllocable>
 						<NumberVotes>1</NumberVotes>
 						<Position>4</Position>
-					</SelectionIndication>
-					<SelectionIndication>
+					</SelectionPosition>
+					<SelectionPosition>
+						<HasIndication>yes</HasIndication>
 						<IsAllocable>no</IsAllocable>
 						<NumberVotes>1</NumberVotes>
 						<Position>1</Position>
-					</SelectionIndication>
+					</SelectionPosition>
 					<TotalNumberVotes>0</TotalNumberVotes>
 				</CVRContestSelection>
 			</CVRContest>
-			<IsCurrent>true</IsCurrent>
 			<Type>original</Type>
 		</CVRSnapshot>
 		<ElectionId>_EL7</ElectionId>

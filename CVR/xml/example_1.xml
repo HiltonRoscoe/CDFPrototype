@@ -7,15 +7,15 @@
 			<cdf:CVRContest>
 				<cdf:ContestId>_1GO</cdf:ContestId>
 				<cdf:CVRContestSelection>
-					<cdf:CVRContestSelectionPosition>					
+					<cdf:Position>4</cdf:Position>
+					<cdf:SelectionPosition>
 						<cdf:CVRWriteIn>
 							<cdf:Text>John Smith</cdf:Text>
 						</cdf:CVRWriteIn>
 						<cdf:HasIndication>yes</cdf:HasIndication>
-						<cdf:IsAllocable>unknown</cdf:IsAllocable>						
+						<cdf:IsAllocable>unknown</cdf:IsAllocable>
 						<cdf:NumberVotes>1</cdf:NumberVotes>
-					</cdf:CVRContestSelectionPosition>
-					<cdf:Position>4</cdf:Position>
+					</cdf:SelectionPosition>
 					<cdf:Status>needs-adjudication</cdf:Status>
 					<cdf:TotalNumberVotes>0</cdf:TotalNumberVotes>
 				</cdf:CVRContestSelection>
@@ -37,23 +37,23 @@
 			<cdf:CVRContest>
 				<cdf:ContestId>_5TS</cdf:ContestId>
 				<cdf:CVRContestSelection>
-					<cdf:ContestSelectionId>_1ECP</cdf:ContestSelectionId>					
-					<cdf:CVRContestSelectionPosition>						
+					<cdf:ContestSelectionId>_1ECP</cdf:ContestSelectionId>
+					<cdf:Position>1</cdf:Position>
+					<cdf:SelectionPosition>
 						<cdf:HasIndication>yes</cdf:HasIndication>
 						<cdf:IsAllocable>yes</cdf:IsAllocable>
 						<cdf:NumberVotes>1</cdf:NumberVotes>
-					</cdf:CVRContestSelectionPosition>
-					<cdf:Position>1</cdf:Position>
+					</cdf:SelectionPosition>
 					<cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
 				</cdf:CVRContestSelection>
 				<cdf:CVRContestSelection>
-					<cdf:ContestSelectionId>_1EJM</cdf:ContestSelectionId>					
-					<cdf:CVRContestSelectionPosition>
-						<cdf:HasIndication>yes</cdf:HasIndication>						
-						<cdf:IsAllocable>yes</cdf:IsAllocable>						
-						<cdf:NumberVotes>1</cdf:NumberVotes>
-					</cdf:CVRContestSelectionPosition>
+					<cdf:ContestSelectionId>_1EJM</cdf:ContestSelectionId>
 					<cdf:Position>2</cdf:Position>
+					<cdf:SelectionPosition>
+						<cdf:HasIndication>yes</cdf:HasIndication>
+						<cdf:IsAllocable>yes</cdf:IsAllocable>
+						<cdf:NumberVotes>1</cdf:NumberVotes>
+					</cdf:SelectionPosition>
 					<cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
 				</cdf:CVRContestSelection>
 				<cdf:Overvotes>1</cdf:Overvotes>
@@ -152,20 +152,20 @@
 			<cdf:CVRContest>
 				<cdf:ContestId>_6RC</cdf:ContestId>
 				<cdf:CVRContestSelection>
-					<cdf:ContestSelectionId>_1FMZ</cdf:ContestSelectionId>					
-					<cdf:CVRContestSelectionPosition>
+					<cdf:ContestSelectionId>_1FMZ</cdf:ContestSelectionId>
+					<cdf:Position>1</cdf:Position>
+					<cdf:SelectionPosition>
 						<cdf:HasIndication>yes</cdf:HasIndication>
-						<cdf:IsAllocable>unknown</cdf:IsAllocable>						
-						<cdf:Mark>							
+						<cdf:IsAllocable>unknown</cdf:IsAllocable>
+						<cdf:Mark>
 							<cdf:MarkMetricValue>98</cdf:MarkMetricValue>
 						</cdf:Mark>
-						<cdf:NumberVotes>1</cdf:NumberVotes>						
-					</cdf:CVRContestSelectionPosition>
-					<cdf:Position>1</cdf:Position>
+						<cdf:NumberVotes>1</cdf:NumberVotes>
+					</cdf:SelectionPosition>
 					<cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
 				</cdf:CVRContestSelection>
 				<cdf:Undervotes>0</cdf:Undervotes>
-			</cdf:CVRContest>			
+			</cdf:CVRContest>
 			<cdf:Status>needs-adjudication</cdf:Status>
 			<cdf:Type>original</cdf:Type>
 		</cdf:CVRSnapshot>
@@ -178,20 +178,20 @@
 			<cdf:CVRContest>
 				<cdf:ContestId>_6RC</cdf:ContestId>
 				<cdf:CVRContestSelection>
-					<cdf:ContestSelectionId>_1FMZ</cdf:ContestSelectionId>					
-					<cdf:CVRContestSelectionPosition>						
+					<cdf:ContestSelectionId>_1FMZ</cdf:ContestSelectionId>
+					<cdf:Position>1</cdf:Position>
+					<cdf:SelectionPosition>
 						<cdf:HasIndication>no</cdf:HasIndication>
 						<cdf:Mark>
 							<cdf:IsGenerated>true</cdf:IsGenerated>
-							<cdf:MarkMetricValue>98</cdf:MarkMetricValue>						
+							<cdf:MarkMetricValue>98</cdf:MarkMetricValue>
 						</cdf:Mark>
-						<cdf:NumberVotes>1</cdf:NumberVotes>						
-					</cdf:CVRContestSelectionPosition>
-					<cdf:Position>1</cdf:Position>
+						<cdf:NumberVotes>1</cdf:NumberVotes>
+					</cdf:SelectionPosition>
 					<cdf:TotalNumberVotes>0</cdf:TotalNumberVotes>
 				</cdf:CVRContestSelection>
 				<cdf:Undervotes>1</cdf:Undervotes>
-			</cdf:CVRContest>			
+			</cdf:CVRContest>
 			<cdf:Type>interpreted</cdf:Type>
 		</cdf:CVRSnapshot>
 		<cdf:ElectionId>_AK2014General</cdf:ElectionId>
