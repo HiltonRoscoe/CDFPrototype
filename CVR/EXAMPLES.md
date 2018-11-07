@@ -6,15 +6,14 @@
     - [Assumptions](#assumptions)
     - [Anatomy of a CVR](#anatomy-of-a-cvr)
     - [Basic Example](#basic-example)
-    - [CVRContestSelectionPosition](#cvrcontestselectionposition)
+    - [SelectionPosition](#selectionposition)
         - [Position and Rank](#position-and-rank)
         - [Indications](#indications)
         - [Voter Made `Marks` (Paper Only)](#voter-made-marks-paper-only)
             - [Mark Metrics](#mark-metrics)
-        - [Machine Generated Indications](#machine-generated-indications)
         - [Adjudication](#adjudication)
-        - [Handling of Marks](#handling-of-marks)
         - [Meaning of `IsAllocable`](#meaning-of-isallocable)
+        - [Machine Generated Indications](#machine-generated-indications)
     - [Handling Overvotes](#handling-overvotes)
     - [Write-Ins](#write-ins)
         - [Basic Write-In](#basic-write-in)
@@ -40,6 +39,8 @@ These examples show how to use the NIST CVR Common Data Format (1500-103 CDF) to
 - Readers of this document are expected to have a working understanding of XML.
 
 ## Anatomy of a CVR
+
+(UPDATE LINE NUMBERS)
 
 > This section uses [Example 2](xml/example_2.xml)
 
@@ -119,11 +120,9 @@ By dereferencing `_5TS`, we can see this does indeed represent a contest selecti
 
 > Note that an object identifier (`ObjectId`) is not the same as the codes that a jurisdiction may use to identify contests or candidates. An object identifier is entirely unique to a CVR report; the exporting application must add them as it builds the report file. These identifiers should only be used to link contests, contest selections, etc., together within the report file.
 
-`CVRContestSelectionPosition` may appear to be superfluous, don't we already know the outcome for this contest? As we'll find out this element will come in handy.
+## SelectionPosition
 
-## CVRContestSelectionPosition
-
-(ADD INTRO SECTION HERE)
+`SelectionPosition` is used to state facts about the area on the ballot where a voter's selection in a particular contest can be indicated. This may include its position on the ballot, the number of voters represented by its selection, evidentiary information regarding the existence of a `Mark` and determinations, among others.
 
 ### Position and Rank
 
@@ -156,20 +155,26 @@ The selection of Sandra Kurt's contest option corresponds to the following XML f
 </cdf:CVRContestSelection>
 ```
 
-Sandra Kurt (`_1HSK`) position on the ballot is third, and the indicated contest position is second. This is represented by setting `CVRContestSelection/Position` to `3` and `SelectionIndication/Position` to `2`.
+Sandra Kurt (`_1HSK`) position on the ballot is third (row), and the indicated contest position is second (column). This is represented by setting `CVRContestSelection/Position` to `3` and `SelectionIndication/Position` to `2`.
 
 ### Indications
 
-`CVRContestSelectionPosition` can be used to convey the selections that are potentially allocable to a *contest option*. Selections are identified via *selection indications*. Indications can come from the following sources:
+`SelectionPosition` can be used to convey the selections that are potentially allocable to a *contest option*. Selections are identified via *selection indications*. Indications can come from the following sources:
 
 - A `Mark` made by the voter on a paper ballot
 - A `Mark` made by a marking device onto a full face paper ballot
 - An indication made by machine as a result applying business rules
 - An indication made by an adjudicator
 
+> `HasIndication` should be determined based on facts about the `Indication`/`Mark` *alone*. This means, for example, that `HasIndication` should be set to `yes` even if it underlying selection is invalided due to contest rules.
+
 ### Voter Made `Marks` (Paper Only)
 
 `CVRContestSelectionPosition` has a subelement, `Mark`, which should be used whenever a mark is placed upon a *contest option position* of a full face paper ballot.
+
+A `Mark` provides evidence that an indication may exist, however, it does not confirm it. This is the purpose of `HasIndication`. It can tell us if the mark met the threshold or logic of a `MarkMetric` to be considered a selection indication for the contest option (machine interpretation), or if the adjudication resulted in the capture of a selection (human interpretation).
+
+Marks should be treated as indelible. They can be added, but never removed from a CVR instance.`Marks` are **not** shorthand for votes.
 
 > Barcodes placed onto a piece of paper (as to represent selections) are not considered marks.
 
@@ -188,7 +193,7 @@ For example:
 
 `IsGenerated` is optional, but should be included when the origin of the mark is known.
 
- When a metric is used, its type **must** be specified by the `ReportingDevice` playing the role of the `CVR`'s `CreatingDevice`.
+ When a metric is used, its type (`MarkMetricType`) **must** be specified by the `ReportingDevice` playing the role of the `CVR`'s `CreatingDevice`.
 
 ```xml
 <cdf:ReportingDevice ObjectId="rd">
@@ -199,19 +204,6 @@ For example:
 The mark metric used is expected to be the same for all marks originating from the same device.
 
 From the above examples, we can see that the mark has a quality measurement of type AJAX (a fictional quality measurement) and quality score of 98 (0 is the worst, 100 is the best).
-
-### Machine Generated Indications
-
-If an indication was generated by machine, such as in the indirect selections of straight party voting, then use `CVRContestSelectionPosition` directly.
-
-```xml
-<cdf:CVRContestSelectionPosition>
-    <cdf:HasIndication>yes</cdf:HasIndication>
-    <cdf:IsAllocable>yes</cdf:IsAllocable>
-    <cdf:NumberVotes>1</cdf:NumberVotes>
-    <cdf:Status>generated-rules</cdf:Status>
-</cdf:CVRContestSelectionPosition>
-```
 
 ### Adjudication
 
@@ -229,9 +221,9 @@ If a mark was present, but was not captured in the initial CVR, then it should b
 </cdf:CVRContestSelectionPosition>
 ```
 
-> `Mark` should be used to capture marks that are *machine readable* only. This usually means marks that fall within the *contest selection position*. Marks that convey voter intent but fall outside the target area should be handled as `CVRContestSelectionPositions`.
+> `Mark` should be used to capture marks that are *machine readable* only. This usually means marks that fall within the *contest selection position*. Marks that convey voter intent but fall outside the target area should be handled as `SelectionPositions`.
 
-Conversely, if a `Mark` is determined to not be a selection for a given contest option, then set `HasIndication` to `no`.
+Conversely, if a mark is determined to not to exist for a given contest option, then set `HasIndication` to `no`.
 
 > `IsAllocable` will always be `no` when `HasIndication` is `no`.
 
@@ -245,13 +237,6 @@ Conversely, if a `Mark` is determined to not be a selection for a given contest 
 </cdf:CVRContestSelectionPosition>
 ```
 
-### Handling of Marks
-
-Marks should be treated as indelible. They can be added, but never removed from a CVR instance.`Marks` are **not** shorthand for votes.
-
-A `Mark` provides evidence that an indication may exist, however, it does not confirm it. This is the purpose of `HasIndication`. It can tell us if the mark met the threshold or logic of a `MarkMetric` to be considered a selection indication for the contest option (machine interpretation), or if the adjudication resulted in the capture of a selection (human interpretation).
-
-> `HasIndication` should be determined based on facts about the `Indication`/`Mark` *alone*. This means, for example, that `HasIndication` should be set to `yes` even if it underlying selection is invalided due to contest rules.
 
 ### Meaning of `IsAllocable`
 
@@ -260,6 +245,19 @@ A `Mark` provides evidence that an indication may exist, however, it does not co
 > Previous drafts of the spec used a complex set of statuses that the consumer was required to interpret. By using a single flag, we know if the mark counts, and the statuses can tell us why.
 
 > The value of `IsAllocable` should singularly determine if `NumberVotes` will be allocated a contest option's accumulator.
+
+### Machine Generated Indications
+
+If an indication was generated by machine, such as in the indirect selections of straight party voting, then use `SelectionPosition` directly.
+
+```xml
+<cdf:CVRContestSelectionPosition>
+    <cdf:HasIndication>yes</cdf:HasIndication>
+    <cdf:IsAllocable>yes</cdf:IsAllocable>
+    <cdf:NumberVotes>1</cdf:NumberVotes>
+    <cdf:Status>generated-rules</cdf:Status>
+</cdf:CVRContestSelectionPosition>
+```
 
 ## Handling Overvotes
 
@@ -304,7 +302,7 @@ Can be represented with the XML below:
 
 Note that the marks are still accounted for, even though the votes will not be allocated to the *contest option* accumulators for Connie Pillich nor John Mandel, but instead to the *overvote* accumulator.
 
-> If the CVR producer wants a downstream processor to adjudicate the selection indications, it should set `IsAllocable` to `unknown`. (MOVE?)
+> If the CVR producer wants a downstream processor to adjudicate the selection indications, it should set `IsAllocable` to `unknown`.
 
 ## Write-Ins
 
