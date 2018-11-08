@@ -41,20 +41,20 @@
 					<cdf:Position>1</cdf:Position>
 					<cdf:SelectionPosition>
 						<cdf:HasIndication>yes</cdf:HasIndication>
-						<cdf:IsAllocable>yes</cdf:IsAllocable>
+						<cdf:IsAllocable>no</cdf:IsAllocable>
 						<cdf:NumberVotes>1</cdf:NumberVotes>
 					</cdf:SelectionPosition>
-					<cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
+					<cdf:TotalNumberVotes>0</cdf:TotalNumberVotes>
 				</cdf:CVRContestSelection>
 				<cdf:CVRContestSelection>
 					<cdf:ContestSelectionId>_1EJM</cdf:ContestSelectionId>
 					<cdf:Position>2</cdf:Position>
 					<cdf:SelectionPosition>
 						<cdf:HasIndication>yes</cdf:HasIndication>
-						<cdf:IsAllocable>yes</cdf:IsAllocable>
+						<cdf:IsAllocable>no</cdf:IsAllocable>
 						<cdf:NumberVotes>1</cdf:NumberVotes>
 					</cdf:SelectionPosition>
-					<cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
+					<cdf:TotalNumberVotes>0</cdf:TotalNumberVotes>
 				</cdf:CVRContestSelection>
 				<cdf:Overvotes>1</cdf:Overvotes>
 				<cdf:Undervotes>0</cdf:Undervotes>
@@ -158,13 +158,11 @@
 						<cdf:HasIndication>yes</cdf:HasIndication>
 						<cdf:IsAllocable>unknown</cdf:IsAllocable>
 						<cdf:Mark>
-							<cdf:MarkMetricValue>98</cdf:MarkMetricValue>
+							<cdf:MarkMetricValue>76</cdf:MarkMetricValue>
 						</cdf:Mark>
 						<cdf:NumberVotes>1</cdf:NumberVotes>
-					</cdf:SelectionPosition>
-					<cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
-				</cdf:CVRContestSelection>
-				<cdf:Undervotes>0</cdf:Undervotes>
+					</cdf:SelectionPosition>					
+				</cdf:CVRContestSelection>				
 			</cdf:CVRContest>
 			<cdf:Status>needs-adjudication</cdf:Status>
 			<cdf:Type>original</cdf:Type>
