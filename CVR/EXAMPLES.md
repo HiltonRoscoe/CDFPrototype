@@ -149,17 +149,17 @@ The selection of Sandra Kurt's contest option corresponds to the following XML f
 <cdf:CVRContestSelection>
     <cdf:ContestSelectionId>_1HSK</cdf:ContestSelectionId>
     <cdf:Position>3</cdf:Position>
-    <cdf:SelectionIndication>
+    <cdf:SelectionPosition>
+        <cdf:HasIndication>yes</cdf:HasIndication>
         <cdf:IsAllocable>yes</cdf:IsAllocable>
-        <cdf:IsIndication>true</cdf:IsIndication>
         <cdf:NumberVotes>1</cdf:NumberVotes>
         <cdf:Position>2</cdf:Position>
-    </cdf:SelectionIndication>
+    </cdf:SelectionPosition>
     <cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
 </cdf:CVRContestSelection>
 ```
 
-Sandra Kurt (`_1HSK`) position on the ballot is third (row), and the indicated contest position is second (column). This is represented by setting `CVRContestSelection/Position` to `3` and `SelectionIndication/Position` to `2`.
+Sandra Kurt (`_1HSK`) position on the ballot is third (row), and the indicated contest position is second (column). This is represented by setting `CVRContestSelection/Position` to `3` and `SelectionPosition/Position` to `2`.
 
 ### Indications
 
@@ -492,31 +492,34 @@ Consider the following contest:
     <cdf:CVRContestSelection>
         <cdf:ContestSelectionId>_1HIS</cdf:ContestSelectionId>
         <cdf:Position>2</cdf:Position>
-        <cdf:SelectionIndication>
+        <cdf:SelectionPosition>
+            <cdf:HasIndication>yes</cdf:HasIndication>
             <cdf:IsAllocable>yes</cdf:IsAllocable>
             <cdf:NumberVotes>1</cdf:NumberVotes>
             <cdf:Rank>2</cdf:Rank>
-        </cdf:SelectionIndication>
+        </cdf:SelectionPosition>
         <cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
     </cdf:CVRContestSelection>
     <cdf:CVRContestSelection>
         <cdf:ContestSelectionId>_1HDW</cdf:ContestSelectionId>
         <cdf:Position>3</cdf:Position>
-        <cdf:SelectionIndication>
+        <cdf:SelectionPosition>
+            <cdf:HasIndication>yes</cdf:HasIndication>
             <cdf:IsAllocable>yes</cdf:IsAllocable>
             <cdf:NumberVotes>1</cdf:NumberVotes>
             <cdf:Rank>1</cdf:Rank>
-        </cdf:SelectionIndication>
+        </cdf:SelectionPosition>
         <cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
     </cdf:CVRContestSelection>
     <cdf:CVRContestSelection>
         <cdf:ContestSelectionId>_1HSK</cdf:ContestSelectionId>
         <cdf:Position>6</cdf:Position>
-        <cdf:SelectionIndication>
+        <cdf:SelectionPosition>
+            <cdf:HasIndication>yes</cdf:HasIndication>
             <cdf:IsAllocable>yes</cdf:IsAllocable>
             <cdf:NumberVotes>1</cdf:NumberVotes>
             <cdf:Rank>3</cdf:Rank>
-        </cdf:SelectionIndication>
+        </cdf:SelectionPosition>
         <cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
     </cdf:CVRContestSelection>
     <cdf:Undervotes>0</cdf:Undervotes>
@@ -545,29 +548,32 @@ If the ballot was hand marked, then the following CVR could be constructed:
     <cdf:CVRContestSelection>
         <cdf:ContestSelectionId>_1HIS</cdf:ContestSelectionId>
         <cdf:Position>2</cdf:Position>
-        <cdf:SelectionIndication xsi:type="Mark">
+        <cdf:SelectionPosition>
+            <cdf:HasIndication>yes</cdf:HasIndication>
             <cdf:IsAllocable>yes</cdf:IsAllocable>
             <cdf:NumberVotes>1</cdf:NumberVotes>
             <cdf:Position>2</cdf:Position>
-        </cdf:SelectionIndication>
+        </cdf:SelectionPosition>
         <cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
     </cdf:CVRContestSelection>
     <cdf:CVRContestSelection>
         <cdf:ContestSelectionId>_1HDW</cdf:ContestSelectionId>
         <cdf:Position>3</cdf:Position>
-        <cdf:SelectionIndication xsi:type="Mark">
+        <cdf:SelectionPosition>
+            <cdf:HasIndication>yes</cdf:HasIndication>
             <cdf:IsAllocable>yes</cdf:IsAllocable>
             <cdf:NumberVotes>1</cdf:NumberVotes>
             <cdf:Position>1</cdf:Position>
-        </cdf:SelectionIndication>
-        <cdf:SelectionIndication xsi:type="Mark">
+        </cdf:SelectionPosition>
+        <cdf:SelectionPosition>
+            <cdf:HasIndication>yes</cdf:HasIndication>
             <cdf:IsAllocable>yes</cdf:IsAllocable>
             <cdf:NumberVotes>1</cdf:NumberVotes>
             <cdf:Position>3</cdf:Position>
-        </cdf:SelectionIndication>
-        <cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
+        </cdf:SelectionPosition>
+        <cdf:TotalNumberVotes>2</cdf:TotalNumberVotes>
     </cdf:CVRContestSelection>
-    <cdf:Undervotes>0</cdf:Undervotes>
+    <cdf:Undervotes>1</cdf:Undervotes>
 </cdf:CVRContest>
 ```
 
@@ -581,22 +587,24 @@ If the same vote was cast on a ballot marking device, the CVR could be simplifie
     <cdf:CVRContestSelection>
         <cdf:ContestSelectionId>_1HIS</cdf:ContestSelectionId>
         <cdf:Position>2</cdf:Position>
-        <cdf:SelectionIndication>
+        <cdf:SelectionPosition>
+            <cdf:HasIndication>yes</cdf:HasIndication>
             <cdf:IsAllocable>yes</cdf:IsAllocable>
-            <cdf:NumberVotes>1</cdf:NumberVotes>  
-        </cdf:SelectionIndication>
+            <cdf:NumberVotes>1</cdf:NumberVotes>
+        </cdf:SelectionPosition>
         <cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
     </cdf:CVRContestSelection>
     <cdf:CVRContestSelection>
         <cdf:ContestSelectionId>_1HDW</cdf:ContestSelectionId>
         <cdf:Position>3</cdf:Position>
-        <cdf:SelectionIndication>
+        <cdf:SelectionPosition>
+            <cdf:HasIndication>yes</cdf:HasIndication>
             <cdf:IsAllocable>yes</cdf:IsAllocable>
             <cdf:NumberVotes>2</cdf:NumberVotes>
-        </cdf:SelectionIndication>
-        <cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
+        </cdf:SelectionPosition>
+        <cdf:TotalNumberVotes>2</cdf:TotalNumberVotes>
     </cdf:CVRContestSelection>
-    <cdf:Undervotes>0</cdf:Undervotes>
+    <cdf:Undervotes>1</cdf:Undervotes>
 </cdf:CVRContest>
 ```
 
