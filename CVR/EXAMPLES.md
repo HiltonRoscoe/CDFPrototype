@@ -41,18 +41,15 @@ These examples show how to use the NIST CVR Common Data Format (1500-103 CDF) to
 
 ## Anatomy of a CVR
 
-(UPDATE LINE NUMBERS)
-
 > This section uses [Example 2](xml/example_2.xml)
 
-The CVR specification permits a wide range of data to be stored in a CVR, ranging from minimal information about the voted contests and contest selections to expanded information about all contests on the ballot as well as other items. This section explains the construction of a minimal 1500-103 instance, containing only the contests and candidates that were selected by the voter. It contains two CVRs, each indicating a selection for a candidate in a contest. Each CVR also references an image of the corresponding scanned ballot.
+The CVR specification permits a wide range of data to be stored in a CVR, ranging from minimal information about the selected contests and contest options to expanded information about all contests on the ballot as well as other items. This section explains the construction of a minimal 1500-103 instance, containing only the contests and candidates that were selected by the voter. It contains two CVRs, each indicating a selection for a candidate in a contest. Each CVR also references an image of the corresponding scanned ballot.
 
 > A 1500-103 instance (in XML or JSON) may contain one or more `CVRs`, which in turn must contain one or more `CVRSnapshots`, each representing a CVR at specific point in time.
 
-The file is divided roughly into two parts: the CVR elements at the beginning followed by other elements for defining the election and its contests, candidates, and contest selections so that the CVR elements can link to them as necessary. [Lines 181-220](https://github.com/HiltonRoscoe/CDFPrototype/blob/5efac5b395d178d83aaa06cefea6c02c449ded2f/CVR/xml/example_2.xml#L181-L220) describes an election containing the contest, candidate, and contest selection definitions.
+The file is divided roughly into two parts: the CVR elements at the beginning followed by other elements for defining the election and its contests, candidates, and contest selections so that the CVR elements can link to them as necessary. [Lines 205-244](https://github.com/HiltonRoscoe/CDFPrototype/blob/7ed877d24eb73510a22e87ffd987038f58c4035f/CVR/xml/example_2.xml#L205-L244) describe an election containing the contest, candidate, and contest selection definitions.
 
- The CVR elements link to these items by using identifiers defined in the contest, candidate, and contest selection's `ObjectId` attributes. For example, the contest definition [starting on line 204](https://github.com/HiltonRoscoe/CDFPrototype/blob/5efac5b395d178d83aaa06cefea6c02c449ded2f/CVR/xml/example_2.xml#L204-L218
-) contains:
+ The CVR elements link to these items by using identifiers defined in the contest, candidate, and contest selection's `ObjectId` attributes. For example, the contest definition [starting on line 228](https://github.com/HiltonRoscoe/CDFPrototype/blob/7ed877d24eb73510a22e87ffd987038f58c4035f/CVR/xml/example_2.xml#L228-L242) contains:
 
 ```xml
 <Contest ObjectId="_C1" xsi:type="CandidateContest">
@@ -62,11 +59,11 @@ so that CVR elements can link to this contest definition by using the `ObjectId`
 
 > Note that the object identifiers are not the same as the codes that a jurisdiction may use to identify contests or candidates. The object identifiers are entirely unique to a CVR report; the exporting application must add them as it builds the report file. These identifiers are used only as a means for linking contest, contest selections, etc., together within the report file.
 
-[Lines 3-180](https://github.com/HiltonRoscoe/CDFPrototype/blob/5efac5b395d178d83aaa06cefea6c02c449ded2f/CVR/xml/example_2.xml#L3-L180) contain the CVR elements. Each `CVR` element includes at least one `CVRSnapshot`.
+[Lines 3-204](https://github.com/HiltonRoscoe/CDFPrototype/blob/7ed877d24eb73510a22e87ffd987038f58c4035f/CVR/xml/example_2.xml#L3-L204) contain the CVR elements. Each `CVR` element includes at least one `CVRSnapshot`.
 
-> Each `CVRSnapshot` represents a particular `Type`, such as the `original` captured from a scanner, after it has been `interpreted` (i.e. business rules have been applied), or otherwise `modified`.
+> Each `CVRSnapshot` represents a particular `Type`, such as the `original` captured from a scanner, or after it has been `interpreted` (i.e. business rules have been applied), or otherwise `modified`.
 
-`CVRSnapshot` element includes one or more `CVRContest`, which links to the voted contest whose object identifier is `_C1`, thereby uniquely identifying that contest within the report file. It then includes `CVRContestSelection`, which links to a contest option that was selected by the voter.  Each `CVR` element also includes an optional sequence number (`SequenceNumber`); this isn’t required but could be helpful to auditors.
+`CVRSnapshot` element includes one or more `CVRContest`, which links to the voted contest whose object identifier is `_C1`, thereby identifying that contest within the report file. It then includes `CVRContestSelection`, which links to a contest option that was selected by the voter.  Each `CVR` element also includes an optional sequence number (`SequenceNumber`); this isn’t required but could be helpful to auditors.
 
 ## Basic Example
 
@@ -126,7 +123,7 @@ By dereferencing `_5TS`, we can see this does indeed represent a contest selecti
 
 ## SelectionPosition
 
-`SelectionPosition` is used to state facts about an area on the ballot where a voter's selection in a particular contest can be indicated. This may include its position on the ballot, the number of voter represented by its selection, evidentiary information regarding the existence of a `Mark` and determinations, among others.
+`SelectionPosition` is used to state facts about an area on the ballot where a voter's selection in a particular contest can be indicated. This may include its position on the ballot, the number of votes represented by its selection, evidentiary information regarding the existence of a `Mark` and determinations, among others.
 
 ### Position and Rank
 
@@ -143,7 +140,6 @@ Consider the following contest:
 |Sandra Kurt   |`[ ]`|`[X]`|`[ ]`|
 
 The selection of Sandra Kurt's contest option corresponds to the following XML fragment:
-(FIX EXAMPLE)
 
 ```xml
 <cdf:CVRContestSelection>
@@ -167,10 +163,11 @@ Sandra Kurt (`_1HSK`) position on the ballot is third (row), and the indicated c
 
 - A `Mark` made by the voter on a paper ballot
 - A `Mark` made by a marking device onto a full face paper ballot
+- An indication made by the voter using a DRE
 - An indication made by machine as a result applying business rules
 - An indication made by an adjudicator
 
-> `HasIndication` should be determined based on facts about the indication/`Mark` *alone*. This means, for example, that `HasIndication` should be set to `yes` even if its underlying selection is invalided due to contest rules.
+> `HasIndication` should be determined based on facts about the indication/`Mark` *alone*. This means, for example, that `HasIndication` should be set to `yes`, even if its underlying selection is invalided due to contest rules.
 
 ### Voter Made `Marks` (Paper Only)
 
@@ -183,6 +180,8 @@ A `Mark` provides evidence that an indication may exist, however, it does not co
 | machine-readable mark            | yes           |
 | marginally machine-readable mark | unknown       |
 | machine unreadable mark          | no            |
+
+Table: mapping of mark types to equivalent `HasIndication` values
 
 Marks should be treated as indelible. They can be added, but never removed from a CVR instance. `Marks` are **not** shorthand for votes.
 
@@ -341,8 +340,8 @@ can be represented with the following XML fragment:
             <cdf:IsAllocable>unknown</cdf:IsAllocable>
             <cdf:NumberVotes>1</cdf:NumberVotes>
         </cdf:SelectionPosition>
-        <cdf:Status>needs-adjudication</cdf:Status>        
-    </cdf:CVRContestSelection>    
+        <cdf:Status>needs-adjudication</cdf:Status>
+    </cdf:CVRContestSelection>
 </cdf:CVRContest>
 ```
 
@@ -352,7 +351,7 @@ Note that this fragment is the `original` CVR from the `CreatingDevice`, and thu
 
 The text of the write-in is `John Smith`. This is represented using the `Text` element.
 
-> `CVRContestSelectionPosition` represents both the selection of the *write-in contest option* *and* the write-in itself. Thus it is not possible to say that the selection of the write-in option is valid, but the write-in name provided is not.
+> `SelectionPosition` represents both the selection of the *write-in contest option* *and* the write-in itself. Thus it is not possible to say that the selection of the write-in option is valid, but the write-in name provided is not.
 
 If John Smith was determined to be a valid write-in, then the following may occur:
 
@@ -486,6 +485,8 @@ Consider the following contest:
 |Debbie Walsh  |`[x]`|`[ ]`|`[ ]`|
 |Sandra Kurt   |`[ ]`|`[ ]`|`[x]`|
 
+Table: Representation of a RCV contest
+
 ```xml
 <cdf:CVRContest>
     <cdf:ContestId>_9CC</cdf:ContestId>
@@ -539,6 +540,8 @@ Consider the following contest:
 |Ilene Shapiro |`[ ]`|`[x]`|`[ ]`|
 |Debbie Walsh  |`[x]`|`[ ]`|`[x]`|
 |Sandra Kurt   |`[ ]`|`[ ]`|`[ ]`|
+
+Table: Representation of a cumulative voting contest
 
 If the ballot was hand marked, then the following CVR could be constructed:
 
@@ -604,7 +607,7 @@ If the same vote was cast on a ballot marking device, the CVR could be simplifie
         </cdf:SelectionPosition>
         <cdf:TotalNumberVotes>2</cdf:TotalNumberVotes>
     </cdf:CVRContestSelection>
-    <cdf:Undervotes>1</cdf:Undervotes>
+    <cdf:Undervotes>0</cdf:Undervotes>
 </cdf:CVRContest>
 ```
 
