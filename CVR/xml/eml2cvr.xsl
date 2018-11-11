@@ -211,12 +211,12 @@
 			</cdf:ContestId>
 			<xsl:apply-templates select="eml:BallotChoices/*[self::eml:Candidate or self::eml:WriteInCandidate]"/>
 			<cdf:Undervotes>
-				<xsl:value-of select="eml:MaxVotes - count(eml:BallotChoices/*[self::eml:Candidate or self::eml:WriteInCandidate][eml:Selected])"/>
+				<xsl:value-of select="eml:MaxVotes - count(eml:BallotChoices/*[self::eml:Candidate or self::eml:WriteInCandidate][eml:Selected = 'true'])"/>
 			</cdf:Undervotes>
 		</cdf:CVRContest>
 	</xsl:template>
 	<xsl:template match="eml:Candidate">
-		<xsl:if test="eml:Selected">
+		<xsl:if test="eml:Selected = 'true'">
 			<cdf:CVRContestSelection>
 				<cdf:ContestSelectionId>
 					<xsl:value-of select="concat('_', eml:CandidateIdentifier/@IdNumber)"/>
@@ -227,13 +227,13 @@
 				<cdf:SelectionPosition>
 					<cdf:HasIndication>
 						<xsl:choose>
-							<xsl:when test="eml:Selected">yes</xsl:when>
+							<xsl:when test="eml:Selected = 'true'">yes</xsl:when>
 							<xsl:otherwise>no</xsl:otherwise>
 						</xsl:choose>
 					</cdf:HasIndication>
 					<cdf:IsAllocable>
 						<xsl:choose>
-							<xsl:when test="eml:Selected">yes</xsl:when>
+							<xsl:when test="eml:Selected = 'true'">yes</xsl:when>
 							<xsl:otherwise>no</xsl:otherwise>
 						</xsl:choose>
 					</cdf:IsAllocable>
@@ -249,7 +249,7 @@
 		</xsl:if>
 	</xsl:template>
 	<xsl:template match="eml:WriteInCandidate">
-		<xsl:if test="eml:Selected">
+		<xsl:if test="eml:Selected = 'true'">
 			<cdf:CVRContestSelection>
 				<cdf:Position>
 					<xsl:value-of select="position()"/>
@@ -262,19 +262,19 @@
 					</cdf:CVRWriteIn>				
 					<cdf:HasIndication>
 						<xsl:choose>
-							<xsl:when test="eml:Selected">yes</xsl:when>
+							<xsl:when test="eml:Selected = 'true'">yes</xsl:when>
 							<xsl:otherwise>no</xsl:otherwise>
 						</xsl:choose>
 					</cdf:HasIndication>
 					<cdf:IsAllocable>
 						<xsl:choose>
-							<xsl:when test="eml:Selected">yes</xsl:when>
+							<xsl:when test="eml:Selected = 'true'">yes</xsl:when>
 							<xsl:otherwise>no</xsl:otherwise>
 						</xsl:choose>
 					</cdf:IsAllocable>
 					<cdf:NumberVotes>
 						<xsl:choose>
-							<xsl:when test="eml:Selected">1</xsl:when>
+							<xsl:when test="eml:Selected  = 'true'">1</xsl:when>
 							<xsl:otherwise>0</xsl:otherwise>
 						</xsl:choose>
 					</cdf:NumberVotes>
