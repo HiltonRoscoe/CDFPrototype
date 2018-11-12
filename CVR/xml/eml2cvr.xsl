@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?altova_samplexml file:///c:/temp/emlforrcv.xml?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:eml="urn:oasis:names:tc:evs:schema:eml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exclude-result-prefixes="eml xsi" xmlns:cdf="NIST_V0_cast_vote_records.xsd">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:eml="urn:oasis:names:tc:evs:schema:eml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exclude-result-prefixes="eml xsi" xmlns:cdf="NIST_V0_cast_vote_records.xsd" xsi:schemaLocation="NIST_V0_cast_vote_records.xsd file:///C:/Users/john/Documents/GitHub/CastVoteRecords/NIST_V0_cast_vote_records.xsd">
 	<xsl:output method="xml"/>
 	<xsl:key name="party-by-name" match="eml:AffiliationIdentifier" use="eml:RegisteredName"/>
 	<!-- global mode templates, for reusable object generation -->
 	<xsl:template match="eml:Candidate[eml:CandidateIdentifier]" mode="global">
 		<cdf:Candidate>
-			<xsl:attribute name="ObjectId">
-				<xsl:value-of select="concat('_', eml:CandidateIdentifier/@IdNumber)"/>
-			</xsl:attribute>
+			<xsl:attribute name="ObjectId"><xsl:value-of select="concat('_', eml:CandidateIdentifier/@IdNumber)"/></xsl:attribute>
 			<cdf:Code>
 				<cdf:Type>local-level</cdf:Type>
 				<cdf:Value>
@@ -30,9 +28,7 @@
 	</xsl:template>
 	<xsl:template match="eml:Contest[eml:BallotChoices/eml:Candidate/eml:CandidateIdentifier or eml:WriteInCandidate]" mode="global">
 		<cdf:Contest xsi:type="cdf:CandidateContest">
-			<xsl:attribute name="ObjectId">
-				<xsl:value-of select="concat('_', eml:ContestIdentifier/@IdNumber)"/>
-			</xsl:attribute>
+			<xsl:attribute name="ObjectId"><xsl:value-of select="concat('_', eml:ContestIdentifier/@IdNumber)"/></xsl:attribute>
 			<cdf:Code>
 				<cdf:Type>local-level</cdf:Type>
 				<cdf:Value>
@@ -41,9 +37,7 @@
 			</cdf:Code>
 			<xsl:for-each select="eml:BallotChoices/eml:Candidate">
 				<cdf:ContestSelection xsi:type="cdf:CandidateSelection">
-					<xsl:attribute name="ObjectId">
-						<xsl:value-of select="concat('_CS', eml:CandidateIdentifier/@IdNumber)"/>
-					</xsl:attribute>
+					<xsl:attribute name="ObjectId"><xsl:value-of select="concat('_CS', eml:CandidateIdentifier/@IdNumber)"/></xsl:attribute>
 					<cdf:CandidateIds>
 						<xsl:value-of select="concat('_', eml:CandidateIdentifier/@IdNumber)"/>
 					</cdf:CandidateIds>
@@ -67,9 +61,7 @@
 	</xsl:template>
 	<xsl:template match="eml:Contest[eml:BallotChoices/eml:Affiliation]" mode="global">
 		<cdf:Contest xsi:type="cdf:PartyContest">
-			<xsl:attribute name="ObjectId">
-				<xsl:value-of select="concat('_', eml:ContestIdentifier/@IdNumber)"/>
-			</xsl:attribute>
+			<xsl:attribute name="ObjectId"><xsl:value-of select="concat('_', eml:ContestIdentifier/@IdNumber)"/></xsl:attribute>
 			<cdf:Code>
 				<cdf:Type>local-level</cdf:Type>
 				<cdf:Value>
@@ -78,9 +70,7 @@
 			</cdf:Code>
 			<xsl:for-each select="eml:BallotChoices/eml:Affiliation">
 				<cdf:ContestSelection xsi:type="cdf:PartySelection">
-					<xsl:attribute name="ObjectId">
-						<xsl:value-of select="concat('_CS', eml:AffiliationIdentifier/eml:RegisteredName)"/>
-					</xsl:attribute>
+					<xsl:attribute name="ObjectId"><xsl:value-of select="concat('_CS', eml:AffiliationIdentifier/eml:RegisteredName)"/></xsl:attribute>
 					<cdf:PartyIds>
 						<xsl:value-of select="concat('_', eml:AffiliationIdentifier/eml:RegisteredName)"/>
 					</cdf:PartyIds>
@@ -101,9 +91,7 @@
 	</xsl:template>
 	<xsl:template match="eml:Contest[eml:BallotChoices/eml:Candidate/eml:ProposalItem]" mode="global">
 		<cdf:Contest xsi:type="cdf:BallotMeasureContest">
-			<xsl:attribute name="ObjectId">
-				<xsl:value-of select="concat('_', eml:ContestIdentifier/@IdNumber)"/>
-			</xsl:attribute>
+			<xsl:attribute name="ObjectId"><xsl:value-of select="concat('_', eml:ContestIdentifier/@IdNumber)"/></xsl:attribute>
 			<cdf:Code>
 				<cdf:Type>local-level</cdf:Type>
 				<cdf:Value>
@@ -112,9 +100,7 @@
 			</cdf:Code>
 			<xsl:for-each select="eml:BallotChoices/eml:Candidate/eml:ProposalItem">
 				<cdf:ContestSelection xsi:type="cdf:BallotMeasureSelection">
-					<xsl:attribute name="ObjectId">
-						<xsl:value-of select="concat('_CS', @ReferendumOptionIdentifier)"/>
-					</xsl:attribute>
+					<xsl:attribute name="ObjectId"><xsl:value-of select="concat('_CS', @ReferendumOptionIdentifier)"/></xsl:attribute>
 					<cdf:Selection>
 						<xsl:value-of select="eml:SelectionText"/>
 					</cdf:Selection>
@@ -133,14 +119,13 @@
 			</cdf:VoteVariation>
 		</cdf:Contest>
 	</xsl:template>
+	<!-- begin consumptive templates -->
 	<xsl:template match="eml:EMLHeader"> </xsl:template>
 	<xsl:template match="/eml:EML">
 		<cdf:CastVoteRecordReport xsi:schemaLocation="NIST_V0_cast_vote_records.xsd file:///C:/Users/john/Documents/GitHub/CastVoteRecords/NIST_V0_cast_vote_records.xsd">
 			<xsl:apply-templates/>
 			<cdf:Election>
-				<xsl:attribute name="ObjectId">
-					<xsl:value-of select="concat('_', eml:Ballots/eml:EventIdentifier/@IdNumber)"/>
-				</xsl:attribute>
+				<xsl:attribute name="ObjectId"><xsl:value-of select="concat('_', eml:Ballots/eml:EventIdentifier/@IdNumber)"/></xsl:attribute>
 				<xsl:apply-templates select="eml:Ballots/eml:Ballot/eml:Election/eml:Contest/eml:BallotChoices/eml:Candidate" mode="global"> </xsl:apply-templates>
 				<cdf:Code>
 					<cdf:Type>local-level</cdf:Type>
@@ -168,9 +153,7 @@
 			<cdf:Notes>Example using the NIST CVR CDF</cdf:Notes>
 			<xsl:for-each select="eml:Ballots/eml:Ballot/eml:Election/eml:Contest/eml:BallotChoices/eml:Candidate/eml:Affiliation/eml:AffiliationIdentifier[count(. | key('party-by-name', eml:RegisteredName)[1]) = 1]">
 				<cdf:Party>
-					<xsl:attribute name="ObjectId">
-						<xsl:value-of select="concat('_', eml:RegisteredName)"/>
-					</xsl:attribute>
+					<xsl:attribute name="ObjectId"><xsl:value-of select="concat('_', eml:RegisteredName)"/></xsl:attribute>
 					<cdf:Name>
 						<xsl:value-of select="eml:RegisteredName"/>
 					</cdf:Name>
@@ -185,23 +168,25 @@
 			<cdf:Version>1.0.0</cdf:Version>
 		</cdf:CastVoteRecordReport>
 	</xsl:template>
-	<xsl:template match="eml:Ballots">
+	<!-- generate a CVR for every eml:Ballot -->
+	<xsl:template match="eml:Ballots/eml:Ballot">
 		<cdf:CVR>
 			<cdf:BallotStyleId>
-				<xsl:value-of select="concat('_', eml:Ballot/eml:BallotIdentifier/@IdNumber)"/>
+				<xsl:value-of select="concat('_', eml:BallotIdentifier/@IdNumber)"/>
 			</cdf:BallotStyleId>
-			<!-- this will break down if we allow multiple CVRs to be transformed -->
-			<cdf:CurrentSnapshotId>cvr-only</cdf:CurrentSnapshotId>
-			<cdf:CVRSnapshot ObjectId="cvr-only">
-				<xsl:apply-templates select="eml:Ballot/eml:Election/eml:Contest"/>
-				<cdf:OtherStatus>cast</cdf:OtherStatus>
-				<cdf:Status>other</cdf:Status>
+			<cdf:CreatingDeviceId>rd</cdf:CreatingDeviceId>
+			<!-- only one snapshot when coming from BMD -->
+			<cdf:CurrentSnapshotId>
+				<xsl:value-of select="generate-id(current())"/>
+			</cdf:CurrentSnapshotId>
+			<cdf:CVRSnapshot>
+				<xsl:attribute name="ObjectId"><xsl:value-of select="generate-id(current())"/></xsl:attribute>
+				<xsl:apply-templates select="eml:Election/eml:Contest"/>
 				<cdf:Type>original</cdf:Type>
 			</cdf:CVRSnapshot>
 			<cdf:ElectionId>
 				<xsl:value-of select="concat('_', eml:EventIdentifier/@IdNumber)"/>
 			</cdf:ElectionId>
-			<!--<cdf:OriginatingDevice>rd</cdf:OriginatingDevice>-->
 		</cdf:CVR>
 	</xsl:template>
 	<xsl:template match="eml:Contest">
@@ -209,13 +194,32 @@
 			<cdf:ContestId>
 				<xsl:value-of select="concat('_', eml:ContestIdentifier/@IdNumber)"/>
 			</cdf:ContestId>
-			<xsl:apply-templates select="eml:BallotChoices/*[self::eml:Candidate or self::eml:WriteInCandidate]"/>
+			<xsl:variable name="maxMinusIndication" select="eml:MaxVotes - count(eml:BallotChoices/*[self::eml:Candidate or self::eml:WriteInCandidate][eml:Selected = 'true'])"/>
+			<xsl:variable name="isOvervoted" select="0 > $maxMinusIndication"/>
+			<xsl:apply-templates select="eml:BallotChoices/*[self::eml:Candidate or self::eml:WriteInCandidate]">
+				<xsl:with-param name="isOvervoted" select="$isOvervoted"/>
+			</xsl:apply-templates>
+			<cdf:Overvotes>
+				<xsl:choose>
+					<xsl:when test="$maxMinusIndication >= 0">0</xsl:when>
+					<xsl:otherwise>
+						<xsl:value-of select="eml:MaxVotes"/>
+					</xsl:otherwise>
+				</xsl:choose>
+			</cdf:Overvotes>
 			<cdf:Undervotes>
-				<xsl:value-of select="eml:MaxVotes - count(eml:BallotChoices/*[self::eml:Candidate or self::eml:WriteInCandidate][eml:Selected = 'true'])"/>
+				<xsl:choose>
+					<xsl:when test="$maxMinusIndication >= 0">
+						<xsl:value-of select="$maxMinusIndication"/>
+					</xsl:when>
+					<xsl:otherwise>0</xsl:otherwise>
+				</xsl:choose>
 			</cdf:Undervotes>
 		</cdf:CVRContest>
 	</xsl:template>
-	<xsl:template match="eml:Candidate">
+	<xsl:template match="eml:Candidate|eml:WriteInCandidate">
+		<xsl:param name="isOvervoted"/>
+		<!-- only emit selection when an indication exists -->
 		<xsl:if test="eml:Selected = 'true'">
 			<cdf:CVRContestSelection>
 				<cdf:ContestSelectionId>
@@ -225,6 +229,14 @@
 					<xsl:value-of select="position()"/>
 				</cdf:Position>
 				<cdf:SelectionPosition>
+					<xsl:if test="name() = 'WriteInCandidate'">
+						<cdf:CVRWriteIn>
+							<cdf:Text>
+								<xsl:value-of select="eml:Name"/>
+							</cdf:Text>
+						</cdf:CVRWriteIn>
+					</xsl:if>
+					<!-- always true for BMDs / DREs -->
 					<cdf:HasIndication>
 						<xsl:choose>
 							<xsl:when test="eml:Selected = 'true'">yes</xsl:when>
@@ -233,7 +245,7 @@
 					</cdf:HasIndication>
 					<cdf:IsAllocable>
 						<xsl:choose>
-							<xsl:when test="eml:Selected = 'true'">yes</xsl:when>
+							<xsl:when test="eml:Selected = 'true' and $isOvervoted = false()">yes</xsl:when>
 							<xsl:otherwise>no</xsl:otherwise>
 						</xsl:choose>
 					</cdf:IsAllocable>
@@ -244,46 +256,12 @@
 						</cdf:Rank>
 					</xsl:if>
 				</cdf:SelectionPosition>
-				<cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
-			</cdf:CVRContestSelection>
-		</xsl:if>
-	</xsl:template>
-	<xsl:template match="eml:WriteInCandidate">
-		<xsl:if test="eml:Selected = 'true'">
-			<cdf:CVRContestSelection>
-				<cdf:Position>
-					<xsl:value-of select="position()"/>
-				</cdf:Position>
-				<cdf:SelectionPosition>
-					<cdf:CVRWriteIn>
-						<cdf:Text>
-							<xsl:value-of select="eml:Name"/>
-						</cdf:Text>				
-					</cdf:CVRWriteIn>				
-					<cdf:HasIndication>
-						<xsl:choose>
-							<xsl:when test="eml:Selected = 'true'">yes</xsl:when>
-							<xsl:otherwise>no</xsl:otherwise>
-						</xsl:choose>
-					</cdf:HasIndication>
-					<cdf:IsAllocable>
-						<xsl:choose>
-							<xsl:when test="eml:Selected = 'true'">yes</xsl:when>
-							<xsl:otherwise>no</xsl:otherwise>
-						</xsl:choose>
-					</cdf:IsAllocable>
-					<cdf:NumberVotes>
-						<xsl:choose>
-							<xsl:when test="eml:Selected  = 'true'">1</xsl:when>
-							<xsl:otherwise>0</xsl:otherwise>
-						</xsl:choose>
-					</cdf:NumberVotes>
-					<xsl:if test="eml:Selected and eml:Selected != 'true'">
-						<cdf:Rank>
-							<xsl:value-of select="eml:Selected"/>
-						</cdf:Rank>
-					</xsl:if>
-				</cdf:SelectionPosition>				
+				<cdf:TotalNumberVotes>
+					<xsl:choose>
+						<xsl:when test="eml:Selected = 'true' and $isOvervoted = false()">1</xsl:when>
+						<xsl:otherwise>0</xsl:otherwise>
+					</xsl:choose>
+				</cdf:TotalNumberVotes>
 			</cdf:CVRContestSelection>
 		</xsl:if>
 	</xsl:template>
