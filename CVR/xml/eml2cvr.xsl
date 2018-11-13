@@ -194,33 +194,37 @@
 			<cdf:ContestId>
 				<xsl:value-of select="concat('_', eml:ContestIdentifier/@IdNumber)"/>
 			</cdf:ContestId>
+			<!-- only catches overvotes for plurality voting -->
 			<xsl:variable name="maxMinusIndication" select="eml:MaxVotes - count(eml:BallotChoices/*[self::eml:Candidate or self::eml:WriteInCandidate][eml:Selected = 'true'])"/>
 			<xsl:variable name="isOvervoted" select="0 > $maxMinusIndication"/>
 			<xsl:apply-templates select="eml:BallotChoices/*[self::eml:Candidate or self::eml:WriteInCandidate]">
 				<xsl:with-param name="isOvervoted" select="$isOvervoted"/>
 			</xsl:apply-templates>
-			<cdf:Overvotes>
-				<xsl:choose>
-					<xsl:when test="$maxMinusIndication >= 0">0</xsl:when>
-					<xsl:otherwise>
-						<xsl:value-of select="eml:MaxVotes"/>
-					</xsl:otherwise>
-				</xsl:choose>
-			</cdf:Overvotes>
-			<cdf:Undervotes>
-				<xsl:choose>
-					<xsl:when test="$maxMinusIndication >= 0">
-						<xsl:value-of select="$maxMinusIndication"/>
-					</xsl:when>
-					<xsl:otherwise>0</xsl:otherwise>
-				</xsl:choose>
-			</cdf:Undervotes>
+			<!-- only emit Overvotes / Undervotes for FPP contests -->
+			<xsl:if test="eml:VotingMethod = 'FPP'">
+				<cdf:Overvotes>
+					<xsl:choose>
+						<xsl:when test="$maxMinusIndication >= 0">0</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="eml:MaxVotes"/>
+						</xsl:otherwise>
+					</xsl:choose>
+				</cdf:Overvotes>
+				<cdf:Undervotes>
+					<xsl:choose>
+						<xsl:when test="$maxMinusIndication >= 0">
+							<xsl:value-of select="$maxMinusIndication"/>
+						</xsl:when>
+						<xsl:otherwise>0</xsl:otherwise>
+					</xsl:choose>
+				</cdf:Undervotes>
+			</xsl:if>
 		</cdf:CVRContest>
 	</xsl:template>
 	<xsl:template match="eml:Candidate|eml:WriteInCandidate">
 		<xsl:param name="isOvervoted"/>
 		<!-- only emit selection when an indication exists -->
-		<xsl:if test="eml:Selected = 'true'">
+		<xsl:if test="eml:Selected != '' and eml:Selected != 'false'">
 			<cdf:CVRContestSelection>
 				<cdf:ContestSelectionId>
 					<xsl:value-of select="concat('_', eml:CandidateIdentifier/@IdNumber)"/>
@@ -239,18 +243,18 @@
 					<!-- always true for BMDs / DREs -->
 					<cdf:HasIndication>
 						<xsl:choose>
-							<xsl:when test="eml:Selected = 'true'">yes</xsl:when>
+							<xsl:when test="eml:Selected != '' and eml:Selected != 'false'">yes</xsl:when>
 							<xsl:otherwise>no</xsl:otherwise>
 						</xsl:choose>
 					</cdf:HasIndication>
 					<cdf:IsAllocable>
 						<xsl:choose>
-							<xsl:when test="eml:Selected = 'true' and $isOvervoted = false()">yes</xsl:when>
+							<xsl:when test="eml:Selected != '' and $isOvervoted = false()">yes</xsl:when>
 							<xsl:otherwise>no</xsl:otherwise>
 						</xsl:choose>
 					</cdf:IsAllocable>
 					<cdf:NumberVotes>1</cdf:NumberVotes>
-					<xsl:if test="eml:Selected and eml:Selected != 'true'">
+					<xsl:if test="eml:Selected and eml:Selected != 'true' and eml:Selected != 'false'">
 						<cdf:Rank>
 							<xsl:value-of select="eml:Selected"/>
 						</cdf:Rank>
@@ -258,7 +262,7 @@
 				</cdf:SelectionPosition>
 				<cdf:TotalNumberVotes>
 					<xsl:choose>
-						<xsl:when test="eml:Selected = 'true' and $isOvervoted = false()">1</xsl:when>
+						<xsl:when test="eml:Selected != '' and $isOvervoted = false()">1</xsl:when>
 						<xsl:otherwise>0</xsl:otherwise>
 					</xsl:choose>
 				</cdf:TotalNumberVotes>

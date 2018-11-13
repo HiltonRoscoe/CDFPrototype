@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:oasis:names:tc:evs:schema:eml" xmlns:ts="urn:oasis:names:tc:evs:schema:eml:ts" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:al="urn:oasis:names:tc:ciq:xal:4" xmlns:nl="urn:oasis:names:tc:ciq:xnl:4" Id="410" SchemaVersion="7.0" xsi:schemaLocation="urn:oasis:names:tc:evs:schema:eml file:///C:/Users/john/Documents/GitHub/RemoteBallotMarking/xsd/410-ballots-v7-0.xsd">
+	<!-- this stuff up-front is the stuff that identifies what kind of EML message and how to handle it -->
+	<EMLHeader>
+		<TransactionId>410</TransactionId>
+		<!--a fixed constant value of 410 for this message -->
+		<SequenceNumber>1</SequenceNumber>
+		<!-- we will always put out 1 message with all ballot types for the jurisdiction's election -->
+		<NumberInSequence>1</NumberInSequence>
+		<!--so it will always be message 1 of 1 -->
+		<SequencedElementName>2014-11-04S1</SequencedElementName>
+		<!--this is a name that ties the messages together if you have more than one
+           generate it at random but must keep the same if you have 2-of-x, 3-of-x, etc
+		   JND using date of election plus stub
+  		-->
+		<OfficialStatusDetail>
+			<OfficialStatus>official</OfficialStatus>
+			<!--always use official -->
+			<StatusDate>2014-10-16</StatusDate>
+			<!--use the current date -->
+		</OfficialStatusDetail>
+	</EMLHeader>
+	<!-- end of up-front stuff -->
+	<Ballots>
+		<EventIdentifier IdNumber="AK2014General"/>
+		<!--This event name is assigned by the EMS -->
+		<Ballot>
+			<ReportingUnitIdentifier IdNumber="77"/>
+			<!--This tells us the polling group the ballot form is for -->
+			<Election>
+				<ElectionIdentifier IdNumber="2014-11-04G"/>
+				<!-- the election name is assigned by the EMS -->
+				<Contest DisplayOrder="1">
+					<!-- load with the order on the ballot that this contest should be placed -->
+					<ContestIdentifier IdNumber="1GO">
+						<!--unique value for the contest -->
+						<ContestName>For Governor and Lieutenant Governor</ContestName>
+						<!--load with the contest display name -->
+					</ContestIdentifier>
+					<HowToVote>
+						<Message>(To vote for Governor and Lieutenant Governor, darken the oval at the left of the joint candidates of your choice)</Message>
+					</HowToVote>
+					<Rotation>yes</Rotation>
+					<!-- valid values are: yes/no -->
+					<RotationMethod>Standard</RotationMethod>
+					<!-- This is a Token for the method used for rotation -->
+					<VotingMethod>IRV</VotingMethod>
+					<!-- IRV for First Past Post, IRV for Instant Runoff / Ranked Choice -->
+					<ChoiceType>x</ChoiceType>
+					<!-- This is a Token for the choice type -->
+					<MaxVotes>1</MaxVotes>
+					<!-- self explanitory -->
+					<MinVotes>0</MinVotes>
+					<!-- self explanitory -->
+					<MaxWriteIn>0</MaxWriteIn>
+					<!-- self explanitory -->
+					<BallotChoices>
+						<Candidate>
+							<CandidateIdentifier IdNumber="1AEF"/>
+							<!-- load with candidate unique identifier -->
+							<CandidateFullName>
+								<NameElement ElementType="fullname">Edward FitzGerald and Sharen Swartz Neuhardt</NameElement>
+							</CandidateFullName>
+							<StatusDetails/>
+							<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+							<Affiliation>
+								<AffiliationIdentifier>
+									<RegisteredName>Democratic</RegisteredName>
+								</AffiliationIdentifier>
+								<Type/>
+							</Affiliation>
+							<!-- self explanitory -->
+						</Candidate>
+						<Candidate>
+							<CandidateIdentifier IdNumber="1AJK"/>
+							<CandidateFullName>
+								<NameElement ElementType="fullname">
+									<body xmlns="http://www.w3.org/1999/xhtml">John Kasich and <br/> Mary Taylor</body>
+								</NameElement>
+							</CandidateFullName>
+							<StatusDetails/>
+							<Affiliation>
+								<AffiliationIdentifier>
+									<RegisteredName>Republican</RegisteredName>
+								</AffiliationIdentifier>
+								<Type/>
+							</Affiliation>
+						</Candidate>
+						<Candidate>
+							<CandidateIdentifier IdNumber="1AAR"/>
+							<CandidateFullName>
+								<NameElement ElementType="fullname">Anita Rios and Bob Fitrakis</NameElement>
+							</CandidateFullName>
+							<StatusDetails/>
+							<Affiliation>
+								<AffiliationIdentifier>
+									<RegisteredName>Green</RegisteredName>
+								</AffiliationIdentifier>
+								<Type/>
+							</Affiliation>
+						</Candidate>
+						<WriteInCandidate>
+							<Name/>
+						</WriteInCandidate>
+					</BallotChoices>
+					<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+				</Contest>
+				<Contest DisplayOrder="2">
+					<!-- load with the order on the ballot that this contest should be placed -->
+					<ContestIdentifier IdNumber="2AG">
+						<!--unique value for the contest -->
+						<ContestName>For Attorney General</ContestName>
+						<!--load with the contest display name -->
+					</ContestIdentifier>
+					<Rotation>yes</Rotation>
+					<!-- valid values are: yes/no -->
+					<RotationMethod>Standard</RotationMethod>
+					<!-- This is a Token for the method used for rotation -->
+					<VotingMethod>IRV</VotingMethod>
+					<!-- IRV for First Past Post, IRV for Instant Runoff / Ranked Choice -->				
+					<ChoiceType>x</ChoiceType>
+					<!-- This is a Token for the choice type -->
+					<MaxVotes>1</MaxVotes>
+					<!-- self explanitory -->
+					<MinVotes>0</MinVotes>
+					<!-- self explanitory -->
+					<MaxWriteIn>0</MaxWriteIn>
+					<!-- self explanitory -->
+					<BallotChoices>
+						<Candidate>
+							<CandidateIdentifier IdNumber="1BDP"/>
+							<!-- load with candidate unique identifier -->
+							<CandidateFullName>
+								<NameElement ElementType="fullname">David Pepper</NameElement>
+							</CandidateFullName>
+							<StatusDetails/>
+							<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+							<Affiliation>
+								<AffiliationIdentifier>
+									<RegisteredName>Democratic</RegisteredName>
+								</AffiliationIdentifier>
+								<Type/>
+							</Affiliation>
+							<!-- self explanitory -->
+						</Candidate>
+						<Candidate>
+							<CandidateIdentifier IdNumber="1BMD"/>
+							<CandidateFullName>
+								<NameElement ElementType="fullname">Mike DeWine</NameElement>
+							</CandidateFullName>
+							<StatusDetails/>
+							<Affiliation>
+								<AffiliationIdentifier>
+									<RegisteredName>Republican</RegisteredName>
+								</AffiliationIdentifier>
+								<Type/>
+							</Affiliation>
+						</Candidate>
+					</BallotChoices>
+					<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+				</Contest>
+				<Contest DisplayOrder="3">
+					<!-- load with the order on the ballot that this contest should be placed -->
+					<ContestIdentifier IdNumber="3AS">
+						<!--unique value for the contest -->
+						<ContestName>For Auditor of State</ContestName>
+						<!--load with the contest display name -->
+					</ContestIdentifier>
+					<Rotation>yes</Rotation>
+					<!-- valid values are: yes/no -->
+					<RotationMethod>Standard</RotationMethod>
+					<!-- This is a Token for the method used for rotation -->
+					<VotingMethod>IRV</VotingMethod>
+					<ChoiceType>x</ChoiceType>
+					<!-- This is a Token for the choice type -->
+					<MaxVotes>1</MaxVotes>
+					<!-- self explanitory -->
+					<MinVotes>0</MinVotes>
+					<!-- self explanitory -->
+					<MaxWriteIn>0</MaxWriteIn>
+					<!-- self explanitory -->
+					<BallotChoices>
+						<Candidate>
+							<CandidateIdentifier IdNumber="1CBB"/>
+							<!-- load with candidate unique identifier -->
+							<CandidateFullName>
+								<NameElement ElementType="fullname">Bob Bridges</NameElement>
+							</CandidateFullName>
+							<StatusDetails/>
+							<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+							<Affiliation>
+								<AffiliationIdentifier>
+									<RegisteredName>Libertarian</RegisteredName>
+								</AffiliationIdentifier>
+								<Type/>
+							</Affiliation>
+							<!-- self explanitory -->
+						</Candidate>
+						<Candidate>
+							<CandidateIdentifier IdNumber="1CJC"/>
+							<CandidateFullName>
+								<NameElement ElementType="fullname">John Patrick Carney</NameElement>
+							</CandidateFullName>
+							<StatusDetails/>
+							<Affiliation>
+								<AffiliationIdentifier>
+									<RegisteredName>Democratic</RegisteredName>
+								</AffiliationIdentifier>
+								<Type/>
+							</Affiliation>
+						</Candidate>
+						<Candidate>
+							<CandidateIdentifier IdNumber="1CDY"/>
+							<CandidateFullName>
+								<NameElement ElementType="fullname">David Yost</NameElement>
+							</CandidateFullName>
+							<StatusDetails/>
+							<Affiliation>
+								<AffiliationIdentifier>
+									<RegisteredName>Republican</RegisteredName>
+								</AffiliationIdentifier>
+								<Type/>
+							</Affiliation>
+						</Candidate>
+					</BallotChoices>
+					<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+				</Contest>						
+			</Election>
+			<BallotIdentifier IdNumber="01-0052-01">
+				<BallotName>0520 Akron 4-L 01</BallotName>
+			</BallotIdentifier>
+			<!-- Stub Number -->
+		</Ballot>
+	</Ballots>
+</EML>
