@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///C:/Users/john/Documents/GitHub/CDFPrototype/CVR/xml/testdeck.xsd">
+<?altova_samplexml file:///C:/Users/john/Documents/GitHub/CDFPrototype/CVR/xml/rcv_test_deck/testexport.xml?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///C:/Users/john/Documents/GitHub/CDFPrototype/CVR/xml/rcv_test_deck/testdeck.xsd">
 	<xsl:output method="xml"/>
 	<xsl:template match="/">
 		<CastVoteRecordReport>
@@ -14,30 +15,44 @@
 				<ElectionScopeId>gpu-001</ElectionScopeId>
 			</Election>
 			<GeneratedDate>2018-11-21T00:00:00</GeneratedDate>
-			<GpUnit ObjectId="gpu-001">				
+			<GpUnit ObjectId="gpu-001">
 				<OtherType>election scope gpunit</OtherType>
 				<Type>other</Type>
-			</GpUnit>			
+			</GpUnit>
 			<ReportGeneratingDeviceIds>rd-001</ReportGeneratingDeviceIds>
 			<ReportingDevice ObjectId="rd-001"/>
 			<Version>1.0.0</Version>
 		</CastVoteRecordReport>
 	</xsl:template>
 	<xsl:template match="Ballot">
-		<CVR>
-			<BallotNumber>
-				<xsl:value-of select="Name"/>
-			</BallotNumber>			
-			<CurrentSnapshotId>
-				<xsl:value-of select="concat('ballot-', Name)"/>
-			</CurrentSnapshotId>
-			<CVRSnapshot>
-				<xsl:attribute name="ObjectId"><xsl:value-of select="concat('ballot-', Name)"/></xsl:attribute>
-				<xsl:apply-templates select="Contest"/>
-				<Type>original</Type>
-			</CVRSnapshot>
+		<xsl:choose>
+			<xsl:when test="preceding-sibling::Ballot[1][Name = current()/Name]">
+				<CVRSnapshot>
+					<xsl:attribute name="ObjectId"><xsl:value-of select="concat('ballot-', Name,'-',Round)"/></xsl:attribute>
+					<xsl:apply-templates select="Contest"/>
+					<Type>interpreted</Type>
+				</CVRSnapshot>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:text disable-output-escaping="yes"><![CDATA[<CVR>]]></xsl:text>
+				<BallotNumber>
+					<xsl:value-of select="Name"/>
+				</BallotNumber>
+				<CurrentSnapshotId>
+					<xsl:value-of select="concat('ballot-', Name)"/>
+				</CurrentSnapshotId>
+				<CVRSnapshot>
+					<xsl:attribute name="ObjectId"><xsl:value-of select="concat('ballot-', Name)"/></xsl:attribute>
+					<xsl:apply-templates select="Contest"/>
+					<Type>original</Type>
+				</CVRSnapshot>
+			</xsl:otherwise>
+		</xsl:choose>
+		<!-- writeout only when you gotta -->
+		<xsl:if test="following-sibling::Ballot[1][Name != current()/Name] or not(following-sibling::Ballot) ">
 			<ElectionId>elec-001</ElectionId>
-		</CVR>
+			<xsl:text disable-output-escaping="yes"><![CDATA[</CVR>]]></xsl:text>
+		</xsl:if>
 	</xsl:template>
 	<xsl:template match="Contest">
 		<CVRContest>
