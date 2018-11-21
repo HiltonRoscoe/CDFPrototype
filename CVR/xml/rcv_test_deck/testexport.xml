@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TestDeck>
+	<Ballot>
+		<Name>1</Name>
+		<Round>1</Round>
+		<Contest>
+			<first status="active">A</first>
+			<second>B</second>
+			<third>C</third>
+			<fourth>D</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>1</Name>
+		<Round>2</Round>
+		<Contest>
+			<first status="active">A</first>
+			<second>B</second>
+			<third>C</third>
+			<fourth>D</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>2</Name>
+		<Round>1</Round>
+		<Contest>
+			<first status="active">B</first>
+			<second>A</second>
+			<third>D</third>
+			<fourth>C</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>2</Name>
+		<Round>2</Round>
+		<Contest>
+			<first status="active">B</first>
+			<second>A</second>
+			<third>D</third>
+			<fourth>C</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>3</Name>
+		<Round>1</Round>
+		<Contest>
+			<first status="active">C</first>
+			<second>B</second>
+			<third>A</third>
+			<fourth>D</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>3</Name>
+		<Round>2</Round>
+		<Contest>
+			<first status="active">C</first>
+			<second>B</second>
+			<third>A</third>
+			<fourth>D</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>4</Name>
+		<Round>1</Round>
+		<Contest>
+			<first status="active">A</first>
+			<second>C</second>
+			<third>B</third>
+			<fourth>D</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>4</Name>
+		<Round>2</Round>
+		<Contest>
+			<first status="active">A</first>
+			<second>C</second>
+			<third>B</third>
+			<fourth>D</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>5</Name>
+		<Round>1</Round>
+		<Contest>
+			<first status="active">B</first>
+			<second>C</second>
+			<third>A</third>
+			<fourth>D</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>5</Name>
+		<Round>2</Round>
+		<Contest>
+			<first status="active">B</first>
+			<second>C</second>
+			<third>A</third>
+			<fourth>D</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>6</Name>
+		<Round>1</Round>
+		<Contest>
+			<first/>
+			<second>B</second>
+			<third>C</third>
+			<fourth>A</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>6</Name>
+		<Round>2</Round>
+		<Contest>
+			<first/>
+			<second status="active">B</second>
+			<third>C</third>
+			<fourth>A</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>7</Name>
+		<Round>1</Round>
+		<Contest>
+			<first status="active">A</first>
+			<second>C</second>
+			<third>B</third>
+			<fourth>D</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>7</Name>
+		<Round>2</Round>
+		<Contest>
+			<first status="active">A</first>
+			<second>C</second>
+			<third>B</third>
+			<fourth>D</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>8</Name>
+		<Round>1</Round>
+		<Contest>
+			<first status="active">B</first>
+			<second>A</second>
+			<third>C</third>
+			<fourth>D</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>8</Name>
+		<Round>2</Round>
+		<Contest>
+			<first status="active">B</first>
+			<second>A</second>
+			<third>C</third>
+			<fourth>D</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>9</Name>
+		<Round>1</Round>
+		<Contest>
+			<first status="active">C</first>
+			<second>A/D</second>
+			<third>B</third>
+			<fourth/>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>9</Name>
+		<Round>2</Round>
+		<Contest>
+			<first status="active">C</first>
+			<second>A/D</second>
+			<third>B</third>
+			<fourth/>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>10</Name>
+		<Round>1</Round>
+		<Contest>
+			<first status="active">D</first>
+			<second>B</second>
+			<third>A</third>
+			<fourth>C</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>10</Name>
+		<Round>2</Round>
+		<Contest>
+			<first>D</first>
+			<second status="active">B</second>
+			<third>A</third>
+			<fourth>C</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>11</Name>
+		<Round>1</Round>
+		<Contest>
+			<first status="active">C</first>
+			<second>B</second>
+			<third>A</third>
+			<fourth>D</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>11</Name>
+		<Round>2</Round>
+		<Contest>
+			<first status="active">C</first>
+			<second>B</second>
+			<third>A</third>
+			<fourth>D</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>12</Name>
+		<Round>1</Round>
+		<Contest>
+			<first status="active">A</first>
+			<second>B</second>
+			<third>C</third>
+			<fourth>C</fourth>
+		</Contest>
+	</Ballot>
+	<Ballot>
+		<Name>12</Name>
+		<Round>2</Round>
+		<Contest>
+			<first status="active">A</first>
+			<second>B</second>
+			<third>C</third>
+			<fourth>C</fourth>
+		</Contest>
+	</Ballot>
+</TestDeck>
