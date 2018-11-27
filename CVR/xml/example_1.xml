@@ -7,7 +7,7 @@
 			<cdf:CVRContest>
 				<cdf:ContestId>_1GO</cdf:ContestId>
 				<cdf:CVRContestSelection>
-					<cdf:Position>4</cdf:Position>
+					<cdf:OptionPosition>4</cdf:OptionPosition>
 					<cdf:SelectionPosition>
 						<cdf:CVRWriteIn>
 							<cdf:Text>John Smith</cdf:Text>
@@ -38,7 +38,7 @@
 				<cdf:ContestId>_5TS</cdf:ContestId>
 				<cdf:CVRContestSelection>
 					<cdf:ContestSelectionId>_1ECP</cdf:ContestSelectionId>
-					<cdf:Position>1</cdf:Position>
+					<cdf:OptionPosition>1</cdf:OptionPosition>
 					<cdf:SelectionPosition>
 						<cdf:HasIndication>yes</cdf:HasIndication>
 						<cdf:IsAllocable>no</cdf:IsAllocable>
@@ -48,7 +48,7 @@
 				</cdf:CVRContestSelection>
 				<cdf:CVRContestSelection>
 					<cdf:ContestSelectionId>_1EJM</cdf:ContestSelectionId>
-					<cdf:Position>2</cdf:Position>
+					<cdf:OptionPosition>2</cdf:OptionPosition>
 					<cdf:SelectionPosition>
 						<cdf:HasIndication>yes</cdf:HasIndication>
 						<cdf:IsAllocable>no</cdf:IsAllocable>
@@ -153,16 +153,14 @@
 				<cdf:ContestId>_6RC</cdf:ContestId>
 				<cdf:CVRContestSelection>
 					<cdf:ContestSelectionId>_1FMZ</cdf:ContestSelectionId>
-					<cdf:Position>1</cdf:Position>
+					<cdf:OptionPosition>1</cdf:OptionPosition>
 					<cdf:SelectionPosition>
 						<cdf:HasIndication>yes</cdf:HasIndication>
 						<cdf:IsAllocable>unknown</cdf:IsAllocable>
-						<cdf:Mark>
-							<cdf:MarkMetricValue>76</cdf:MarkMetricValue>
-						</cdf:Mark>
+						<cdf:MarkMetricValue>76</cdf:MarkMetricValue>
 						<cdf:NumberVotes>1</cdf:NumberVotes>
-					</cdf:SelectionPosition>					
-				</cdf:CVRContestSelection>				
+					</cdf:SelectionPosition>
+				</cdf:CVRContestSelection>
 			</cdf:CVRContest>
 			<cdf:Status>needs-adjudication</cdf:Status>
 			<cdf:Type>original</cdf:Type>
@@ -177,13 +175,10 @@
 				<cdf:ContestId>_6RC</cdf:ContestId>
 				<cdf:CVRContestSelection>
 					<cdf:ContestSelectionId>_1FMZ</cdf:ContestSelectionId>
-					<cdf:Position>1</cdf:Position>
+					<cdf:OptionPosition>1</cdf:OptionPosition>
 					<cdf:SelectionPosition>
 						<cdf:HasIndication>no</cdf:HasIndication>
-						<cdf:Mark>
-							<cdf:IsGenerated>true</cdf:IsGenerated>
-							<cdf:MarkMetricValue>98</cdf:MarkMetricValue>
-						</cdf:Mark>
+						<cdf:MarkMetricValue>98</cdf:MarkMetricValue>
 						<cdf:NumberVotes>1</cdf:NumberVotes>
 					</cdf:SelectionPosition>
 					<cdf:TotalNumberVotes>0</cdf:TotalNumberVotes>

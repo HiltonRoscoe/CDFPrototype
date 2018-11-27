@@ -56,17 +56,13 @@
 					<SelectionPosition>
 						<HasIndication>yes</HasIndication>
 						<IsAllocable>yes</IsAllocable>
-						<Mark>
-							<MarkMetricValue>95</MarkMetricValue>
-						</Mark>
+						<MarkMetricValue>95</MarkMetricValue>
 						<NumberVotes>1</NumberVotes>
 						<Position>1</Position>
 					</SelectionPosition>
 					<SelectionPosition>
 						<HasIndication>no</HasIndication>
-						<Mark>
-							<MarkMetricValue>13</MarkMetricValue>
-						</Mark>
+						<MarkMetricValue>13</MarkMetricValue>
 						<NumberVotes>1</NumberVotes>
 						<Position>3</Position>
 					</SelectionPosition>
@@ -88,9 +84,7 @@
 					<SelectionPosition>
 						<HasIndication>yes</HasIndication>
 						<IsAllocable>no</IsAllocable>
-						<Mark>
-							<MarkMetricValue>96</MarkMetricValue>
-						</Mark>
+						<MarkMetricValue>96</MarkMetricValue>
 						<NumberVotes>1</NumberVotes>
 						<Position>2</Position>
 						<Status>invalidated-rules</Status>
@@ -98,9 +92,7 @@
 					<SelectionPosition>
 						<HasIndication>yes</HasIndication>
 						<IsAllocable>no</IsAllocable>
-						<Mark>
-							<MarkMetricValue>98</MarkMetricValue>
-						</Mark>
+						<MarkMetricValue>98</MarkMetricValue>
 						<NumberVotes>1</NumberVotes>
 						<Position>3</Position>
 					</SelectionPosition>
@@ -159,9 +151,9 @@
 			<CVRContest>
 				<ContestId>_C1</ContestId>
 				<CVRContestSelection>
-					<ContestSelectionId>_C1CS1</ContestSelectionId>				
+					<ContestSelectionId>_C1CS1</ContestSelectionId>
 					<Rank>3</Rank>
-						<SelectionPosition>
+					<SelectionPosition>
 						<HasIndication>yes</HasIndication>
 						<IsAllocable>yes</IsAllocable>
 						<NumberVotes>1</NumberVotes>
@@ -170,9 +162,9 @@
 					<TotalNumberVotes>1</TotalNumberVotes>
 				</CVRContestSelection>
 				<CVRContestSelection>
-					<ContestSelectionId>_C1CS2</ContestSelectionId>				
+					<ContestSelectionId>_C1CS2</ContestSelectionId>
 					<Rank>2</Rank>
-						<SelectionPosition>
+					<SelectionPosition>
 						<HasIndication>yes</HasIndication>
 						<IsAllocable>yes</IsAllocable>
 						<NumberVotes>1</NumberVotes>
