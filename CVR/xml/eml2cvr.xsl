@@ -195,8 +195,9 @@
 				<xsl:value-of select="concat('_', eml:ContestIdentifier/@IdNumber)"/>
 			</cdf:ContestId>
 			<!-- only catches overvotes for plurality voting -->
-			<xsl:variable name="maxMinusIndication" select="eml:MaxVotes - count(eml:BallotChoices/*[self::eml:Candidate or self::eml:WriteInCandidate][eml:Selected = 'true'])"/>
-			<xsl:variable name="isOvervoted" select="0 > $maxMinusIndication"/>
+			<xsl:variable name="maxMinusIndication" select="eml:MaxVotes - count(eml:BallotChoices/*[self::eml:Candidate or self::eml:WriteInCandidate][eml:Selected != ''])"/>
+			<xsl:variable name="TotalIndication" select="count(eml:BallotChoices/*[self::eml:Candidate or self::eml:WriteInCandidate][eml:Selected != ''])"/>
+			<xsl:variable name="isOvervoted" select="eml:VotingMethod = 'FPP' and 0 > $maxMinusIndication"/>
 			<xsl:apply-templates select="eml:BallotChoices/*[self::eml:Candidate or self::eml:WriteInCandidate]">
 				<xsl:with-param name="isOvervoted" select="$isOvervoted"/>
 			</xsl:apply-templates>
@@ -210,15 +211,15 @@
 						</xsl:otherwise>
 					</xsl:choose>
 				</cdf:Overvotes>
-				<cdf:Undervotes>
-					<xsl:choose>
-						<xsl:when test="$maxMinusIndication >= 0">
-							<xsl:value-of select="$maxMinusIndication"/>
-						</xsl:when>
-						<xsl:otherwise>0</xsl:otherwise>
-					</xsl:choose>
-				</cdf:Undervotes>
 			</xsl:if>
+			<cdf:Undervotes>
+				<xsl:choose>
+					<xsl:when test="$maxMinusIndication >= 0">
+						<xsl:value-of select="$maxMinusIndication"/>
+					</xsl:when>
+					<xsl:otherwise>0</xsl:otherwise>
+				</xsl:choose>
+			</cdf:Undervotes>
 		</cdf:CVRContest>
 	</xsl:template>
 	<xsl:template match="eml:Candidate|eml:WriteInCandidate">
