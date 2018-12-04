@@ -16,7 +16,7 @@
 			<cdf:Name>
 				<xsl:value-of select="eml:CandidateFullName/eml:NameElement"/>
 			</cdf:Name>
-			<xsl:if test="eml:Affiliation/eml:AffiliationIdentifier/eml:RegisteredName">
+			<xsl:if test="eml:Affiliation/eml:AffiliationIdentifier/eml:RegisteredName != ''">
 				<cdf:PartyId>
 					<xsl:value-of select="concat('_', eml:Affiliation/eml:AffiliationIdentifier/eml:RegisteredName)"/>
 				</cdf:PartyId>
@@ -185,7 +185,7 @@
 				<cdf:Type>original</cdf:Type>
 			</cdf:CVRSnapshot>
 			<cdf:ElectionId>
-				<xsl:value-of select="concat('_', eml:EventIdentifier/@IdNumber)"/>
+				<xsl:value-of select="concat('_', ../eml:EventIdentifier/@IdNumber)"/>
 			</cdf:ElectionId>
 		</cdf:CVR>
 	</xsl:template>
@@ -227,12 +227,15 @@
 		<!-- only emit selection when an indication exists -->
 		<xsl:if test="eml:Selected != '' and eml:Selected != 'false'">
 			<cdf:CVRContestSelection>
-				<cdf:ContestSelectionId>
-					<xsl:value-of select="concat('_', eml:CandidateIdentifier/@IdNumber)"/>
-				</cdf:ContestSelectionId>
-				<cdf:Position>
+				<!-- do not emit for writeins -->
+				<xsl:if test="eml:CandidateIdentifier/@IdNumber">
+					<cdf:ContestSelectionId>
+						<xsl:value-of select="concat('_', eml:CandidateIdentifier/@IdNumber)"/>
+					</cdf:ContestSelectionId>
+				</xsl:if>
+				<cdf:OptionPosition>
 					<xsl:value-of select="position()"/>
-				</cdf:Position>
+				</cdf:OptionPosition>
 				<cdf:SelectionPosition>
 					<xsl:if test="name() = 'WriteInCandidate'">
 						<cdf:CVRWriteIn>
@@ -250,7 +253,8 @@
 					</cdf:HasIndication>
 					<cdf:IsAllocable>
 						<xsl:choose>
-							<xsl:when test="eml:Selected != '' and $isOvervoted = false()">yes</xsl:when>
+							<xsl:when test="eml:Selected != '' and $isOvervoted = false() and eml:CandidateIdentifier/@IdNumber">yes</xsl:when>
+							<xsl:when test="eml:Selected != '' and $isOvervoted = false()">unknown</xsl:when>
 							<xsl:otherwise>no</xsl:otherwise>
 						</xsl:choose>
 					</cdf:IsAllocable>
