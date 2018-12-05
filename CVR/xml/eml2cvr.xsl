@@ -228,9 +228,9 @@
 		<xsl:if test="eml:Selected != '' and eml:Selected != 'false'">
 			<cdf:CVRContestSelection>
 				<!-- do not emit for writeins -->
-				<xsl:if test="eml:CandidateIdentifier/@IdNumber">
+				<xsl:if test="eml:CandidateIdentifier/@IdNumber|eml:ProposalItem/@ReferendumOptionIdentifier">
 					<cdf:ContestSelectionId>
-						<xsl:value-of select="concat('_', eml:CandidateIdentifier/@IdNumber)"/>
+						<xsl:value-of select="concat('_CS', eml:CandidateIdentifier/@IdNumber|eml:ProposalItem/@ReferendumOptionIdentifier)"/>
 					</cdf:ContestSelectionId>
 				</xsl:if>
 				<cdf:OptionPosition>
@@ -253,7 +253,7 @@
 					</cdf:HasIndication>
 					<cdf:IsAllocable>
 						<xsl:choose>
-							<xsl:when test="eml:Selected != '' and $isOvervoted = false() and eml:CandidateIdentifier/@IdNumber">yes</xsl:when>
+							<xsl:when test="eml:Selected != '' and $isOvervoted = false() and eml:CandidateIdentifier/@IdNumber|eml:ProposalItem/@ReferendumOptionIdentifier">yes</xsl:when>
 							<xsl:when test="eml:Selected != '' and $isOvervoted = false()">unknown</xsl:when>
 							<xsl:otherwise>no</xsl:otherwise>
 						</xsl:choose>
