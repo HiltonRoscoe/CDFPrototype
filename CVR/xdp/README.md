@@ -19,7 +19,7 @@ Once the user is satisfied with their selections, they may click the `Export EML
 
 The prototype uses a modified version of EML 7.0 410 to represent the layout of the ballot, which is also used to store the contest selections prior to conversion to the CVR CDF.
 
-See the EML 410 extension document for additional details on its use.
+See the [EML 410 extension document](./EML-410_extensions.md) for additional details on its use.
 
 ### CVR CDF
 
