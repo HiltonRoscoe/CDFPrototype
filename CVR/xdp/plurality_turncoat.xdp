@@ -1,0 +1,1398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xfa generator="XFA2_4" APIVersion="3.6.14118.0"?>
+<xdp:xdp xmlns:xdp="http://ns.adobe.com/xdp/" timeStamp="2018-12-13T15:14:00Z">
+	<xfa:datasets xmlns:xfa="http://www.xfa.org/schema/xfa-data/1.0/">
+		<xfa:data>
+			<!-- modify EML XML instance below -->
+			<EML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:oasis:names:tc:evs:schema:eml" xmlns:ts="urn:oasis:names:tc:evs:schema:eml:ts" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:al="urn:oasis:names:tc:ciq:xal:4" xmlns:nl="urn:oasis:names:tc:ciq:xnl:4" Id="410" SchemaVersion="7.0" xsi:schemaLocation="urn:oasis:names:tc:evs:schema:eml file:///C:/Users/john/Documents/GitHub/RemoteBallotMarking/xsd/410-ballots-v7-0.xsd">
+				<!-- this stuff up-front is the stuff that identifies what kind of EML message and how to handle it -->
+				<EMLHeader>
+					<TransactionId>410</TransactionId>
+					<!--a fixed constant value of 410 for this message -->
+					<SequenceNumber>1</SequenceNumber>
+					<!-- we will always put out 1 message with all ballot types for the jurisdiction's election -->
+					<NumberInSequence>1</NumberInSequence>
+					<!--so it will always be message 1 of 1 -->
+					<SequencedElementName>2014-11-04S1</SequencedElementName>
+					<!--this is a name that ties the messages together if you have more than one
+           generate it at random but must keep the same if you have 2-of-x, 3-of-x, etc
+		   JND using date of election plus stub
+  		-->
+					<OfficialStatusDetail>
+						<OfficialStatus>official</OfficialStatus>
+						<!--always use official -->
+						<StatusDate>2014-10-16</StatusDate>
+						<!--use the current date -->
+					</OfficialStatusDetail>
+				</EMLHeader>
+				<!-- end of up-front stuff -->
+				<Ballots>
+					<EventIdentifier IdNumber="AK2014General"/>
+					<!--This event name is assigned by the EMS -->
+					<Ballot>
+						<ReportingUnitIdentifier IdNumber="77"/>
+						<!--This tells us the polling group the ballot form is for -->
+						<Election>
+							<ElectionIdentifier IdNumber="2014-11-04G">
+								<ElectionName>2014 General Election</ElectionName>
+							</ElectionIdentifier>
+							<!-- the election name is assigned by the EMS -->
+							<Contest DisplayOrder="1">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="1GO">
+									<!--unique value for the contest -->
+									<ContestName>For Governor and Lieutenant Governor</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<HowToVote>
+									<Message>(To vote for Governor and Lieutenant Governor, darken the oval at
+							the left of the joint candidates of your choice)</Message>
+								</HowToVote>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<!-- FPP for First Past Post, IRV for Instant Runoff / Ranked Choice -->
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1AEF"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Edward FitzGerald and Sharen
+									Swartz Neuhardt</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Democratic</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+										<!-- self explanitory -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1AJK"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">
+												<body xmlns="http://www.w3.org/1999/xhtml">John Kasich and <br/>
+										Mary Taylor</body>
+											</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Republican</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1AAR"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">John Wack and Mary Brady</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Unity Ticket</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+									</Candidate>
+									<WriteInCandidate>
+										<Name/>
+									</WriteInCandidate>
+									<WriteInCandidate>
+										<Name/>
+									</WriteInCandidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="2">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="2AG">
+									<!--unique value for the contest -->
+									<ContestName>For Attorney General</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<!-- FPP for First Past Post, IRV for Instant Runoff / Ranked Choice -->
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1BDP"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">David Pepper</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Democratic</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+										<!-- self explanitory -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1BMD"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Mike DeWine</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Republican</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="3">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="3AS">
+									<!--unique value for the contest -->
+									<ContestName>For Auditor of State</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1CBB"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Bob Bridges</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Libertarian</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+										<!-- self explanitory -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1CJC"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">John Patrick
+									Carney</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Democratic</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1CDY"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">David Yost</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Republican</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="4">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="4SS">
+									<!--unique value for the contest -->
+									<ContestName>For Secretary of State</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1DJH"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Jon Husted</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Republican</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+										<!-- self explanitory -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1DKK"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Kevin Knedler</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Libertarian</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1DNT"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Nina Turner</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Democratic</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="5">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="5TS">
+									<!--unique value for the contest -->
+									<ContestName>For Treasurer of State</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1ECP"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Connie Pillich</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Democratic</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+										<!-- self explanitory -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1EJM"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Josh Mandel</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Republican</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="6">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="6RC">
+									<!--unique value for the contest -->
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">For Representative to
+								Congress<br/>(11th District)</body>
+									</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1FMZ"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Mark Zetzer</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Republican</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+										<!-- self explanitory -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1FMF"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Marcia L. Fudge</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Democratic</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="7">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="8SR34">
+									<!--unique value for the contest -->
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">For State
+								Representative<br/>(34th District)</body>
+									</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1GCB"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Cynthia D. Blake</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Republican</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+										<!-- self explanitory -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1GES"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Emilia Sykes</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Democratic</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="8">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="9CC">
+									<!--unique value for the contest -->
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">For Member of <br/> County
+								Council at Large</body>
+									</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>3</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1HBR"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Bill Roemer</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Republican</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1HIS"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Ilene Shapiro</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Democratic</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1HDW"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Debbie Walsh</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Republican</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1HJD"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">John A. Donofrio</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Democratic</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1HGH"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Gary Hagen</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Democratic</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1HSK"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Sandra Kurt</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<Affiliation>
+											<AffiliationIdentifier>
+												<RegisteredName>Democratic</RegisteredName>
+											</AffiliationIdentifier>
+											<Type/>
+										</Affiliation>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="9">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="10SB">
+									<!--unique value for the contest -->
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">For Member of State Board of
+								Education<br/>(7th District)</body>
+									</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1IDS"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">David A. Spencer</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1IMC"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Michael Charney</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1ISF"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Sarah E. Fowler</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1ISR"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Sarah Freeman</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="10">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="11JS1">
+									<!--unique value for the contest -->
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">For Justice of the Supreme Court<br/>
+											<p style="font-size:8pt;">Full Term Commencing 1/1/2015</p>
+										</body>
+									</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1JTL"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Tom Letson</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1JSK"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Sharon Kennedy</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="11">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="11JS2">
+									<!--unique value for the contest -->
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">For Justice of the Supreme Court<br/>
+											<p style="font-size:8pt;">Full Term Commencing 1/2/2015</p>
+										</body>
+									</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1KJO"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">John P. O'Donnell</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1KJF"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Judi French</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="12">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="12CA9">
+									<!--unique value for the contest -->
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">For Judge of the Court of
+								Appeals<br/>(9th District)<br/>
+											<p style="font-size:8pt;">Full Term Commencing 2/9/2015</p>
+										</body>
+									</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1LTL"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Julie A. Schafer</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1LEB"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Eve Belfance</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="13">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="13CP1">
+									<!--unique value for the contest -->
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">For Judge of the Court of
+								<br/> Common Pleas<br/>
+											<p style="font-size:8pt;">Full Term Commencing 1/2/2015</p>
+										</body>
+									</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1MTO"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Tammy O'Brien</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1MRC"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Ron Cable</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="14">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="14CP2">
+									<!--unique value for the contest -->
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">For Judge of the Court of
+								<br/> Common Pleas<br/>
+											<p style="font-size:8pt;">Full Term Commencing 1/3/2015</p>
+										</body>
+									</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1NTG"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Tavia Baxter
+									Galonski</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1NLC"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Lynne S. Callahan</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="15">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="15CP3">
+									<!--unique value for the contest -->
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">For Judge of the Court of
+								<br/> Common Pleas<br/>
+											<p style="font-size:8pt;">Full Term Commencing 1/5/2015</p>
+										</body>
+									</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1OAM"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Alison McCarty</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1OLD"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Lisa Dean</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="16">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="16CP4">
+									<!--unique value for the contest -->
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">For Judge of the Court of
+								<br/> Common Pleas<br/>
+											<p style="font-size:8pt;">Full Term Commencing 1/6/2015</p>
+										</body>
+									</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1PBW"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Beth Whitmore</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1PMR"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Mary Margaret
+									Rowlands</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="17">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="17CP5">
+									<!--unique value for the contest -->
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">For Judge of the Court of
+								<br/> Common Pleas<br/>
+											<p style="font-size:8pt;">Full Term Commencing 2/9/2015</p>
+										</body>
+									</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1QCC"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Christine Croce</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1QJC"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">John Clark</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="18">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="18CP6">
+									<!--unique value for the contest -->
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">For Judge of the Court of
+								<br/> Common Pleas<br/>
+											<p style="font-size:8pt;">Full Term Commencing 5/1/2015</p>
+										</body>
+									</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1RTP"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Tom Parker</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1RRM"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Rob McCarty</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="19">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="19CP7">
+									<!--unique value for the contest -->
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">For Judge of the Court of
+								<br/> Common Pleas<br/>
+											<p style="font-size:8pt;">Full Term Commencing 1/4/2015</p>
+										</body>
+									</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1SJO"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Jon Oldham</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1TM"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Todd McKenney</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="20">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="20CP8">
+									<!--unique value for the contest -->
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">For Judge of the Court of
+								<br/> Common Pleas<br/>(Juvenile Division)<br/>
+											<p style="font-size:8pt;">Full Term Commencing 1/1/2015</p>
+										</body>
+									</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1TLT"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Linda Tucci
+									Teodosio</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1TJL"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Jill Flagg
+									Lanzinger</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="21">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="19CP9">
+									<!--unique value for the contest -->
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">For Judge of the Court of
+								<br/> Common Pleas<br/>(Domestic Relations Division)<br/>
+											<p style="font-size:8pt;">Full Term Commencing 1/4/2015</p>
+										</body>
+									</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1UJQ"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">John P. Quinn</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1UKC"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Katarina Cook</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="22">
+								<!-- load with the order on the ballot that this contest should be placed -->
+								<ContestIdentifier IdNumber="22CP10">
+									<!--unique value for the contest -->
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">For Judge of the Court of
+								<br/> Common Pleas<br/>(Probate Division)<br/>
+											<p style="font-size:8pt;">Full Term Commencing 1/4/2015</p>
+										</body>
+									</ContestName>
+									<!--load with the contest display name -->
+								</ContestIdentifier>
+								<Rotation>yes</Rotation>
+								<!-- valid values are: yes/no -->
+								<RotationMethod>Standard</RotationMethod>
+								<!-- This is a Token for the method used for rotation -->
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<!-- This is a Token for the choice type -->
+								<MaxVotes>1</MaxVotes>
+								<!-- self explanitory -->
+								<MinVotes>0</MinVotes>
+								<!-- self explanitory -->
+								<MaxWriteIn>0</MaxWriteIn>
+								<!-- self explanitory -->
+								<BallotChoices>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1VES"/>
+										<!-- load with candidate unique identifier -->
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Elinore Marsh
+									Stormer</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+										<!-- in most cases it will be "candidate" but there are possible values to support local needs -->
+									</Candidate>
+									<Candidate>
+										<CandidateIdentifier IdNumber="1VKO"/>
+										<CandidateFullName>
+											<NameElement ElementType="fullname">Kandi S. C'Connor</NameElement>
+										</CandidateFullName>
+										<StatusDetails/>
+									</Candidate>
+								</BallotChoices>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="23">
+								<ContestIdentifier IdNumber="23ST">
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">
+											<p style="font-family:'Myriad Pro';font-size:10pt">12 <br/>Proposed
+									Sales and Use Tax<br/> County of Summit <br/>
+											</p>
+										</body>
+									</ContestName>
+								</ContestIdentifier>
+								<ContestScope>Local</ContestScope>
+								<ElectionType>General</ElectionType>
+								<HowToVote>
+									<Message>A majority affirmative vote is necessary for passage.</Message>
+								</HowToVote>
+								<Rotation>yes</Rotation>
+								<RotationMethod>Standard</RotationMethod>
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<MaxVotes>1</MaxVotes>
+								<MinVotes>0</MinVotes>
+								<MaxWriteIn>0</MaxWriteIn>
+								<BallotChoices>
+									<Candidate>
+										<ProposalItem ReferendumOptionIdentifier="1DY">
+											<SelectionText>YES</SelectionText>
+										</ProposalItem>
+									</Candidate>
+									<Candidate>
+										<ProposalItem ReferendumOptionIdentifier="1DN">
+											<SelectionText>NO</SelectionText>
+										</ProposalItem>
+									</Candidate>
+								</BallotChoices>
+								<Messages>
+									<Message Type="MeasureText">
+										<body xmlns="http://www.w3.org/1999/xhtml" xmlns:xfa="http://www.xfa.org/schema/xfa-data/1.0/">
+											<p style="page-break-inside:avoid;"> The Council of the County of
+									Summit proposes to levy an additional sales and use tax in the
+									amount of 1/4% for the purpose of providing additional revenue
+									to (i) operate and maintain the Summit County Jail, (ii)
+									acquire, construct, equip or repair permanent improvements for
+									the County&apos;s 800 MHz Emergency Radio System, County 9-1-1
+									System and County-owned facilities, (iii) fund the County&apos;s
+									general fund and (iv) to pay the expenses of administering such
+									sales and use tax levy for a period of 10 years, which shall be
+									effective and levied beginning April 1, 2015, or at the earliest
+									period allowed by law. <br/>
+												<br/> Shall the resolution of the Council of the County of
+									Summit proposing a 1/4% sales and use tax be approved? </p>
+										</body>
+									</Message>
+								</Messages>
+								<KeepIntact Target="MeasureText">none</KeepIntact>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="24">
+								<ContestIdentifier IdNumber="24CA1">
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">
+											<p style="font-family:'Myriad Pro';font-size:10pt">13 <br/> Proposed
+									Charter Amendment <br/> County of Summit <br/>
+											</p>
+										</body>
+									</ContestName>
+								</ContestIdentifier>
+								<ContestScope>Local</ContestScope>
+								<ElectionType>General</ElectionType>
+								<HowToVote>
+									<Message>A majority affirmative vote is necessary for passage.</Message>
+								</HowToVote>
+								<Rotation>yes</Rotation>
+								<RotationMethod>Standard</RotationMethod>
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<MaxVotes>1</MaxVotes>
+								<MinVotes>0</MinVotes>
+								<MaxWriteIn>0</MaxWriteIn>
+								<BallotChoices>
+									<Candidate>
+										<ProposalItem ReferendumOptionIdentifier="2DY">
+											<SelectionText>YES</SelectionText>
+										</ProposalItem>
+									</Candidate>
+									<Candidate>
+										<ProposalItem ReferendumOptionIdentifier="2DN">
+											<SelectionText>NO</SelectionText>
+										</ProposalItem>
+									</Candidate>
+								</BallotChoices>
+								<Messages>
+									<Message Type="MeasureText">
+										<body xmlns="http://www.w3.org/1999/xhtml">An Amendment to the Charter
+								of the County of Summit to adopt Article VIII to consolidate
+								information technology and data processing operations in Summit
+								County government by creating a County Information Technology Board
+								and a Department of Information Technology. <br/>
+											<br/>
+											<p style="font-weight:bold;page-break-before:avoid;">Shall the
+									proposed charter amendment be adopted?</p>
+										</body>
+									</Message>
+								</Messages>
+								<KeepIntact Target="MeasureText">none</KeepIntact>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+							<Contest DisplayOrder="25">
+								<ContestIdentifier IdNumber="25CA2">
+									<ContestName>
+										<body xmlns="http://www.w3.org/1999/xhtml">
+											<p style="font-family:'Myriad Pro';font-size:10pt">14 <br/> Proposed
+									Charter Amendment <br/> County of Summit <br/>
+											</p>
+										</body>
+									</ContestName>
+								</ContestIdentifier>
+								<ContestScope>Local</ContestScope>
+								<ElectionType>General</ElectionType>
+								<HowToVote>
+									<Message>A majority affirmative vote is necessary for passage.</Message>
+								</HowToVote>
+								<Rotation>yes</Rotation>
+								<RotationMethod>Standard</RotationMethod>
+								<VotingMethod>FPP</VotingMethod>
+								<ChoiceType>x</ChoiceType>
+								<MaxVotes>1</MaxVotes>
+								<MinVotes>0</MinVotes>
+								<MaxWriteIn>0</MaxWriteIn>
+								<BallotChoices>
+									<Candidate>
+										<ProposalItem ReferendumOptionIdentifier="3DY">
+											<SelectionText>YES</SelectionText>
+										</ProposalItem>
+									</Candidate>
+									<Candidate>
+										<ProposalItem ReferendumOptionIdentifier="3DN">
+											<SelectionText>NO</SelectionText>
+										</ProposalItem>
+									</Candidate>
+								</BallotChoices>
+								<Messages>
+									<Message Type="MeasureText">
+										<body xmlns="http://www.w3.org/1999/xhtml">An Amendment to Article III,
+								Section 3.04 of the Charter of the County of Summit to provide that
+								on the first Monday of each year which is not a legal holiday, the
+								County Council shall organize by electing one of its members as
+								President and one other member as Vice-President for terms of one year.<br/>
+											<br/>
+											<p style="font-weight:bold;page-break-before:avoid;">Shall the
+									proposed charter amendment be adopted?</p>
+										</body>
+									</Message>
+								</Messages>
+								<KeepIntact Target="MeasureText">none</KeepIntact>
+								<KeepIntact Target="BallotChoices">contentArea</KeepIntact>
+							</Contest>
+						</Election>
+						<BallotIdentifier IdNumber="01-0052-01">
+							<BallotName>0520 Akron 4-L 01</BallotName>
+						</BallotIdentifier>
+						<!-- Stub Number -->
+					</Ballot>
+				</Ballots>
+			</EML>
+			<!-- modify EML XML instance above -->
+		</xfa:data>
+	</xfa:datasets>
+	<pdf xmlns="http://ns.adobe.com/xdp/pdf/">
+		<document>
+			<?KeepOnDisk?>
+			<chunk>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eG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMi1jMDAxIDYzLjE1NjA2NywgMjAxNC8wMy8wNC0xMjozODoyNiAgICAgICAgIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIj4KICAgICAgICAgPHhtcDpNZXRhZGF0YURhdGU+MjAxOC0xMi0wNVQxMDoyNDozNy0wNTowMDwveG1wOk1ldGFkYXRhRGF0ZT4KICAgICAgICAgPHhtcDpDcmVhdG9yVG9vbD5BZG9iZSBMaXZlQ3ljbGUgRGVzaWduZXIgMTEuMDwveG1wOkNyZWF0b3JUb29sPgogICAgICAgICA8eG1wOk1vZGlmeURhdGU+MjAxOC0xMi0wNVQxMDoyNDozNy0wNTowMDwveG1wOk1vZGlmeURhdGU+CiAgICAgICAgIDx4bXA6Q3JlYXRlRGF0ZT4yMDE4LTEyLTA1VDEwOjI0OjM3LTA1OjAwPC94bXA6Q3JlYXRlRGF0ZT4KICAgICAgPC9yZGY6RGVzY3JpcHRpb24+CiAgICAgIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICAgICAgICAgIHhtbG5zOnBkZj0iaHR0cDovL25zLmFkb2JlLmNvbS9wZGYvMS4zLyI+CiAgICAgICAgIDxwZGY6UHJvZHVjZXI+QWRvYmUgTGl2ZUN5Y2xlIERlc2lnbmVyIDExLjA8L3BkZjpQcm9kdWNlcj4KICAgICAgPC9yZGY6RGVzY3JpcHRpb24+CiAgICAgIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICAgICAgICAgIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIj4KICAgICAgICAgPHhtcE1NOkRvY3VtZW50SUQ+dXVpZDo0MzFmMmZmMS00YjNhLTRlOTAtOTVhZC03YWVhNTFhOTA3N2Q8L3htcE1NOkRvY3VtZW50SUQ+CiAgICAgICAgIDx4bXBNTTpJbnN0YW5jZUlEPnV1aWQ6MWVhNGMwNTAtMDFkOC00ZjQ5LTgyZmMtZDAxNjRmZDk5MzcwPC94bXBNTTpJbnN0YW5jZUlEPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIj4KICAgICAgICAgPGRjOmZvcm1hdD5hcHBsaWNhdGlvbi9wZGY8L2RjOmZvcm1hdD4KICAgICAgICAgPGRjOnJpZ2h0cz4KICAgICAgICAgICAgPHJkZjpBbHQ+CiAgICAgICAgICAgICAgIDxyZGY6bGkgeG1sOmxhbmc9IngtZGVmYXVsdCI+Q29weXJpZ2h0IChDKSAyMDE4ICBIaWx0b24gUm9zY29lIExMQyYjeEE7JiN4QTtUaGlzIHByb2dyYW0gaXMgZnJlZSBzb2Z0d2FyZTogeW91IGNhbiByZWRpc3RyaWJ1dGUgaXQgYW5kL29yIG1vZGlmeSYjeEE7aXQgdW5kZXIgdGhlIHRlcm1zIG9mIHRoZSBHTlUgQWZmZXJvIEdlbmVyYWwgUHVibGljIExpY2Vuc2UgYXMgcHVibGlzaGVkIGJ5JiN4QTt0aGUgRnJlZSBTb2Z0d2FyZSBGb3VuZGF0aW9uLCBlaXRoZXIgdmVyc2lvbiAzIG9mIHRoZSBMaWNlbnNlLCBvciYjeEE7KGF0IHlvdXIgb3B0aW9uKSBhbnkgbGF0ZXIgdmVyc2lvbi4mI3hBOyYjeEE7VGhpcyBwcm9ncmFtIGlzIGRpc3RyaWJ1dGVkIGluIHRoZSBob3BlIHRoYXQgaXQgd2lsbCBiZSB1c2VmdWwsJiN4QTtidXQgV0lUSE9VVCBBTlkgV0FSUkFOVFk7IHdpdGhvdXQgZXZlbiB0aGUgaW1wbGllZCB3YXJyYW50eSBvZiYjeEE7TUVSQ0hBTlRBQklMSVRZIG9yIEZJVE5FU1MgRk9SIEEgUEFSVElDVUxBUiBQVVJQT1NFLiAgU2VlIHRoZSYjeEE7R05VIEFmZmVybyBHZW5lcmFsIFB1YmxpYyBMaWNlbnNlIGZvciBtb3JlIGRldGFpbHMuJiN4QTsmI3hBO1lvdSBzaG91bGQgaGF2ZSByZWNlaXZlZCBhIGNvcHkgb2YgdGhlIEdOVSBBZmZlcm8gR2VuZXJhbCBQdWJsaWMgTGljZW5zZSYjeEE7YWxvbmcgd2l0aCB0aGlzIHByb2dyYW0uICBJZiBub3QsIHNlZSAmbHQ7aHR0cHM6Ly93d3cuZ251Lm9yZy9saWNlbnNlcy8mZ3Q7LjwvcmRmOmxpPgogICAgICAgICAgICA8L3JkZjpBbHQ+CiAgICAgICAgIDwvZGM6cmlnaHRzPgogICAgICAgICA8ZGM6ZGVzY3JpcHRpb24+CiAgICAgICAgICAgIDxyZGY6QWx0PgogICAgICAgICAgICAgICA8cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQiPkNvcHlyaWdodCAoQykgMjAxOCBIaWx0b24gUm9zY29lIExMQyYjeEQ7JiN4QTsmI3hEOyYjeEE7VGhpcyBwcm9ncmFtIGlzIGZyZWUgc29mdHdhcmU6IHlvdSBjYW4gcmVkaXN0cmlidXRlIGl0IGFuZC9vciBtb2RpZnkmI3hEOyYjeEE7aXQgdW5kZXIgdGhlIHRlcm1zIG9mIHRoZSBHTlUgQWZmZXJvIEdlbmVyYWwgUHVibGljIExpY2Vuc2UgYXMgcHVibGlzaGVkIGJ5IHRoZSBGcmVlIFNvZnR3YXJlIEZvdW5kYXRpb24sIGVpdGhlciB2ZXJzaW9uIDMgb2YgdGhlIExpY2Vuc2UsIG9yIChhdCB5b3VyIG9wdGlvbikgYW55IGxhdGVyIHZlcnNpb24uJiN4RDsmI3hBOyYjeEQ7JiN4QTtUaGlzIHByb2dyYW0gaXMgZGlzdHJpYnV0ZWQgaW4gdGhlIGhvcGUgdGhhdCBpdCB3aWxsIGJlIHVzZWZ1bCwmI3hEOyYjeEE7YnV0IFdJVEhPVVQgQU5ZIFdBUlJBTlRZOyB3aXRob3V0IGV2ZW4gdGhlIGltcGxpZWQgd2FycmFudHkgb2YmI3hEOyYjeEE7TUVSQ0hBTlRBQklMSVRZIG9yIEZJVE5FU1MgRk9SIEEgUEFSVElDVUxBUiBQVVJQT1NFLiAgU2VlIHRoZSYjeEQ7JiN4QTtHTlUgQWZmZXJvIEdlbmVyYWwgUHVibGljIExpY2Vuc2UgZm9yIG1vcmUgZGV0YWlscy4mI3hEOyYjeEE7JiN4RDsmI3hBO1lvdSBzaG91bGQgaGF2ZSByZWNlaXZlZCBhIGNvcHkgb2YgdGhlIEdOVSBBZmZlcm8gR2VuZXJhbCBQdWJsaWMgTGljZW5zZSBhbG9uZyB3aXRoIHRoaXMgcHJvZ3JhbS4gIElmIG5vdCwgc2VlICZsdDtodHRwczovL3d3dy5nbnUub3JnL2xpY2Vuc2VzLyZndDsuPC9yZGY6bGk+CiAgICAgICAgICAgIDwvcmRmOkFsdD4KICAgICAgICAgPC9kYzpkZXNjcmlwdGlvbj4KICAgICAgICAgPGRjOmNyZWF0b3I+CiAgICAgICAgICAgIDxyZGY6U2VxPgogICAgICAgICAgICAgICA8cmRmOmxpPkhpbHRvbiBSb3Njb2UgTExDPC9yZGY6bGk+CiAgICAgICAgICAgIDwvcmRmOlNlcT4KICAgICAgICAgPC9kYzpjcmVhdG9yPgogICAgICAgICA8ZGM6dGl0bGU+CiAgICAgICAgICAgIDxyZGY6QWx0PgogICAgICAgICAgICAgICA8cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQiPkNWUiBQcm90b3R5cGUgMyBDb2x1bW4gTGF5b3V0IChBR1BMKTwvcmRmOmxpPgogICAgICAgICAgICA8L3JkZjpBbHQ+CiAgICAgICAgIDwvZGM6dGl0bGU+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczpkZXNjPSJodHRwOi8vbnMuYWRvYmUuY29tL3hmYS9wcm9tb3RlZC1kZXNjLyI+CiAgICAgICAgIDxkZXNjOnZlcnNpb24gcmRmOnBhcnNlVHlwZT0iUmVzb3VyY2UiPgogICAgICAgICAgICA8cmRmOnZhbHVlPjExLjAuMS4yMDEzMDgyNi4yLjkwMTQ0NC44OTk2MzY8L3JkZjp2YWx1ZT4KICAgICAgICAgICAgPGRlc2M6cmVmPi90ZW1wbGF0ZS9zdWJmb3JtWzFdPC9kZXNjOnJlZj4KICAgICAgICAgPC9kZXNjOnZlcnNpb24+CiAgICAgICAgIDxkZXNjOmNvbnRhY3QgcmRmOnBhcnNlVHlwZT0iUmVzb3VyY2UiPgogICAgICAgICAgICA8cmRmOnZhbHVlPkpvaG4gRHppdXJsYWo8L3JkZjp2YWx1ZT4KICAgICAgICAgICAgPGRlc2M6cmVmPi90ZW1wbGF0ZS9zdWJmb3JtWzFdPC9kZXNjOnJlZj4KICAgICAgICAgPC9kZXNjOmNvbnRhY3Q+CiAgICAgICAgIDxkZXNjOlNjaGVtYV9Bbm5vdGF0aW9uIHJkZjpwYXJzZVR5cGU9IlJlc291cmNlIj4KICAgICAgICAgICAgPHJkZjp2YWx1ZT5UaGUgbmFtZSBvZiBhbiBlbnRpdHkgb3IgcGVyc29uIGV4cHJlc3NlZCBhcyBhIHNpbXBsZSB0ZXh0IHN0cmluZyB3aXRob3V0IGFueSBzdHJ1Y3R1cmUgZW1iZWRkaW5nLjwvcmRmOnZhbHVlPgogICAgICAgICAgICA8ZGVzYzpyZWY+L3RlbXBsYXRlL3N1YmZvcm1bMV0vc3ViZm9ybVsxXS9zdWJmb3JtWzJdL3N1YmZvcm1bMV0vc3ViZm9ybVsxXS9zdWJmb3JtWzFdL3N1YmZvcm1bMl0vZmllbGRbMV08L2Rlc2M6cmVmPgogICAgICAgICA8L2Rlc2M6U2NoZW1hX0Fubm90YXRpb24+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgCjw/eHBhY2tldCBlbmQ9InciPz4NCmVuZHN0cmVhbQ1lbmRvYmoNMTQgMCBvYmoNPDwvRmlsdGVyL0ZsYXRlRGVjb2RlL0ZpcnN0IDUvTGVuZ3RoIDUwL04gMS9UeXBlL09ialN0bT4+c3RyZWFtDQpo3jIyUTBQsLHRd84vzStRMNT3zkwpjjY2BAoGxeqHVBak6gckpqcW29kBBBgA53IL3A0KZW5kc3RyZWFtDWVuZG9iag0xNSAwIG9iag08PC9GaWx0ZXIvRmxhdGVEZWNvZGUvRmlyc3QgNS9MZW5ndGggNTUzL04gMS9UeXBlL09ialN0bT4+c3RyZWFtDQpo3pSS327aMBTGn6DvcO4aJEYCrNrUVZWylH8SBRTCKqTcmOSEeDI+yHZAefsdU9ZeTOu0i0ixfc7P3/cdD+4ggoeHMG5cTSaYSuVIQ0q2IIT5POmEiUHhJOkn4TB4uh9E/a/9QXTXjwafh18+RXe3UXR7rWJAXNKOG+UJk7ZQCE9o5V6jgX6/F3XCZyo/5qwMlU2B/wStm91PLFyQ0LE1cl87yIMk74DHwh8ucpNr/2W1tHA0tDfiAPxbGUSwVLmzMHgPLTVQCA0GS2mdkbvGIUgHQpchGThQKavWc3iv0SWLcTWCQ3OwQNVlMVlsIK4qNAQTZLlCwarZKVmwlQK1RRCswO/YGkvYtZeusdexvuqAMTH8knkXUPK5gRMay2sY/r7nSstvusDK8kA4r94AHX0fByF0C4qjfuvt/S2Ed68lSH2h13RkXzVD2elZKgU8i8Zi1aiuR3AxvMyy6XKTQbzYwkucpvEi237jYn5HfIonfEXJw1FJJrMzI7Rr2YAnPI/SZMot8ffZfJZtvYnxLFuM1msYL1OIYRWn2SzZzOMUVpt0tVyPegBr9LLQA65B5zcfRF1dhsaJluiEVPYtgi0P2rJOVUItTsgDL5BfWgkCCn5Q/zFMRXp/Mc0N77Gy1FkFmlwXLEt+qJ072vswPJ/Pvb1uemT2oXpF2PCx1wkz6RQGyQ82a8iRazn/ISSkmoOGuWh9pHkQT1bzvNN5fPwlwACH30C/DQplbmRzdHJlYW0NZW5kb2JqDTE2IDAgb2JqDTw8L0RlY29kZVBhcm1zPDwvQ29sdW1ucyA0L1ByZWRpY3RvciAxMj4+L0ZpbHRlci9GbGF0ZURlY29kZS9JRFs8RUQwMzI5MkU4QkQ5N0Q0MEExNkE4NzdDODg5NjIzMDY+PEEwMTE5ODU3QUFCNkVGNDk4QzMxOUM5QkMxQkNGM0YxPl0vSW5mbyAyNSAwIFIvTGVuZ3RoIDg2L1Jvb3QgMjcgMCBSL1NpemUgMjYvVHlwZS9YUmVmL1dbMSAyIDFdPj5zdHJlYW0NCmjeYmIAAiZGvhoGJgbGu0CCjRFIBPIBCWYnEJEJJNQbQbLaQIJ9BZBgmAEkuD6BxGyBBOssICHJCeL2AwmmdqB5lqogdQyM+AimX0CCkQEgwACo+wlGDQplbmRzdHJlYW0NZW5kb2JqDXN0YXJ0eHJlZg0KMTE2DQolJUVPRg0K</chunk>
+		</document>
+	</pdf>
+</xdp:xdp>

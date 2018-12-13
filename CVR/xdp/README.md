@@ -9,7 +9,7 @@ This prototype demonstrates:
 
 ## Principles of Operation
 
-This prototype operates by binding form elements constituting the ballot to the structure of XML file [Nov14-EML-410-RCV.xml](../xml/Nov14-EML-410-RCV.xml) (RCV) or [Nov14-EML-410.xml](../xml/Nov14-EML-410.xml) (plurality). Repeating elements in the EML schema become repeatable elements in the form (such as contests, contest options, etc.). The ballot layout engine is written in [XML Forms Architecture](https://en.wikipedia.org/wiki/XFA), which is embedded into a PDF.
+This prototype operates by binding form elements constituting the ballot to the structure of an XML file [Nov14-EML-410-RCV.xml](../xml/Nov14-EML-410-RCV.xml) (RCV) or [Nov14-EML-410.xml](../xml/Nov14-EML-410.xml) (plurality). Repeating elements in the EML schema instance become repeatable elements in the form (such as contests, contest options, etc.). The ballot layout engine is written in [XML Forms Architecture](https://en.wikipedia.org/wiki/XFA), which is embedded into a PDF.
 
 > The PDF includes an embedded XML data source, however, a new one can be put in its place to render a different ballot.
 
@@ -38,12 +38,22 @@ The prototype is distributed as a PDF that has an EML instance and XML transform
 
 ## Importing a custom data source
 
-(based on Acrobat Pro XI)
+### Approach 1
+
+(requires Acrobat Standard or Pro)
 
 1. Click on Tools
 2. Click on Forms -> More Form Options
 3. Select Import Data
 4. You'll select a valid 410 EML file. Use files located at [xml](../xml) for examples. The PDF will bind to the fields of the form.
+
+### Approach 2
+
+(requires Acrobat Reader, Standard or Pro)
+
+1. Open the [plurality_turncoat.xdp](./plurality_turncoat.xdp) in a text editor.
+2. Modify or replace the section between the "modify EML XML instance below" and "modify EML XML instance above" comments.
+3. Open modified `xdp` in Adobe Acrobat.
 
 ## License
 
