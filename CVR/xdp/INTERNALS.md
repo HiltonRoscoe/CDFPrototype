@@ -55,6 +55,8 @@ When the PDF is loaded, the following occurs:
 2. The XML Data DOM (i.e. input data) is loaded.
 3. Data binding occurs between the template DOM and XML Data DOM, generating the Form DOM.
 
+> The contests and contest options are rendered in the order they appear in the input data.
+
 - When the user marks the ballot, the Form DOM is updated.
 - When the user exports data, the XML Data DOM (EML) is updated, and transforms the EML to CVR via XSL.
 
