@@ -2,6 +2,15 @@
 
 This document describes extensions to EML 410 to support the CVR prototype.
 
+<!-- TOC -->
+
+- [Extensions to EML 410](#extensions-to-eml-410)
+    - [Write-In Support](#write-in-support)
+    - [Styling Support](#styling-support)
+    - [Column / Page Breaking](#column--page-breaking)
+
+<!-- /TOC -->
+
 ## Write-In Support
 
 A Write-In contest option will emitted for each occurrence of `WriteInCandidate` under
