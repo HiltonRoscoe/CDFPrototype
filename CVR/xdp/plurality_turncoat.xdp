@@ -4,7 +4,7 @@
 	<xfa:datasets xmlns:xfa="http://www.xfa.org/schema/xfa-data/1.0/">
 		<xfa:data>
 			<!-- modify EML XML instance below -->
-			<EML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:oasis:names:tc:evs:schema:eml" xmlns:ts="urn:oasis:names:tc:evs:schema:eml:ts" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:al="urn:oasis:names:tc:ciq:xal:4" xmlns:nl="urn:oasis:names:tc:ciq:xnl:4" Id="410" SchemaVersion="7.0" xsi:schemaLocation="urn:oasis:names:tc:evs:schema:eml file:///C:/Users/john/Documents/GitHub/RemoteBallotMarking/xsd/410-ballots-v7-0.xsd">
+			<EML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:oasis:names:tc:evs:schema:eml" xmlns:ts="urn:oasis:names:tc:evs:schema:eml:ts" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:al="urn:oasis:names:tc:ciq:xal:4" xmlns:nl="urn:oasis:names:tc:ciq:xnl:4" Id="410" SchemaVersion="7.0">
 				<!-- this stuff up-front is the stuff that identifies what kind of EML message and how to handle it -->
 				<EMLHeader>
 					<TransactionId>410</TransactionId>
