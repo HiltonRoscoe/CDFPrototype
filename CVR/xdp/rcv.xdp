@@ -1,0 +1,1140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xfa generator="AdobeLiveCycleDesigner_V11.0.1.20160728.2.925958" APIVersion="3.6.16210.0"?>
+<xdp:xdp xmlns:xdp="http://ns.adobe.com/xdp/" timeStamp="2018-12-17T13:38:41Z" uuid="453141f4-274c-43cf-aa50-1da07e691e51">
+<template xmlns="http://www.xfa.org/schema/xfa-template/3.3/">
+   <?formServer defaultPDFRenderFormat acrobat10.0dynamic?>
+   <?formServer allowRenderCaching 0?>
+   <?formServer formModel both?>
+   <subform name="EML" layout="tb" locale="en_US">
+      <pageSet name="BallotPacket">
+         <pageArea name="RCVBallotLayout" id="Page1_copy1">
+            <subform usehref="..\..\..\RemoteBallotMarking\xdp\fragments\MasterBoiler.xdp#som($template.form1.ThreeColumnBoiler)" h="0in" x="0mm" y="0mm">
+               <?templateDesigner expand 1?>
+            </subform>
+            <draw name="Entire" y="21.341mm" x="15.078mm" w="187.452mm" h="241.194mm">
+               <value>
+                  <rectangle>
+                     <edge/>
+                     <corner radius="5.08mm"/>
+                  </rectangle>
+               </value>
+            </draw>
+            <contentArea x="15.078mm" y="21.341mm" w="187.452mm" h="241.194mm" name="FullWidthCol"/>
+            <medium stock="letter" short="8.5in" long="11in"/>
+            <?templateDesigner expand 1?></pageArea>
+         <?templateDesigner expand 0?></pageSet>
+      <subform layout="tb">
+         <subform layout="tb" name="EInfo" id="EInfo_ID">
+            <bind match="none"/>
+            <draw name="ElectionInfo" usehref=".#som($template.#subform.designer__stylesheet.DefaultTextStyle)">
+               <ui>
+                  <textEdit/>
+               </ui>
+               <value>
+                  <exData contentType="text/html">
+                     <body xmlns="http://www.w3.org/1999/xhtml" xmlns:xfa="http://www.xfa.org/schema/xfa-data/1.0/"><p style="letter-spacing:0in">Precinct<span style="xfa-spacerun:yes"> </span><span style="font-style:italic"><span xfa:embedType="uri" xfa:embedMode="raw" xfa:embed="#floatingField026283"/></span></p></body>
+                  </exData>
+               </value>
+            </draw>
+            <?templateDesigner expand 1?></subform>
+         <subform usehref="..\..\..\RemoteBallotMarking\xdp\fragments\RCVInstructions.xdp#som($template.#subform.RCVInstructions)">
+            <?templateDesigner expand 1?></subform>
+         <subform name="Ballot" layout="tb">
+            <variables>
+               <script usehref="..\..\..\RemoteBallotMarking\xdp\fragments\ColorSubformsValidation.xdp#som($template.form1.#subform.#variables.ColorSubformsValidation)"/>
+               <script usehref="..\..\..\RemoteBallotMarking\xdp\fragments\SelectionManager.xdp#som($template.form1.#subform.#variables.SelectionManager)"/>
+               <?templateDesigner expand 1?></variables>
+            <bind match="none"/>
+            <subform name="Election" layout="tb">
+               <bind match="dataRef" ref="$.Election"/>
+               <subform usehref="..\..\..\RemoteBallotMarking\xdp\fragments\RCVContest.xdp#som($template.form1.Contest)">
+                  <occur min="0" max="-1"/>
+                  <?templateDesigner expand 1?></subform>
+               <?templateDesigner expand 1?></subform>
+            <field name="Name" id="floatingField026283" access="readOnly" presence="hidden" usehref=".#som($template.#subform.designer__stylesheet.FormattedFloatingField)">
+               <ui>
+                  <textEdit/>
+               </ui>
+               <bind match="dataRef" ref="$.BallotIdentifier.BallotName"/>
+            </field>
+            <traversal>
+               <traverse operation="first" ref="Election[0]"/>
+            </traversal>
+            <?templateDesigner expand 1?></subform>
+         <bind match="none"/>
+         <?templateDesigner expand 1?></subform>
+      <subform usehref=".\fragments\CVRExport.xdp#som($template.EML.CVRExport)">
+         <?templateDesigner expand 1?></subform>
+      <subform usehref="..\..\..\RemoteBallotMarking\xdp\fragments\VariableControl.xdp#som($template.form1.VariableControl)">
+         <?templateDesigner expand 1?></subform>
+      <proto/>
+      <desc>
+         <text name="version">11.0.1.20130826.2.901444.899636</text>
+         <text name="creator">Hilton Roscoe LLC</text>
+         <text name="title">RCV CVR Prototype</text>
+         <text name="contact">John Dziurlaj</text>
+      </desc>
+      <variables>
+         <script usehref="..\..\..\RemoteBallotMarking\xdp\fragments\ColorSubformsValidation.xdp#som($template.#subform.#subform.#variables.ColorSubformsValidation)"/>
+         <script usehref="..\..\..\RemoteBallotMarking\xdp\fragments\XFAUtil.xdp#som($template.#subform.#subform.#variables.XFAUtil)"/>
+         <text name="allowOvervotes">no</text>
+         <?templateDesigner expand 1?></variables>
+      <proto>
+         <subform name="designer__stylesheet">
+            <draw name="DefaultTextStyle" w="58.039mm" minH="5.233mm">
+               <ui>
+                  <textEdit/>
+               </ui>
+               <font typeface="Myriad Pro"/>
+               <margin topInset="0.5mm" bottomInset="0.5mm" leftInset="0.7056mm" rightInset="0.7056mm"/>
+               <border>
+                  <edge presence="hidden"/>
+               </border>
+            </draw>
+            <field name="FormattedFloatingField" w="62mm" h="9mm">
+               <ui>
+                  <textEdit>
+                     <border presence="hidden"/>
+                     <margin/>
+                  </textEdit>
+               </ui>
+               <font typeface="Myriad Pro" weight="bold"/>
+               <margin topInset="1mm" bottomInset="1mm" leftInset="1mm" rightInset="1mm"/>
+               <para vAlign="middle"/>
+            </field>
+            <field name="TableCheckbox" w="27.7583mm" minH="0mm">
+               <ui>
+                  <checkButton size="4.318mm" shape="round" mark="circle">
+                     <border hand="right">
+                        <edge/>
+                        <fill/>
+                     </border>
+                  </checkButton>
+               </ui>
+               <margin leftInset="0mm" rightInset="11.72mm" topInset="0mm" bottomInset="0mm"/>
+               <border>
+                  <edge/>
+                  <corner thickness="0.176mm"/>
+               </border>
+            </field>
+         </subform>
+      </proto>
+      <?templateDesigner Hyphenation excludeInitialCap:1, excludeAllCaps:1, wordCharCnt:7, remainCharCnt:3, pushCharCnt:3?>
+      <?templateDesigner expand 1?>
+      <?renderCache.subset "Adobe Pi Std" 0 0 UTF-16 2 4 0035?>
+      <?renderCache.subset "Arial" 1 0 ISO-8859-1 4 44 11 001400150016001700180047004B005100550056005712345dhnrst?>
+      <?renderCache.subset "Myriad Pro" 0 0 ISO-8859-1 4 212 55 0001000D000E000F00120013001400220023002400250026002A002D002E002F003000310033003400350036003700380039003A00420043004400450046004700480049004A004C004D004E004F005000510053005400550056005700580059005A005C005E00680074 ,-.123ABCDEILMNOPRSTUVWXYabcdefghiklmnoprstuvwxy{}'•?>
+      <?renderCache.subset "Myriad Pro" 1 0 ISO-8859-1 4 160 40 0001000E000F001B0022002300240026002700280029002A002D002E002F00300033003500360042004400450046004700480049004A004C004D004E004F0050005100530054005500570058005C005E -.:ABCEFGHILMNORTUacdefghiklmnoprstvw{}?>
+      <?renderCache.subset "Myriad Pro" 0 1 ISO-8859-1 4 24 6 002F00420046004E005C005ENaem{}?></subform>
+   <?templateDesigner DefaultPreviewDynamic 1?>
+   <?templateDesigner WidowOrphanControl 0?>
+   <?originalXFAVersion http://www.xfa.org/schema/xfa-template/3.3/?>
+   <?templateDesigner_PlugIn 48AC5CEE-E217-4543-94B1-CC6C3C5224EF 08/28/2014 20:06:16?>
+   <?templateDesigner Grid show:0, snap:0, units:19, color:ff8080, origin:(0,0), interval:(360,360), objsnap:0, guidesnap:1, pagecentersnap:0?>
+   <?templateDesigner SavePDFWithLog 0?>
+   <?templateDesigner Zoom 83?>
+   <?templateDesigner FormTargetVersion 33?>
+   <?templateDesigner DefaultLanguage JavaScript?>
+   <?templateDesigner DefaultRunAt client?>
+   <?acrobat JavaScript strictScoping?>
+   <?PDFPrintOptions embedViewerPrefs 0?>
+   <?PDFPrintOptions embedPrintOnFormOpen 0?>
+   <?PDFPrintOptions scalingPrefs 0?>
+   <?PDFPrintOptions enforceScalingPrefs 0?>
+   <?PDFPrintOptions paperSource 0?>
+   <?PDFPrintOptions duplexMode 0?>
+   <?templateDesigner DefaultPreviewType interactive?>
+   <?templateDesigner DefaultPreviewPagination simplex?>
+   <?templateDesigner XDPPreviewFormat 20?>
+   <?templateDesigner DefaultPreviewDataFileName ..\xml\Nov14-EML-410-RCV.xml?>
+   <?templateDesigner DefaultCaptionFontSettings face:Myriad Pro;size:10;weight:normal;style:normal?>
+   <?templateDesigner DefaultValueFontSettings face:Myriad Pro;size:10;weight:normal;style:normal?>
+   <?templateDesigner ValidationMessaging noMessages?>
+   <?templateDesigner SaveTaggedPDF 0?>
+   <?templateDesigner SavePDFWithEmbeddedFonts 0?>
+   <?templateDesigner Rulers horizontal:1, vertical:1, guidelines:1, crosshairs:0?>
+   <?templateDesigner Guidelines v:80100;v:411600;v:577600;v:247908;h:48600;h:61200;h:743300;h:756000;h:310402?></template>
+<config xmlns="http://www.xfa.org/schema/xci/3.0/">
+   <agent name="designer">
+      <!--  [0..n]  -->
+      <destination>pdf</destination>
+      <pdf>
+         <!--  [0..n]  -->
+         <fontInfo/>
+      </pdf>
+   </agent>
+   <present>
+      <!--  [0..n]  -->
+      <pdf>
+         <!--  [0..n]  -->
+         <fontInfo>
+            <embed>0</embed>
+         </fontInfo>
+         <tagged>0</tagged>
+         <version>1.7</version>
+         <adobeExtensionLevel>8</adobeExtensionLevel>
+      </pdf>
+      <common>
+         <data>
+            <xsl>
+               <uri/>
+            </xsl>
+            <outputXSL>
+               <uri>..\xml\eml2cvr.xsl</uri>
+            </outputXSL>
+            <record>Ballot</record>
+         </data>
+      </common>
+      <script>
+         <runScripts>server</runScripts>
+      </script>
+      <xdp>
+         <packets>*</packets>
+      </xdp>
+   </present>
+   <psMap/>
+   <acrobat>
+      <common>
+         <validationMessaging>noMessages</validationMessaging>
+      </common>
+   </acrobat>
+</config>
+<localeSet xmlns="http://www.xfa.org/schema/xfa-locale-set/2.7/">
+   <locale name="en_US" desc="English (United States)">
+      <calendarSymbols name="gregorian">
+         <monthNames>
+            <month>January</month>
+            <month>February</month>
+            <month>March</month>
+            <month>April</month>
+            <month>May</month>
+            <month>June</month>
+            <month>July</month>
+            <month>August</month>
+            <month>September</month>
+            <month>October</month>
+            <month>November</month>
+            <month>December</month>
+         </monthNames>
+         <monthNames abbr="1">
+            <month>Jan</month>
+            <month>Feb</month>
+            <month>Mar</month>
+            <month>Apr</month>
+            <month>May</month>
+            <month>Jun</month>
+            <month>Jul</month>
+            <month>Aug</month>
+            <month>Sep</month>
+            <month>Oct</month>
+            <month>Nov</month>
+            <month>Dec</month>
+         </monthNames>
+         <dayNames>
+            <day>Sunday</day>
+            <day>Monday</day>
+            <day>Tuesday</day>
+            <day>Wednesday</day>
+            <day>Thursday</day>
+            <day>Friday</day>
+            <day>Saturday</day>
+         </dayNames>
+         <dayNames abbr="1">
+            <day>Sun</day>
+            <day>Mon</day>
+            <day>Tue</day>
+            <day>Wed</day>
+            <day>Thu</day>
+            <day>Fri</day>
+            <day>Sat</day>
+         </dayNames>
+         <meridiemNames>
+            <meridiem>AM</meridiem>
+            <meridiem>PM</meridiem>
+         </meridiemNames>
+         <eraNames>
+            <era>BC</era>
+            <era>AD</era>
+         </eraNames>
+      </calendarSymbols>
+      <datePatterns>
+         <datePattern name="full">EEEE, MMMM D, YYYY</datePattern>
+         <datePattern name="long">MMMM D, YYYY</datePattern>
+         <datePattern name="med">MMM D, YYYY</datePattern>
+         <datePattern name="short">M/D/YY</datePattern>
+      </datePatterns>
+      <timePatterns>
+         <timePattern name="full">h:MM:SS A Z</timePattern>
+         <timePattern name="long">h:MM:SS A Z</timePattern>
+         <timePattern name="med">h:MM:SS A</timePattern>
+         <timePattern name="short">h:MM A</timePattern>
+      </timePatterns>
+      <dateTimeSymbols>GyMdkHmsSEDFwWahKzZ</dateTimeSymbols>
+      <numberPatterns>
+         <numberPattern name="numeric">z,zz9.zzz</numberPattern>
+         <numberPattern name="currency">$z,zz9.99|($z,zz9.99)</numberPattern>
+         <numberPattern name="percent">z,zz9%</numberPattern>
+      </numberPatterns>
+      <numberSymbols>
+         <numberSymbol name="decimal">.</numberSymbol>
+         <numberSymbol name="grouping">,</numberSymbol>
+         <numberSymbol name="percent">%</numberSymbol>
+         <numberSymbol name="minus">-</numberSymbol>
+         <numberSymbol name="zero">0</numberSymbol>
+      </numberSymbols>
+      <currencySymbols>
+         <currencySymbol name="symbol">$</currencySymbol>
+         <currencySymbol name="isoname">USD</currencySymbol>
+         <currencySymbol name="decimal">.</currencySymbol>
+      </currencySymbols>
+      <typefaces>
+         <typeface name="Myriad Pro"/>
+         <typeface name="Minion Pro"/>
+         <typeface name="Courier Std"/>
+         <typeface name="Adobe Pi Std"/>
+         <typeface name="Adobe Hebrew"/>
+         <typeface name="Adobe Arabic"/>
+         <typeface name="Adobe Thai"/>
+         <typeface name="Kozuka Gothic Pro-VI M"/>
+         <typeface name="Kozuka Mincho Pro-VI R"/>
+         <typeface name="Adobe Ming Std L"/>
+         <typeface name="Adobe Song Std L"/>
+         <typeface name="Adobe Myungjo Std M"/>
+      </typefaces>
+   </locale>
+</localeSet>
+<guides xmlns="http://ns.adobe.com/form-guides/1.0/">H4sIAE3nii8A/8VUTW/bMAz9K4J2WXuwkrbYBiMO0AbYkEOLIelt2IGx2NSoPgyJrp1/P8my4wxrux0G9MQPPT8+UaQXe8i/NZVEeV1S9VzRgT2j85U1BZ9nM84MaCz4Hbash3FWyYLv4dZKVJy1DuoaXcxkg++zld2Boi2BkeAkZ54OCt+CZL4tOdtB+bR3tjFyZZUNnPOrL58vLy/mnHVaGZ/voSfRsXR2PmYVHGxD/Uly/XSmu4I/EtW5EG3bZiDtDrPSanExm30SOoD4MnbAY7i8Nb4PtilgCnao0tWHVALXYFAl6PfongL7RIIlMctFsvkGawRCd12W1snIL4Fggw8F/+Ct/vhgnZ7/mP3MNlCiH51oV6FJVQCn7DEKwRk/0vei1oT6RNiNQ3gaHnAsz75WzhMLHW604UwsF7rLV1bX1qCh6dtI9c8Ko70LZQZJgfEeO1qbuqFYQZyShvD3iv+h/i10W1TDG76XiLXx5Jpew3tJeH1SstQflJO0DYQpvGmIwij+VdybIxW2wxp5OlMvwe8dVApdfy5emFrx2qIkbeM6HXUmd1xGMS1uCqaVFn/84pa/ABbGpTL2BAAA</guides>
+<xfa:datasets xmlns:xfa="http://www.xfa.org/schema/xfa-data/1.0/">
+   <xfa:data xfa:dataNode="dataGroup"/>
+   <dd:dataDescription xmlns:dd="http://ns.adobe.com/data-description/" dd:name="EML">
+      <EML SchemaVersion="7.0" Id="a39f13ef-0200-11e9-9277-bca8a6bfe1cb" dd:reqAttrs="SchemaVersion Id" xmlns="urn:oasis:names:tc:evs:schema:eml">
+         <EMLHeader>
+            <TransactionId/>
+            <dd:group dd:minOccur="0">
+               <SequenceNumber/>
+               <NumberInSequence/>
+               <SequencedElementName/>
+            </dd:group>
+            <AdditionalValidation dd:minOccur="0">
+               <Location/>
+               <Type/>
+            </AdditionalValidation>
+            <MessageLanguage dd:minOccur="0" dd:nullType="exclude"/>
+            <RequestedResponseLanguage dd:minOccur="0" dd:nullType="exclude"/>
+            <ManagingAuthority dd:minOccur="0">
+               <AuthorityIdentifier IdNumber="" DisplayOrder=""/>
+               <AuthorityName Type="" id="a39f13f0-0200-11e9-9277-bca8a6bfe1cb" usage="" status="" NameKeyRef="" LanguageCode="">
+                  <NameElement dd:minOccur="0" dd:maxOccur="-1" ElementType="" dd:reqAttrs="ElementType"/>
+                  <SubDivisionName dd:minOccur="0" dd:maxOccur="-1" Type=""/>
+               </AuthorityName>
+               <Description/>
+               <OrganizationURL/>
+               <AuthorityAddress type="" addressID="" usage="" status="">
+                  <xal:FreeTextAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                     <xal:AddressLine dd:maxOccur="-1" type="" seqn=""/>
+                  </xal:FreeTextAddress>
+                  <xal:PostalAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                     <xal:Thoroughfare dd:minOccur="0" type="" number="" name="" direction=""/>
+                     <xal:OtherDetail dd:minOccur="0" dd:maxOccur="-1" type=""/>
+                     <xal:PostalDeliveryPoint dd:minOccur="0" type=""/>
+                     <xal:Locality dd:minOccur="0" type=""/>
+                     <xal:AdministrativeArea dd:minOccur="0" type=""/>
+                     <xal:PostCode dd:minOccur="0" type=""/>
+                     <xal:Country dd:minOccur="0" code=""/>
+                  </xal:PostalAddress>
+                  <xal:GeoRSS dd:minOccur="0" dd:dataNode="dataGroup" xmlns:xal="urn:oasis:names:tc:ciq:xal:4"/>
+                  <xal:LocationByCoordinates dd:minOccur="0" Meridian="" MeridianCodeType="" Datum="" DatumCodeType="" Projection="" ProjectionCodeType="" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                     <xal:Latitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                     <xal:Longitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                  </xal:LocationByCoordinates>
+               </AuthorityAddress>
+               <ResponsibleOfficer dd:minOccur="0" dd:maxOccur="-1" IdNumber="">
+                  <dd:group dd:model="choice">
+                     <dd:group>
+                        <Responsibility/>
+                        <Name dd:minOccur="0" Type="" id="a39f13f1-0200-11e9-9277-bca8a6bfe1cb" LanguageCode="">
+                           <xnl:NameElement dd:minOccur="0" dd:maxOccur="-1" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                           <xnl:PersonFullName dd:minOccur="0" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                           <xnl:PersonPreviousName dd:minOccur="0" dd:maxOccur="-1" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                           <xnl:PersonNameDetail dd:minOccur="0" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4">
+                              <xnl:NamePrefixText dd:minOccur="0" dd:nullType="exclude"/>
+                              <xnl:GivenName dd:minOccur="0" dd:nullType="exclude"/>
+                              <xnl:MiddleName dd:minOccur="0" dd:maxOccur="-1" dd:nullType="exclude"/>
+                              <xnl:FamilyName dd:minOccur="0" dd:nullType="exclude"/>
+                              <xnl:NameSuffixText dd:minOccur="0" dd:nullType="exclude"/>
+                           </xnl:PersonNameDetail>
+                        </Name>
+                     </dd:group>
+                     <Name Type="" id="a39f3af5-0200-11e9-9277-bca8a6bfe1cb" LanguageCode="">
+                        <xnl:NameElement dd:minOccur="0" dd:maxOccur="-1" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                        <xnl:PersonFullName dd:minOccur="0" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                        <xnl:PersonPreviousName dd:minOccur="0" dd:maxOccur="-1" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                        <xnl:PersonNameDetail dd:minOccur="0" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4">
+                           <xnl:NamePrefixText dd:minOccur="0" dd:nullType="exclude"/>
+                           <xnl:GivenName dd:minOccur="0" dd:nullType="exclude"/>
+                           <xnl:MiddleName dd:minOccur="0" dd:maxOccur="-1" dd:nullType="exclude"/>
+                           <xnl:FamilyName dd:minOccur="0" dd:nullType="exclude"/>
+                           <xnl:NameSuffixText dd:minOccur="0" dd:nullType="exclude"/>
+                        </xnl:PersonNameDetail>
+                     </Name>
+                  </dd:group>
+                  <Contact dd:minOccur="0" DisplayOrder="">
+                     <MailingAddress dd:minOccur="0" type="" addressID="" usage="" status="">
+                        <xal:FreeTextAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                           <xal:AddressLine dd:maxOccur="-1" type="" seqn=""/>
+                        </xal:FreeTextAddress>
+                        <xal:PostalAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                           <xal:Thoroughfare dd:minOccur="0" type="" number="" name="" direction=""/>
+                           <xal:OtherDetail dd:minOccur="0" dd:maxOccur="-1" type=""/>
+                           <xal:PostalDeliveryPoint dd:minOccur="0" type=""/>
+                           <xal:Locality dd:minOccur="0" type=""/>
+                           <xal:AdministrativeArea dd:minOccur="0" type=""/>
+                           <xal:PostCode dd:minOccur="0" type=""/>
+                           <xal:Country dd:minOccur="0" code=""/>
+                        </xal:PostalAddress>
+                        <xal:GeoRSS dd:minOccur="0" dd:dataNode="dataGroup" xmlns:xal="urn:oasis:names:tc:ciq:xal:4"/>
+                        <xal:LocationByCoordinates dd:minOccur="0" Meridian="" MeridianCodeType="" Datum="" DatumCodeType="" Projection="" ProjectionCodeType="" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                           <xal:Latitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                           <xal:Longitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                        </xal:LocationByCoordinates>
+                     </MailingAddress>
+                     <Email dd:minOccur="0" dd:maxOccur="-1" Preferred=""/>
+                     <Telephone dd:minOccur="0" dd:maxOccur="-1" Preferred="" Mobile="">
+                        <Number/>
+                        <Extension dd:minOccur="0" dd:nullType="exclude"/>
+                     </Telephone>
+                     <Fax dd:minOccur="0" dd:maxOccur="-1" Preferred="" Mobile="">
+                        <Number/>
+                        <Extension dd:minOccur="0" dd:nullType="exclude"/>
+                     </Fax>
+                     <PreferredContact dd:minOccur="0" dd:nullType="exclude"/>
+                  </Contact>
+               </ResponsibleOfficer>
+               <Logo dd:model="choice" dd:minOccur="0" IdNumber="" DisplayOrder="" ItemType="" Verified="" Problem="" Notes="" Role="">
+                  <URL Checksum="" HashAlgorithm="" HMAC="" HMACkey="" MimeType=""/>
+                  <Binary Format="" dd:reqAttrs="Format"/>
+               </Logo>
+            </ManagingAuthority>
+            <IssueDate dd:minOccur="0" dd:nullType="exclude"/>
+            <OfficialStatusDetail>
+               <OfficialStatus/>
+               <StatusDate/>
+            </OfficialStatusDetail>
+            <Display dd:minOccur="0" dd:maxOccur="-1" Format="">
+               <Stylesheet dd:maxOccur="-1" Type="" dd:reqAttrs="Type"/>
+            </Display>
+            <Seal dd:model="choice" dd:minOccur="0">
+               <ds:Signature Id="a39f6256-0200-11e9-9277-bca8a6bfe1cb" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                  <ds:SignedInfo Id="a39f895d-0200-11e9-9277-bca8a6bfe1cb">
+                     <ds:CanonicalizationMethod Algorithm="" dd:reqAttrs="Algorithm"/>
+                     <ds:SignatureMethod Algorithm="" dd:reqAttrs="Algorithm"/>
+                     <ds:Reference dd:maxOccur="-1" Id="a39f895e-0200-11e9-9277-bca8a6bfe1cb" URI="" Type="">
+                        <ds:Transforms dd:minOccur="0">
+                           <ds:Transform dd:maxOccur="-1" Algorithm="" dd:reqAttrs="Algorithm"/>
+                        </ds:Transforms>
+                        <ds:DigestMethod Algorithm="" dd:reqAttrs="Algorithm"/>
+                        <ds:DigestValue/>
+                     </ds:Reference>
+                  </ds:SignedInfo>
+                  <ds:SignatureValue Id="a39f895f-0200-11e9-9277-bca8a6bfe1cb"/>
+                  <ds:KeyInfo dd:minOccur="0" Id="a39f8960-0200-11e9-9277-bca8a6bfe1cb"/>
+                  <ds:Object dd:minOccur="0" dd:maxOccur="-1" Id="a39f8961-0200-11e9-9277-bca8a6bfe1cb" MimeType="" Encoding=""/>
+               </ds:Signature>
+               <Timestamp Id="a39f8962-0200-11e9-9277-bca8a6bfe1cb" xmlns="urn:oasis:names:tc:evs:schema:eml:ts">
+                  <TimestampedInfo Id="a39f8963-0200-11e9-9277-bca8a6bfe1cb">
+                     <CanonicalizationMethod Algorithm="" dd:reqAttrs="Algorithm"/>
+                     <SignatureOrTSTMethod Algorithm="" dd:reqAttrs="Algorithm"/>
+                     <Reference Id="a39f8964-0200-11e9-9277-bca8a6bfe1cb" URI="" Type="">
+                        <Transforms dd:minOccur="0">
+                           <Transform dd:maxOccur="-1" Algorithm="" dd:reqAttrs="Algorithm"/>
+                        </Transforms>
+                        <DigestMethod Algorithm="" dd:reqAttrs="Algorithm"/>
+                        <DigestValue/>
+                     </Reference>
+                     <TSTXMLInfoReference dd:minOccur="0" Id="a39f8965-0200-11e9-9277-bca8a6bfe1cb" URI="" Type="">
+                        <Transforms dd:minOccur="0">
+                           <Transform dd:maxOccur="-1" Algorithm="" dd:reqAttrs="Algorithm"/>
+                        </Transforms>
+                        <DigestMethod Algorithm="" dd:reqAttrs="Algorithm"/>
+                        <DigestValue/>
+                     </TSTXMLInfoReference>
+                  </TimestampedInfo>
+                  <SignatureOrTSTValue Id="a39f8966-0200-11e9-9277-bca8a6bfe1cb"/>
+                  <KeyInfo dd:minOccur="0" Id="a39f8967-0200-11e9-9277-bca8a6bfe1cb"/>
+                  <Object Id="a39fb028-0200-11e9-9277-bca8a6bfe1cb" MimeType="" Encoding=""/>
+               </Timestamp>
+               <OtherSeal Type="" dd:dataNode="dataGroup" dd:reqAttrs="Type"/>
+            </Seal>
+         </EMLHeader>
+         <dd:group>
+            <Ballots>
+               <EventIdentifier IdNumber="" DisplayOrder="">
+                  <EventName dd:minOccur="0" dd:nullType="exclude"/>
+                  <EventQualifier dd:minOccur="0" IdNumber=""/>
+               </EventIdentifier>
+               <EventDescription dd:minOccur="0">
+                  <Message dd:maxOccur="-1" MessageId="" DisplayOrder="" DateTime="" ChannelId="" Format="" Type="" Seqn="" MimeType="" Lang=""/>
+               </EventDescription>
+               <Ballot dd:maxOccur="-1">
+                  <ReportingUnitIdentifier dd:minOccur="0" dd:maxOccur="-1" IdNumber="" DisplayOrder=""/>
+                  <dd:group dd:model="choice">
+                     <BallotIdentifier IdNumber="" DisplayOrder="" dd:reqAttrs="IdNumber">
+                        <BallotName dd:minOccur="0" dd:nullType="exclude"/>
+                        <BallotStyleImageURL dd:minOccur="0" MimeType=""/>
+                     </BallotIdentifier>
+                     <dd:group>
+                        <Election dd:maxOccur="-1">
+                           <ElectionIdentifier IdNumber="" DisplayOrder="" ShortCode="" dd:reqAttrs="IdNumber">
+                              <ElectionName dd:minOccur="0" dd:nullType="exclude"/>
+                              <ElectionGroup dd:minOccur="0" Id="a39fb029-0200-11e9-9277-bca8a6bfe1cb" dd:reqAttrs="Id"/>
+                              <ElectionCategory dd:minOccur="0" dd:nullType="exclude"/>
+                           </ElectionIdentifier>
+                           <Description dd:minOccur="0">
+                              <Message dd:maxOccur="-1" MessageId="" DisplayOrder="" DateTime="" ChannelId="" Format="" Type="" Seqn="" MimeType="" Lang=""/>
+                           </Description>
+                           <Contest dd:maxOccur="-1" DisplayOrder="" Completed="">
+                              <ContestIdentifier IdNumber="" DisplayOrder="" ShortCode="" dd:reqAttrs="IdNumber">
+                                 <ContestName dd:minOccur="0" dd:nullType="exclude"/>
+                              </ContestIdentifier>
+                              <ContestScope dd:minOccur="0" dd:nullType="exclude"/>
+                              <ElectionType dd:minOccur="0" dd:nullType="exclude"/>
+                              <ReportingUnitIdentifier dd:minOccur="0" dd:maxOccur="-1" IdNumber="" DisplayOrder=""/>
+                              <Qualified dd:minOccur="0" Reason="" dd:reqAttrs="Reason"/>
+                              <HowToVote dd:minOccur="0">
+                                 <Message dd:maxOccur="-1" MessageId="" DisplayOrder="" DateTime="" ChannelId="" Format="" Type="" Seqn="" MimeType="" Lang=""/>
+                              </HowToVote>
+                              <Rotation dd:minOccur="0" dd:nullType="exclude"/>
+                              <RotationMethod dd:minOccur="0" dd:nullType="exclude"/>
+                              <VotingMethod dd:minOccur="0" dd:nullType="exclude"/>
+                              <ChoiceType dd:minOccur="0" dd:nullType="exclude"/>
+                              <MaxVotes dd:minOccur="0" dd:nullType="exclude"/>
+                              <MinVotes dd:minOccur="0" dd:nullType="exclude"/>
+                              <MaxWriteIn dd:minOccur="0" dd:nullType="exclude"/>
+                              <Blocked dd:minOccur="0" Reason="" Channel=""/>
+                              <BallotChoices dd:model="choice" Contested="" Partisan="">
+                                 <dd:group dd:model="choice" dd:maxOccur="-1">
+                                    <Candidate DisplayOrder="" Independent="">
+                                       <Source dd:minOccur="0" Role="" dd:reqAttrs="Role">
+                                          <Name dd:minOccur="0" dd:nullType="exclude"/>
+                                          <IdValue/>
+                                       </Source>
+                                       <dd:group dd:model="choice" dd:minOccur="0">
+                                          <dd:group>
+                                             <CandidateIdentifier IdNumber="" DisplayOrder="" ShortCode="" ExpectedConfirmationReference="">
+                                                <CandidateName dd:minOccur="0" dd:nullType="exclude"/>
+                                                <KnownAs dd:minOccur="0" dd:nullType="exclude"/>
+                                                <CandidateGender dd:minOccur="0" dd:nullType="exclude"/>
+                                                <ShortCode dd:minOccur="0" dd:nullType="exclude"/>
+                                             </CandidateIdentifier>
+                                             <CandidateFullName dd:minOccur="0" Type="" id="a39fd723-0200-11e9-9277-bca8a6bfe1cb" usage="" status="" NameKeyRef="" LanguageCode="">
+                                                <NameElement dd:minOccur="0" dd:maxOccur="-1" ElementType="" dd:reqAttrs="ElementType"/>
+                                                <PersonFullName dd:minOccur="0" dd:nullType="exclude"/>
+                                                <PersonPreviousName dd:minOccur="0" dd:maxOccur="-1" dd:nullType="exclude"/>
+                                                <PersonNameDetail dd:minOccur="0" dd:nullType="exclude">
+                                                   <xnl:NamePrefixText dd:minOccur="0" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                                                   <xnl:GivenName dd:minOccur="0" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                                                   <xnl:MiddleName dd:minOccur="0" dd:maxOccur="-1" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                                                   <xnl:FamilyName dd:minOccur="0" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                                                   <xnl:NameSuffixText dd:minOccur="0" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                                                </PersonNameDetail>
+                                             </CandidateFullName>
+                                             <StatusDetails>
+                                                <StatusItem dd:minOccur="0" dd:maxOccur="-1" setting="" date="" dd:dataNode="dataGroup"/>
+                                             </StatusDetails>
+                                             <DateOfBirth dd:minOccur="0" dd:nullType="exclude"/>
+                                             <Age dd:minOccur="0" dd:nullType="exclude"/>
+                                             <Gender dd:minOccur="0" dd:nullType="exclude"/>
+                                             <QualifyingAddress dd:minOccur="0" type="" addressID="" usage="" status="">
+                                                <xal:FreeTextAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                                   <xal:AddressLine dd:maxOccur="-1" type="" seqn=""/>
+                                                </xal:FreeTextAddress>
+                                                <xal:PostalAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                                   <xal:Thoroughfare dd:minOccur="0" type="" number="" name="" direction=""/>
+                                                   <xal:OtherDetail dd:minOccur="0" dd:maxOccur="-1" type=""/>
+                                                   <xal:PostalDeliveryPoint dd:minOccur="0" type=""/>
+                                                   <xal:Locality dd:minOccur="0" type=""/>
+                                                   <xal:AdministrativeArea dd:minOccur="0" type=""/>
+                                                   <xal:PostCode dd:minOccur="0" type=""/>
+                                                   <xal:Country dd:minOccur="0" code=""/>
+                                                </xal:PostalAddress>
+                                                <xal:GeoRSS dd:minOccur="0" dd:dataNode="dataGroup" xmlns:xal="urn:oasis:names:tc:ciq:xal:4"/>
+                                                <xal:LocationByCoordinates dd:minOccur="0" Meridian="" MeridianCodeType="" Datum="" DatumCodeType="" Projection="" ProjectionCodeType="" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                                   <xal:Latitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                                                   <xal:Longitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                                                </xal:LocationByCoordinates>
+                                             </QualifyingAddress>
+                                             <Contact dd:minOccur="0" DisplayOrder="">
+                                                <MailingAddress dd:minOccur="0" type="" addressID="" usage="" status="">
+                                                   <xal:FreeTextAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                                      <xal:AddressLine dd:maxOccur="-1" type="" seqn=""/>
+                                                   </xal:FreeTextAddress>
+                                                   <xal:PostalAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                                      <xal:Thoroughfare dd:minOccur="0" type="" number="" name="" direction=""/>
+                                                      <xal:OtherDetail dd:minOccur="0" dd:maxOccur="-1" type=""/>
+                                                      <xal:PostalDeliveryPoint dd:minOccur="0" type=""/>
+                                                      <xal:Locality dd:minOccur="0" type=""/>
+                                                      <xal:AdministrativeArea dd:minOccur="0" type=""/>
+                                                      <xal:PostCode dd:minOccur="0" type=""/>
+                                                      <xal:Country dd:minOccur="0" code=""/>
+                                                   </xal:PostalAddress>
+                                                   <xal:GeoRSS dd:minOccur="0" dd:dataNode="dataGroup" xmlns:xal="urn:oasis:names:tc:ciq:xal:4"/>
+                                                   <xal:LocationByCoordinates dd:minOccur="0" Meridian="" MeridianCodeType="" Datum="" DatumCodeType="" Projection="" ProjectionCodeType="" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                                      <xal:Latitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                                                      <xal:Longitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                                                   </xal:LocationByCoordinates>
+                                                </MailingAddress>
+                                                <Email dd:minOccur="0" dd:maxOccur="-1" Preferred=""/>
+                                                <Telephone dd:minOccur="0" dd:maxOccur="-1" Preferred="" Mobile="">
+                                                   <Number/>
+                                                   <Extension dd:minOccur="0" dd:nullType="exclude"/>
+                                                </Telephone>
+                                                <Fax dd:minOccur="0" dd:maxOccur="-1" Preferred="" Mobile="">
+                                                   <Number/>
+                                                   <Extension dd:minOccur="0" dd:nullType="exclude"/>
+                                                </Fax>
+                                                <PreferredContact dd:minOccur="0" dd:nullType="exclude"/>
+                                             </Contact>
+                                             <dd:group dd:model="choice" dd:minOccur="0">
+                                                <Affiliation>
+                                                   <AffiliationIdentifier IdNumber="" DisplayOrder="" ShortCode="" ExpectedConfirmationReference="">
+                                                      <RegisteredName/>
+                                                   </AffiliationIdentifier>
+                                                   <Type/>
+                                                   <Description dd:minOccur="0" dd:nullType="exclude"/>
+                                                   <Logo dd:model="choice" dd:minOccur="0" dd:maxOccur="-1" IdNumber="" DisplayOrder="" ItemType="" Verified="" Problem="" Notes="" Role="">
+                                                      <URL Checksum="" HashAlgorithm="" HMAC="" HMACkey="" MimeType=""/>
+                                                      <Binary Format="" dd:reqAttrs="Format"/>
+                                                   </Logo>
+                                                </Affiliation>
+                                                <Logo dd:model="choice" dd:maxOccur="-1" IdNumber="" DisplayOrder="" ItemType="" Verified="" Problem="" Notes="" Role="">
+                                                   <URL Checksum="" HashAlgorithm="" HMAC="" HMACkey="" MimeType=""/>
+                                                   <Binary Format="" dd:reqAttrs="Format"/>
+                                                </Logo>
+                                                <SiteURL dd:maxOccur="-1"/>
+                                             </dd:group>
+                                             <Profession dd:minOccur="0" dd:nullType="exclude"/>
+                                             <Agent dd:minOccur="0" dd:maxOccur="-1" IdNumber="" DisplayOrder="" Role="">
+                                                <AgentIdentifier IdNumber="" DisplayOrder="">
+                                                   <AgentName Type="" id="a3a02560-0200-11e9-9277-bca8a6bfe1cb" LanguageCode="">
+                                                      <xnl:NameElement dd:minOccur="0" dd:maxOccur="-1" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                                                      <xnl:PersonFullName dd:minOccur="0" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                                                      <xnl:PersonPreviousName dd:minOccur="0" dd:maxOccur="-1" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                                                      <xnl:PersonNameDetail dd:minOccur="0" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4">
+                                                         <xnl:NamePrefixText dd:minOccur="0" dd:nullType="exclude"/>
+                                                         <xnl:GivenName dd:minOccur="0" dd:nullType="exclude"/>
+                                                         <xnl:MiddleName dd:minOccur="0" dd:maxOccur="-1" dd:nullType="exclude"/>
+                                                         <xnl:FamilyName dd:minOccur="0" dd:nullType="exclude"/>
+                                                         <xnl:NameSuffixText dd:minOccur="0" dd:nullType="exclude"/>
+                                                      </xnl:PersonNameDetail>
+                                                   </AgentName>
+                                                </AgentIdentifier>
+                                                <Affiliation dd:minOccur="0">
+                                                   <AffiliationIdentifier IdNumber="" DisplayOrder="" ShortCode="" ExpectedConfirmationReference="">
+                                                      <RegisteredName/>
+                                                   </AffiliationIdentifier>
+                                                   <Type/>
+                                                   <Description dd:minOccur="0" dd:nullType="exclude"/>
+                                                   <Logo dd:model="choice" dd:minOccur="0" dd:maxOccur="-1" IdNumber="" DisplayOrder="" ItemType="" Verified="" Problem="" Notes="" Role="">
+                                                      <URL Checksum="" HashAlgorithm="" HMAC="" HMACkey="" MimeType=""/>
+                                                      <Binary Format="" dd:reqAttrs="Format"/>
+                                                   </Logo>
+                                                </Affiliation>
+                                                <OfficialAddress dd:minOccur="0" type="" addressID="" usage="" status="">
+                                                   <xal:FreeTextAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                                      <xal:AddressLine dd:maxOccur="-1" type="" seqn=""/>
+                                                   </xal:FreeTextAddress>
+                                                   <xal:PostalAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                                      <xal:Thoroughfare dd:minOccur="0" type="" number="" name="" direction=""/>
+                                                      <xal:OtherDetail dd:minOccur="0" dd:maxOccur="-1" type=""/>
+                                                      <xal:PostalDeliveryPoint dd:minOccur="0" type=""/>
+                                                      <xal:Locality dd:minOccur="0" type=""/>
+                                                      <xal:AdministrativeArea dd:minOccur="0" type=""/>
+                                                      <xal:PostCode dd:minOccur="0" type=""/>
+                                                      <xal:Country dd:minOccur="0" code=""/>
+                                                   </xal:PostalAddress>
+                                                   <xal:GeoRSS dd:minOccur="0" dd:dataNode="dataGroup" xmlns:xal="urn:oasis:names:tc:ciq:xal:4"/>
+                                                   <xal:LocationByCoordinates dd:minOccur="0" Meridian="" MeridianCodeType="" Datum="" DatumCodeType="" Projection="" ProjectionCodeType="" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                                      <xal:Latitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                                                      <xal:Longitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                                                   </xal:LocationByCoordinates>
+                                                </OfficialAddress>
+                                                <Contact dd:minOccur="0" DisplayOrder="">
+                                                   <MailingAddress dd:minOccur="0" type="" addressID="" usage="" status="">
+                                                      <xal:FreeTextAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                                         <xal:AddressLine dd:maxOccur="-1" type="" seqn=""/>
+                                                      </xal:FreeTextAddress>
+                                                      <xal:PostalAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                                         <xal:Thoroughfare dd:minOccur="0" type="" number="" name="" direction=""/>
+                                                         <xal:OtherDetail dd:minOccur="0" dd:maxOccur="-1" type=""/>
+                                                         <xal:PostalDeliveryPoint dd:minOccur="0" type=""/>
+                                                         <xal:Locality dd:minOccur="0" type=""/>
+                                                         <xal:AdministrativeArea dd:minOccur="0" type=""/>
+                                                         <xal:PostCode dd:minOccur="0" type=""/>
+                                                         <xal:Country dd:minOccur="0" code=""/>
+                                                      </xal:PostalAddress>
+                                                      <xal:GeoRSS dd:minOccur="0" dd:dataNode="dataGroup" xmlns:xal="urn:oasis:names:tc:ciq:xal:4"/>
+                                                      <xal:LocationByCoordinates dd:minOccur="0" Meridian="" MeridianCodeType="" Datum="" DatumCodeType="" Projection="" ProjectionCodeType="" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                                         <xal:Latitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                                                         <xal:Longitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                                                      </xal:LocationByCoordinates>
+                                                   </MailingAddress>
+                                                   <Email dd:minOccur="0" dd:maxOccur="-1" Preferred=""/>
+                                                   <Telephone dd:minOccur="0" dd:maxOccur="-1" Preferred="" Mobile="">
+                                                      <Number/>
+                                                      <Extension dd:minOccur="0" dd:nullType="exclude"/>
+                                                   </Telephone>
+                                                   <Fax dd:minOccur="0" dd:maxOccur="-1" Preferred="" Mobile="">
+                                                      <Number/>
+                                                      <Extension dd:minOccur="0" dd:nullType="exclude"/>
+                                                   </Fax>
+                                                   <PreferredContact dd:minOccur="0" dd:nullType="exclude"/>
+                                                </Contact>
+                                             </Agent>
+                                             <Photo dd:model="choice" dd:minOccur="0" IdNumber="" DisplayOrder="" ItemType="" Verified="" Problem="" Notes="" Role="">
+                                                <URL Checksum="" HashAlgorithm="" HMAC="" HMACkey="" MimeType=""/>
+                                                <Binary Format="" dd:reqAttrs="Format"/>
+                                             </Photo>
+                                             <Profile dd:minOccur="0">
+                                                <Message dd:maxOccur="-1" MessageId="" DisplayOrder="" DateTime="" ChannelId="" Format="" Type="" Seqn="" MimeType="" Lang=""/>
+                                             </Profile>
+                                             <ElectionStatement dd:minOccur="0">
+                                                <Message dd:maxOccur="-1" MessageId="" DisplayOrder="" DateTime="" ChannelId="" Format="" Type="" Seqn="" MimeType="" Lang=""/>
+                                             </ElectionStatement>
+                                          </dd:group>
+                                          <ProposalItem ReferendumOptionIdentifier="" ProposalIdentifier="" Lang="">
+                                             <ProposalText dd:minOccur="0" dd:nullType="exclude"/>
+                                             <SelectionText dd:minOccur="0" dd:nullType="exclude"/>
+                                             <StatementType dd:minOccur="0" dd:nullType="exclude"/>
+                                             <PassThreshold dd:minOccur="0" dd:nullType="exclude"/>
+                                             <AbstainEffect dd:minOccur="0" dd:nullType="exclude"/>
+                                          </ProposalItem>
+                                       </dd:group>
+                                       <Selected dd:minOccur="0" dd:nullType="exclude"/>
+                                    </Candidate>
+                                    <Affiliation>
+                                       <AffiliationIdentifier IdNumber="" DisplayOrder="" ShortCode="" ExpectedConfirmationReference="">
+                                          <RegisteredName/>
+                                       </AffiliationIdentifier>
+                                       <Type/>
+                                       <Description dd:minOccur="0" dd:nullType="exclude"/>
+                                       <Logo dd:model="choice" dd:minOccur="0" dd:maxOccur="-1" IdNumber="" DisplayOrder="" ItemType="" Verified="" Problem="" Notes="" Role="">
+                                          <URL Checksum="" HashAlgorithm="" HMAC="" HMACkey="" MimeType=""/>
+                                          <Binary Format="" dd:reqAttrs="Format"/>
+                                       </Logo>
+                                       <dd:group>
+                                          <CandidateIdentifier dd:minOccur="0" dd:maxOccur="-1" IdNumber="" DisplayOrder="" ShortCode="" ExpectedConfirmationReference="">
+                                             <CandidateName dd:minOccur="0" dd:nullType="exclude"/>
+                                             <KnownAs dd:minOccur="0" dd:nullType="exclude"/>
+                                             <CandidateGender dd:minOccur="0" dd:nullType="exclude"/>
+                                             <ShortCode dd:minOccur="0" dd:nullType="exclude"/>
+                                          </CandidateIdentifier>
+                                       </dd:group>
+                                    </Affiliation>
+                                 </dd:group>
+                                 <ReferendumOptionIdentifier dd:maxOccur="-1" IdNumber="" DisplayOrder="" ShortCode="" ExpectedConfirmationReference=""/>
+                                 <WriteInCandidate dd:minOccur="0" dd:maxOccur="-1">
+                                    <Name/>
+                                    <Selected dd:minOccur="0" dd:nullType="exclude"/>
+                                 </WriteInCandidate>
+                              </BallotChoices>
+                              <Messages dd:minOccur="0" dd:maxOccur="-1">
+                                 <Message dd:maxOccur="-1" MessageId="" DisplayOrder="" DateTime="" ChannelId="" Format="" Type="" Seqn="" MimeType="" Lang=""/>
+                              </Messages>
+                           </Contest>
+                           <Messages dd:minOccur="0" dd:maxOccur="-1">
+                              <Message dd:maxOccur="-1" MessageId="" DisplayOrder="" DateTime="" ChannelId="" Format="" Type="" Seqn="" MimeType="" Lang=""/>
+                           </Messages>
+                        </Election>
+                        <dd:group dd:model="choice" dd:minOccur="0">
+                           <BallotIdentifier IdNumber="" DisplayOrder="" dd:reqAttrs="IdNumber">
+                              <BallotName dd:minOccur="0" dd:nullType="exclude"/>
+                              <BallotStyleImageURL dd:minOccur="0" MimeType=""/>
+                           </BallotIdentifier>
+                           <BallotIdentifierRange Colour="">
+                              <Start IdNumber="" DisplayOrder="" dd:reqAttrs="IdNumber">
+                                 <BallotName dd:minOccur="0" dd:nullType="exclude"/>
+                                 <BallotStyleImageURL dd:minOccur="0" MimeType=""/>
+                              </Start>
+                              <End IdNumber="" DisplayOrder="" dd:reqAttrs="IdNumber">
+                                 <BallotName dd:minOccur="0" dd:nullType="exclude"/>
+                                 <BallotStyleImageURL dd:minOccur="0" MimeType=""/>
+                              </End>
+                           </BallotIdentifierRange>
+                        </dd:group>
+                        <Voter dd:model="choice" dd:minOccur="0" dd:maxOccur="-1">
+                           <dd:group>
+                              <VoterIdentification DisplayOrder="" Id="a3a09a90-0200-11e9-9277-bca8a6bfe1cb">
+                                 <Source dd:minOccur="0" Role="" dd:reqAttrs="Role">
+                                    <Name dd:minOccur="0" dd:nullType="exclude"/>
+                                    <IdValue/>
+                                 </Source>
+                                 <VoterName dd:minOccur="0" Type="" id="a3a09a91-0200-11e9-9277-bca8a6bfe1cb" LanguageCode="">
+                                    <xnl:NameElement dd:minOccur="0" dd:maxOccur="-1" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                                    <xnl:PersonFullName dd:minOccur="0" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                                    <xnl:PersonPreviousName dd:minOccur="0" dd:maxOccur="-1" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                                    <xnl:PersonNameDetail dd:minOccur="0" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4">
+                                       <xnl:NamePrefixText dd:minOccur="0" dd:nullType="exclude"/>
+                                       <xnl:GivenName dd:minOccur="0" dd:nullType="exclude"/>
+                                       <xnl:MiddleName dd:minOccur="0" dd:maxOccur="-1" dd:nullType="exclude"/>
+                                       <xnl:FamilyName dd:minOccur="0" dd:nullType="exclude"/>
+                                       <xnl:NameSuffixText dd:minOccur="0" dd:nullType="exclude"/>
+                                    </xnl:PersonNameDetail>
+                                 </VoterName>
+                                 <ElectoralAddress dd:minOccur="0" type="" addressID="" usage="" status="">
+                                    <xal:FreeTextAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                       <xal:AddressLine dd:maxOccur="-1" type="" seqn=""/>
+                                    </xal:FreeTextAddress>
+                                    <xal:PostalAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                       <xal:Thoroughfare dd:minOccur="0" type="" number="" name="" direction=""/>
+                                       <xal:OtherDetail dd:minOccur="0" dd:maxOccur="-1" type=""/>
+                                       <xal:PostalDeliveryPoint dd:minOccur="0" type=""/>
+                                       <xal:Locality dd:minOccur="0" type=""/>
+                                       <xal:AdministrativeArea dd:minOccur="0" type=""/>
+                                       <xal:PostCode dd:minOccur="0" type=""/>
+                                       <xal:Country dd:minOccur="0" code=""/>
+                                    </xal:PostalAddress>
+                                    <xal:GeoRSS dd:minOccur="0" dd:dataNode="dataGroup" xmlns:xal="urn:oasis:names:tc:ciq:xal:4"/>
+                                    <xal:LocationByCoordinates dd:minOccur="0" Meridian="" MeridianCodeType="" Datum="" DatumCodeType="" Projection="" ProjectionCodeType="" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                       <xal:Latitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                                       <xal:Longitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                                    </xal:LocationByCoordinates>
+                                 </ElectoralAddress>
+                                 <PreviousElectoralAddress dd:minOccur="0" type="" addressID="" usage="" status="">
+                                    <xal:FreeTextAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                       <xal:AddressLine dd:maxOccur="-1" type="" seqn=""/>
+                                    </xal:FreeTextAddress>
+                                    <xal:PostalAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                       <xal:Thoroughfare dd:minOccur="0" type="" number="" name="" direction=""/>
+                                       <xal:OtherDetail dd:minOccur="0" dd:maxOccur="-1" type=""/>
+                                       <xal:PostalDeliveryPoint dd:minOccur="0" type=""/>
+                                       <xal:Locality dd:minOccur="0" type=""/>
+                                       <xal:AdministrativeArea dd:minOccur="0" type=""/>
+                                       <xal:PostCode dd:minOccur="0" type=""/>
+                                       <xal:Country dd:minOccur="0" code=""/>
+                                    </xal:PostalAddress>
+                                    <xal:GeoRSS dd:minOccur="0" dd:dataNode="dataGroup" xmlns:xal="urn:oasis:names:tc:ciq:xal:4"/>
+                                    <xal:LocationByCoordinates dd:minOccur="0" Meridian="" MeridianCodeType="" Datum="" DatumCodeType="" Projection="" ProjectionCodeType="" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                       <xal:Latitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                                       <xal:Longitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                                    </xal:LocationByCoordinates>
+                                 </PreviousElectoralAddress>
+                                 <dd:group dd:model="choice" dd:minOccur="0">
+                                    <VToken VTokenId="" Status="">
+                                       <Component dd:maxOccur="-1" Type=""/>
+                                       <BallotIdentifier dd:minOccur="0" dd:maxOccur="-1" IdNumber="" DisplayOrder="" dd:reqAttrs="IdNumber">
+                                          <BallotName dd:minOccur="0" dd:nullType="exclude"/>
+                                          <BallotStyleImageURL dd:minOccur="0" MimeType=""/>
+                                       </BallotIdentifier>
+                                    </VToken>
+                                    <VTokenQualified VTokenId="" Status="">
+                                       <Component dd:maxOccur="-1" Type=""/>
+                                       <BallotIdentifier dd:minOccur="0" dd:maxOccur="-1" IdNumber="" DisplayOrder="" dd:reqAttrs="IdNumber">
+                                          <BallotName dd:minOccur="0" dd:nullType="exclude"/>
+                                          <BallotStyleImageURL dd:minOccur="0" MimeType=""/>
+                                       </BallotIdentifier>
+                                       <dd:group>
+                                          <Reason Type="" Status="" dd:reqAttrs="Type Status"/>
+                                          <VToken dd:minOccur="0" VTokenId="" Status="">
+                                             <Component dd:maxOccur="-1" Type=""/>
+                                             <BallotIdentifier dd:minOccur="0" dd:maxOccur="-1" IdNumber="" DisplayOrder="" dd:reqAttrs="IdNumber">
+                                                <BallotName dd:minOccur="0" dd:nullType="exclude"/>
+                                                <BallotStyleImageURL dd:minOccur="0" MimeType=""/>
+                                             </BallotIdentifier>
+                                          </VToken>
+                                       </dd:group>
+                                    </VTokenQualified>
+                                 </dd:group>
+                                 <VoterId dd:minOccur="0" dd:maxOccur="-1" type=""/>
+                                 <VoterSignature dd:model="choice" dd:minOccur="0" IdNumber="" DisplayOrder="" ItemType="" Verified="" Problem="" Notes="" Role="">
+                                    <URL Checksum="" HashAlgorithm="" HMAC="" HMACkey="" MimeType=""/>
+                                    <Binary Format="" dd:reqAttrs="Format"/>
+                                 </VoterSignature>
+                                 <VoterPhysicalID dd:minOccur="0" dd:maxOccur="-1" IdType="" dd:reqAttrs="IdType"/>
+                              </VoterIdentification>
+                              <Contact dd:minOccur="0" DisplayOrder="">
+                                 <MailingAddress dd:minOccur="0" type="" addressID="" usage="" status="">
+                                    <xal:FreeTextAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                       <xal:AddressLine dd:maxOccur="-1" type="" seqn=""/>
+                                    </xal:FreeTextAddress>
+                                    <xal:PostalAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                       <xal:Thoroughfare dd:minOccur="0" type="" number="" name="" direction=""/>
+                                       <xal:OtherDetail dd:minOccur="0" dd:maxOccur="-1" type=""/>
+                                       <xal:PostalDeliveryPoint dd:minOccur="0" type=""/>
+                                       <xal:Locality dd:minOccur="0" type=""/>
+                                       <xal:AdministrativeArea dd:minOccur="0" type=""/>
+                                       <xal:PostCode dd:minOccur="0" type=""/>
+                                       <xal:Country dd:minOccur="0" code=""/>
+                                    </xal:PostalAddress>
+                                    <xal:GeoRSS dd:minOccur="0" dd:dataNode="dataGroup" xmlns:xal="urn:oasis:names:tc:ciq:xal:4"/>
+                                    <xal:LocationByCoordinates dd:minOccur="0" Meridian="" MeridianCodeType="" Datum="" DatumCodeType="" Projection="" ProjectionCodeType="" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                       <xal:Latitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                                       <xal:Longitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                                    </xal:LocationByCoordinates>
+                                 </MailingAddress>
+                                 <Email dd:minOccur="0" dd:maxOccur="-1" Preferred=""/>
+                                 <Telephone dd:minOccur="0" dd:maxOccur="-1" Preferred="" Mobile="">
+                                    <Number/>
+                                    <Extension dd:minOccur="0" dd:nullType="exclude"/>
+                                 </Telephone>
+                                 <Fax dd:minOccur="0" dd:maxOccur="-1" Preferred="" Mobile="">
+                                    <Number/>
+                                    <Extension dd:minOccur="0" dd:nullType="exclude"/>
+                                 </Fax>
+                                 <PreferredContact dd:minOccur="0" dd:nullType="exclude"/>
+                              </Contact>
+                           </dd:group>
+                           <Contact DisplayOrder="">
+                              <MailingAddress dd:minOccur="0" type="" addressID="" usage="" status="">
+                                 <xal:FreeTextAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                    <xal:AddressLine dd:maxOccur="-1" type="" seqn=""/>
+                                 </xal:FreeTextAddress>
+                                 <xal:PostalAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                    <xal:Thoroughfare dd:minOccur="0" type="" number="" name="" direction=""/>
+                                    <xal:OtherDetail dd:minOccur="0" dd:maxOccur="-1" type=""/>
+                                    <xal:PostalDeliveryPoint dd:minOccur="0" type=""/>
+                                    <xal:Locality dd:minOccur="0" type=""/>
+                                    <xal:AdministrativeArea dd:minOccur="0" type=""/>
+                                    <xal:PostCode dd:minOccur="0" type=""/>
+                                    <xal:Country dd:minOccur="0" code=""/>
+                                 </xal:PostalAddress>
+                                 <xal:GeoRSS dd:minOccur="0" dd:dataNode="dataGroup" xmlns:xal="urn:oasis:names:tc:ciq:xal:4"/>
+                                 <xal:LocationByCoordinates dd:minOccur="0" Meridian="" MeridianCodeType="" Datum="" DatumCodeType="" Projection="" ProjectionCodeType="" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                    <xal:Latitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                                    <xal:Longitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                                 </xal:LocationByCoordinates>
+                              </MailingAddress>
+                              <Email dd:minOccur="0" dd:maxOccur="-1" Preferred=""/>
+                              <Telephone dd:minOccur="0" dd:maxOccur="-1" Preferred="" Mobile="">
+                                 <Number/>
+                                 <Extension dd:minOccur="0" dd:nullType="exclude"/>
+                              </Telephone>
+                              <Fax dd:minOccur="0" dd:maxOccur="-1" Preferred="" Mobile="">
+                                 <Number/>
+                                 <Extension dd:minOccur="0" dd:nullType="exclude"/>
+                              </Fax>
+                              <PreferredContact dd:minOccur="0" dd:nullType="exclude"/>
+                           </Contact>
+                           <Proxy dd:minOccur="0" DisplayOrder="" IdNumber="">
+                              <dd:group dd:model="choice">
+                                 <Position/>
+                                 <dd:group>
+                                    <Name Type="" id="a3a10f94-0200-11e9-9277-bca8a6bfe1cb" LanguageCode="">
+                                       <xnl:NameElement dd:minOccur="0" dd:maxOccur="-1" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                                       <xnl:PersonFullName dd:minOccur="0" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                                       <xnl:PersonPreviousName dd:minOccur="0" dd:maxOccur="-1" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4"/>
+                                       <xnl:PersonNameDetail dd:minOccur="0" dd:nullType="exclude" xmlns:xnl="urn:oasis:names:tc:ciq:xnl:4">
+                                          <xnl:NamePrefixText dd:minOccur="0" dd:nullType="exclude"/>
+                                          <xnl:GivenName dd:minOccur="0" dd:nullType="exclude"/>
+                                          <xnl:MiddleName dd:minOccur="0" dd:maxOccur="-1" dd:nullType="exclude"/>
+                                          <xnl:FamilyName dd:minOccur="0" dd:nullType="exclude"/>
+                                          <xnl:NameSuffixText dd:minOccur="0" dd:nullType="exclude"/>
+                                       </xnl:PersonNameDetail>
+                                    </Name>
+                                    <Position dd:minOccur="0" dd:nullType="exclude"/>
+                                 </dd:group>
+                              </dd:group>
+                              <Address dd:minOccur="0" type="" addressID="" usage="" status="">
+                                 <xal:FreeTextAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                    <xal:AddressLine dd:maxOccur="-1" type="" seqn=""/>
+                                 </xal:FreeTextAddress>
+                                 <xal:PostalAddress dd:minOccur="0" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                    <xal:Thoroughfare dd:minOccur="0" type="" number="" name="" direction=""/>
+                                    <xal:OtherDetail dd:minOccur="0" dd:maxOccur="-1" type=""/>
+                                    <xal:PostalDeliveryPoint dd:minOccur="0" type=""/>
+                                    <xal:Locality dd:minOccur="0" type=""/>
+                                    <xal:AdministrativeArea dd:minOccur="0" type=""/>
+                                    <xal:PostCode dd:minOccur="0" type=""/>
+                                    <xal:Country dd:minOccur="0" code=""/>
+                                 </xal:PostalAddress>
+                                 <xal:GeoRSS dd:minOccur="0" dd:dataNode="dataGroup" xmlns:xal="urn:oasis:names:tc:ciq:xal:4"/>
+                                 <xal:LocationByCoordinates dd:minOccur="0" Meridian="" MeridianCodeType="" Datum="" DatumCodeType="" Projection="" ProjectionCodeType="" xmlns:xal="urn:oasis:names:tc:ciq:xal:4">
+                                    <xal:Latitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                                    <xal:Longitude dd:minOccur="0" DegreesMeasure="" MinutesMeasure="" SecondsMeasure="" Direction=""/>
+                                 </xal:LocationByCoordinates>
+                              </Address>
+                              <DateOfBirth dd:minOccur="0" dd:nullType="exclude"/>
+                              <Qualification dd:minOccur="0" dd:nullType="exclude"/>
+                              <Reason dd:minOccur="0" dd:nullType="exclude"/>
+                              <Period dd:model="choice" dd:minOccur="0">
+                                 <Dates>
+                                    <Start dd:minOccur="0" dd:nullType="exclude"/>
+                                    <End/>
+                                 </Dates>
+                                 <Event dd:maxOccur="-1">
+                                    <EventIdentifier IdNumber="" DisplayOrder="">
+                                       <EventName dd:minOccur="0" dd:nullType="exclude"/>
+                                       <EventQualifier dd:minOccur="0" IdNumber=""/>
+                                    </EventIdentifier>
+                                    <ElectionIdentifier dd:minOccur="0" dd:maxOccur="-1" IdNumber="" DisplayOrder="" ShortCode="" dd:reqAttrs="IdNumber">
+                                       <ElectionName dd:minOccur="0" dd:nullType="exclude"/>
+                                       <ElectionGroup dd:minOccur="0" Id="a3a136a0-0200-11e9-9277-bca8a6bfe1cb" dd:reqAttrs="Id"/>
+                                       <ElectionCategory dd:minOccur="0" dd:nullType="exclude"/>
+                                    </ElectionIdentifier>
+                                 </Event>
+                                 <Permanent/>
+                              </Period>
+                              <ProxyAgrees dd:minOccur="0" dd:nullType="exclude"/>
+                              <PreferredLanguage dd:minOccur="0" dd:nullType="exclude"/>
+                              <Channel dd:minOccur="0" dd:maxOccur="-1">
+                                 <PreferredChannel dd:minOccur="0" dd:maxOccur="-1" Fixed=""/>
+                                 <Period dd:model="choice" dd:minOccur="0">
+                                    <Dates>
+                                       <Start dd:minOccur="0" dd:nullType="exclude"/>
+                                       <End/>
+                                    </Dates>
+                                    <Event dd:maxOccur="-1">
+                                       <EventIdentifier IdNumber="" DisplayOrder="">
+                                          <EventName dd:minOccur="0" dd:nullType="exclude"/>
+                                          <EventQualifier dd:minOccur="0" IdNumber=""/>
+                                       </EventIdentifier>
+                                       <ElectionIdentifier dd:minOccur="0" dd:maxOccur="-1" IdNumber="" DisplayOrder="" ShortCode="" dd:reqAttrs="IdNumber">
+                                          <ElectionName dd:minOccur="0" dd:nullType="exclude"/>
+                                          <ElectionGroup dd:minOccur="0" Id="a3a136a1-0200-11e9-9277-bca8a6bfe1cb" dd:reqAttrs="Id"/>
+                                          <ElectionCategory dd:minOccur="0" dd:nullType="exclude"/>
+                                       </ElectionIdentifier>
+                                    </Event>
+                                    <Permanent/>
+                                 </Period>
+                              </Channel>
+                              <dd:group dd:model="choice" dd:minOccur="0">
+                                 <VToken VTokenId="" Status="">
+                                    <Component dd:maxOccur="-1" Type=""/>
+                                    <BallotIdentifier dd:minOccur="0" dd:maxOccur="-1" IdNumber="" DisplayOrder="" dd:reqAttrs="IdNumber">
+                                       <BallotName dd:minOccur="0" dd:nullType="exclude"/>
+                                       <BallotStyleImageURL dd:minOccur="0" MimeType=""/>
+                                    </BallotIdentifier>
+                                 </VToken>
+                                 <VTokenQualified VTokenId="" Status="">
+                                    <Component dd:maxOccur="-1" Type=""/>
+                                    <BallotIdentifier dd:minOccur="0" dd:maxOccur="-1" IdNumber="" DisplayOrder="" dd:reqAttrs="IdNumber">
+                                       <BallotName dd:minOccur="0" dd:nullType="exclude"/>
+                                       <BallotStyleImageURL dd:minOccur="0" MimeType=""/>
+                                    </BallotIdentifier>
+                                    <dd:group>
+                                       <Reason Type="" Status="" dd:reqAttrs="Type Status"/>
+                                       <VToken dd:minOccur="0" VTokenId="" Status="">
+                                          <Component dd:maxOccur="-1" Type=""/>
+                                          <BallotIdentifier dd:minOccur="0" dd:maxOccur="-1" IdNumber="" DisplayOrder="" dd:reqAttrs="IdNumber">
+                                             <BallotName dd:minOccur="0" dd:nullType="exclude"/>
+                                             <BallotStyleImageURL dd:minOccur="0" MimeType=""/>
+                                          </BallotIdentifier>
+                                       </VToken>
+                                    </dd:group>
+                                 </VTokenQualified>
+                              </dd:group>
+                           </Proxy>
+                        </Voter>
+                     </dd:group>
+                  </dd:group>
+               </Ballot>
+               <Messages dd:minOccur="0" dd:maxOccur="-1">
+                  <Message dd:maxOccur="-1" MessageId="" DisplayOrder="" DateTime="" ChannelId="" Format="" Type="" Seqn="" MimeType="" Lang=""/>
+               </Messages>
+               <dd:group>
+                  <AuditInformation dd:minOccur="0">
+                     <VotingChannel dd:minOccur="0" dd:nullType="exclude"/>
+                     <ProcessingUnits dd:minOccur="0">
+                        <OriginatingDevice dd:minOccur="0" Role="" dd:reqAttrs="Role">
+                           <Name dd:minOccur="0" dd:nullType="exclude"/>
+                           <IdValue/>
+                        </OriginatingDevice>
+                        <Gateway dd:minOccur="0" Role="" dd:reqAttrs="Role">
+                           <Name dd:minOccur="0" dd:nullType="exclude"/>
+                           <IdValue/>
+                        </Gateway>
+                        <VotingSystem dd:minOccur="0" Role="" dd:reqAttrs="Role">
+                           <Name dd:minOccur="0" dd:nullType="exclude"/>
+                           <IdValue/>
+                        </VotingSystem>
+                        <CountingSystem dd:minOccur="0" Role="" dd:reqAttrs="Role">
+                           <Name dd:minOccur="0" dd:nullType="exclude"/>
+                           <IdValue/>
+                        </CountingSystem>
+                        <VTokenLoggingSystem dd:minOccur="0" Role="" dd:reqAttrs="Role">
+                           <Name dd:minOccur="0" dd:nullType="exclude"/>
+                           <IdValue/>
+                        </VTokenLoggingSystem>
+                        <SealLoggingSystem dd:minOccur="0" Role="" dd:reqAttrs="Role">
+                           <Name dd:minOccur="0" dd:nullType="exclude"/>
+                           <IdValue/>
+                        </SealLoggingSystem>
+                        <Other dd:minOccur="0" dd:maxOccur="-1" Role="" Type="" dd:reqAttrs="Role Type">
+                           <Name dd:minOccur="0" dd:nullType="exclude"/>
+                           <IdValue/>
+                        </Other>
+                     </ProcessingUnits>
+                  </AuditInformation>
+               </dd:group>
+            </Ballots>
+         </dd:group>
+      </EML>
+   </dd:dataDescription>
+</xfa:datasets>
+<connectionSet xmlns="http://www.xfa.org/schema/xfa-connection-set/2.8/">
+   <xsdConnection name="DataConnection" dataDescription="EML">
+      <uri>..\..\..\RemoteBallotMarking\xsd\410-ballots-v7-0.xsd</uri>
+      <rootElement>EML</rootElement>
+      <?templateDesigner fileDigest shaHash="R4neLVNe02Qud8/KJyCOrNBsC4k="?></xsdConnection>
+</connectionSet>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.2-c001 63.156067, 2014/03/04-12:38:26        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description xmlns:xmp="http://ns.adobe.com/xap/1.0/" rdf:about="">
+         <xmp:MetadataDate>2018-12-17T13:38:41Z</xmp:MetadataDate>
+         <xmp:CreatorTool>Adobe LiveCycle Designer 11.0</xmp:CreatorTool>
+      </rdf:Description>
+      <rdf:Description xmlns:pdf="http://ns.adobe.com/pdf/1.3/" rdf:about="">
+         <pdf:Producer>Adobe LiveCycle Designer 11.0</pdf:Producer>
+      </rdf:Description>
+      <rdf:Description xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" rdf:about="">
+         <xmpMM:DocumentID>uuid:453141f4-274c-43cf-aa50-1da07e691e51</xmpMM:DocumentID>
+         <xmpMM:InstanceID>uuid:0989beff-8584-4bce-8b77-aac1c890eade</xmpMM:InstanceID>
+      </rdf:Description>
+      <rdf:Description xmlns:dc="http://purl.org/dc/elements/1.1/" rdf:about="">
+         <dc:format>application/pdf</dc:format>
+         <dc:rights>
+            <rdf:Alt>
+               <rdf:li xml:lang="x-default">Copyright (C) 2018  Hilton Roscoe LLC
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.</rdf:li>
+            </rdf:Alt>
+         </dc:rights>
+         <dc:creator>
+            <rdf:Seq>
+               <rdf:li>Hilton Roscoe LLC</rdf:li>
+            </rdf:Seq>
+         </dc:creator>
+         <dc:title>
+            <rdf:Alt>
+               <rdf:li xml:lang="x-default">RCV CVR Prototype</rdf:li>
+            </rdf:Alt>
+         </dc:title>
+      </rdf:Description>
+      <rdf:Description xmlns:pdfx="http://ns.adobe.com/pdfx/1.3/" rdf:about="">
+         <pdfx:_pagezerocontent>      &lt;body xmlns="http://www.w3.org/1999/xhtml" xmlns:xfa="http://www.xfa.org/schema/xfa-data/1.0/"&gt;&lt;p style="font-family:'Times New Roman';font-size:18pt;text-decoration:none;letter-spacing:0in"&gt;Running CVR Prototype&lt;/p&gt;&lt;p style="font-family:'Times New Roman';font-size:12pt;text-decoration:none;letter-spacing:0in"&gt;&lt;span style="xfa-spacerun:yes"&gt; &lt;/span&gt;&lt;/p&gt;&lt;p style="font-family:'Times New Roman';font-size:12pt;text-decoration:none;letter-spacing:0in"&gt;If you are seeing this message, you need to perform additional steps to use this prototype.&lt;/p&gt;&lt;p style="font-family:'Times New Roman';font-size:12pt;text-decoration:none;letter-spacing:0in"&gt;&lt;span style="xfa-spacerun:yes"&gt; &lt;/span&gt;&lt;/p&gt;&lt;p style="font-family:'Times New Roman';font-size:12pt;text-decoration:none;letter-spacing:0in"&gt;- If you are using a browser, save the PDF to disk and open using a dedicated PDF viewer&lt;/p&gt;&lt;p style="font-family:'Times New Roman';font-size:12pt;text-decoration:none;letter-spacing:0in"&gt;- Use Adobe Acrobat Reader to view this PDF&lt;/p&gt;&lt;p style="font-family:'Times New Roman';font-size:12pt;text-decoration:none;letter-spacing:0in"&gt;- Use a desktop computer to view this PDF&lt;/p&gt;&lt;p style="font-family:'Times New Roman';font-size:12pt;text-decoration:none;letter-spacing:0in"&gt;&lt;span style="xfa-spacerun:yes"&gt; &lt;/span&gt;&lt;/p&gt;&lt;p style="font-family:'Times New Roman';font-size:12pt;text-decoration:none;letter-spacing:0in"&gt;&lt;span style="xfa-spacerun:yes"&gt; &lt;/span&gt;You can download latest version of Adobe Reader for Windows, Mac, or Linux by visiting&lt;span style="xfa-spacerun:yes"&gt;  &lt;/span&gt;http://www.adobe.com/go/reader_download. For more assistance with Adobe Reader visit&lt;span style="xfa-spacerun:yes"&gt;  &lt;/span&gt;http://www.adobe.com/go/acrreader.&lt;/p&gt;&lt;/body&gt;</pdfx:_pagezerocontent>
+      </rdf:Description>
+      <rdf:Description xmlns:desc="http://ns.adobe.com/xfa/promoted-desc/" rdf:about="">
+         <desc:version rdf:parseType="Resource">
+            <rdf:value>11.0.1.20130826.2.901444.899636</rdf:value>
+            <desc:ref>/template/subform[1]</desc:ref>
+         </desc:version>
+         <desc:contact rdf:parseType="Resource">
+            <rdf:value>John Dziurlaj</rdf:value>
+            <desc:ref>/template/subform[1]</desc:ref>
+         </desc:contact>
+      </rdf:Description>
+   </rdf:RDF>
+</x:xmpmeta>
+<xfdf xmlns="http://ns.adobe.com/xfdf/" xml:space="preserve">
+   <annots/>
+</xfdf></xdp:xdp>
