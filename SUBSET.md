@@ -1,8 +1,18 @@
-# Subsetting CDF Schema
+# Subsetting CDF Schemas
+
+The NIST SP Common Data Format (CDF) each support multiple use-cases. A use-case is an application of the common data format for a particular purpose. The CDFs are flexible enough to handle multiple use-cases simultaneously, but there is a tradeoff. The exact data points required for each use-case are not explicitly specified in the CDF. An example would be the Election Results Reporting (ERR) Specification. Making vote counts required for an election night use-case would preclude its use for pre-election day purposes.
+
+The CDFs can be subset or profiled to better represent the use-case their are implementing. This provides the following benefits:
+
+- Clearly states what a particular data exchange requires
+- Provides a data format that can be effectively tested by VSTLs for conformance
+- Can be used as a mechanism for election jurisdictions to specify their interoperability requirements in an unambiguous way.
+
+This document describes a number of mechanisms to accomplish this task.
 
 <!-- TOC -->
 
-- [Subsetting CDF Schema](#subsetting-cdf-schema)
+- [Subsetting CDF Schemas](#subsetting-cdf-schemas)
     - [Subsetting with XML](#subsetting-with-xml)
         - [Technique 1: Redefinition](#technique-1-redefinition)
             - [complexType Example](#complextype-example)
@@ -21,16 +31,16 @@ XML Schema (XSD) 1.0 and higher support a feature called redefinition, which can
 Use-cases for redefinition
 
 - Disallow certain components
-- Change the cardinality of certain elements
+- Change the occurrence of certain elements
 - Restrict allowed enumeration values
 
 > XSD 1.1 introduces a new method of subsetting called `override`. This method is preferred if you have access to a XSD 1.1 schema validator.
 
 #### complexType Example
 
-Suppose we want to require that an election management system (EMS) must provide the filing date (`FileDate`) and person record identifier (`PersonId`) for each `Candidate` provided in an pre-election Election Results Reporting (ERR) feed.
+Suppose we want to require that an election management system (EMS) must provide the filing date (`FileDate`) and person record identifier (`PersonId`) for each `Candidate` in an pre-election Election Results Reporting (ERR) feed.
 
-By looking at the definition of `Candidate`, we see that `FileDate` and `PersonId` are optional (`minOccurs="0"`) in the 1500-100 schema, so we will need to redefine `Candidate`.
+By looking at the definition of `Candidate`, we see that `FileDate` and `PersonId` are optional (`minOccurs="0"`) in the 1500-100 schema, so we will need to redefine `Candidate`. The existing definition is below:
 
 ```xml
 <xsd:complexType name="Candidate">
@@ -54,8 +64,8 @@ A redefined schema section starts with a `redefine` element and consists of zero
 
 ```xml
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="NIST_V2_election_results_reporting.xsd" targetNamespace="NIST_V2_election_results_reporting.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<xs:redefine schemaLocation="NIST_V2_election_results_reporting.xsd">
-    {redefined types}...
+    <xs:redefine schemaLocation="NIST_V2_election_results_reporting.xsd">
+        {redefined types}...
     </xs:redefine>
 </xs:schema>
 ```
