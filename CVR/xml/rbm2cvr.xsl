@@ -28,6 +28,7 @@
 	<!-- not real candidates, ignore -->
 	<xsl:template match="eml:Candidate[eml:ProposalItem]" mode="global">
 	</xsl:template>
+	<xsl:template match="Selections"></xsl:template>
 	<xsl:template match="eml:Contest[eml:BallotChoices/eml:Candidate/eml:CandidateIdentifier or eml:WriteInCandidate]" mode="global">
 		<cdf:Contest xsi:type="cdf:CandidateContest">
 			<xsl:attribute name="ObjectId">
