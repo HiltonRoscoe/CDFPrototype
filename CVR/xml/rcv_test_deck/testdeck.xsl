@@ -11,13 +11,15 @@
 					<ContestSelection ObjectId="sel-B"/>
 					<ContestSelection ObjectId="sel-C"/>
 					<ContestSelection ObjectId="sel-D"/>
+					<ContestSelection ObjectId="sel-E"/>
+					<ContestSelection ObjectId="sel-F"/>
 				</Contest>
 				<ElectionScopeId>gpu-001</ElectionScopeId>
 			</Election>
 			<GeneratedDate>2018-11-21T00:00:00</GeneratedDate>
-			<GpUnit ObjectId="gpu-001">
-				<OtherType>election scope gpunit</OtherType>
+			<GpUnit ObjectId="gpu-001">				
 				<Type>other</Type>
+				<OtherType>election scope gpunit</OtherType>
 			</GpUnit>
 			<ReportGeneratingDeviceIds>rd-001</ReportGeneratingDeviceIds>
 			<ReportingDevice ObjectId="rd-001"/>
@@ -35,9 +37,9 @@
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:text disable-output-escaping="yes"><![CDATA[<CVR>]]></xsl:text>
-				<BallotNumber>
+				<BallotPrePrintedId>
 					<xsl:value-of select="Name"/>
-				</BallotNumber>
+				</BallotPrePrintedId>
 				<CurrentSnapshotId>
 					<xsl:value-of select="concat('ballot-', Name)"/>
 				</CurrentSnapshotId>
@@ -67,7 +69,7 @@
 						<IsAllocable>
 							<xsl:choose>
 								<xsl:when test="first/@status = 'active'">yes</xsl:when>
-								<xsl:otherwise>no</xsl:otherwise>
+								<xsl:otherwise>unknown</xsl:otherwise>
 							</xsl:choose>
 						</IsAllocable>
 						<NumberVotes>1</NumberVotes>
@@ -85,7 +87,7 @@
 						<IsAllocable>
 							<xsl:choose>
 								<xsl:when test="second/@status = 'active'">yes</xsl:when>
-								<xsl:otherwise>no</xsl:otherwise>
+								<xsl:otherwise>unknown</xsl:otherwise>
 							</xsl:choose>
 						</IsAllocable>
 						<NumberVotes>1</NumberVotes>
@@ -103,7 +105,7 @@
 						<IsAllocable>
 							<xsl:choose>
 								<xsl:when test="third/@status = 'active'">yes</xsl:when>
-								<xsl:otherwise>no</xsl:otherwise>
+								<xsl:otherwise>unknown</xsl:otherwise>
 							</xsl:choose>
 						</IsAllocable>
 						<NumberVotes>1</NumberVotes>
@@ -121,11 +123,47 @@
 						<IsAllocable>
 							<xsl:choose>
 								<xsl:when test="fourth/@status = 'active'">yes</xsl:when>
-								<xsl:otherwise>no</xsl:otherwise>
+								<xsl:otherwise>unknown</xsl:otherwise>
 							</xsl:choose>
 						</IsAllocable>
 						<NumberVotes>1</NumberVotes>
 						<Rank>4</Rank>
+					</SelectionPosition>
+				</CVRContestSelection>
+			</xsl:if>
+			<xsl:if test="fifth != ''">
+				<CVRContestSelection>
+					<ContestSelectionId>
+						<xsl:value-of select="concat('sel-', fifth)"/>
+					</ContestSelectionId>
+					<SelectionPosition>
+						<HasIndication>yes</HasIndication>
+						<IsAllocable>
+							<xsl:choose>
+								<xsl:when test="fourth/@status = 'active'">yes</xsl:when>
+								<xsl:otherwise>unknown</xsl:otherwise>
+							</xsl:choose>
+						</IsAllocable>
+						<NumberVotes>1</NumberVotes>
+						<Rank>5</Rank>
+					</SelectionPosition>
+				</CVRContestSelection>
+			</xsl:if>
+			<xsl:if test="sixth != ''">
+				<CVRContestSelection>
+					<ContestSelectionId>
+						<xsl:value-of select="concat('sel-', sixth)"/>
+					</ContestSelectionId>
+					<SelectionPosition>
+						<HasIndication>yes</HasIndication>
+						<IsAllocable>
+							<xsl:choose>
+								<xsl:when test="sixth/@status = 'active'">yes</xsl:when>
+								<xsl:otherwise>unknown</xsl:otherwise>
+							</xsl:choose>
+						</IsAllocable>
+						<NumberVotes>1</NumberVotes>
+						<Rank>6</Rank>
 					</SelectionPosition>
 				</CVRContestSelection>
 			</xsl:if>

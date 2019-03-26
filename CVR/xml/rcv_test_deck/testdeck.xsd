@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2018 sp1 (x64) (http://www.altova.com) by John Dziurlaj (NIST) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
 	<xs:element name="TestDeck">
 		<xs:annotation>
 			<xs:documentation>Comment describing your root element</xs:documentation>
@@ -54,6 +55,25 @@
 								</xs:simpleContent>
 							</xs:complexType>
 						</xs:element>
+						<xs:element name="fifth">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:integer">
+										<xs:attribute name="status" type="Status"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="sixth">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:integer">
+										<xs:attribute name="status" type="Status"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>

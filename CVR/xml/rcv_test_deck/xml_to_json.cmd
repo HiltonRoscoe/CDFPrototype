@@ -1,0 +1,1 @@
+domain_conversion .\example_1.xml .\example_1.json -r CVRV1::CVR::CastVoteRecordReport --input-format xml
