@@ -1,8 +1,16 @@
 # Schematron Rulesets
 
-# How to run (Windows)
+<!-- TOC -->
 
-AltovaXML can run the schematron ruleset that has been compiled into an `xslt`, e.g. `err_v2-compiled.xsl`.
+- [Schematron Rulesets](#schematron-rulesets)
+    - [How to run (Windows)](#how-to-run-windows)
+    - [How to Run (Oxygen XML)](#how-to-run-oxygen-xml)
+
+<!-- /TOC -->
+
+## How to run (Windows)
+
+AltovaXML can run a schematron ruleset that has been compiled into an `xslt`, e.g. `err_v2-compiled.xsl`.
 
 - Clone this repository.
 
@@ -22,5 +30,11 @@ Where `{AltovaXML}` is the path to the `AltovaXML.exe` executable, `{diag-compil
 PS C:\Program Files (x86)\Altova\AltovaXML2013> .\AltovaXML.exe /xslt2 C:\GitHub\CDFPrototype
 \ENR\v2\sch\err_v2-compiled.xsl /in C:\GitHub\CDFPrototype\ENR\v2\sch\validation_target.xml
 ```
+
+## How to Run (Oxygen XML)
+
+The commercial XML editor Oxygen can validate using schematron rulesets directly. Make sure schema-aware validation is enabled and Saxon-EE is used for validation.
+
+![Schema aware option](./images/schema-aware.png)
 
 > These instructions were tested on Windows 10.0.17134.648 (x64)
