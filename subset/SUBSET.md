@@ -1,6 +1,6 @@
 # Subsetting CDF Schemas
 
-The NIST SP Common Data Format (CDF) each support multiple use-cases. A use-case is an application of the common data format for a particular purpose. The CDFs are flexible enough to handle multiple use-cases simultaneously, but there is a tradeoff. The exact data points required for each use-case are not explicitly specified in the CDF. An example would be the Election Results Reporting (ERR) Specification. Making vote counts required for an election night use-case would preclude its use for pre-election day purposes.
+Each NIST SP 1500 series Common Data Formats (CDF) support multiple use-cases. A use-case is an application of the common data format for a particular purpose. The CDFs are flexible enough to handle multiple use-cases simultaneously, but there is a tradeoff. The exact data points required for each use-case are not explicitly specified in the CDF. An example would be the Election Results Reporting (ERR) Specification. Making vote counts required for an election night use-case would preclude its use for pre-election day purposes.
 
 The CDFs can be subset or profiled to better represent the use-case their are implementing. This provides the following benefits:
 
@@ -21,7 +21,6 @@ This document describes a number of mechanisms to accomplish this task.
     - [Contextualizing Rules](#contextualizing-rules)
         - [Contextualizing for UML/JSON](#contextualizing-for-umljson)
         - [Contextualizing for XML](#contextualizing-for-xml)
-            - [OLD CONTENT for Assertions](#old-content-for-assertions)
 
 <!-- /TOC -->
 
@@ -32,7 +31,7 @@ XML Schema (XSD) 1.0 and higher support a feature called redefinition, which can
 Use-cases for redefinition
 
 - Disallow certain components
-- Change the occurrence of certain elements
+- Change the minimum and maximum occurrence of certain elements
 - Restrict allowed enumeration values
 
 > XSD 1.1 introduces a new method of subsetting called `override`. This method is preferred if you have access to a XSD 1.1 schema validator.
@@ -41,7 +40,7 @@ Use-cases for redefinition
 
 Suppose we want to require that an election management system (EMS) must provide the filing date (`FileDate`) and person record identifier (`PersonId`) for each `Candidate` in an pre-election Election Results Reporting (ERR) feed.
 
-By looking at the definition of `Candidate`, we see that `FileDate` and `PersonId` are optional (`minOccurs="0"`) in the 1500-100 schema, so we will need to redefine `Candidate`. The existing definition is below:
+By looking at the definition of `Candidate`, we see that `FileDate` and `PersonId` are optional (`minOccurs="0"`) in the 1500-100 schema, so we will need to redefine `Candidate` to change these definitions. The existing definition is below:
 
 ```xml
 <xsd:complexType name="Candidate">
@@ -95,7 +94,7 @@ We will copy in the definition `Candidate` from the NIST schema into our redefin
 </xs:complexType>
 ```
 
-Note that we have two additional elements we didn't have in the source schema, a `ComplexContent` and `restriction` element. the `restriction` element says that we plan to derive a new `Candidate` type by restricting the original. This ensures that our redefined schema is a subset of the original.
+Note that we have two additional elements we didn't have in the source schema, a `ComplexContent` and `restriction` element. the `restriction` element says that we plan to derive a new `Candidate` type by restricting the original. A validator will ensure that our redefined schema is a subset of the original.
 
 To make `FileDate` and `PersonId` required we must adjust their `minOccurs` attributes to `1`.
 
@@ -188,18 +187,6 @@ Suppose we want to specify that the `ElectionScopeId` for an election in a NIST 
 </sch:pattern>
 ```
 
-A full example is [available here](./example_schema_aware.sch)
-
 Much like constraints in OCL, Schematron rules are made up of two parts, the context under which the rule applies, and a test condition. The above rule applies to all `Election` elements under `ElectionReport`, and the test looks up the `GpUnit` and checks that its `Name` matches the expected outcome.
 
-> Use of id() within a Schematron rule requires the use of a "schema-aware" processor. An example using only XSLT 1.0 is [available here](example_xslt1.sch)
-
-#### OLD CONTENT for Assertions
-
-> assertions are bad, they don't support idrefs in a user friendly way! Schematron FTW!
-
-XML Schema 1.1 supports a feature called assertions, that can be used to encode business rules. Taking the example above, we can write a rule that requires profession to be defined:
-
-```xml
-<xs:assert test="id(PersonId)/DateOfBirth != ''" xpathDefaultNamespace="##defaultNamespace"/>
-```
+> Use of id() within a schematron rule requires the use of a "schema-aware" parser.
