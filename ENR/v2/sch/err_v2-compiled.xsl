@@ -28,7 +28,7 @@
    <xsl:import-schema xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
                       namespace="NIST_V2_election_results_reporting.xsd"
-                      schema-location="file:///C:/Users/john/Documents/GitHub/ElectionResultsReporting/NIST_V2_election_results_reporting.xsd"/>
+                      schema-location="NIST_V2_election_results_reporting.xsd"/>
 
    <!--KEYS AND FUNCTIONS-->
 
