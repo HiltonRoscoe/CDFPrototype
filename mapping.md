@@ -1,5 +1,24 @@
 # Mapping Common Data Formats
 
+<!-- TOC -->
+
+- [Mapping Common Data Formats](#mapping-common-data-formats)
+    - [Background](#background)
+    - [Root Element](#root-element)
+    - [Data Type Mapping](#data-type-mapping)
+    - [Representing multiplicities](#representing-multiplicities)
+        - [Multiplicities in XML](#multiplicities-in-xml)
+        - [Multiplicities in JSON](#multiplicities-in-json)
+    - [References](#references)
+        - [JSON References](#json-references)
+        - [XML References](#xml-references)
+    - [XML specific notes](#xml-specific-notes)
+        - [Elements and Attributes](#elements-and-attributes)
+        - [Simple Content](#simple-content)
+    - [Mapping Terminology](#mapping-terminology)
+
+<!-- /TOC -->
+
 ## Background
 
 The development of the Common Data Formats has followed a Model Driven Architecture approach. This means that a high level model of the common data format is developed, and then transformed into implementation formats that can be used by developers.
@@ -10,26 +29,26 @@ The UML Class Model is a graph data structure. However, the two supported implem
 
 ## Data Type Mapping
 
-The UML model uses a number of primitive and specialized types based on the XML Schema.
+The UML model uses a number of primitive and specialized types based on the UML Metamodel and XML Schema.
 
 |UML           |XML              |JSON     |JSON Format |
 |--------------|-----------------|---------|------------|
-|String        |xsd:string       |String   ||
-|date          |xsd:date         |String   |date|
-|boolean       |xsd:boolean      |Boolean  ||
-|base64Binary  |xsd:base64Binary |String   |byte|
-|anyURI        |xsd:anyURI       |String   |uri|
-|float         |xsd:float        |number   ||
+|String        |xsd:string       |string   |            |
+|date          |xsd:date         |string   |date        |
+|boolean       |xsd:boolean      |boolean  |            |
+|base64Binary  |xsd:base64Binary |string   |byte        |
+|anyURI        |xsd:anyURI       |string   |uri         |
+|float         |xsd:float        |number   |            |
 
 ## Representing multiplicities
 
-Some attributes in the UML model can repeat. Repetition is represented by multiplicities whose lower or upper cardinality is greater than one. For example, `1..2`, `2..4`, `0..*`, etc.
+Some properties in the UML model can repeat. Repetition is represented by multiplicities whose lower or upper cardinality is greater than one. For example, `1..2`, `2..4`, `0..*`, etc.
 
 > An asterisk (*) for the upper cardinality represents an unbounded number of repetitions.
 
 ### Multiplicities in XML
 
-UML attributes with multiplicities greater than one are represented in XML as repeating elements.
+UML properties with multiplicities greater than one are represented in XML as repeating elements.
 
 Example:
 
@@ -184,3 +203,18 @@ Table: UML Class File
 ```xml
 <FileValue fileName="String" mimeType="String">UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi<FileValue>
 ```
+
+## Mapping Terminology
+
+Terminology can be difficult because JSON, UML, and XML all developed independently and use different terms to represent similar concepts. An attempt at mapping these concepts is found below:
+
+|UML         |XML Schema   |JSON Schema |
+|------------|-------------|------------|
+|Class       |type         |object      |
+|Property    |type         |property    |
+|Enumeration |enumeration  |enum        |
+|Supertype   |extensionBase|N/A         |
+|Multiplicity|occurrence   |(min/max) items|
+|Cardinality |bounding     |min/max     |
+
+> UML uses the term `property` to refer to either an `attribute` or an `association`.
