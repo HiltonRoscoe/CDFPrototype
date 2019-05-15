@@ -12,6 +12,10 @@
     - [References](#references)
         - [JSON References](#json-references)
         - [XML References](#xml-references)
+    - [Generalization](#generalization)
+        - [Abstract Classes](#abstract-classes)
+        - [Generalizations in JSON](#generalizations-in-json)
+        - [Generalizations in XML](#generalizations-in-xml)
     - [XML specific notes](#xml-specific-notes)
         - [Elements and Attributes](#elements-and-attributes)
         - [Simple Content](#simple-content)
@@ -148,7 +152,7 @@ Figure: Example of references in JSON
 
 ### XML References
 
-XML provide two built in types for handling references, one for establishing the reusable element (`xsd:ID`) and one for its referent (`xsd:IDREF`).
+XML provide two built in types for handling references, one for establishing the reusable element (`xsd:ID`) and one for its pointer (`xsd:IDREF`).
 
 ```xml
 <ElectionReport>
@@ -175,6 +179,52 @@ Figure: Example of references in XML
 Identifiers are defined using the `ObjectId` attribute.  The name of the identifier must be unique across the XML instance and conform to restrictions specified by the `xsd:NCName` datatype.
 
 > An `xsd:NCName` value must start with either a letter or underscore and may contain only letters, digits, underscores, hyphens, and periods.
+
+## Generalization
+
+Some classes represent specializations of other classes. In this case, the common properties of the class may be generalized into a single parent class (the supertype), and the specializations of this class (the subtypes) inherit those common properties.
+
+Generalizations are represented in UML as arrows with a hollow head.
+
+### Abstract Classes
+
+Some classes are abstract, meaning that the class cannot be used directly. Instead, they must always be used in the context of a subtype. Abstract classes are indicated by placing their names in *italic type*.
+
+### Generalizations in JSON
+
+Generalizations in JSON are indicated by using the `@type` property.
+
+```json
+"Contest": [
+	{
+		"@id": "cc-sc-sherif",
+		"@type": "ElectionResults.CandidateContest",
+		"ElectoralDistrict": "gp-summit-county",
+		"Name": "Summit County Sherif"
+	}
+]
+```
+
+### Generalizations in XML
+
+Generalizations in XML are represented using the `xsi:type` attribute.
+
+```xml
+<Contest ObjectId="cc-sc-sherif" xsi:type="CandidateContest">
+	<ElectoralDistrictId>gp-summit-county</ElectoralDistrictId>
+	<Name>Summit County Sherif</Name>
+</Contest>
+```
+
+> All elements of the parent class must appear before **any** of the elements for the child class.
+
+A namespace declaration must be specified for `xsi`, e.g.
+
+```xml
+<ElectionReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+...
+</ElectionReport>
+```
 
 ## XML specific notes
 
