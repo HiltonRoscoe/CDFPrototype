@@ -6,13 +6,14 @@
     - [Background](#background)
     - [Root Element](#root-element)
     - [Data Type Mapping](#data-type-mapping)
+    - [Properties](#properties)
+        - [Associations](#associations)
+        - [References](#references)
+            - [JSON References](#json-references)
+            - [XML References](#xml-references)
     - [Representing multiplicities](#representing-multiplicities)
         - [Multiplicities in XML](#multiplicities-in-xml)
         - [Multiplicities in JSON](#multiplicities-in-json)
-    - [Associations](#associations)
-    - [References](#references)
-        - [JSON References](#json-references)
-        - [XML References](#xml-references)
     - [Generalization](#generalization)
         - [Abstract Classes](#abstract-classes)
         - [Generalizations in JSON](#generalizations-in-json)
@@ -29,6 +30,8 @@
 The development of the NIST 1500 series Common Data Formats (CDFs) has followed a Model Driven Architecture (MDA) approach. This means that a high level model of the common data format is developed, and then transformed into implementation formats that can be used by developers. This document provides background regarding how the NIST 1500 UML models map into the implementation formats.
 
 > Examples used throughout this document are based on the [Election Results Reporting specification](https://github.com/usnistgov/ElectionResultsReporting), version 2
+
+> This document is not intended to an introduction to UML, JSON or XML.
 
 ## Root Element
 
@@ -50,6 +53,124 @@ The UML model uses a number of primitive and specialized types based on the UML 
 |base64Binary  |xsd:base64Binary |string   |byte        |
 |anyURI        |xsd:anyURI       |string   |uri         |
 |float         |xsd:float        |number   |            |
+
+## Properties
+
+UML provides two mechanisms to represent properties between classifiers: attributes and associations.
+
+- Generally, attributes are used for data types (see [Data Type Mapping](#data-type-mapping)) and enumerations.
+- Associations are always used to represented properties between classes
+
+### Associations
+
+In the NIST 1500 CDFs, all associations are directed. A directed association either represents a reference to a class defined elsewhere (i.e. a reference), or the ownership of the class. A directed composition always represents an ownership relationship.
+
+The navigable role end (i.e. the end with the arrow) will always have a multiplicity specified. However, the role name may be omitted. In this case, the role takes the name of the class it refers.
+
+![Directed association with a role name](./mapping/directed_association_role_name.svg)
+
+Figure: A directed association with a role name
+
+The role name becomes the name of JSON property or XML element. The following example shows how the above UML is represented in XML:
+
+```xml
+<ElectionReport>
+	<Election>
+		...
+		<ElectionScopeId>gp-summit-county</ElectionScopeId>
+		...
+	</Election>
+	<GpUnit ObjectId="gp-summit-county">
+		<Name>Summit County</Name>
+	</GpUnit>
+</ElectionReport>
+```
+
+Figure: Representation of directed association.
+
+> Directed associations that represent reference relationships have `Id` or `Ids` (if the upper cardinality is > 1) appended to them.
+
+### References
+
+Some classes of data may be referenced again and again, for example political parties or geopolitical units. It would make sense to put instances of these classes in single location and reference them whenever they are needed.
+
+The CDF model represents these references as directed associations between classes.
+
+Here we define a reusable `ReportingUnit` that is referenced by multiple `Contests`.
+![Image of UML Model](MDAExample.png)
+
+Figure: Representation of a UML Instance using references.
+
+#### JSON References
+
+JSON references are handled by the use of an `@id` property.
+
+Example:
+
+```json
+{
+	"@type": "ElectionResults.ElectionReport",
+	"Election": [
+		{
+			"@type": "ElectionResults.Election",
+			"Contest": [
+				{
+					"@id": "cc-sc-sherif",
+					"@type": "ElectionResults.CandidateContest",
+					"ElectoralDistrict": "gp-summit-county",
+					"Name": "Summit County Sherif"
+				},
+				{
+					"@id": "cc-sc-fiscal-officer",
+					"@type": "ElectionResults.CandidateContest",
+					"ElectoralDistrict": "gp-summit-county",
+					"Name": "Summit County Fiscal Officer"
+				}
+			],
+			"Type": "general"
+		}
+	],
+	"GpUnit": [
+		{
+			"@id": "gp-summit-county",
+			"@type": "ElectionResults.ReportingUnit",
+			"Name": "Summit County"
+		}
+	]
+}
+```
+
+Figure: Example of references in JSON
+
+#### XML References
+
+XML provide two built in types for handling references, one for establishing the reusable element (`xsd:ID`) and one for its pointer (`xsd:IDREF`).
+
+```xml
+<ElectionReport>
+	<Election>
+		<Contest ObjectId="cc-sc-sherif" xsi:type="CandidateContest">
+			<ElectoralDistrictId>gp-summit-county</ElectoralDistrictId>
+			<Name>Summit County Sherif</Name>
+		</Contest>
+		<Contest ObjectId="cc-sc-fiscal-officer" xsi:type="CandidateContest">
+			<ElectoralDistrictId>gp-summit-county</ElectoralDistrictId>
+			<Name>Summit County Fiscal Officer</Name>
+		</Contest>
+		<ElectionScopeId>gp-summit-county</ElectionScopeId>
+		<Type>general</Type>
+	</Election>
+	<GpUnit ObjectId="gp-summit-county">
+		<Name>Summit County</Name>
+	</GpUnit>
+</ElectionReport>
+```
+
+Figure: Example of references in XML
+
+Identifiers are defined using the `ObjectId` attribute.  The name of the identifier must be unique across the XML instance and conform to restrictions specified by the `xsd:NCName` datatype.
+
+> An `xsd:NCName` value must start with either a letter or underscore and may contain only letters, digits, underscores, hyphens, and periods.
 
 ## Representing multiplicities
 
@@ -105,116 +226,6 @@ Example:
     ]
 ```
 
-## Associations
-
-Associations can be used to relate classes to one another. In the NIST 1500 CDFs, all associations are directed. A directed association either represents a reference to a class defined elsewhere (i.e. a reference), or the ownership of the class. A directed composition always represents an ownership relationship.
-
-The navigable role end (i.e. the end with the arrow) will always have a multiplicity specified. However, the role name may be omitted. In this case, the role takes the name of the class it refers.
-
-![Directed association with a role name](./mapping/directed_association_role_name.svg)
-
-Figure: A directed association with a role name
-
-The role name becomes the name of JSON property or XML element. The following example shows how the above UML is represented in XML:
-
-```xml
-<ElectionReport>
-	<Election>
-		...
-		<ElectionScopeId>gp-summit-county</ElectionScopeId>
-		...
-	</Election>
-	<GpUnit ObjectId="gp-summit-county">
-		<Name>Summit County</Name>
-	</GpUnit>
-</ElectionReport>
-```
-
-Figure: Representation of directed association.
-
-> Directed associations that represent reference relationships have `Id` or `Ids` (if the upper cardinality is > 1) appended to them.
-
-## References
-
-Some classes of data may be referenced again and again, for example political parties or geopolitical units. It would make sense to put instances of these classes in single location and reference them whenever they are needed.
-
-The CDF model represents these references as directed associations between classes.
-
-Here we define a reusable `ReportingUnit` that is referenced by multiple `Contests`.
-![Image of UML Model](MDAExample.png)
-
-Figure: Representation of a UML Instance using references.
-
-### JSON References
-
-JSON references are handled by the use of an `@id` property.
-
-Example:
-
-```json
-{
-	"@type": "ElectionResults.ElectionReport",
-	"Election": [
-		{
-			"@type": "ElectionResults.Election",
-			"Contest": [
-				{
-					"@id": "cc-sc-sherif",
-					"@type": "ElectionResults.CandidateContest",
-					"ElectoralDistrict": "gp-summit-county",
-					"Name": "Summit County Sherif"
-				},
-				{
-					"@id": "cc-sc-fiscal-officer",
-					"@type": "ElectionResults.CandidateContest",
-					"ElectoralDistrict": "gp-summit-county",
-					"Name": "Summit County Fiscal Officer"
-				}
-			],
-			"Type": "general"
-		}
-	],
-	"GpUnit": [
-		{
-			"@id": "gp-summit-county",
-			"@type": "ElectionResults.ReportingUnit",
-			"Name": "Summit County"
-		}
-	]
-}
-```
-
-Figure: Example of references in JSON
-
-### XML References
-
-XML provide two built in types for handling references, one for establishing the reusable element (`xsd:ID`) and one for its pointer (`xsd:IDREF`).
-
-```xml
-<ElectionReport>
-	<Election>
-		<Contest ObjectId="cc-sc-sherif" xsi:type="CandidateContest">
-			<ElectoralDistrictId>gp-summit-county</ElectoralDistrictId>
-			<Name>Summit County Sherif</Name>
-		</Contest>
-		<Contest ObjectId="cc-sc-fiscal-officer" xsi:type="CandidateContest">
-			<ElectoralDistrictId>gp-summit-county</ElectoralDistrictId>
-			<Name>Summit County Fiscal Officer</Name>
-		</Contest>
-		<ElectionScopeId>gp-summit-county</ElectionScopeId>
-		<Type>general</Type>
-	</Election>
-	<GpUnit ObjectId="gp-summit-county">
-		<Name>Summit County</Name>
-	</GpUnit>
-</ElectionReport>
-```
-
-Figure: Example of references in XML
-
-Identifiers are defined using the `ObjectId` attribute.  The name of the identifier must be unique across the XML instance and conform to restrictions specified by the `xsd:NCName` datatype.
-
-> An `xsd:NCName` value must start with either a letter or underscore and may contain only letters, digits, underscores, hyphens, and periods.
 
 ## Generalization
 
