@@ -26,11 +26,17 @@
 
 ## Background
 
-The development of the NIST 1500 series Common Data Formats has followed a Model Driven Architecture (MDA) approach. This means that a high level model of the common data format is developed, and then transformed into implementation formats that can be used by developers. This document provides background regarding how the UML model maps into the implementation formats.
+The development of the NIST 1500 series Common Data Formats (CDFs) has followed a Model Driven Architecture (MDA) approach. This means that a high level model of the common data format is developed, and then transformed into implementation formats that can be used by developers. This document provides background regarding how the NIST 1500 UML models map into the implementation formats.
+
+> Examples used throughout this document are based on the [Election Results Reporting specification](https://github.com/usnistgov/ElectionResultsReporting), version 2
 
 ## Root Element
 
 The UML Class Model is a graph data structure. However, the two supported implementation formats (JSON and XML) are hierarchical (also called a tree). All hierarchies must start with a root, which is indicated in the UML model as a class with the `«root»` stereotype applied.
+
+![Root element of the Election Results Reporting CDF](./mapping/ElectionResultsReporting_root.svg)
+
+Figure: Root element of the Election Results Reporting CDF
 
 ## Data Type Mapping
 
@@ -64,7 +70,7 @@ Example:
 
 ### Multiplicities in JSON
 
-UML attributes with multiplicities greater than one are represented in JSON as an array of objects.
+UML attributes with upper cardinality greater than one are represented in JSON as an array of objects.
 
 Example:
 
@@ -84,7 +90,7 @@ Example:
     ]
 ```
 
-> Even if implementer wants to provide a single occurrence of an attribute, it must be wrapped in an array.
+> Even if implementer wants to provide a single occurrence of an attribute, if its upper cardinality is greater than one, it must be wrapped in an array.
 
 Example:
 
@@ -101,11 +107,32 @@ Example:
 
 ## Associations
 
-Associations can be used to relate classes to one another. In the NIST 1500 CDFs, all associations are directed. A directed composition either represents a reference to a class defined elsewhere, or a attributive relationship. A directed composition always represents an attributive relationship.
+Associations can be used to relate classes to one another. In the NIST 1500 CDFs, all associations are directed. A directed association either represents a reference to a class defined elsewhere (i.e. a reference), or the ownership of the class. A directed composition always represents an ownership relationship.
 
 The navigable role end (i.e. the end with the arrow) will always have a multiplicity specified. However, the role name may be omitted. In this case, the role takes the name of the class it refers.
 
 ![Directed association with a role name](./mapping/directed_association_role_name.svg)
+
+Figure: A directed association with a role name
+
+The role name becomes the name of JSON property or XML element. The following example shows how the above UML is represented in XML:
+
+```xml
+<ElectionReport>
+	<Election>
+		...
+		<ElectionScopeId>gp-summit-county</ElectionScopeId>
+		...
+	</Election>
+	<GpUnit ObjectId="gp-summit-county">
+		<Name>Summit County</Name>
+	</GpUnit>
+</ElectionReport>
+```
+
+Figure: Representation of directed association.
+
+> Directed associations that represent reference relationships have `Id` or `Ids` (if the upper cardinality is > 1) appended to them.
 
 ## References
 
