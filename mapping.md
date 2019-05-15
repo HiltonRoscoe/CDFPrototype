@@ -9,6 +9,7 @@
     - [Representing multiplicities](#representing-multiplicities)
         - [Multiplicities in XML](#multiplicities-in-xml)
         - [Multiplicities in JSON](#multiplicities-in-json)
+    - [Associations](#associations)
     - [References](#references)
         - [JSON References](#json-references)
         - [XML References](#xml-references)
@@ -25,7 +26,7 @@
 
 ## Background
 
-The development of the Common Data Formats has followed a Model Driven Architecture approach. This means that a high level model of the common data format is developed, and then transformed into implementation formats that can be used by developers.
+The development of the NIST 1500 series Common Data Formats has followed a Model Driven Architecture (MDA) approach. This means that a high level model of the common data format is developed, and then transformed into implementation formats that can be used by developers. This document provides background regarding how the UML model maps into the implementation formats.
 
 ## Root Element
 
@@ -97,6 +98,14 @@ Example:
         }
     ]
 ```
+
+## Associations
+
+Associations can be used to relate classes to one another. In the NIST 1500 CDFs, all associations are directed. A directed composition either represents a reference to a class defined elsewhere, or a attributive relationship. A directed composition always represents an attributive relationship.
+
+The navigable role end (i.e. the end with the arrow) will always have a multiplicity specified. However, the role name may be omitted. In this case, the role takes the name of the class it refers.
+
+![Directed association with a role name](./mapping/directed_association_role_name.svg)
 
 ## References
 
