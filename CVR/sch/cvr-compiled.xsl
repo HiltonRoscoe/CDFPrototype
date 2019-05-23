@@ -220,14 +220,14 @@
 
 		<!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="count(idref(current()/@ObjectId)[(local-name() = 'CandidateId' and .. instance of element(*, cdf:RetentionContest)) or (local-name() = 'CandidateIds' and .. instance of element(*, cdf:CandidateSelection))]) &gt; 0"/>
+         <xsl:when test="count(idref(current()/@ObjectId)[(local-name() = 'CandidateIds' and .. instance of element(*, cdf:CandidateSelection)) or (local-name() = 'CandidateId' and .. instance of element(*, cdf:RetentionContest))]) &gt; 0"/>
          <xsl:otherwise>
             <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
                <xsl:text>Candidate (</xsl:text>
                <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                              xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
                              select="current()/@ObjectId"/>
-               <xsl:text>) must have refereant from [local-name() = 'CandidateId' and .. instance of element(*, cdf:RetentionContest), local-name() = 'CandidateIds' and .. instance of element(*, cdf:CandidateSelection)]</xsl:text>
+               <xsl:text>) must have refereant from CandidateSelection, RetentionContest</xsl:text>
             </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
@@ -321,7 +321,7 @@
                <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                              xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
                              select="current()/@ObjectId"/>
-               <xsl:text>) must have refereant from [local-name() = 'ContestId' and .. instance of element(*, cdf:CVRContest)]</xsl:text>
+               <xsl:text>) must have refereant from CVRContest</xsl:text>
             </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
@@ -340,7 +340,7 @@
                <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                              xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
                              select="current()/@ObjectId"/>
-               <xsl:text>) must have refereant from [local-name() = 'ContestSelectionId' and .. instance of element(*, cdf:CVRContestSelection)]</xsl:text>
+               <xsl:text>) must have refereant from CVRContestSelection</xsl:text>
             </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
@@ -352,20 +352,6 @@
 
 		<!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="not(id(cdf:ElectionId)[not(. instance of element(*, cdf:Election))])"/>
-         <xsl:otherwise>
-            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
-               <xsl:text>ElectionId (</xsl:text>
-               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                             select="cdf:ElectionId"/>
-               <xsl:text>) must point to an element of type Election</xsl:text>
-            </xsl:message>
-         </xsl:otherwise>
-      </xsl:choose>
-
-		    <!--ASSERT -->
-      <xsl:choose>
          <xsl:when test="not(id(cdf:CreatingDeviceId)[not(. instance of element(*, cdf:ReportingDevice))])"/>
          <xsl:otherwise>
             <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
@@ -374,6 +360,20 @@
                              xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
                              select="cdf:CreatingDeviceId"/>
                <xsl:text>) must point to an element of type ReportingDevice</xsl:text>
+            </xsl:message>
+         </xsl:otherwise>
+      </xsl:choose>
+
+		    <!--ASSERT -->
+      <xsl:choose>
+         <xsl:when test="not(id(cdf:ElectionId)[not(. instance of element(*, cdf:Election))])"/>
+         <xsl:otherwise>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>ElectionId (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="cdf:ElectionId"/>
+               <xsl:text>) must point to an element of type Election</xsl:text>
             </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
@@ -474,7 +474,7 @@
                <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                              xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
                              select="current()/@ObjectId"/>
-               <xsl:text>) must have refereant from [local-name() = 'CurrentSnapshotId' and .. instance of element(*, cdf:CVR)]</xsl:text>
+               <xsl:text>) must have refereant from CVR</xsl:text>
             </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
@@ -493,7 +493,7 @@
                <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                              xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
                              select="current()/@ObjectId"/>
-               <xsl:text>) must have refereant from [local-name() = 'ElectionId' and .. instance of element(*, cdf:CVR)]</xsl:text>
+               <xsl:text>) must have refereant from CVR</xsl:text>
             </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
@@ -526,7 +526,7 @@
                <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                              xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
                              select="current()/@ObjectId"/>
-               <xsl:text>) must have refereant from [local-name() = 'ElectionScopeId' and .. instance of element(*, cdf:Election), local-name() = 'BallotStyleUnitId' and .. instance of element(*, cdf:CVR)]</xsl:text>
+               <xsl:text>) must have refereant from Election, CVR</xsl:text>
             </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
@@ -552,14 +552,14 @@
 
 		<!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="count(idref(current()/@ObjectId)[(local-name() = 'PartyId' and .. instance of element(*, cdf:Candidate)) or (local-name() = 'PartyIds' and .. instance of element(*, cdf:PartySelection)) or (local-name() = 'PrimaryPartyId' and .. instance of element(*, cdf:CandidateContest)) or (local-name() = 'PartyIds' and .. instance of element(*, cdf:CVR))]) &gt; 0"/>
+         <xsl:when test="count(idref(current()/@ObjectId)[(local-name() = 'PartyIds' and .. instance of element(*, cdf:PartySelection)) or (local-name() = 'PartyIds' and .. instance of element(*, cdf:CVR)) or (local-name() = 'PrimaryPartyId' and .. instance of element(*, cdf:CandidateContest)) or (local-name() = 'PartyId' and .. instance of element(*, cdf:Candidate))]) &gt; 0"/>
          <xsl:otherwise>
             <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
                <xsl:text>Party (</xsl:text>
                <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                              xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
                              select="current()/@ObjectId"/>
-               <xsl:text>) must have refereant from [local-name() = 'PartyId' and .. instance of element(*, cdf:Candidate), local-name() = 'PartyIds' and .. instance of element(*, cdf:PartySelection), local-name() = 'PrimaryPartyId' and .. instance of element(*, cdf:CandidateContest), local-name() = 'PartyIds' and .. instance of element(*, cdf:CVR)]</xsl:text>
+               <xsl:text>) must have refereant from PartySelection, CVR, CandidateContest, Candidate</xsl:text>
             </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
@@ -590,14 +590,14 @@
 
 		<!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="count(idref(current()/@ObjectId)[(local-name() = 'ReportGeneratingDeviceIds' and .. instance of element(*, cdf:CastVoteRecordReport)) or (local-name() = 'ReportingDeviceIds' and .. instance of element(*, cdf:GpUnit)) or (local-name() = 'CreatingDeviceId' and .. instance of element(*, cdf:CVR))]) &gt; 0"/>
+         <xsl:when test="count(idref(current()/@ObjectId)[(local-name() = 'CreatingDeviceId' and .. instance of element(*, cdf:CVR)) or (local-name() = 'ReportingDeviceIds' and .. instance of element(*, cdf:GpUnit)) or (local-name() = 'ReportGeneratingDeviceIds' and .. instance of element(*, cdf:CastVoteRecordReport))]) &gt; 0"/>
          <xsl:otherwise>
             <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
                <xsl:text>ReportingDevice (</xsl:text>
                <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                              xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
                              select="current()/@ObjectId"/>
-               <xsl:text>) must have refereant from [local-name() = 'ReportGeneratingDeviceIds' and .. instance of element(*, cdf:CastVoteRecordReport), local-name() = 'ReportingDeviceIds' and .. instance of element(*, cdf:GpUnit), local-name() = 'CreatingDeviceId' and .. instance of element(*, cdf:CVR)]</xsl:text>
+               <xsl:text>) must have refereant from CVR, GpUnit, CastVoteRecordReport</xsl:text>
             </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
