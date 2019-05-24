@@ -1,0 +1,68 @@
+# Schematron Rulesets
+
+<!-- TOC -->
+
+- [Schematron Rulesets](#schematron-rulesets)
+    - [How to run (AltovaXML)](#how-to-run-altovaxml)
+        - [Expected Output](#expected-output)
+    - [How to Run (Oxygen XML)](#how-to-run-oxygen-xml)
+
+<!-- /TOC -->
+
+## How to run (AltovaXML)
+
+AltovaXML can run a schematron ruleset that has been compiled into an `xslt`, e.g. `err_v2-compiled.xsl`.
+
+- Clone this repository.
+
+- [Download](http://cdn.sw.altova.com/v2013r2/en/AltovaXMLCmu2013.exe) and install AltovaXML.
+
+> AltovaXML must be in your path or fully qualified. The default installation path for x64 based computers is `C:\Program Files (x86)\Altova\AltovaXML2013`
+
+- Change line 28 of the `err_v2-compiled.xsl` to point to the fully qualified path of the NIST 1500-xxx schema. AltovaXML does not understand relative paths.
+
+```xml
+<xsl:import-schema xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                    xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                    namespace="NIST_V2_election_results_reporting.xsd"
+                    schema-location="file:///{path}"/>
+```
+
+- Run the command having the form of:
+
+```cmd
+{AltovaXML} /xslt2 {compiled.xsl} /in {input_file.xml}
+```
+
+Where `{AltovaXML}` is the path to the `AltovaXML.exe` executable, `{compiled.xsl}` is the path to the compiled schematron ruleset, and `{input_file.xml}` is the path to the XML instance to validate.
+
+```cmd
+PS C:\Program Files (x86)\Altova\AltovaXML2013> .\AltovaXML.exe /xslt2 C:\GitHub\CDFPrototype
+\ENR\v2\sch\err_v2-compiled.xsl /in C:\GitHub\CDFPrototype\ENR\v2\sch\validation_target.xml
+```
+
+### Expected Output
+
+If the instance file contains no errors, the command will produce no output.
+
+> Make sure the file has been validated against the XML Schema prior to running the schematron rules. Failure to do so may result in false negatives.
+
+If the file contains errors, a message such the one below will appear for each one.
+
+```message
+XSL message: PartyId (_PE2399537F-B641-E811-8104-0050568C2FC0) must point to an element of type Party
+```
+
+Each error is prefixed with `XSL message` and contains the `ObjectId` context indicating where the error occured.
+
+## How to Run (Oxygen XML)
+
+The commercial XML editor Oxygen can validate using schematron rulesets directly. Make sure schema-aware validation is enabled and Saxon-EE is used for validation.
+
+![Schema aware option](./images/schema-aware.png)
+
+The below video shows how to validate a XML instance using the `sch` ruleset.
+
+![Video instructions](./images/oxygen-sch.gif)
+
+> These instructions were tested on Windows 10.0.17134.648 (x64)
