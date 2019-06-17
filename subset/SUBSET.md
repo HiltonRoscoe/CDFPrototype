@@ -6,7 +6,7 @@ The CDFs can be subset or profiled to better represent the use-case their are im
 
 - Clearly states what a particular data exchange requires
 - Provides a data format that can be effectively tested by VSTLs for conformance
-- Can be used as a mechanism for election jurisdictions to specify their interoperability requirements in an unambiguous way.
+- Can be used as a mechanism for election jurisdictions to specify their interoperability requirements in an unambiguous way
 
 This document describes a number of mechanisms to accomplish this task.
 
@@ -94,7 +94,7 @@ We will copy in the definition `Candidate` from the NIST schema into our redefin
 </xs:complexType>
 ```
 
-Note that we have two additional elements we didn't have in the source schema, a `ComplexContent` and `restriction` element. the `restriction` element says that we plan to derive a new `Candidate` type by restricting the original. A validator will ensure that our redefined schema is a subset of the original.
+Note that we have two additional elements we didn't have in the source schema, a `complexContent` and `restriction` element. the `restriction` element says that we plan to derive a new `Candidate` type by restricting the original. A validator will ensure that our redefined schema is a subset of the original.
 
 To make `FileDate` and `PersonId` required we must adjust their `minOccurs` attributes to `1`.
 
@@ -151,7 +151,7 @@ To restrict the allowed enumeration values, we simply delete the enumeration tag
 
 #### Limitations
 
-The redefinition of a type has global impact, i.e. it affects all uses of that type. This has the net impact that changes cannot be contextually anchored. For example, assume that we want to restrict `ContactInformation` such that `AddressLine` is required, but only for `ElectionAdministration`. Because `ContactInformation` is used by several other classes (e.g. Candidate, Election, Office, etc.) it will make `ContactInformation/AddressLine` required in all those contexts as well.
+The redefinition of a type has global impact, i.e. it affects all uses of that type. This means changes cannot be contextually anchored. For example, assume that we want to restrict `ContactInformation` such that `AddressLine` is required, but only for `ElectionAdministration`. Because `ContactInformation` is used by several other classes (e.g. Candidate, Election, Office, etc.) it will make `ContactInformation/AddressLine` required in all those contexts as well.
 
 ## Subsetting with JSON
 
@@ -189,4 +189,4 @@ Suppose we want to specify that the `ElectionScopeId` for an election in a NIST 
 
 Much like constraints in OCL, Schematron rules are made up of two parts, the context under which the rule applies, and a test condition. The above rule applies to all `Election` elements under `ElectionReport`, and the test looks up the `GpUnit` and checks that its `Name` matches the expected outcome.
 
-> Use of id() within a schematron rule requires the use of a "schema-aware" parser.
+> Use of id() within a Schematron rule requires the use of a "schema-aware" validator.
