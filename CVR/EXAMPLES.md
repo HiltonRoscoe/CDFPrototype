@@ -611,4 +611,4 @@ If the same vote was cast on a ballot marking device, the CVR could be simplifie
 </cdf:CVRContest>
 ```
 
-The representation of the indication for **Ilene Shapiro** is unchanged, but Debbie Walsh's votes have been consolidated into a single `SelectionIndication`, with a `NumberVotes` of `2`.
+The representation of the indication for **Ilene Shapiro** is unchanged, but **Debbie Walsh**'s votes have been consolidated into a single `SelectionIndication`, with a `NumberVotes` of `2`.
