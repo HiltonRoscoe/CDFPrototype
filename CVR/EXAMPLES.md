@@ -511,6 +511,8 @@ Table: Representation of a RCV contest
 
 Each candidate may be ranked using the `Rank` attribute. The rank may or may not be the same as the `Position`.
 
+> Try it out yourself! [Mark and generate your own RCV CVR](https://github.com/HiltonRoscoe/CDFPrototype/blob/master/CVR/xdp/rcv.pdf).
+
 ### Cumulative Voting
 
 Consider the following contest:
