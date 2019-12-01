@@ -10,7 +10,6 @@
         - [Position and Rank](#position-and-rank)
         - [Indications](#indications)
         - [Voter Made `Marks` (Paper Only)](#voter-made-marks-paper-only)
-            - [Mark Metrics](#mark-metrics)
         - [Adjudication](#adjudication)
         - [Meaning of `IsAllocable`](#meaning-of-isallocable)
         - [Machine Generated Indications](#machine-generated-indications)
@@ -36,7 +35,7 @@ These examples show how to use the NIST CVR Common Data Format (1500-103 CDF) to
 
 ## Assumptions
 
-- This document uses the ballot semantics model built by the Election Modeling Working Group.
+- This document uses the ballot semantics model built by the NIST-EAC Election Modeling Working Group.
 - Readers of this document are expected to have a working understanding of XML.
 
 ## Anatomy of a CVR
@@ -49,7 +48,7 @@ The CVR specification permits a wide range of data to be stored in a CVR, rangin
 
 The file is divided roughly into two parts: the CVR elements at the beginning followed by other elements for defining the election and its contests, candidates, and contest selections so that the CVR elements can link to them as necessary. [Lines 205-244](https://github.com/HiltonRoscoe/CDFPrototype/blob/7ed877d24eb73510a22e87ffd987038f58c4035f/CVR/xml/example_2.xml#L205-L244) describe an election containing the contest, candidate, and contest selection definitions.
 
- The CVR elements link to these items by using identifiers defined in the contest, candidate, and contest selection's `ObjectId` attributes. For example, the contest definition [starting on line 228](https://github.com/HiltonRoscoe/CDFPrototype/blob/7ed877d24eb73510a22e87ffd987038f58c4035f/CVR/xml/example_2.xml#L228-L242) contains:
+The CVR elements link to these items by using identifiers defined in the contest, candidate, and contest selection's `ObjectId` attributes. For example, the contest definition [starting on line 228](https://github.com/HiltonRoscoe/CDFPrototype/blob/7ed877d24eb73510a22e87ffd987038f58c4035f/CVR/xml/example_2.xml#L228-L242) contains:
 
 ```xml
 <Contest ObjectId="_C1" xsi:type="CandidateContest">
@@ -61,9 +60,9 @@ so that CVR elements can link to this contest definition by using the `ObjectId`
 
 [Lines 3-204](https://github.com/HiltonRoscoe/CDFPrototype/blob/7ed877d24eb73510a22e87ffd987038f58c4035f/CVR/xml/example_2.xml#L3-L204) contain the CVR elements. Each `CVR` element includes at least one `CVRSnapshot`.
 
-> Each `CVRSnapshot` represents a particular `Type`, such as the `original` captured from a scanner, or after it has been `interpreted` (i.e. business rules have been applied), or otherwise `modified`.
+> Each `CVRSnapshot` represents a particular `Type`, such as the `original` captured from a scanner, or after it has been `interpreted` (e.g. after business rules have been applied), or otherwise `modified`.
 
-`CVRSnapshot` element includes one or more `CVRContest`, which links to the voted contest whose object identifier is `_C1`, thereby identifying that contest within the report file. It then includes `CVRContestSelection`, which links to a contest option that was selected by the voter.  Each `CVR` element also includes an optional sequence number (`SequenceNumber`); this isn’t required but could be helpful to auditors.
+`CVRSnapshot` element includes one or more `CVRContest`, which links to the voted contest whose object identifier is `_C1`, thereby identifying that contest within the report file. It then includes `CVRContestSelection`, which links to a contest option that was selected by the voter.
 
 ## Basic Example
 
@@ -76,25 +75,20 @@ Consider the following contest:
 - [x] Connie Pillich
 - [ ] Josh Mandel
 
-can be represented with the following XML fragment:
+marked on a ballot marking device (BMD), can be represented with the following XML fragment:
 
 ```xml
 <cdf:CVRContest>
     <cdf:ContestId>_5TS</cdf:ContestId>
-        <cdf:CVRContestSelection>
-            <cdf:ContestSelectionId>_1ECP</cdf:ContestSelectionId>
-            <cdf:Position>1</cdf:Position>
-            <cdf:SelectionPosition>
-                <cdf:HasIndication>yes</cdf:HasIndication>
-                <cdf:IsAllocable>yes</cdf:IsAllocable>
-                <cdf:NumberVotes>1</cdf:NumberVotes>
-            </cdf:SelectionPosition>
-            <cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
-        </cdf:CVRContestSelection>
-        <cdf:Position>1</cdf:Position>
-        <cdf:TotalNumberVotes>1</cdf:TotalNumberVotes>
+    <cdf:CVRContestSelection>
+        <cdf:ContestSelectionId>_1ECP</cdf:ContestSelectionId>
+        <cdf:OptionPosition>1</cdf:OptionPosition>
+        <cdf:SelectionPosition>
+            <cdf:HasIndication>yes</cdf:HasIndication>
+            <cdf:IsAllocable>yes</cdf:IsAllocable>
+            <cdf:NumberVotes>1</cdf:NumberVotes>
+        </cdf:SelectionPosition>
     </cdf:CVRContestSelection>
-    ...
 </cdf:CVRContest>
 ```
 
@@ -119,8 +113,6 @@ By dereferencing `_5TS`, we can see this does indeed represent a contest selecti
 </cdf:Contest>
 ```
 
-> Note that an object identifier (`ObjectId`) is not the same as the codes that a jurisdiction may use to identify contests or candidates. An object identifier is entirely unique to a CVR report; the exporting application must add them as it builds the report file. These identifiers should only be used to link contests, contest selections, etc., together within the report file.
-
 ## SelectionPosition
 
 `SelectionPosition` is used to state facts about an area on the ballot where a voter's selection in a particular contest can be indicated. This may include its position on the ballot, the number of votes represented by its selection, evidentiary information regarding the existence of a `Mark` and determinations, among others.
@@ -144,7 +136,7 @@ The selection of Sandra Kurt's contest option corresponds to the following XML f
 ```xml
 <cdf:CVRContestSelection>
     <cdf:ContestSelectionId>_1HSK</cdf:ContestSelectionId>
-    <cdf:Position>3</cdf:Position>
+    <cdf:OptionPosition>3</cdf:OptionPosition>
     <cdf:SelectionPosition>
         <cdf:HasIndication>yes</cdf:HasIndication>
         <cdf:IsAllocable>yes</cdf:IsAllocable>
@@ -155,7 +147,7 @@ The selection of Sandra Kurt's contest option corresponds to the following XML f
 </cdf:CVRContestSelection>
 ```
 
-Sandra Kurt (`_1HSK`) position on the ballot is third (row), and the indicated contest position is second (column). This is represented by setting `CVRContestSelection/Position` to `3` and `SelectionPosition/Position` to `2`.
+Sandra Kurt (`_1HSK`) position on the ballot is third (row), and the indicated contest position is second (column). This is represented by setting `CVRContestSelection/OptionPosition` to `3` and `SelectionPosition/Position` to `2`.
 
 ### Indications
 
@@ -171,9 +163,9 @@ Sandra Kurt (`_1HSK`) position on the ballot is third (row), and the indicated c
 
 ### Voter Made `Marks` (Paper Only)
 
-`SelectionPosition` has a subelement, `Mark`, which should be used whenever a mark is placed upon a *contest option position* of a full face paper ballot.
+`SelectionPosition` has an attribute, `MarkMetricValue`, which should be used whenever a mark is placed upon a *contest option position* of a full face paper ballot.
 
-A `Mark` provides evidence that an indication may exist, however, it does not confirm it. This is the purpose of `HasIndication`. It can tell us if the mark met the threshold or logic of a `MarkMetricType` to be considered a selection indication for the *contest option* (machine interpretation), or if adjudication resulted in the capture of a selection (human interpretation).
+A `MarkMetricValue` provides evidence that an indication may exist, however, it does not confirm it. This is the purpose of `HasIndication`. It can tell us if the mark met the threshold or logic of a `MarkMetricType` to be considered a selection indication for the *contest option* (machine interpretation), or if adjudication resulted in the capture of a selection (human interpretation).
 
 | Mark type                        | HasIndication |
 |----------------------------------|---------------|
@@ -187,20 +179,17 @@ Marks should be treated as indelible. They can be added, but never removed from 
 
 > Barcodes placed onto a piece of paper (as to represent selections) are not considered marks.
 
-#### Mark Metrics
-
 A `Mark` may be associated with one or more `MarkMetricValue`, which is a implementation dependent measure of a mark.
 
 For example:
 
 ```xml
-<cdf:Mark>
-    <cdf:IsGenerated>true</cdf:IsGenerated>
-    <cdf:MarkMetricValue>98</cdf:MarkMetricValue>
-</cdf:Mark>
+...
+<cdf:MarkMetricValue>98</cdf:MarkMetricValue>
+...
 ```
 
-`IsGenerated` is optional, but should be included when the origin of the mark is known.
+> `MarkMetricValue` should be used to capture marks that are *machine readable* only. This usually means marks that fall within the *contest selection position*. Marks that convey voter intent but fall outside the target area should be handled without the use of `MarkMetricValue`.
 
 When a metric is used, its type (`MarkMetricType`) **must** be specified by the `ReportingDevice` playing the role of the `CVR`'s `CreatingDevice`.
 
@@ -218,19 +207,16 @@ From the above examples, we can see that the mark has a quality measurement of t
 
 > This section only applies to adjudication done electronically.
 
-If a mark was present, but was not captured in the initial CVR, then it should be indicated as a `Mark` with the `Status` element set to `adjudicated`. `HasIndication` should be set to `yes`.
+If a mark is present, but was not captured in the initial CVR, then it should be indicated with `HasIndication` set to `yes` and a `Status` element set to `adjudicated`.
 
 ```xml
 <cdf:SelectionPosition>
     <cdf:HasIndication>yes</cdf:HasIndication>
     <cdf:IsAllocable>yes</cdf:IsAllocable>
-    <cdf:Mark>...</cdf:Mark>
     <cdf:NumberVotes>1</cdf:NumberVotes>
     <cdf:Status>adjudicated</cdf:Status>
 </cdf:SelectionPosition>
 ```
-
-> `Mark` should be used to capture marks that are *machine readable* only. This usually means marks that fall within the *contest selection position*. Marks that convey voter intent but fall outside the target area should be handled without the use of `Mark`.
 
 Conversely, if a mark is determined to not to exist for a given contest option, then set `HasIndication` to `no`.
 
@@ -240,7 +226,6 @@ Conversely, if a mark is determined to not to exist for a given contest option, 
 <cdf:SelectionPosition>
     <cdf:HasIndication>no</cdf:HasIndication>
     <cdf:IsAllocable>no</cdf:IsAllocable>
-    <cdf:HasIndication>yes</cdf:HasIndication>
     <cdf:NumberVotes>1</cdf:NumberVotes>
     <cdf:Status>adjudicated</cdf:Status>
 </cdf:SelectionPosition>
@@ -285,7 +270,7 @@ Can be represented with the XML below:
     <cdf:ContestId>_5TS</cdf:ContestId>
     <cdf:CVRContestSelection>
         <cdf:ContestSelectionId>_1ECP</cdf:ContestSelectionId>
-        <cdf:Position>1</cdf:Position>
+        <cdf:OptionPosition>1</cdf:OptionPosition>
         <cdf:SelectionPosition>
             <cdf:HasIndication>yes</cdf:HasIndication>
             <cdf:IsAllocable>no</cdf:IsAllocable>
@@ -295,7 +280,7 @@ Can be represented with the XML below:
     </cdf:CVRContestSelection>
     <cdf:CVRContestSelection>
         <cdf:ContestSelectionId>_1EJM</cdf:ContestSelectionId>
-        <cdf:Position>2</cdf:Position>
+        <cdf:OptionPosition>2</cdf:OptionPosition>
         <cdf:SelectionPosition>
             <cdf:HasIndication>yes</cdf:HasIndication>
             <cdf:IsAllocable>no</cdf:IsAllocable>
@@ -331,7 +316,7 @@ can be represented with the following XML fragment:
 <cdf:CVRContest>
     <cdf:ContestId>_1GO</cdf:ContestId>
     <cdf:CVRContestSelection>
-        <cdf:Position>4</cdf:Position>
+        <cdf:OptionPosition>4</cdf:OptionPosition>
         <cdf:SelectionPosition>
             <cdf:CVRWriteIn>
                 <cdf:Text>John Smith</cdf:Text>
@@ -391,12 +376,10 @@ Consider the following XML fragment:
         <cdf:ContestId>_6RC</cdf:ContestId>
         <cdf:CVRContestSelection>
             <cdf:ContestSelectionId>_1FMZ</cdf:ContestSelectionId>
-            <cdf:Position>1</cdf:Position>
+            <cdf:OptionPosition>1</cdf:OptionPosition>
             <cdf:SelectionPosition>
                 <cdf:HasIndication>unknown</cdf:HasIndication>
-                <cdf:Mark>
-                    <cdf:MarkMetricValue>76</cdf:MarkMetricValue>
-                </cdf:Mark>
+                <cdf:MarkMetricValue>76</cdf:MarkMetricValue>
                 <cdf:NumberVotes>1</cdf:NumberVotes>
             </cdf:SelectionPosition>
         </cdf:CVRContestSelection>
