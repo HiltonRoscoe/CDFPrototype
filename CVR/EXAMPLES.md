@@ -413,7 +413,6 @@ An adjudicator takes a look at the ballot, and determines that mark is a result 
                 </cdf:Mark>
                 <cdf:NumberVotes>1</cdf:NumberVotes>
             </cdf:SelectionPosition>
-            <cdf:TotalNumberVotes>0</cdf:TotalNumberVotes>
         </cdf:CVRContestSelection>
     </cdf:CVRContest>
     <cdf:Type>interpreted</cdf:Type>
@@ -475,7 +474,7 @@ Table: Representation of a RCV contest
     <cdf:ContestId>_9CC</cdf:ContestId>
     <cdf:CVRContestSelection>
         <cdf:ContestSelectionId>_1HIS</cdf:ContestSelectionId>
-        <cdf:Position>2</cdf:Position>
+        <cdf:OptionPosition>2</cdf:OptionPosition>
         <cdf:SelectionPosition>
             <cdf:HasIndication>yes</cdf:HasIndication>
             <cdf:IsAllocable>yes</cdf:IsAllocable>
@@ -486,7 +485,7 @@ Table: Representation of a RCV contest
     </cdf:CVRContestSelection>
     <cdf:CVRContestSelection>
         <cdf:ContestSelectionId>_1HDW</cdf:ContestSelectionId>
-        <cdf:Position>3</cdf:Position>
+        <cdf:OptionPosition>3</cdf:OptionPosition>
         <cdf:SelectionPosition>
             <cdf:HasIndication>yes</cdf:HasIndication>
             <cdf:IsAllocable>yes</cdf:IsAllocable>
@@ -497,7 +496,7 @@ Table: Representation of a RCV contest
     </cdf:CVRContestSelection>
     <cdf:CVRContestSelection>
         <cdf:ContestSelectionId>_1HSK</cdf:ContestSelectionId>
-        <cdf:Position>6</cdf:Position>
+        <cdf:OptionPosition>6</cdf:OptionPosition>
         <cdf:SelectionPosition>
             <cdf:HasIndication>yes</cdf:HasIndication>
             <cdf:IsAllocable>yes</cdf:IsAllocable>
@@ -533,7 +532,7 @@ If the ballot was hand marked, then the following CVR could be constructed:
     <cdf:ContestId>_9CC</cdf:ContestId>
     <cdf:CVRContestSelection>
         <cdf:ContestSelectionId>_1HIS</cdf:ContestSelectionId>
-        <cdf:Position>2</cdf:Position>
+        <cdf:OptionPosition>2</cdf:OptionPosition>
         <cdf:SelectionPosition>
             <cdf:HasIndication>yes</cdf:HasIndication>
             <cdf:IsAllocable>yes</cdf:IsAllocable>
@@ -544,7 +543,7 @@ If the ballot was hand marked, then the following CVR could be constructed:
     </cdf:CVRContestSelection>
     <cdf:CVRContestSelection>
         <cdf:ContestSelectionId>_1HDW</cdf:ContestSelectionId>
-        <cdf:Position>3</cdf:Position>
+        <cdf:OptionPosition>3</cdf:OptionPosition>
         <cdf:SelectionPosition>
             <cdf:HasIndication>yes</cdf:HasIndication>
             <cdf:IsAllocable>yes</cdf:IsAllocable>
@@ -572,7 +571,7 @@ If the same vote was cast on a ballot marking device, the CVR could be simplifie
     <cdf:ContestId>_9CC</cdf:ContestId>
     <cdf:CVRContestSelection>
         <cdf:ContestSelectionId>_1HIS</cdf:ContestSelectionId>
-        <cdf:Position>2</cdf:Position>
+        <cdf:OptionPosition>2</cdf:OptionPosition>
         <cdf:SelectionPosition>
             <cdf:HasIndication>yes</cdf:HasIndication>
             <cdf:IsAllocable>yes</cdf:IsAllocable>
@@ -582,7 +581,7 @@ If the same vote was cast on a ballot marking device, the CVR could be simplifie
     </cdf:CVRContestSelection>
     <cdf:CVRContestSelection>
         <cdf:ContestSelectionId>_1HDW</cdf:ContestSelectionId>
-        <cdf:Position>3</cdf:Position>
+        <cdf:OptionPosition>3</cdf:OptionPosition>
         <cdf:SelectionPosition>
             <cdf:HasIndication>yes</cdf:HasIndication>
             <cdf:IsAllocable>yes</cdf:IsAllocable>
