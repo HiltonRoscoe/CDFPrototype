@@ -14,9 +14,9 @@ This document describes a number of mechanisms to accomplish this task.
 
 - [Subsetting CDF Schemas](#subsetting-cdf-schemas)
     - [Subsetting with XML](#subsetting-with-xml)
-            - [complexType Example](#complextype-example)
-            - [simpleType Example](#simpletype-example)
-            - [Limitations](#limitations)
+        - [complexType Example](#complextype-example)
+        - [simpleType Example](#simpletype-example)
+        - [Limitations](#limitations)
     - [Subsetting with JSON](#subsetting-with-json)
     - [Contextualizing Rules](#contextualizing-rules)
         - [Contextualizing for UML/JSON](#contextualizing-for-umljson)
@@ -36,7 +36,7 @@ Use-cases for redefinition
 
 > XSD 1.1 introduces a new method of subsetting called `override`. This method is preferred if you have access to a XSD 1.1 schema validator.
 
-#### complexType Example
+### complexType Example
 
 Suppose we want to require that an election management system (EMS) must provide the filing date (`FileDate`) and person record identifier (`PersonId`) for each `Candidate` in an pre-election Election Results Reporting (ERR) feed.
 
@@ -102,7 +102,7 @@ Tools can make the subsetting process easier. The image below shows the interfac
 
 ![XMLSpy Schema View](subset.gif)
 
-#### simpleType Example
+### simpleType Example
 
 All NIST 1500 series CDFs use enumerations to capture common values in a consistent way. The list of enumeration values can be very long and may overlap somewhat to allow data to be captured at various levels on granularity. Suppose a jurisdiction wants to restrict the enumeration values of `ElectionType` in the 1500-100 ERR schema. Out of the box, the allowed values include:
 
@@ -149,7 +149,7 @@ To restrict the allowed enumeration values, we simply delete the enumeration tag
 </xs:simpleType>
 ```
 
-#### Limitations
+### Limitations
 
 The redefinition of a type has global impact, i.e. it affects all uses of that type. This means changes cannot be contextually anchored. For example, assume that we want to restrict `ContactInformation` such that `AddressLine` is required, but only for `ElectionAdministration`. Because `ContactInformation` is used by several other classes (e.g. Candidate, Election, Office, etc.) it will make `ContactInformation/AddressLine` required in all those contexts as well.
 
