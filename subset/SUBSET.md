@@ -26,6 +26,8 @@ This document describes a number of mechanisms to accomplish this task.
 
 ## Subsetting with XML
 
+> This section uses the example [redefine.xsd](./redefine.xsd)
+
 XML Schema (XSD) 1.0 and higher support a feature called redefinition, which can be used to subset a schema. A redefined schema takes as its base an existing schema, in our case a NIST 1500 series Common Data Format (CDF). We can then **redefine** types in the schema, essentially giving them new definitions.
 
 Use-cases for redefinition
@@ -171,7 +173,7 @@ context Candidate inv: self.Person.DateOfBirth->size() > 0
 
 This constraint says that our `context` is the `Candidate` class and the rule is `invariant` or should always apply. The body of the constraint says that the `Person`'s `DateOfBirth` attribute must always be defined.
 
-> The [Semantic Validator](https://www.npmjs.com/package/semval) tool provides the capability to validate rules against NIST 1500-XXX JSON instances.
+> The [Semantic Validator](https://www.npmjs.com/package/semval) tool provides the capability to validate OCL rules against NIST 1500-XXX JSON instances.
 
 ### Contextualizing for XML
 
