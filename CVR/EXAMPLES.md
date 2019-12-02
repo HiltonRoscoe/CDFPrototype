@@ -113,6 +113,8 @@ By dereferencing `_5TS`, we can see this does indeed represent a contest selecti
 </cdf:Contest>
 ```
 
+> Try it out yourself! [Mark and generate your own CVR](https://github.com/HiltonRoscoe/CDFPrototype/blob/master/CVR/xdp/plurality.pdf).
+
 ## SelectionPosition
 
 `SelectionPosition` is used to state facts about an area on the ballot where a voter's selection in a particular contest can be indicated. This may include its position on the ballot, the number of votes represented by its selection, evidentiary information regarding the existence of a `Mark` and determinations, among others.
