@@ -28,7 +28,7 @@
    <xsl:import-schema xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
                       namespace="NIST_V0_cast_vote_records.xsd"
-                      schema-location="NIST_V0_cast_vote_records.xsd"/>
+                      schema-location="https://raw.githubusercontent.com/usnistgov/CastVoteRecords/14dfe26a9466524624d93345a715ecd3155fd4fd/NIST_V0_cast_vote_records.xsd"/>
 
    <!--KEYS AND FUNCTIONS-->
 

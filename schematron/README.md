@@ -8,10 +8,11 @@ This document contains instructions to run the schematron rulesets for the Cast 
     - [How to run (AltovaXML)](#how-to-run-altovaxml)
         - [Expected Output](#expected-output)
     - [How to Run (Oxygen XML)](#how-to-run-oxygen-xml)
+    - [Other Notes](#other-notes)
 
 <!-- /TOC -->
 
-There are multiple ways to run the Schematron rulesets. The compiled Schematron rulesets can be run with any `XSLT2` processor. Additionally the schematron rulesets can be run directly in a tool like `Oxygen`. The Schematron files are located in `CVR/sch` and `ENR/v2/sch` directories of this repository, respectively.
+There are multiple ways to run the Schematron rulesets. The compiled Schematron rulesets can be run with any schema-aware `XSLT2` processor. Additionally the schematron rulesets can be run directly in a tool like `Oxygen`. The Schematron files are located in `CVR/sch` and `ENR/v2/sch` directories of this repository, respectively.
 
 ## How to run (AltovaXML)
 
@@ -21,7 +22,7 @@ AltovaXML can run a schematron ruleset that has been compiled into an `xslt`, e.
 
 > AltovaXML must be in your path or fully qualified. The default installation path for x64 based computers is `C:\Program Files (x86)\Altova\AltovaXML2013`
 
-- Change line 31 of the `*_compiled.xsl` file to point to the fully qualified path of the NIST 1500-xxx schema. AltovaXML does not understand relative paths.
+- (Optional) Change line 31 of the `*_compiled.xsl` file to point to the fully qualified path of the NIST 1500-xxx schema. AltovaXML does not understand relative paths.
 
 ```xml
 <xsl:import-schema xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -29,6 +30,8 @@ AltovaXML can run a schematron ruleset that has been compiled into an `xslt`, e.
                     namespace="NIST_V2_election_results_reporting.xsd"
                     schema-location="file:///{path}"/>
 ```
+
+> The compiled schematron files reference the xsds found on the NIST GitHub repository. Therefore, this step is optional, however, if the url of the files changes or network connectivity is restricted, the transforms will not run correctly.
 
 - Run the command having the form of:
 
@@ -68,3 +71,7 @@ The below video shows how to validate a XML instance using the `sch` ruleset.
 ![Video instructions](./images/oxygen-sch.gif)
 
 > These instructions were tested on Windows 10.0.17134.648 (x64) using Oxygen 21.0
+
+## Other Notes
+
+XSLT versions of Schematron files were generated using the default transformer provided by Oxygen.
