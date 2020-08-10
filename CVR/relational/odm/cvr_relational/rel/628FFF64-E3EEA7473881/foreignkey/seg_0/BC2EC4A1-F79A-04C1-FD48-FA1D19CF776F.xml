@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BC2EC4A1-F79A-04C1-FD48-FA1D19CF776F" containerWithKeyObject="689013FE-AE33-A9F7-BDA7-537896C12ADE" localFKIndex="12F3DC12-7B76-E378-1629-C9F8AB702A7D" name="bmc_con_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>97274548-DDD1-5771-DD94-1BDBBBCF2D4F</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<referredTableLongName>Contest</referredTableLongName>
+<arc>169AB688-A9AD-D386-CE9B-F64DA6A3C9A0</arc>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>7C908E27-424A-7F47-E588-3FF7F5346FA1</referredTableID>
+<keyObject>E38E8A2A-FB55-B28B-1EE2-C875EEEB2EE7</keyObject>
+<referredKeyID>E38E8A2A-FB55-B28B-1EE2-C875EEEB2EE7</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>con_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+<propertyMap>
+<property name="fkRole" value="Contest"/>
+</propertyMap>
+</FKIndexAssociation>

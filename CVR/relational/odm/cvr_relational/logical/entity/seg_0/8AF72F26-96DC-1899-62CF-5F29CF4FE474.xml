@@ -1,0 +1,32 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8AF72F26-96DC-1899-62CF-5F29CF4FE474" name="ImageData">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 14:54:34 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<engineerTo>
+<item key="628FFF64-2EDE-B7BD-C2D2-E3EEA7473881" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Location" id="E5E1AAB1-DA2B-55BE-77C5-8B724557BC37">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 14:54:34 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<engineerTo>
+<item key="628FFF64-2EDE-B7BD-C2D2-E3EEA7473881" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

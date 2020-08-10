@@ -1,0 +1,64 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5F7AFAB5-96D9-40A1-3FFF-2DE51CEF780B" name="BallotMeasureSelection">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>00D3A1B7-EA8A-628C-ACA0-9F10F66EAA87</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<abbreviation>bms</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ContestSelectionId" id="A275B1A4-1585-2DBE-4524-8C67C74368D0">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<abbreviation>cons_cons_ID</abbreviation>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_bms_cons_cons_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="294EDE45-9907-2AA7-B933-523454283BBD" referredColumn="5CB2CC5A-8E09-D2FF-EE9A-124CBF644588"/>
+</associations>
+</Column>
+<Column name="Selection" id="E78A2D05-34E3-D970-6B34-BA2556C6C3F0">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>FA0EA6A0-2084-8769-21B5-6E63E7014E1C</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_bms_Selection</notNullConstraintName>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5E3E37F9-261A-7A2E-3DD5-3C8DE8A280CB" name="BallotMeasureSelection_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="A275B1A4-1585-2DBE-4524-8C67C74368D0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="309853A5-2545-9E36-FFEC-188AA2722AA2" name="bms_cons_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>ACFAD593-217E-C6A9-7286-A6ADDE6AA123</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A275B1A4-1585-2DBE-4524-8C67C74368D0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

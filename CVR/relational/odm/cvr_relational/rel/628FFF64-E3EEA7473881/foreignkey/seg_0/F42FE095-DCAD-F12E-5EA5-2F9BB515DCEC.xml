@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="F42FE095-DCAD-F12E-5EA5-2F9BB515DCEC" containerWithKeyObject="B49842FD-E1FA-1E33-A3E1-6D0C6F74FDFF" localFKIndex="671AC32D-ABAF-5682-758C-6A712E75985D" name="sp_Code_Code_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>F8D116C9-E890-9B93-6CB7-CBB309E79272</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<referredTableLongName>Code</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>DF331F4A-FD4C-9B85-DD40-F232B73DDD2E</referredTableID>
+<keyObject>9A17A020-13B0-2E71-295E-13DD1B59C414</keyObject>
+<referredKeyID>9A17A020-13B0-2E71-295E-13DD1B59C414</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Code_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+<propertyMap>
+<property name="fkRole" value="Code"/>
+</propertyMap>
+</FKIndexAssociation>

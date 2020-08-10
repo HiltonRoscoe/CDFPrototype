@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="A851DF91-3150-D8CE-D907-03559A2F6461" containerWithKeyObject="FE6A2631-9C39-7B2F-9B54-93AC247C3B9A" localFKIndex="5E8476C6-FC67-157A-0EDA-7CAFD9DFB645" name="rd_Code_rd_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>A5EF1CEE-6671-7290-33E9-92247DCF207D</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<referredTableLongName>ReportingDevice</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>FDE20F18-B23A-5747-19C1-0E717797586A</referredTableID>
+<keyObject>C59B77C2-B961-E21E-E3FD-BC7AA881941D</keyObject>
+<referredKeyID>C59B77C2-B961-E21E-E3FD-BC7AA881941D</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>rd_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+<propertyMap>
+<property name="fkRole" value="ReportingDevice"/>
+</propertyMap>
+</FKIndexAssociation>

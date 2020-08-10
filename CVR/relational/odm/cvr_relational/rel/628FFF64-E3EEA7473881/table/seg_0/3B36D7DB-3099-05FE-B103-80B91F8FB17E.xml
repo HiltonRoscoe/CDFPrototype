@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3B36D7DB-3099-05FE-B103-80B91F8FB17E" name="Candidate_Code">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<abbreviation>can_Code</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CodeId" id="7A0BF19F-27D9-A156-C4F2-13B5ACD8E7F5">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_can_Code_CodeId</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="DD164F0F-3029-BE23-F4E0-E1E5BBA30827" referredColumn="7F241363-4B8B-EE5A-16AC-EA74FAF9ACAE"/>
+</associations>
+</Column>
+<Column name="CandidateId" id="A33D089C-6702-D02C-1E86-99934C251997">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<abbreviation>can_can_ID</abbreviation>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_can_Code_can_can_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="CE46F2DA-FED1-F1C8-3C96-4BA6D3A12D6F" referredColumn="6D671E22-1CE6-2B64-03CB-461F34E85EDF"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6B018E6B-9E6F-D903-DF42-0B80DDFDDABD" name="can_Code_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7A0BF19F-27D9-A156-C4F2-13B5ACD8E7F5"/>
+<colUsage columnID="A33D089C-6702-D02C-1E86-99934C251997"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="438C1443-E046-0509-1DD6-3E3993375CAB" name="can_Code_Code_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>2F1907C7-1343-AE7C-4C12-10C046DCE92A</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7A0BF19F-27D9-A156-C4F2-13B5ACD8E7F5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8FAA94D5-A92E-AACD-D5AB-0736385719A5" name="can_Code_can_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>2F1907C7-1343-AE7C-4C12-10C046DCE92A</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A33D089C-6702-D02C-1E86-99934C251997"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

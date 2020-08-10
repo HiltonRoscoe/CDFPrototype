@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="CVR_GpUnit" directorySegmentName="seg_0" id="9BA070F5-EE1A-9A16-40C3-2468BC023587">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 14:54:34 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<engineerTo>
+<item key="C5FBBCAB-2FAC-CC83-2087-5CF15DD49AD5" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<nameOnTarget>BallotStyleUnit</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>DCDFA420-BC50-C8C6-1663-014ABC68E650</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>49A27932-A758-9D76-2233-499BF4571F6E</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="BallotStyleUnit"/>
+</propertyMap>
+</Relation>

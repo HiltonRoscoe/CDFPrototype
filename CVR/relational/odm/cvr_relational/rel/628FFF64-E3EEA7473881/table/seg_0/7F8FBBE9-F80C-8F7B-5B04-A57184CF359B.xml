@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7F8FBBE9-F80C-8F7B-5B04-A57184CF359B" name="CVRSnapshot">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>64B871D0-9CD4-5B8B-81B7-C29FBFCE4970</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<abbreviation>cvrs</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="OtherStatus" id="A87B391F-5F61-7DCB-81EB-B750883715B8">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>C582DDC7-8CB3-3DBC-C49A-CB9BE41D4A13</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Type" id="7A310755-7525-0588-0B31-C06ADC0B7994">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>E71A185D-0B32-8CC3-5427-550E550E3DAD</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<constraintName>CK_cvrs_Type</constraintName>
+<use>0</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<domain>C33E1283-11DE-E6C4-5D63-2E5F80C9D879</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_cvrs_Type</notNullConstraintName>
+</Column>
+<Column name="CVRSnapshotId" id="51EDE8AD-5692-BE01-6B89-77B3363DED2F">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<abbreviation>cvrs_ID</abbreviation>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_cvrs_cvrs_ID</notNullConstraintName>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+<Column name="CVRId" id="9AF98E8A-FAA2-AE60-01C5-0F36C63A48D5">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_cvrs_CVRId</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="9DE4709D-CAEC-8039-799E-BD2ECDABE357" referredColumn="EB474ED5-768A-00FB-4C4C-00BE698AC291"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="031E2C2E-0B64-E894-E694-E0CCC82E828B" name="CVRSnapshot_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="51EDE8AD-5692-BE01-6B89-77B3363DED2F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="723EADAE-ACDB-2B49-5BD2-37A73076F9BA" name="cvrs_CVR_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>181FFC94-6E04-0CC3-DC52-5F579DAD038E</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9AF98E8A-FAA2-AE60-01C5-0F36C63A48D5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

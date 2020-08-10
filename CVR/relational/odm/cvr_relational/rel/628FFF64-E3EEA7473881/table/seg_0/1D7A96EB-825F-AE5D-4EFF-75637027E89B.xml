@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1D7A96EB-825F-AE5D-4EFF-75637027E89B" name="Contest_Code">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<abbreviation>con_Code</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CodeId" id="409EFB7B-0EDF-C548-9C53-762541289C20">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_con_Code_CodeId</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="6E3048AE-3A48-A525-8742-84AC88E6936D" referredColumn="7F241363-4B8B-EE5A-16AC-EA74FAF9ACAE"/>
+</associations>
+</Column>
+<Column name="ContestId" id="36DA1E24-3C25-F19C-6039-B3CF00FEE58B">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<abbreviation>con_con_ID</abbreviation>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_con_Code_con_con_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="95BB89ED-A405-6D1F-2B87-88667AF48B1D" referredColumn="CF75FF26-667C-B478-355B-189A39A2599E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C14DE760-D000-D188-A81E-DAFD9E7270E5" name="con_Code_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="409EFB7B-0EDF-C548-9C53-762541289C20"/>
+<colUsage columnID="36DA1E24-3C25-F19C-6039-B3CF00FEE58B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5D5BF376-015F-BF72-D99E-1994F1F2CD05" name="con_Code_Code_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>8414CCE2-869E-6956-EA56-1C5AF2D026E2</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="409EFB7B-0EDF-C548-9C53-762541289C20"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B123AC71-27BB-25E5-E6CA-282CF5DEC5C1" name="con_Code_con_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>8414CCE2-869E-6956-EA56-1C5AF2D026E2</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="36DA1E24-3C25-F19C-6039-B3CF00FEE58B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

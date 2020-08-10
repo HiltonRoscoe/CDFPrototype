@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="DCDFA420-BC50-C8C6-1663-014ABC68E650" name="GpUnit">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 14:54:34 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<engineerTo>
+<item key="628FFF64-2EDE-B7BD-C2D2-E3EEA7473881" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Name" id="E9264CDF-C484-3E1B-464E-17DAE8D54045">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 14:54:34 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<engineerTo>
+<item key="628FFF64-2EDE-B7BD-C2D2-E3EEA7473881" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="OtherType" id="5200E383-371A-E17F-BF42-BB555008D22F">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 14:54:34 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<engineerTo>
+<item key="628FFF64-2EDE-B7BD-C2D2-E3EEA7473881" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Type" id="010E087D-2676-B5B3-ED9D-7ACF4AD97B66">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 14:54:34 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<engineerTo>
+<item key="628FFF64-2EDE-B7BD-C2D2-E3EEA7473881" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<domain>E3A5AE19-118C-CB01-B5FC-B67CD7F6C76A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

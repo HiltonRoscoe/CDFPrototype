@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="CandidateContest_Party" directorySegmentName="seg_0" id="DB881BDC-2D5F-5A27-04A7-3CABCA2B3A65">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 14:54:34 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<engineerTo>
+<item key="C5FBBCAB-2FAC-CC83-2087-5CF15DD49AD5" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<nameOnTarget>PrimaryParty</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>6E4D2429-E2F9-BF71-A0E1-25A4619725C4</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>A47F4A44-C23D-B7EC-2553-8212852AB2EE</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="PrimaryParty"/>
+</propertyMap>
+</Relation>

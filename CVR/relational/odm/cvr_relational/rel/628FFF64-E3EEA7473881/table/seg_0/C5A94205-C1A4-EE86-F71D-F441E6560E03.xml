@@ -1,0 +1,229 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C5A94205-C1A4-EE86-F71D-F441E6560E03" name="CVR">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>49A27932-A758-9D76-2233-499BF4571F6E</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="BallotAuditId" id="E2733D8E-787E-6A32-93DD-C0331BF9CFE6">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>0429D0D8-9114-91F0-D5A9-DD6E03F05B6D</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BallotPrePrintedId" id="BA10A446-B553-4A15-451B-AC276144A341">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>19CFB14C-B6A6-D926-2E08-E807CB353570</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BallotSheetId" id="5114E55E-3C06-9039-008C-43E38E6D7D4E">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>3C7CA8F5-8905-DD23-F37A-8F842EE87E02</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BallotStyleId" id="3FADC46F-E388-5E44-18CA-41002B256AB3">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>B2996513-1EA8-933D-9898-4BFE179DA838</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BatchId" id="F35C1662-3FBC-E8B0-D686-4DA6744FB176">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>1F079E25-DBA8-31A5-330D-915F2599570D</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BatchSequenceId" id="9E3F0F16-A4DE-C040-8F85-D406C364F146">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>4FB76159-B816-DB4E-CC42-3A4274A5C17C</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UniqueId" id="FC4AD540-ED15-FB24-D2EE-AAC4CA3B026D">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>89D52FC9-5F34-6462-02E0-9D6CF0348125</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CVRId" id="EB474ED5-768A-00FB-4C4C-00BE698AC291">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_CVR_CVRId</notNullConstraintName>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+<Column name="CastVoteRecordReportId" id="08C7DB1A-0AA0-7BD1-13E9-0B2E5BE898A9">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<abbreviation>cvrr_cvrr_ID</abbreviation>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_CVR_cvrr_cvrr_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="8A58ADA3-F07C-3579-BA5D-118B033E0CCD" referredColumn="77AC984D-2FC8-6DA0-9BF8-B88300484EB3"/>
+</associations>
+</Column>
+<Column name="ElectionId" id="7229CB34-FA41-1D95-5883-D9DD2E1AE3B6">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<abbreviation>ele_ele_ID</abbreviation>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_CVR_ele_ele_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="83AD4D15-3380-6696-391C-DBE0C0F45735" referredColumn="6BE24AE6-5175-19A0-9AA7-02A2E6793CAB"/>
+</associations>
+</Column>
+<Column name="GpUnitId" id="F9BE981C-1FDF-EDC4-F52E-0F8BD4A89911">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="16EA78F3-D1B4-A537-A230-417AD220BFDC" referredColumn="4EB48E0A-3C64-37EA-0915-3FC27A983B15"/>
+</associations>
+</Column>
+<Column name="ReportingDeviceId" id="751BBB12-D6B7-15F6-2A65-A832BBBDDB2D">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<abbreviation>rd_rd_ID</abbreviation>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FE742466-07C0-6DF6-0DD5-1E841449285F" referredColumn="B543B274-8555-FB24-55C0-0187500BAE85"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="726AC284-B5F2-ADC8-4B0E-B4101B3B24EC" name="CVR_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="EB474ED5-768A-00FB-4C4C-00BE698AC291"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A269944E-8603-793E-AE9A-44996B83355E" name="CVR_cvrr_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>DDD980FA-F2D2-25F9-1EB0-36BA2398CF7F</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="08C7DB1A-0AA0-7BD1-13E9-0B2E5BE898A9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CEF323D0-3930-7A9E-CD98-A60B677010AA" name="CVR_ele_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>2E85ED60-3259-8FB6-D210-AF5DB33FC442</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7229CB34-FA41-1D95-5883-D9DD2E1AE3B6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E4CF8A7C-9168-C3DF-496D-6B277A2C12BB" name="CVR_GpUnit_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>9BA070F5-EE1A-9A16-40C3-2468BC023587</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F9BE981C-1FDF-EDC4-F52E-0F8BD4A89911"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="90E7B449-93D7-64E4-F40C-C55BC7598B3A" name="CVR_rd_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>46EE2709-432C-EA8B-1C22-972D3BDC2CB5</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="751BBB12-D6B7-15F6-2A65-A832BBBDDB2D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

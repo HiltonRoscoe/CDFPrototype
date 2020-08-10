@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="370993D2-3F0F-28A3-030F-170524231755" containerWithKeyObject="DFE3F269-C521-01B6-57A2-37B55946E93C" localFKIndex="2DFA0D0E-16C0-44AC-1F32-03AA17CA7017" name="ccs_cc_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>6FEE60F0-3DC4-9A15-02BD-60A73843E191</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<referredTableLongName>CVRContest</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>F34E1554-FA6B-0049-0F66-BC21C386D21A</referredTableID>
+<keyObject>D81D2555-C8DC-92D5-2B71-90A703BE82D4</keyObject>
+<referredKeyID>D81D2555-C8DC-92D5-2B71-90A703BE82D4</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>cc_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+<propertyMap>
+<property name="fkRole" value="CVRContest"/>
+</propertyMap>
+</FKIndexAssociation>

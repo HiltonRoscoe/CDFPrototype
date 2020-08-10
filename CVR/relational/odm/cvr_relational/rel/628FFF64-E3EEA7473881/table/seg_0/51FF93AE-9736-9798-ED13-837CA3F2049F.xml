@@ -1,0 +1,106 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="51FF93AE-9736-9798-ED13-837CA3F2049F" name="Candidate">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>3545E4E3-D7D2-0B79-D3EB-92BA723A411C</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<abbreviation>can</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Name" id="95306A01-72BE-51A8-E93A-6CC0C2775D72">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>5602F30B-DF40-BE99-7FCB-CB3A6B562E05</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CandidateId" id="6D671E22-1CE6-2B64-03CB-461F34E85EDF">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<abbreviation>can_ID</abbreviation>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_can_can_ID</notNullConstraintName>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+<Column name="PartyId" id="DAD987B1-933C-0C39-F526-269F359FCBCB">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<abbreviation>par_par_ID</abbreviation>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="697777FB-EBAC-EC83-18EE-70ED710402D7" referredColumn="F0502D75-A2F7-CF11-B022-1AAA4A49AD2F"/>
+</associations>
+</Column>
+<Column name="ElectionId" id="95E1E055-412E-5038-A6B0-A6C413CF0B06">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<abbreviation>ele_ele_ID</abbreviation>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_can_ele_ele_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="CE2E9474-B863-7EF5-AD31-794E632F5840" referredColumn="6BE24AE6-5175-19A0-9AA7-02A2E6793CAB"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="063BB019-B6C9-E196-7A2B-6D4DF4408592" name="Candidate_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="6D671E22-1CE6-2B64-03CB-461F34E85EDF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DF9A4E5D-4AB1-C5A3-4033-1DCB2CE86F77" name="can_par_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>AADBE26A-719D-ADC3-B249-15BF1782B258</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DAD987B1-933C-0C39-F526-269F359FCBCB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FBC18CD5-F12E-0171-F389-1A9404145F0E" name="can_ele_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>41DBCD32-814D-A795-2328-03E58998A95D</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="95E1E055-412E-5038-A6B0-A6C413CF0B06"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

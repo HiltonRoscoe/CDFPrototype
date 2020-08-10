@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="RetentionContest_Candidate" directorySegmentName="seg_0" id="3F449F33-9061-8B7B-F346-6D4D537FC5D9">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 14:54:34 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<engineerTo>
+<item key="C5FBBCAB-2FAC-CC83-2087-5CF15DD49AD5" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>3545E4E3-D7D2-0B79-D3EB-92BA723A411C</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>3C0AEC8A-3F48-6576-92CF-DD98D2F5F503</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="Candidate"/>
+</propertyMap>
+</Relation>

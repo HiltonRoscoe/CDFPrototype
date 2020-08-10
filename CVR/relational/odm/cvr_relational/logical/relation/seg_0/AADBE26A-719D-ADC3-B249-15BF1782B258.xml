@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Candidate_Party" directorySegmentName="seg_0" id="AADBE26A-719D-ADC3-B249-15BF1782B258">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 14:54:34 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<engineerTo>
+<item key="C5FBBCAB-2FAC-CC83-2087-5CF15DD49AD5" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>6E4D2429-E2F9-BF71-A0E1-25A4619725C4</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>3545E4E3-D7D2-0B79-D3EB-92BA723A411C</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="Party"/>
+</propertyMap>
+</Relation>

@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="86D54521-D241-77B6-00BD-20CB69FBC6A7" name="CastVoteRecordReport">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>A2F99A5A-D180-DCE6-2022-2C6015887D08</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<abbreviation>cvrr</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="GeneratedDate" id="881D9305-A8D0-4D62-9513-2640F3458CA3">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>031BDA96-9D53-3F3E-46B1-41E2193020A6</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_cvrr_GeneratedDate</notNullConstraintName>
+</Column>
+<Column name="Notes" id="170D0FA7-EB01-6465-8912-2DCC694007C8">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>C5E964CF-9E4E-05A6-927E-9A909E4A2492</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OtherReportType" id="B3FD7A71-DA00-7E48-A44B-48BE2DA91A71">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>75E32DFE-5B36-2F2A-BA05-2708CAA0794B</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Version" id="61C687CD-21B3-0D74-34DB-A8BC8A3153EC">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>FC1C4E68-ADA3-14DA-7D9C-1A07155DBA61</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<constraintName>CK_cvrr_Version</constraintName>
+<use>0</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<domain>B3481E53-ED4A-AB4A-8B12-8788BF8D89A5</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_cvrr_Version</notNullConstraintName>
+</Column>
+<Column name="CastVoteRecordReportId" id="77AC984D-2FC8-6DA0-9BF8-B88300484EB3">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<abbreviation>cvrr_ID</abbreviation>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_cvrr_cvrr_ID</notNullConstraintName>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F7DFAE84-5D85-164B-BEAC-A41D6E9333B2" name="CastVoteRecordReport_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="77AC984D-2FC8-6DA0-9BF8-B88300484EB3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

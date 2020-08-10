@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AC592D35-05CC-2E7F-6933-21F69E57EEC9" name="CVR_ImageData">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ImageDataId" id="B0884A24-D569-31DB-58FD-3B84833E770B">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_CVR_ImageData_ImageDataId</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="AEDC0725-B34D-5A94-00E5-F6644E1DBEDF" referredColumn="9A533859-D0E1-D6A1-C4C6-EE38049A38FB"/>
+</associations>
+</Column>
+<Column name="CVRId" id="B39CDC8F-144F-172B-2BA2-9C2B155B74FE">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_CVR_ImageData_CVRId</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="5E754EEC-3FDF-27D6-0DB1-B8E7E14113E8" referredColumn="EB474ED5-768A-00FB-4C4C-00BE698AC291"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FC19E43B-551F-178C-2392-FB59BFDD0BB6" name="CVR_ImageData_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B0884A24-D569-31DB-58FD-3B84833E770B"/>
+<colUsage columnID="B39CDC8F-144F-172B-2BA2-9C2B155B74FE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="49767B9C-D282-FA78-9CFA-8380121C4316" name="CVR_ImageData_ImageData_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>C0096BF9-C749-FC48-DE29-83B2E86F3897</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B0884A24-D569-31DB-58FD-3B84833E770B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FC41E967-F7DF-6C31-4C52-E6FD91247323" name="CVR_ImageData_CVR_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>C0096BF9-C749-FC48-DE29-83B2E86F3897</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B39CDC8F-144F-172B-2BA2-9C2B155B74FE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

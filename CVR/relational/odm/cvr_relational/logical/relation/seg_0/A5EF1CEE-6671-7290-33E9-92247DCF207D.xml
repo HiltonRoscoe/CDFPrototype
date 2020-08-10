@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ReportingDevice_Code" directorySegmentName="seg_0" id="A5EF1CEE-6671-7290-33E9-92247DCF207D">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 14:54:34 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<engineerTo>
+<item key="C5FBBCAB-2FAC-CC83-2087-5CF15DD49AD5" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>88AB57D7-6A33-0C4D-B469-6D84B6A1EF76</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>851E386D-93D5-7D89-916E-6494A6ECBA31</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="ReportingDevice"/>
+</propertyMap>
+</Relation>
