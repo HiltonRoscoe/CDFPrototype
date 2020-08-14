@@ -7,6 +7,8 @@ This document contains instructions to run the schematron rulesets for the Cast 
 - [Schematron Rulesets](#schematron-rulesets)
     - [How to run (AltovaXML)](#how-to-run-altovaxml)
         - [Expected Output](#expected-output)
+            - [Message Version](#message-version)
+            - [SVRL Version](#svrl-version)
     - [How to Run (Oxygen XML)](#how-to-run-oxygen-xml)
     - [Other Notes](#other-notes)
 
@@ -18,11 +20,15 @@ There are multiple ways to run the Schematron rulesets. The compiled Schematron 
 
 AltovaXML can run a schematron ruleset that has been compiled into an `xslt`, e.g. `err_v2-compiled.xsl`. Precompiled rulesets have been provided as part of this repository. AltovaXML is available on Windows only.
 
+There are two versions of the compiled schematron files for each CDF. The difference is in how the validation results are provided. Those ending with `_message` generate messages to the standard output (e.g. screen). Those ending with `_svrl` generate results as XML using the SVRL format.
+
+> It is recommended to use the SVRL versions of the compiled schematron files. The SVRL versions provide not only the errors messages, but contextual details around where the error occurred.
+
 - [Download](http://cdn.sw.altova.com/v2013r2/en/AltovaXMLCmu2013.exe) and install AltovaXML.
 
 > AltovaXML must be in your path or fully qualified. The default installation path for x64 based computers is `C:\Program Files (x86)\Altova\AltovaXML2013`
 
-- (Optional) Change line 31 of the `*_compiled.xsl` file to point to the fully qualified path of the NIST 1500-xxx schema. AltovaXML does not understand relative paths.
+- (Optional) Change the file to point to the fully qualified path of the NIST 1500-xxx schema. AltovaXML does not understand relative file system paths.
 
 ```xml
 <xsl:import-schema xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -31,15 +37,15 @@ AltovaXML can run a schematron ruleset that has been compiled into an `xslt`, e.
                     schema-location="file:///{path}"/>
 ```
 
-> The compiled schematron files reference the xsds found on the NIST GitHub repository. Therefore, this step is optional, however, if the url of the files changes or network connectivity is restricted, the transforms will not run correctly.
+> The compiled schematron files reference the `xsd`s found on the NIST GitHub repository. Therefore, this step is optional, however, if the url of the files change or network connectivity is restricted, the transforms will not run correctly.
 
 - Run the command having the form of:
 
 ```cmd
-{AltovaXML} /xslt2 {compiled.xsl} /in {input_file.xml}
+{AltovaXML} /xslt2 {compiled.xsl} /in {input_file.xml} [/out {output_file.xml}]
 ```
 
-Where `{AltovaXML}` is the path to the `AltovaXML.exe` executable, `{compiled.xsl}` is the path to the compiled schematron ruleset, and `{input_file.xml}` is the path to the XML instance to validate.
+Where `{AltovaXML}` is the path to the `AltovaXML.exe` executable, `{compiled.xsl}` is the path to the compiled schematron ruleset, and `{input_file.xml}` is the path to the XML instance to validate. If you are using the SVRL version, set the `/out` flag and `{output_file.xml}` to the path you'd like for the validation report.
 
 ```cmd
 PS C:\Program Files (x86)\Altova\AltovaXML2013> .\AltovaXML.exe /xslt2 C:\GitHub\CDFPrototype
@@ -48,9 +54,12 @@ PS C:\Program Files (x86)\Altova\AltovaXML2013> .\AltovaXML.exe /xslt2 C:\GitHub
 
 ### Expected Output
 
-If the instance file contains no errors, the command will produce no output.
-
+> [!IMPORTANT]
 > Make sure the file has been validated against the XML Schema prior to running the schematron rules. Failure to do so may result in false negatives.
+
+#### Message Version
+
+If the instance file contains no errors, the command will produce no output.
 
 If the file contains errors, messages such as the one below will appear.
 
@@ -59,6 +68,10 @@ XSL message: PartyId (_PE2399537F-B641-E811-8104-0050568C2FC0) must point to an 
 ```
 
 Each error is prefixed with `XSL message` and contains the `ObjectId` context indicating where the error occurred.
+
+#### SVRL Version
+
+Output will be directed to the file specified as {output_file.xml}, using the SVRL standard.
 
 ## How to Run (Oxygen XML)
 
@@ -74,4 +87,4 @@ The below video shows how to validate a XML instance using the `sch` ruleset.
 
 ## Other Notes
 
-XSLT versions of Schematron files were generated using the default transformer provided by Oxygen.
+*Message* XSLT versions of Schematron files were generated using the default transformer provided by Oxygen. SVRL versions were generated using the [skeleton](https://github.com/Schematron/schematron).
