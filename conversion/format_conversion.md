@@ -11,7 +11,7 @@
 
 <!-- /TOC -->
 
-The first Common Data Format released by NIST, Election Results Report (1500-100) supported XML exclusively. Since its release, interest in JavaScript Object Notation (JSON) versions of the Common Data Formats has grown. All new Common Data Formats going forward will include a representation in JSON Schema and XML Schema (XSD). This solves one problem, i.e. supporting popular data formats, but introduces another: while the JSON and XML versions of the CDFs represent the same data points, they do not share the same syntax.
+The first Common Data Format released by NIST, Election Results Reporting (1500-100) supported XML exclusively. Since its release, interest in JavaScript Object Notation (JSON) versions of the Common Data Formats has grown. All new Common Data Formats going forward will include a representation in JSON Schema and XML Schema (XSD). This solves one problem, i.e. supporting popular data formats, but introduces another: while the JSON and XML versions of the CDFs represent the same data points, they do not share the same syntax.
 
 Some implementers may only produce data in XML, and others may only consume in JSON, or vice versa, leading to interoperability failures. In order for interoperability to be maintained vendors must support consuming, if not producing, data in both serializations of the common data formats.
 
