@@ -18,17 +18,17 @@ There are multiple ways to run the Schematron rulesets. The compiled Schematron 
 
 ## How to run (AltovaXML)
 
-AltovaXML can run a schematron ruleset that has been compiled into an `xslt`, e.g. `err_v2-compiled.xsl`. Precompiled rulesets have been provided as part of this repository. AltovaXML is available on Windows only.
+AltovaXML is a freely availible, common line based tool. AltovaXML can run a schematron ruleset that has been compiled into an `xslt`, e.g. `err_v2-compiled.xsl`. Precompiled rulesets have been provided as part of this repository. AltovaXML is available on Windows only.
 
 There are two versions of the compiled schematron files for each CDF. The difference is in how the validation results are provided. Those ending with `_message` generate messages to the standard output (e.g. screen). Those ending with `_svrl` generate results as XML using the SVRL format.
 
-> It is recommended to use the SVRL versions of the compiled schematron files. The SVRL versions provide not only the errors messages, but contextual details around where the error occurred.
+> It is recommended to use the SVRL versions of the compiled schematron files. The SVRL versions provide not only the error messages, but contextual details around where the error occurred.
 
 - [Download](http://cdn.sw.altova.com/v2013r2/en/AltovaXMLCmu2013.exe) and install AltovaXML.
 
 > AltovaXML must be in your path or fully qualified. The default installation path for x64 based computers is `C:\Program Files (x86)\Altova\AltovaXML2013`
 
-- (Optional) Change the file to point to the fully qualified path of the NIST 1500-xxx schema. AltovaXML does not understand relative file system paths.
+- (Optional) Change the `xslt` file to point to the fully qualified path of the NIST 1500-xxx schema. AltovaXML does not understand relative file system paths.
 
 ```xml
 <xsl:import-schema xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -38,6 +38,8 @@ There are two versions of the compiled schematron files for each CDF. The differ
 ```
 
 > The compiled schematron files reference the `xsd`s found on the NIST GitHub repository. Therefore, this step is optional, however, if the url of the files change or network connectivity is restricted, the transforms will not run correctly.
+
+- Ensure `xsi:schemaLocation` is specified in the instance file. Failure to do so may cause false negatives.
 
 - Run the command having the form of:
 
@@ -87,4 +89,4 @@ The below video shows how to validate a XML instance using the `sch` ruleset.
 
 ## Other Notes
 
-*Message* XSLT versions of Schematron files were generated using the default transformer provided by Oxygen. SVRL versions were generated using the [skeleton](https://github.com/Schematron/schematron).
+*Message* XSLT versions of Schematron files were generated using the default transformer provided by Oxygen. SVRL versions were generated using the [ISO Schematron Skeleton](https://github.com/Schematron/schematron).
