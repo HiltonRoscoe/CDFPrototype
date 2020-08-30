@@ -1,0 +1,5 @@
+header-includes:
+  - |
+    ```{=latex}
+    \usepackage[margins=raggedright]{floatrow}
+    ```

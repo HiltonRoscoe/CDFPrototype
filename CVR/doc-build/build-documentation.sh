@@ -1,0 +1,1 @@
+pandoc -s ./heading.txt ../EXAMPLES.md -o output.pdf -V geometry:margin=1in -V thanks:"Documentation is a snapshot of Markdown files on the respective project repositories" --toc
