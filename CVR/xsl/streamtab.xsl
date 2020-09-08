@@ -8,6 +8,7 @@
     expand-text="yes">
     <xsl:output media-type="xml" indent="yes"/>
     <xsl:mode streamable="yes" use-accumulators="#all"/>
+    <!-- mode for generating ENR 1500-100 output -->
     <xsl:mode name="report" streamable="no"/>
     <!-- capturing accumulators, for storing reusable data -->
     <xsl:accumulator name="Election" initial-value="''" streamable="yes">
@@ -21,22 +22,28 @@
         <xsl:accumulator-rule match="cdf:Party" select="($value, .)" saxon:capture="yes" phase="end"
         />
     </xsl:accumulator>
-    <!-- holds votes, one for each contestselection in election -->
+    <!-- holds votes, one for each ContestSelection in election -->
     <xsl:accumulator name="votes" streamable="yes" initial-value="map {}"
         as="map(xs:untypedAtomic, xs:anyAtomicType?)">
-        <!-- sets initial value, + on null doesn't work! -->
+        <!-- sets initial value, + operator on null doesn't work! -->
         <xsl:accumulator-rule match="cdf:ContestSelection" select="map:put($value, @ObjectId, 0)"/>
-        <!-- assumes there is only one SelectionPosition!!! -->
+        <!-- assumes there is only one SelectionPosition, which should be true for n-of-m contests -->
         <xsl:accumulator-rule match="cdf:CVRContestSelection" saxon:capture="yes" phase="end"
-            select="map:put($value, cdf:ContestSelectionId, map:get($value, cdf:ContestSelectionId) + cdf:SelectionPosition/cdf:NumberVotes)"
-        />
+            select="
+                if (cdf:SelectionPosition/cdf:IsAllocable = 'yes') then
+                    map:put($value, cdf:ContestSelectionId, map:get($value, cdf:ContestSelectionId) + cdf:SelectionPosition/cdf:NumberVotes)
+                else
+                    $value"
+        />  
     </xsl:accumulator>
-    <!--<xsl:import-schema namespace="http://itl.nist.gov/ns/voting/1500-103/v1"
-        schema-location="NIST_V0_cast_vote_records.xsd"/>
-    -->
     <xsl:template match="/">
         <!-- cannot access accumulator from non streamable context?? -->
         <xsl:variable name="votes" select="accumulator-after('votes')"/>
+        <!-- check for non N-of-M contests, we can't tabulate them -->
+        <xsl:if
+            test="accumulator-after('Election')/cdf:Contest[@xsi:type = 'cdf:CandidateContest']/cdf:VoteVariation != 'n-of-m'">
+            <xsl:message terminate="yes">Cannot tabulate CVR with non-N-of-M races</xsl:message>
+        </xsl:if>
         <!-- begin writeout of ERR 1500-100 instance -->
         <enr:ElectionReport>
             <enr:Election>
@@ -57,12 +64,17 @@
         </enr:ElectionReport>
     </xsl:template>
     <xsl:template match="cdf:Election" mode="report">
-        <xsl:apply-templates select="cdf:Candidate | cdf:Contest" mode="report"/>
-        <enr:ElectionScopeId>gpu-precinct</enr:ElectionScopeId>
+        <xsl:apply-templates select="cdf:Candidate | cdf:Contest" mode="#current"/>
+        <enr:ElectionScopeId>{cdf:ElectionScopeId}</enr:ElectionScopeId>
         <enr:Name>
-            <enr:Text Language="en-us">Precinct</enr:Text>
+            <enr:Text Language="en-us">
+                <xsl:choose>
+                    <xsl:when test="cdf:Name">{cdf:Name}</xsl:when>
+                    <xsl:otherwise>Unnamed Election</xsl:otherwise>
+                </xsl:choose>
+            </enr:Text>
         </enr:Name>
-        <!-- TODO, pull if availible -->
+        <!-- Not in CVR, so can't put good value here -->
         <enr:StartDate>2020-09-04</enr:StartDate>
         <enr:EndDate>2020-09-04</enr:EndDate>
         <enr:Type>general</enr:Type>
@@ -85,9 +97,9 @@
         </enr:Party>
     </xsl:template>
     <xsl:template match="cdf:Contest" mode="report">
-        <!-- not in CVR! -->
         <enr:Contest ObjectId="{@ObjectId}" xsi:type="{replace(@xsi:type,'cdf','enr')}">
-            <xsl:apply-templates select="cdf:ContestSelection" mode="report"/>
+            <xsl:apply-templates select="cdf:ContestSelection" mode="#current"/>
+            <!-- not in CVR, so can't put good value here -->
             <enr:ElectionDistrictId>gpu-precinct</enr:ElectionDistrictId>
             <enr:Name>{cdf:Name}</enr:Name>
             <xsl:where-populated>
@@ -111,9 +123,9 @@
             </xsl:if>
         </enr:ContestSelection>
     </xsl:template>
-    <xsl:template match="cdf:CVR" mode="nostream"> </xsl:template>
+    <!-- suppresses emit of Code -->
     <xsl:template match="cdf:Code" mode="report"/>
-    <!-- utility template that converts cvr namespace to enr namespace -->
+    <!-- utility template that converts cdf namespace to enr namespace -->
     <xsl:template match="cdf:*" mode="change-ns">
         <xsl:element name="enr:{local-name()}">
             <xsl:apply-templates select="@* | node()" mode="change-ns"/>
