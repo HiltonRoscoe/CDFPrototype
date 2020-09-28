@@ -4,7 +4,7 @@
     xmlns:cdf="http://itl.nist.gov/ns/voting/1500-103/v1"
     xmlns:enr="http://itl.nist.gov/ns/voting/1500-100/v2" xmlns:saxon="http://saxon.sf.net/"
     xmlns:map="http://www.w3.org/2005/xpath-functions/map"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.0" exclude-result-prefixes="xs"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.0" exclude-result-prefixes="cdf map saxon xs"
     expand-text="yes">
     <xsl:output media-type="xml" indent="yes"/>
     <xsl:mode streamable="yes" use-accumulators="#all"/>
@@ -23,11 +23,13 @@
         />
     </xsl:accumulator>
     <!-- holds votes, one for each ContestSelection in election -->
+    <!-- not sure why, but specifying more specific types results in errors -->
     <xsl:accumulator name="votes" streamable="yes" initial-value="map {}"
         as="map(xs:untypedAtomic, xs:anyAtomicType?)">
         <!-- sets initial value, + operator on null doesn't work! -->
         <xsl:accumulator-rule match="cdf:ContestSelection" select="map:put($value, @ObjectId, 0)"/>
-        <!-- assumes there is only one SelectionPosition, which should be true for n-of-m contests -->
+        <!-- assumes there is only one SelectionPosition, which should be true for n-of-m contests
+             this builds a map indexed by ContestSelectionId and whose value is the running number of votes -->
         <xsl:accumulator-rule match="cdf:CVRContestSelection" saxon:capture="yes" phase="end"
             select="
                 if (cdf:SelectionPosition/cdf:IsAllocable = 'yes') then
@@ -36,8 +38,7 @@
                     $value"
         />  
     </xsl:accumulator>
-    <xsl:template match="/">
-        <!-- cannot access accumulator from non streamable context?? -->
+    <xsl:template match="/">        
         <xsl:variable name="votes" select="accumulator-after('votes')"/>
         <!-- check for non N-of-M contests, we can't tabulate them -->
         <xsl:if
@@ -52,7 +53,7 @@
                 </xsl:apply-templates>
             </enr:Election>
             <enr:Format>precinct-level</enr:Format>
-            <enr:GeneratedDate>2020-09-04T00:00:00Z</enr:GeneratedDate>
+            <enr:GeneratedDate>{current-dateTime()}</enr:GeneratedDate>
             <xsl:apply-templates select="accumulator-after('GpUnit')"/>
             <enr:Issuer>Hilton Roscoe LLC</enr:Issuer>
             <enr:IssuerAbbreviation>HR LLC</enr:IssuerAbbreviation>
@@ -60,7 +61,7 @@
             <enr:SequenceStart>1</enr:SequenceStart>
             <enr:SequenceEnd>1</enr:SequenceEnd>
             <enr:Status>unofficial-partial</enr:Status>
-            <enr:VendorApplicationId>XSLT N-of-M Tabulator</enr:VendorApplicationId>
+            <enr:VendorApplicationId>XSLT N-of-M Tabulator Prototype 1.0</enr:VendorApplicationId>
         </enr:ElectionReport>
     </xsl:template>
     <xsl:template match="cdf:Election" mode="report">
@@ -102,9 +103,7 @@
             <!-- not in CVR, so can't put good value here -->
             <enr:ElectionDistrictId>gpu-precinct</enr:ElectionDistrictId>
             <enr:Name>{cdf:Name}</enr:Name>
-            <xsl:where-populated>
-                <enr:VotesAllowed>{cdf:VotesAllowed}</enr:VotesAllowed>
-            </xsl:where-populated>
+            <xsl:apply-templates select="cdf:VotesAllowed" mode="change-ns" />
         </enr:Contest>
     </xsl:template>
     <xsl:template match="cdf:ContestSelection" mode="report">
