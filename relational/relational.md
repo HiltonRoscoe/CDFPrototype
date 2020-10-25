@@ -11,13 +11,17 @@
         - [Additional Tasks](#additional-tasks)
             - [Data Type Length](#data-type-length)
             - [Subtype Engineering](#subtype-engineering)
+    - [Repeating attributes of enumeration types](#repeating-attributes-of-enumeration-types)
     - [Technical Approach](#technical-approach)
     - [Mappings](#mappings)
         - [Multiplicities](#multiplicities)
         - [Directed associations](#directed-associations)
+            - [Example directed association](#example-directed-association)
         - [Directed compositions](#directed-compositions)
+            - [Example directed composition](#example-directed-composition)
         - [Attributes](#attributes)
             - [Primitives and Enumerations](#primitives-and-enumerations)
+                - [Repeating primitive/enumeration example](#repeating-primitiveenumeration-example)
             - [Classes](#classes)
         - [Role Mapping](#role-mapping)
     - [Data Types](#data-types)
@@ -68,6 +72,13 @@ The relational model has no concept of hierarchies (i.e. parent/child relationsh
 
 The DDL provided as part of this repository uses the *table per entity* approach. However, if the ER model is adjusted to use a different method, and forward engineered to the relational model, the DDL can be regenerated.
 
+## Repeating attributes of enumeration types
+
+Repeating primitives can be mapped one of two ways:
+
+- Each enumeration is given its own entity, with mapping tables to resolve many-to-many
+- Each enumeration/attribute combination is given its own entity, with a many to one relationship.
+
 ## Technical Approach
 
 The relational model was mechanically derived from the UML class diagram, using previously developed MDA tools. A script was constructed to translate the representations in UML to equivalent structures in Oracle's Entity-Relational model. The ER model was forward-engineered to the relational model, and finally DDL generated for each target database.
@@ -75,6 +86,8 @@ The relational model was mechanically derived from the UML class diagram, using 
 ## Mappings
 
 > Warning: This section assumes a fundamental knowledge of The Entity-Relational and UML Class Models.
+
+> This section uses [Barker ER notation](https://www.essentialstrategies.com/publications/modeling/barker.htm).
 
 The Unified Modeling Language (UML) and the Entity-Relational (ER) model are quite different. The following sections describe how the UML Classes and associations were mapped to equivalent structures in the ER model.
 
@@ -84,21 +97,37 @@ UML and ER uses language somewhat differently. Multiplicity in UML refers to how
 
 ### Directed associations
 
-Directed associations are mapped to relations. The source end (e.g. the end without an arrow) plays no part in the mapping. The target end is mapped to `1` if its multiplicity is `0..1` or `1`, otherwise it is mapped to `*`. The optionality for the source end is always optional, as the entity may be instantiated without the relationship (unlike directed compositions). The mandatory for the target is based on the lower cardinality being greater than zero.
+Directed associations are mapped to relations. The source end (e.g. the end without an arrow) plays no part in the mapping. The target end is mapped to `1` if its multiplicity is `0..1` or `1`, otherwise it is mapped to `*`. The optionality for the source end is always `optional`, as the entity may be instantiated without the relationship (unlike directed compositions). The mandatory for the target is based on the lower cardinality being greater than zero.
 
 |End      |Cardinality|Optional  |
 |---------|---------  |----------|
 |Source   |*          |Yes       |
-|Target   |`*` if upper multiplicity > 0 else `1` | Yes if lower multiplicity = 0 else No         |
+|Target   |`*` if upper multiplicity > 0 else `1` | `Yes` if lower multiplicity = 0 else `No`         |
+
+#### Example directed association
+
+![Directed composition in UML](./images/UML_directed_association.svg)
+![Directed composition in ER](./images/ER_directed_association.svg)
+
+In this example, the `Election` class has a directed association with `ReportingUnit`. Additionally, a RoleName is set on the target end. In the translated ER model, `ElectionScope` becomes a role on election (which will influence the generated foreign key name in the relational model). Note also that each `ReportingUnit` may be scoping one or more `Election` (the crow's foot).
 
 ### Directed compositions
 
 Directed compositions behave like directed associations, except that their source end is never optional. This is because the composition is stating a part/whole relationship.
 
+
 |End      |Cardinality|Optional  |
 |---------|---------  |----------|
 |Source   |1          |No        |
-|Target   |`*` if upper multiplicity > 0 else `1` | Yes if lower multiplicity = 0 else No         |
+|Target   |`*` if upper multiplicity > 1 else `1` | Yes if lower multiplicity = 0 else No         |
+
+#### Example directed composition
+
+
+![Directed composition in UML](./images/UML_directed_composition.svg)
+![Directed composition in ER](./images/ER_directed_composition.svg)
+
+In this example, `Election` composes zero or more `Contest`. In the translated ER model, the relationship is required on both ends, and the cardinality is indicated with the crow's foot.
 
 ### Attributes
 
@@ -113,7 +142,14 @@ UML primitives and enumerations are mapped to relational attributes, except when
 |End      |Cardinality|Optional  |
 |---------|---------  |----------|
 |Source   |1          |No        |
-|Target   |`*` if upper multiplicity > 0 else `1` | Yes if lower multiplicity = 0 else No         |
+|Target   |`*` if upper multiplicity > 1 else `1` | Yes if lower multiplicity = 0 else No         |
+
+##### Repeating primitive/enumeration example
+
+![Repeating attributes in ER](./images/UML_repeating_primitive.svg)
+![Repeating attributes in ER](./images/ER_repeating_primitive.svg)
+
+The `AddressLine` has a multiplicity of `0..*`. In the translated ER model, a new entity is created with the name in the form of `{ClassName}{AttributeName}`.
 
 #### Classes
 
