@@ -83,6 +83,8 @@ Repeating primitives can be mapped one of two ways:
 
 The relational model was mechanically derived from the UML class diagram, using previously developed MDA tools. A script was constructed to translate the representations in UML to equivalent structures in Oracle's Entity-Relational model. The ER model was forward-engineered to the relational model, and finally DDL generated for each target database.
 
+![Simplified Data Flow](./images/process.svg)
+
 ## Mappings
 
 > Warning: This section assumes a fundamental knowledge of The Entity-Relational and UML Class Models.
@@ -115,14 +117,12 @@ In this example, the `Election` class has a directed association with `Reporting
 
 Directed compositions behave like directed associations, except that their source end is never optional. This is because the composition is stating a part/whole relationship.
 
-
 |End      |Cardinality|Optional  |
 |---------|---------  |----------|
 |Source   |1          |No        |
 |Target   |`*` if upper multiplicity > 1 else `1` | Yes if lower multiplicity = 0 else No         |
 
 #### Example directed composition
-
 
 ![Directed composition in UML](./images/UML_directed_composition.svg)
 ![Directed composition in ER](./images/ER_directed_composition.svg)
@@ -174,17 +174,16 @@ Must add handling for many to many manually
 
 ## Data Types
 
-Data types in the UML model are mapped to equivalent types in the ER model. ER data types can be either `Logical` data types or `Domain` data types. Logical data types map directly to the physical type used by the database. Domain data types can be seen a subtypes of logical types, allowing them to be further constrained. For example, enumerations in the UML model are represented as domain types of the same name.
+Data types in the UML model are mapped to equivalent types in the ER model. ER data types can be either [`Logical` data types](https://docs.oracle.com/en/database/oracle/sql-developer-data-modeler/20.2/dmdug/data-modeler-concepts-usage.html#GUID-D020296C-BFCE-4520-88FB-1A62B7138212) or [`Domain` data types](https://en.wikipedia.org/wiki/Attribute_domain). Logical data types map directly to the physical type used by the database. Domain data types can be seen a subtypes of logical types, allowing them to be further constrained. For example, enumerations in the UML model are represented as domain types of the same name.
 
-
-|UML Type  |Relational Type  | Oracle Type | SQL Server Type
-|--------|----------|----------|--------|
-|Integer |Integer   | INTEGER  | INTEGER
-|Float   |Numeric   | NUMBER   | NUMERIC
-|Double  |Numeric   | NUMBER   | NUMERIC
-|Boolean |Boolean   | NUMBER   | BIT
-|String  |String    | VARCHAR2 | VARCHAR
-|DateTime|Timestamp | TIMESTAMP| DATETIME
-|Byte    |BLOB      | BLOB     | IMAGE
+|UML Type|Relational Type  | Oracle Type | SQL Server Type
+|--------|----------       |-------------|---------------|
+|Integer |Integer          | INTEGER     | INTEGER
+|Float   |Numeric          | NUMBER      | NUMERIC
+|Double  |Numeric          | NUMBER      | NUMERIC
+|Boolean |Boolean          | NUMBER      | BIT
+|String  |String           | VARCHAR2    | VARCHAR
+|DateTime|Timestamp        | TIMESTAMP   | DATETIME
+|Byte    |BLOB             | BLOB        | IMAGE
 
 Enumerations become identically named domains types of logical type `String`. The enumeration values form the *value list*, which will become a `CHECK` constraint in the generated `DDL`.
