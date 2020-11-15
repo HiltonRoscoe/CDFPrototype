@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="205C6208-30EF-BE89-32C6-61926C8B4D7C" name="Image">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>445ACE93-2154-B8FA-BA3B-A2F3BD20DF6C</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="FileId" id="36859621-0271-D9CF-606F-7D7F6868CD93">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Image_ImageId</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="F63D44F6-8FE0-2A80-D8FA-CFC2E4B68B9C" referredColumn="A53A1096-3DEB-300C-853D-862B984D847A"/>
+</associations>
+</Column>
+<Column name="ImageDataId" id="F6D41D34-F360-505C-AEAE-81EECD72583E">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Image_ImageDataId</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="9ADE32A4-F147-76E3-531E-AD77D1DFE312" referredColumn="9A533859-D0E1-D6A1-C4C6-EE38049A38FB"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0AACC131-D8E1-9F1B-8C83-95EEBC92C585" name="Image_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="36859621-0271-D9CF-606F-7D7F6868CD93"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EB5684AB-E4CB-137A-E8C6-2D4531EBC6C7" name="Image_ImageDataId_IDX">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>4335D0F9-C1AB-FAE3-1361-DB5D410AB582</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="F6D41D34-F360-505C-AEAE-81EECD72583E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E1FFDB44-F46F-281B-6769-39AE78D6868F" name="Image_File_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>62EA7F1C-4530-F092-D438-245A246993D5</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="36859621-0271-D9CF-606F-7D7F6868CD93"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C7DE7277-851F-FA20-6E28-9D70F77F57CE" name="Image_ImageData_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>4335D0F9-C1AB-FAE3-1361-DB5D410AB582</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F6D41D34-F360-505C-AEAE-81EECD72583E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

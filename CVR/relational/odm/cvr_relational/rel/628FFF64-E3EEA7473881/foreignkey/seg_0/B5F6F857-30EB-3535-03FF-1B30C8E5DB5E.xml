@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="B5F6F857-30EB-3535-03FF-1B30C8E5DB5E" containerWithKeyObject="57159143-DF63-AE8C-E213-05B9ECAB87B8" localFKIndex="CA3501C5-E488-916B-8970-A4C3F616D9AB" name="par_Code_par_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>66A52CCD-D153-E12B-5633-748C366F8EE1</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<referredTableLongName>Party</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>0577EAFF-95F9-FF86-55F0-28F725AA3A5C</referredTableID>
+<keyObject>3D4DB350-3AF6-FBDF-16E5-B1732AF521DF</keyObject>
+<referredKeyID>3D4DB350-3AF6-FBDF-16E5-B1732AF521DF</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>par_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+<propertyMap>
+<property name="fkRole" value="Party"/>
+</propertyMap>
+</FKIndexAssociation>

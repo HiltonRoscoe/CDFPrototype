@@ -1,0 +1,64 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="15A83FE4-0B12-9DFD-336A-289F264BFD4D" name="CandidateSelection">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>DB624261-918E-C62F-31D4-7DE8ADC0D3FE</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<abbreviation>cas</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ContestSelectionId" id="B5254E0E-6E55-8FC0-0E5D-DD53A19EE2FD">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<abbreviation>cons_cons_ID</abbreviation>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_cas_cons_cons_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="65FA141D-D7B5-403F-CBEB-092FB7E89D65" referredColumn="5CB2CC5A-8E09-D2FF-EE9A-124CBF644588"/>
+</associations>
+</Column>
+<Column name="IsWriteIn" id="A0C37AFB-7EFD-4237-6C63-15C8B545DEC4">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>F6722293-855C-E388-AF55-42F5A9D9C844</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C80BD945-A995-59B4-C564-AF31AE01445B" name="CandidateSelection_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="B5254E0E-6E55-8FC0-0E5D-DD53A19EE2FD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E1616262-54BA-AEA5-73D9-89230F684D78" name="cas_cons_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>39182CCD-C739-99A8-65C2-F374682A59CD</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B5254E0E-6E55-8FC0-0E5D-DD53A19EE2FD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

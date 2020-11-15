@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C899526C-0389-E831-B54C-09B0ABCBCEE0" containerWithKeyObject="C84AC3FE-AC90-634E-9666-F25BBF8B9045" localFKIndex="4B066B1F-1302-0580-3487-D10CAA0E6A04" name="ccss_ccs_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>D1606B29-D56A-41D1-DA4F-5D76FCB1B622</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<referredTableLongName>CVRContestSelection</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>DFE3F269-C521-01B6-57A2-37B55946E93C</referredTableID>
+<keyObject>27EAFB8A-AD6B-62E3-EB3F-77BEE0FF2D2B</keyObject>
+<referredKeyID>27EAFB8A-AD6B-62E3-EB3F-77BEE0FF2D2B</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ccs_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+<propertyMap>
+<property name="fkRole" value="CVRContestSelection"/>
+</propertyMap>
+</FKIndexAssociation>

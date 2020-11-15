@@ -1,0 +1,54 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="37CF4801-DB7D-4D75-70CA-A9232B2823B8" name="AnnotationMessage">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>DDAAE4D8-960E-FFDC-6F4E-32DD8E97A428</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<abbreviation>am</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Message" id="60031ED0-FAF2-34B7-D90C-0A5E2D56BCD9">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>31EFBFD7-E53F-1179-9A78-536043CECA99</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="AnnotationId" id="2BBB3CE3-9A5D-0B84-B489-2A11AAFAD28E">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<abbreviation>ann_ann_ID</abbreviation>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_am_ann_ann_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="3BE2E558-C790-C533-2C28-A83BD71297A6" referredColumn="4A0F80AF-E5D7-221B-E8BC-718DBB2F7A85"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1E6D3D21-9E38-C943-A5E2-F71C4910BE4C" name="am_ann_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>43CF82FF-0BA2-F8F2-9994-ACF18A73B3C2</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2BBB3CE3-9A5D-0B84-B489-2A11AAFAD28E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

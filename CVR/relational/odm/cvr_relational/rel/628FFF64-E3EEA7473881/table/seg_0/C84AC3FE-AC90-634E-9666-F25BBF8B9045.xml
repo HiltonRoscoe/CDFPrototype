@@ -1,0 +1,55 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C84AC3FE-AC90-634E-9666-F25BBF8B9045" name="CVRContestSelectionStatus">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>B6DE9FA8-D22C-1252-E8C8-F4B36AA2B75D</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<abbreviation>ccss</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Status" id="51928149-A1B7-69A2-A3AA-1386D685DA63">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>A46581B8-996A-8C04-315F-03F112436816</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<constraintName>CK_ccss_Status</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<domain>F52524F9-9EB3-EB0D-F398-4907B388AA9A</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CVRContestSelectionId" id="FF54E70C-B13A-A9F3-4422-C4EC8701D846">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<abbreviation>ccs_ccs_ID</abbreviation>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_ccss_ccs_ccs_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="C899526C-0389-E831-B54C-09B0ABCBCEE0" referredColumn="40741BC9-EC4C-606C-3909-4BF82AEA3C3D"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4B066B1F-1302-0580-3487-D10CAA0E6A04" name="ccss_ccs_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>D1606B29-D56A-41D1-DA4F-5D76FCB1B622</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FF54E70C-B13A-A9F3-4422-C4EC8701D846"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DA346243-A252-51E5-C410-154C38DB6B12" name="Hash">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>C00CEA0B-1E80-9C71-43D8-3E044916271F</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="OtherType" id="FDBE0801-9223-C637-B92B-31D23882B6FF">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>1FDBD55C-68BE-A8B6-B9F9-AB531B7C1B2D</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Type" id="54D73FF1-75C4-1E04-049C-B1614F630267">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>E0F94096-5C55-B72C-1D90-4EE7FB604254</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<constraintName>CK_Hash_Type</constraintName>
+<use>0</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<domain>45821FAF-D0CB-CDCB-1BF4-3672956C7A23</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Hash_Type</notNullConstraintName>
+</Column>
+<Column name="Value" id="3DAB5352-55D6-0FC2-794C-8FB644698989">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>C0C3C594-40D0-4CC6-9257-4AF4811CD603</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Hash_Value</notNullConstraintName>
+</Column>
+<Column name="ImageDataId" id="C8FA4C81-4037-CD04-592E-16C1E1118BE2">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Hash_ImageDataId</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="75172029-1D9B-9EE0-1EE5-56663AE8D28C" referredColumn="9A533859-D0E1-D6A1-C4C6-EE38049A38FB"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D685B065-4400-F5B0-0C6A-43C6B674DF72" name="Hash_ImageDataId_IDX">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>AF29A947-71C0-5D5B-63A3-E1BB9377B027</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="C8FA4C81-4037-CD04-592E-16C1E1118BE2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3D6966D2-A3E0-6905-7E9B-35C741F25EFC" name="Hash_ImageData_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>AF29A947-71C0-5D5B-63A3-E1BB9377B027</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C8FA4C81-4037-CD04-592E-16C1E1118BE2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

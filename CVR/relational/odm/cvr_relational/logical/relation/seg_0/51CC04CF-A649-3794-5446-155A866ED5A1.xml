@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="CVRContestSelection_SelectionPosition" directorySegmentName="seg_0" id="51CC04CF-A649-3794-5446-155A866ED5A1">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 14:54:34 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<engineerTo>
+<item key="C5FBBCAB-2FAC-CC83-2087-5CF15DD49AD5" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>4C269FB8-AF0D-67DB-909A-AE8D1C19281E</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>9D9DC32D-377F-0A87-259E-A2F7FDE963D0</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="CVRContestSelection"/>
+</propertyMap>
+</Relation>

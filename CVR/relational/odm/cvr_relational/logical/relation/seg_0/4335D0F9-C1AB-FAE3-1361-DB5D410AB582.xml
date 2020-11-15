@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ImageData_Image" directorySegmentName="seg_0" id="4335D0F9-C1AB-FAE3-1361-DB5D410AB582">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 14:54:34 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<engineerTo>
+<item key="C5FBBCAB-2FAC-CC83-2087-5CF15DD49AD5" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>445ACE93-2154-B8FA-BA3B-A2F3BD20DF6C</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>8AF72F26-96DC-1899-62CF-5F29CF4FE474</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="Image"/>
+</propertyMap>
+</Relation>

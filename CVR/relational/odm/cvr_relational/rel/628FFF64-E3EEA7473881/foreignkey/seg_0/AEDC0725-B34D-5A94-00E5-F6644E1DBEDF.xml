@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="AEDC0725-B34D-5A94-00E5-F6644E1DBEDF" containerWithKeyObject="AC592D35-05CC-2E7F-6933-21F69E57EEC9" localFKIndex="49767B9C-D282-FA78-9CFA-8380121C4316" name="CVR_ImageData_ImageData_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>C0096BF9-C749-FC48-DE29-83B2E86F3897</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<referredTableLongName>ImageData</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>940A816E-30E4-0920-C1A1-F0DDFB6BE82B</referredTableID>
+<keyObject>8A887358-3ED1-F662-FB70-3964C3137502</keyObject>
+<referredKeyID>8A887358-3ED1-F662-FB70-3964C3137502</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ImageData_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+<propertyMap>
+<property name="fkRole" value="ImageData"/>
+</propertyMap>
+</FKIndexAssociation>

@@ -1,0 +1,54 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C3BA12AB-FA34-A1A8-8A92-2EB8BA0C3F55" name="ReportingDeviceNotes">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>00E6D1B8-591A-26F4-7CC6-84C4A2B8117E</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<abbreviation>rdi</abbreviation>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Notes" id="892311D6-A43C-F070-A042-55E9A852FF86">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>B54A9B85-F55C-37EF-1483-B21D59C72C2F</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ReportingDeviceId" id="39CB81EB-1FA8-EFE0-2D8B-A48A7E034A79">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<abbreviation>rd_rd_ID</abbreviation>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_rdi_rd_rd_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="5E5DBE6E-CF65-B654-16E8-1B082FA668E5" referredColumn="B543B274-8555-FB24-55C0-0187500BAE85"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3284FCB4-4C52-F08E-394D-84FEECF9CA55" name="rdi_rd_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 19:46:12 UTC</createdTime>
+<generatorID>C0D5346A-9292-E3C3-0C5D-055177275502</generatorID>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="39CB81EB-1FA8-EFE0-2D8B-A48A7E034A79"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

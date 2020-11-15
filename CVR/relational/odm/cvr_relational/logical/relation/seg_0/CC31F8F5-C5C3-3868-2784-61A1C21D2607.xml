@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="CastVoteRecordReport_ReportType" directorySegmentName="seg_0" id="CC31F8F5-C5C3-3868-2784-61A1C21D2607">
+<createdBy>john</createdBy>
+<createdTime>2020-05-23 14:54:34 UTC</createdTime>
+<ownerDesignName>cvr_relational</ownerDesignName>
+<engineerTo>
+<item key="C5FBBCAB-2FAC-CC83-2087-5CF15DD49AD5" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>9CC6576D-5539-BA49-5BAA-4E2162910F3A</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>A2F99A5A-D180-DCE6-2022-2C6015887D08</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="CastVoteRecordReport"/>
+</propertyMap>
+</Relation>
