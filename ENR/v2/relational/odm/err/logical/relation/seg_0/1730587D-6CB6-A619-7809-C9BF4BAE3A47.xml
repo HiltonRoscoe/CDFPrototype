@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Header_ExternalIdentifier" directorySegmentName="seg_0" id="1730587D-6CB6-A619-7809-C9BF4BAE3A47">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:57 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>3D8DA7F3-411A-3875-365F-86C54339F73D</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>B843ED37-31F2-D5B7-AD76-841D2A2B1169</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="Header"/>
+</propertyMap>
+</Relation>

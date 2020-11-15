@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Candidate_InternationalizedText" directorySegmentName="seg_0" id="D5F809E4-9D91-FE51-8337-F3DCA43D8BE2">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:57 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<nameOnTarget>BallotName</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>8D23A49F-133F-6BB6-731C-B5D3196AF4E0</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>B7CC1D90-0AD4-EA75-1583-40379C0666C8</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="BallotName"/>
+</propertyMap>
+</Relation>

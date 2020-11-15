@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ContactInformation_InternationalizedText" directorySegmentName="seg_0" id="D664E6D7-D439-FFCC-F92E-AF6F2B8C4D1C">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:57 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<nameOnTarget>Directions</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>8D23A49F-133F-6BB6-731C-B5D3196AF4E0</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>843518BC-117C-1117-852F-08B843F26930</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="Directions"/>
+</propertyMap>
+</Relation>

@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4897AA61-2A26-5D25-D05A-7B50BD110EC4" name="CandidateContest">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>6EF73C62-0640-E463-3EB4-BBCFE2178EE0</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Contest_ID" id="7150F095-43A2-4956-5718-CB9F10576871">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_CandidateContest_CandidateContest_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="5E208798-C091-0C3A-F1C0-470409D74073" referredColumn="44638EC3-3592-2CFE-0D81-E1FBE7EF8F8E"/>
+</associations>
+</Column>
+<Column name="NumberElected" id="E0139624-D7F7-4072-CAFE-F961420AD13B">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>D04D0688-7A86-5025-C1F3-FB2CBD5517F5</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NumberRunoff" id="7020F19E-DF9A-7E20-EB1A-D1B8E8626B16">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>60DECE6E-C8D3-F2C7-B1A9-01905AF1A66E</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VotesAllowed" id="8DC7B25D-3797-7B4C-600D-EAF57710872B">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>CCBADB01-E85A-B634-447C-19D1C566D4A9</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_CandidateContest_VotesAllowed</notNullConstraintName>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2436615A-EE5D-F03E-30A8-BA60F052465C" name="CandidateContest_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="7150F095-43A2-4956-5718-CB9F10576871"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7DF529E5-7F5B-1471-898E-B15A2A50BAEC" name="CandidateContest_Contest_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>500B852B-EEFA-999E-B3FD-B33535403B6C</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7150F095-43A2-4956-5718-CB9F10576871"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="BallotMeasureContest_InternationalizedTextv4" directorySegmentName="seg_0" id="A9DCD9C8-F3B9-DBFA-5E21-EC7E40270389">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:57 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<nameOnTarget>ProStatement</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>8D23A49F-133F-6BB6-731C-B5D3196AF4E0</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>113DF4B6-A4DB-3AF2-05E2-C922CD0CABF1</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="ProStatement"/>
+</propertyMap>
+</Relation>

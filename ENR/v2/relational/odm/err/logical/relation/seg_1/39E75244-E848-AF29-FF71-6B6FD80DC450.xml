@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="OrderedContest_ContestSelection" directorySegmentName="seg_1" id="39E75244-E848-AF29-FF71-6B6FD80DC450">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:58 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<nameOnTarget>OrderedContestSelection</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>8C7F4CB6-1323-AF1D-C8C1-0C5972E827D0</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>E9AC0B4E-B6BD-C781-28B6-E7E1C4C944D8</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="OrderedContest"/>
+</propertyMap>
+</Relation>

@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Counts_GpUnit" directorySegmentName="seg_0" id="AD168A3A-2CC4-D0E1-A9A8-F70DF2EDF511">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:57 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>FB473BAA-1E0B-327E-BC1F-8C70BD1717D0</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>C99C8897-391D-EEC9-BD68-7AF0F07C51C8</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="GpUnit"/>
+</propertyMap>
+</Relation>

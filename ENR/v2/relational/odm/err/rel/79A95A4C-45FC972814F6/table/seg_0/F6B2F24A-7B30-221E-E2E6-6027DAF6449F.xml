@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F6B2F24A-7B30-221E-E2E6-6027DAF6449F" name="OfficeGroup_Office">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Office_ID" id="4A6C2195-7605-7AD0-08E2-3C9C19EA0CA6">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_OfficeGroup_Office_Office_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="28BA94F9-E59F-F678-9E43-F82EE6E2F42F" referredColumn="FCDD1C19-2FDE-4DB2-3024-1BD09A4FEA48"/>
+</associations>
+</Column>
+<Column name="OfficeGroup_ID" id="04597AFA-43B8-B74E-0298-5A3CF39A5BE9">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_OfficeGroup_Office_OfficeGroup_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="B6B32DA0-53BF-7296-6C29-3D2F0AAA1F45" referredColumn="CFBDE2C5-710E-1C05-AF0A-1600C28BB1F8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F915C899-70A7-F2C6-8FC8-2AE53B73F550" name="OfficeGroup_Office_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4A6C2195-7605-7AD0-08E2-3C9C19EA0CA6"/>
+<colUsage columnID="04597AFA-43B8-B74E-0298-5A3CF39A5BE9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AAE9F189-62D7-5BA2-D1FC-63E02867EAA7" name="OfficeGroup_Office_Office_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>56C02ACB-D8B4-BB20-35C1-832F525E09C4</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4A6C2195-7605-7AD0-08E2-3C9C19EA0CA6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8F4567CD-DDC0-DB88-C37F-60DD627864F5" name="OfficeGroup_Office_OfficeGroup_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>56C02ACB-D8B4-BB20-35C1-832F525E09C4</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="04597AFA-43B8-B74E-0298-5A3CF39A5BE9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

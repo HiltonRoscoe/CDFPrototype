@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="GpUnit_GpUnit" directorySegmentName="seg_0" id="4B1CF48F-9308-29E6-3381-FC45FB89883F">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:57 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<nameOnTarget>ComposingGpUnit</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>FB473BAA-1E0B-327E-BC1F-8C70BD1717D0</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>FB473BAA-1E0B-327E-BC1F-8C70BD1717D0</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="GpUnit"/>
+</propertyMap>
+</Relation>

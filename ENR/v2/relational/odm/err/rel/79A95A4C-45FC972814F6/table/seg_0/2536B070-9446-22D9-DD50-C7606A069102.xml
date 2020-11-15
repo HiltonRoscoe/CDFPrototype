@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2536B070-9446-22D9-DD50-C7606A069102" name="SpatialExtent">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>9FBF5A6A-970C-D203-120A-DED8E094F34F</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Coordinates" id="B796388B-6CBE-DC88-B999-9CFF8DCAD142">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>D16DAE77-71B4-E2EF-1290-E4DCFB2381CA</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_SpatialExtent_Coordinates</notNullConstraintName>
+</Column>
+<Column name="Format" id="D3792DAA-50F0-0849-3A9A-4E4C9E0D7F22">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>CB5AC58A-71DA-A7E3-E9F1-BE2D976BA081</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_SpatialExtent_Format</notNullConstraintName>
+</Column>
+<Column name="SpatialExtent_ID" id="A3621DD4-C204-1774-5D1D-13A0306368DD">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_SpatialExtent_SpatialExtent_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="5F1FE38F-A3A7-D51D-A23D-2DCE33CA2DB9" referredColumn="39C14779-B7DA-E8CC-C0CA-2DB1FD5CCBBB"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FB6BA764-15A6-866B-BC46-F9E1EF8D8030" name="SpatialExtent_SpatialExtent_ID_IDX">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>4434C535-2666-B4E3-CE87-2F3547026D4E</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="A3621DD4-C204-1774-5D1D-13A0306368DD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2CD64EB2-8304-C821-8386-851E8F580761" name="SpatialExtent_SpatialDimension_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>4434C535-2666-B4E3-CE87-2F3547026D4E</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A3621DD4-C204-1774-5D1D-13A0306368DD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

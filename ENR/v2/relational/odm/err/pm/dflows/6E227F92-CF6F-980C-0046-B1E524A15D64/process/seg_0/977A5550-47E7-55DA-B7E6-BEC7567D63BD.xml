@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Process class="oracle.dbtools.crest.model.design.process.Process" name="Forward Engineer" directorySegmentName="seg_0" id="977A5550-47E7-55DA-B7E6-BEC7567D63BD">
+<createdBy>john</createdBy>
+<createdTime>2020-10-25 18:43:15 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<primary>false</primary>
+<batchMinimumTransactions>1000</batchMinimumTransactions>
+<batchTimeUnit>Second</batchTimeUnit>
+<footNote>Forward engineer logical to relational model</footNote>
+<frequencyTimeUnit>Day</frequencyTimeUnit>
+<frequencyTimes>0</frequencyTimes>
+<interactiveLongestResponseTime>5</interactiveLongestResponseTime>
+<interactiveResponseTimeUnit>Second</interactiveResponseTimeUnit>
+<mode>Unknown</mode>
+<priority>Low</priority>
+<peakPeriodsString>000000000000000000000000</peakPeriodsString>
+</Process>

@@ -1,0 +1,64 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1992E6C4-6732-2F02-D7A0-CB4C4625A74D" name="GpUnit">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>FB473BAA-1E0B-327E-BC1F-8C70BD1717D0</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="GpUnit_ID" id="9D541DFC-FD76-AE6A-F56F-2EC5A39EE2E8">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_GpUnit_GpUnit_ID</notNullConstraintName>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+<Column name="ElectionReport_ID" id="8B2D16A1-C99D-DAC4-44BB-F9A9B62412E5">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_GpUnit_ElectionReport_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="7AE8BD5D-8B1B-B42D-DB68-A63C79023FE4" referredColumn="6D0DEAF0-B546-B7F2-134B-DEA25F63A926"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1ECBC4C4-F2C2-805C-C181-0CEC7F7518A5" name="GpUnit_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="9D541DFC-FD76-AE6A-F56F-2EC5A39EE2E8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="303A0C4A-934E-F9A7-04DF-12B84A69AD8A" name="GpUnit_ElectionReport_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>B33DB973-64AF-D28E-5A06-4C85A73DE681</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8B2D16A1-C99D-DAC4-44BB-F9A9B62412E5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

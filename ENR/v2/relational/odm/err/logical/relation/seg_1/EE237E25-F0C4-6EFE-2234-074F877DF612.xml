@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ReportingDevice_DeviceClass" directorySegmentName="seg_1" id="EE237E25-F0C4-6EFE-2234-074F877DF612">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:58 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>7F518BAD-883E-3D8F-4B02-F7035713E5D9</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>45D11FCB-E648-BF24-5D72-5FF383B31D18</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="DeviceClass"/>
+</propertyMap>
+</Relation>

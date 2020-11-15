@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Coalition_Party" directorySegmentName="seg_0" id="FA59A9DF-3BDF-4C11-E41D-BDB3ACDDBC38">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:57 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>346411F1-2425-C8EB-5F5A-9C5C9CCFA5BE</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>C436C743-25A1-9981-BB92-9537D838FC62</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="Coalition"/>
+</propertyMap>
+</Relation>

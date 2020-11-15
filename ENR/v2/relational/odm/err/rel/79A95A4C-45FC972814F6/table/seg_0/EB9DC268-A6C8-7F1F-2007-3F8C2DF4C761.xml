@@ -1,0 +1,158 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EB9DC268-A6C8-7F1F-2007-3F8C2DF4C761" name="ReportingUnit">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>A64C7F4F-6041-03CB-B6B9-879E82BAAD47</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="GpUnit_ID" id="0867FB8A-BA79-A768-ABFF-79B418E56CC8">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_ReportingUnit_ReportingUnit_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="65169C0C-C5CE-E502-1681-B067622E5EB3" referredColumn="9D541DFC-FD76-AE6A-F56F-2EC5A39EE2E8"/>
+</associations>
+</Column>
+<Column name="IsDistricted" id="7CC6CC8E-02C8-F2E3-5D72-01E287ACAF5A">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>B09FBC30-54BD-09B9-A12A-3CBC26AAA62F</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IsMailOnly" id="39AF7EBD-3498-EBBF-5455-DB8D0152598C">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>B4ACCB12-199B-97DD-EA69-FCBE423ADDBD</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Number" id="95665E73-5F2A-A5CB-0E56-C4EA157E639D">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>ECC16EF2-04CB-02A3-F3BC-03FBD98D6E1C</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OtherType" id="C315CFAA-FA97-9E56-2F04-F8B966446318">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>26AC94EB-7FB9-8D8B-6BBB-5BC1B853049F</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SubUnitsReported" id="D098E36D-4B73-75D9-260E-367FB7191072">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>5FF53285-6787-CB3C-F2A2-2A2097A1CD5A</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TotalSubUnits" id="E0E0D257-CBAE-6253-48A9-D227512BA417">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>4DC947AD-E4D0-468D-C1F5-13F52F623359</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Type" id="3E529026-8928-19EC-B276-96B3F7679698">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>E81A101A-B439-51EB-6E10-23182179D238</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_ReportingUnit_Type</notNullConstraintName>
+</Column>
+<Column name="VotersParticipated" id="4DBFAA33-A718-B87C-BBD5-8BF785B2F16D">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>4E32996F-CE7D-5E2B-A348-F0E8A4D96871</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="VotersRegistered" id="B02F191D-7912-1715-FBA1-59C9C33A9621">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>DE14A97E-0A50-0DCA-CCA8-6689F03AAFB4</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="958D87B1-51D9-3F0F-B52D-0E320EBF021D" name="ReportingUnit_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="0867FB8A-BA79-A768-ABFF-79B418E56CC8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="10B543DE-5B23-3DD1-B667-9B19A468AC36" name="ReportingUnit_GpUnit_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>07EF8720-2DA6-68EB-0F9E-D2B18691000D</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0867FB8A-BA79-A768-ABFF-79B418E56CC8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Contest_ReportingUnit" directorySegmentName="seg_0" id="A0851DA8-242F-0390-7872-E91C1D140DA0">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:57 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<nameOnTarget>ElectionDistrict</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>A64C7F4F-6041-03CB-B6B9-879E82BAAD47</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>00031F57-723A-B054-B217-9F6D6BCC8565</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="ElectionDistrict"/>
+</propertyMap>
+</Relation>

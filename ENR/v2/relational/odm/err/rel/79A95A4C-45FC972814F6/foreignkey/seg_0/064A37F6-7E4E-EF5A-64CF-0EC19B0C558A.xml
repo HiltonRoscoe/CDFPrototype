@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="064A37F6-7E4E-EF5A-64CF-0EC19B0C558A" containerWithKeyObject="6BCA2F38-3C16-5E71-F61D-03CECC691560" localFKIndex="FDFC04AB-33EB-DE6F-7FE0-017578369025" name="OrderedContent_OrderedHeader_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>65B9CF39-C71E-D482-88D4-7B4AD19710F6</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<referredTableLongName>OrderedHeader</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>974C4DBF-0F9A-2B91-FA1E-ABBAC6C3F545</referredTableID>
+<keyObject>6194C538-FB02-A3A7-BCF9-D267FC023981</keyObject>
+<referredKeyID>6194C538-FB02-A3A7-BCF9-D267FC023981</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>OrderedContent_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+<propertyMap>
+<property name="fkRole" value="OrderedHeader"/>
+</propertyMap>
+</FKIndexAssociation>

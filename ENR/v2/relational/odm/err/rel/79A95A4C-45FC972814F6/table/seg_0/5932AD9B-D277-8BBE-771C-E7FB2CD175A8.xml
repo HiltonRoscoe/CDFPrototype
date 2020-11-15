@@ -1,0 +1,138 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5932AD9B-D277-8BBE-771C-E7FB2CD175A8" name="Election">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>7B3664F4-FF02-681E-6079-46185752D818</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="EndDate" id="9DD41652-9AA6-3B77-FE35-333BCEA8B4B6">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>A62D4F45-0D9F-9F04-4BD9-FD763EBE2274</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Election_EndDate</notNullConstraintName>
+</Column>
+<Column name="OtherType" id="B36EB217-DA10-B5A1-2DD1-A1029CED1538">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>7E5C04D9-48F1-41D3-CE83-B711A4A16E3D</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="StartDate" id="88042FE2-5208-FAE6-A8C9-706D98DD29B2">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>D775F6E5-7451-F978-41FD-09F874458DC1</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Election_StartDate</notNullConstraintName>
+</Column>
+<Column name="Type" id="0A611BAE-0895-1AB7-34FD-FAA69247DFDE">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>377271E8-884D-6555-81D8-FB34A932AF15</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Election_Type</notNullConstraintName>
+</Column>
+<Column name="Election_ID" id="AF0D4D2B-84FF-A879-55A3-5FE86296753B">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Election_Election_ID</notNullConstraintName>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+<Column name="ElectionScope_ID" id="5C2DC4BB-D2E6-F639-0BCE-062B8363F0D0">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Election_ElectionScope_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="0FAC2D6E-57B0-4D54-C2F2-386FA8539EF0" referredColumn="0867FB8A-BA79-A768-ABFF-79B418E56CC8"/>
+</associations>
+</Column>
+<Column name="ElectionReport_ID" id="8FEB66D8-BAE6-E3FF-DBE8-D7000BDA0367">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Election_ElectionReport_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="32820F91-AAD6-E0C7-87C2-423E61E53D9B" referredColumn="6D0DEAF0-B546-B7F2-134B-DEA25F63A926"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="24493191-6910-8762-B6C9-338D630916B4" name="Election_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="AF0D4D2B-84FF-A879-55A3-5FE86296753B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="49114B69-17A5-51DD-5831-9CE3C49D63D5" name="Election_ReportingUnit_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>58ECF688-7198-1714-0C83-7B7A0D555890</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5C2DC4BB-D2E6-F639-0BCE-062B8363F0D0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E17F6C55-B2C9-ADC8-2C5E-71B18993CE34" name="Election_ElectionReport_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>9C733516-8DC6-6A0D-CB61-418AFC15A568</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8FEB66D8-BAE6-E3FF-DBE8-D7000BDA0367"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

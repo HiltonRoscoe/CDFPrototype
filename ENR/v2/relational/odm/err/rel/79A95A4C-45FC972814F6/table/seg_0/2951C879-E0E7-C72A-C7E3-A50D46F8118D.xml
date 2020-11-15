@@ -1,0 +1,114 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2951C879-E0E7-C72A-C7E3-A50D46F8118D" name="Office">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>DBFC4811-A303-6DE5-E15C-C7224140FA8E</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="FilingDeadline" id="CBF081DE-14FE-D407-D777-6F5C6208A450">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>E8D3EFCB-D0D0-B314-667C-CFE66406289A</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IsPartisan" id="E361F374-AB51-3764-3F73-91FDC7CF1FA6">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>7D026207-BD78-2420-02C0-BDD7A8C5413C</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Office_ID" id="FCDD1C19-2FDE-4DB2-3024-1BD09A4FEA48">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Office_Office_ID</notNullConstraintName>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+<Column name="ElectionReport_ID" id="1A80FDB1-E1FF-FDB8-B9BE-814235EA9C26">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Office_ElectionReport_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="4DDD96C3-4058-C922-35A3-28C5919A2975" referredColumn="6D0DEAF0-B546-B7F2-134B-DEA25F63A926"/>
+</associations>
+</Column>
+<Column name="ElectionDistrict_ID" id="BF28FABF-0A77-C69F-DC01-6DB05B0A8424">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A2E8FC71-C213-743B-18C3-470CB2EAB102" referredColumn="0867FB8A-BA79-A768-ABFF-79B418E56CC8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6351D645-4E19-FB34-8EA7-A7D61033C780" name="Office_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="FCDD1C19-2FDE-4DB2-3024-1BD09A4FEA48"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AC6B6A63-94A8-0D55-3E12-5F0D6BFD4CA7" name="Office_ElectionReport_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>3C2285BA-307C-585A-E5C1-11B6A10DCE20</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1A80FDB1-E1FF-FDB8-B9BE-814235EA9C26"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="78369E1E-FD15-823C-48C9-58279CC1E98F" name="Office_ReportingUnit_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>0F333509-E90D-7A11-BB44-2761F81D5966</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BF28FABF-0A77-C69F-DC01-6DB05B0A8424"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_1" id="B15AC891-B365-8D66-5C4A-AD8DE898DD8F" containerWithKeyObject="C7DCAF12-5D50-B1EE-CCD8-6161B6F4804F" localFKIndex="DE31B251-EB20-6FF1-9358-4EC7F091DF66" name="RetentionContest_Candidate_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>E74C0BB2-0571-1133-BF7B-C04FA83D54A9</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<referredTableLongName>Candidate</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>B8CE4E8B-BBC0-9037-D3EA-893CD2F52558</referredTableID>
+<keyObject>CEBA1E7D-875F-7E46-315A-817B52AA619C</keyObject>
+<referredKeyID>CEBA1E7D-875F-7E46-315A-817B52AA619C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Candidate_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+<propertyMap>
+<property name="fkRole" value="Candidate"/>
+</propertyMap>
+</FKIndexAssociation>

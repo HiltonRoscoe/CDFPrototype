@@ -1,0 +1,114 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8EB93F37-A8A4-FB2B-B092-C2A7E6297BD5" name="OfficeGroup">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>57156EC1-3C43-D3EF-68AF-C083C157B7F9</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Label" id="81DE6E5C-F9A9-ADF5-A34D-0A60B9B9E3D6">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>BCAB67FC-E6BA-5990-6684-26A437066CF1</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Name" id="B5EF2E52-5BCD-7902-A942-89B8716602D2">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>5692CC6D-6F6F-C94C-D1DC-315FCC27D05A</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_OfficeGroup_Name</notNullConstraintName>
+</Column>
+<Column name="OfficeGroup_ID" id="CFBDE2C5-710E-1C05-AF0A-1600C28BB1F8">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_OfficeGroup_OfficeGroup_ID</notNullConstraintName>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+<Column name="ElectionReport_ID" id="26154C74-B510-7E47-2C46-1D86271ACB96">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_OfficeGroup_ElectionReport_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="15DD1B58-FAB8-95AC-723D-3A685C8A1FD4" referredColumn="6D0DEAF0-B546-B7F2-134B-DEA25F63A926"/>
+</associations>
+</Column>
+<Column name="OfficeGroup_ID1" id="5464349B-A376-06A5-51CB-72F0D42B7A6F">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_OfficeGroup_OfficeGroup_ID2</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="DF4C4AE6-6D3E-5CFA-18C6-23D249A4977B" referredColumn="CFBDE2C5-710E-1C05-AF0A-1600C28BB1F8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1606433F-6601-A393-FCF4-018DC23A618F" name="OfficeGroup_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="CFBDE2C5-710E-1C05-AF0A-1600C28BB1F8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2F6FC66F-A95A-6CB4-9D8D-5FE2A2FFF635" name="OfficeGroup_ElectionReport_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>7DD67952-D977-79AE-84B9-0A798B747997</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="26154C74-B510-7E47-2C46-1D86271ACB96"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EFBEEA00-1F72-8014-9FC4-AB4E4ABFF64F" name="OfficeGroup_OfficeGroup_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>8813A5E8-FDDA-1BE0-5693-38D2EEB21F21</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5464349B-A376-06A5-51CB-72F0D42B7A6F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

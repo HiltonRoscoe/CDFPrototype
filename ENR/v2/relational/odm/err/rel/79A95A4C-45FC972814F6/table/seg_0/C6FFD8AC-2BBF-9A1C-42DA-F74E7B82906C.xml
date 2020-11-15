@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C6FFD8AC-2BBF-9A1C-42DA-F74E7B82906C" name="BallotMeasureSelection">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>21291D85-E59C-8A66-2A3C-821052447C36</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ContestSelection_ID" id="8655C57B-8C45-2F0B-599B-7E2B00C69698">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_BallotMeasureSelection_BallotMeasureSelection_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="84536F1D-1824-DB40-F2AA-5CBC41A78D88" referredColumn="FB41D4B1-FC8C-AFA3-97EB-C19D4A9250C2"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E12753C9-3947-76BA-2B3D-35AFBF1845DC" name="BallotMeasureSelection_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="8655C57B-8C45-2F0B-599B-7E2B00C69698"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="58916F63-0BBB-1B12-40B6-7298769D9D13" name="BallotMeasureSelection_ContestSelection_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>A88BF07D-B6C9-ED0D-2F03-E71D32528DC4</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8655C57B-8C45-2F0B-599B-7E2B00C69698"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="RetentionContest_Office" directorySegmentName="seg_1" id="5017A047-575C-65C6-B218-42FD643BE441">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:58 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>DBFC4811-A303-6DE5-E15C-C7224140FA8E</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>D0C4F231-AC37-3E79-0F8E-D0A03E6780DF</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="Office"/>
+</propertyMap>
+</Relation>

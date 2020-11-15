@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="75830779-BD28-ED9E-E162-BD2A95A6AC43" name="PartyRegistration">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>E8B3C950-6EAC-42A8-086E-BEF0319085C3</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Count" id="35F7AF70-8102-C1F5-60AD-4F869711A3CB">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>2BB86B9E-26B2-7F52-87FB-C0F9B34D01B5</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_PartyRegistration_Count</notNullConstraintName>
+</Column>
+<Column name="Party_ID" id="7C61DB28-960C-97EF-7905-31B71D7A33E7">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_PartyRegistration_Party_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="7D201163-8B03-0B44-AF7C-C3DA864E97E0" referredColumn="ED138DD2-791C-3BBB-2CC2-B7A44CB4ED26"/>
+</associations>
+</Column>
+<Column name="ReportingUnit_ID" id="BFA50165-F42A-58C0-76F7-C0CD3244537D">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_PartyRegistration_ReportingUnit_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="9E9F1525-E809-0E2A-3C46-9ED1F20D0400" referredColumn="0867FB8A-BA79-A768-ABFF-79B418E56CC8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E0ED9B48-E0B3-DECB-2273-E3C3D51CE8F9" name="PartyRegistration_Party_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>C0A8E3D2-729B-0BF4-A87B-43EA30B0EFE1</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7C61DB28-960C-97EF-7905-31B71D7A33E7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8D1613BC-17F6-5893-E836-DDB9B95CB90A" name="PartyRegistration_ReportingUnit_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>025AB6F0-8942-0B08-C8EE-0C1C1F3F7387</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BFA50165-F42A-58C0-76F7-C0CD3244537D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

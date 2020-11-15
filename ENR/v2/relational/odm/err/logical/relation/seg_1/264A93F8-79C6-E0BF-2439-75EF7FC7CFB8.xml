@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Party_InternationalizedTextv2" directorySegmentName="seg_1" id="264A93F8-79C6-E0BF-2439-75EF7FC7CFB8">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:58 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<nameOnTarget>Slogan</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>8D23A49F-133F-6BB6-731C-B5D3196AF4E0</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>346411F1-2425-C8EB-5F5A-9C5C9CCFA5BE</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="Slogan"/>
+</propertyMap>
+</Relation>

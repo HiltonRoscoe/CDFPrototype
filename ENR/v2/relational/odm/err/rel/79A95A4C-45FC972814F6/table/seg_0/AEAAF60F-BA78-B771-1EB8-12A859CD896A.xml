@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AEAAF60F-BA78-B771-1EB8-12A859CD896A" name="OtherCounts">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>91CD87CE-3D4F-4348-1BB1-F84100FB67D8</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Overvotes" id="24FDE8FB-9ECF-4C86-0333-224B7AD7E733">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>68871592-E940-30CC-E673-00B49B4E462F</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Undervotes" id="5AE5B6A6-99ED-076A-67DD-04204377748E">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>59905397-FC76-E650-7A7E-06CB3FB9A33F</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="WriteIns" id="F151318F-D92A-175F-0FF5-5E8314DAD83E">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>0ACEF627-16B0-C244-0FD3-953A0D6258A9</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Contest_ID" id="B70B2867-5089-518D-D081-61287ADA9B39">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_OtherCounts_Contest_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="0264B8B6-A975-72BA-429A-4B0B771ACC86" referredColumn="44638EC3-3592-2CFE-0D81-E1FBE7EF8F8E"/>
+</associations>
+</Column>
+<Column name="GpUnit_ID" id="3CDF7B7E-58D7-1700-C9C3-C6DDC2E5BF52">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_OtherCounts_GpUnit_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="C415441C-F819-2B9F-9C29-B690300F5790" referredColumn="9D541DFC-FD76-AE6A-F56F-2EC5A39EE2E8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E411EBFB-AB08-5D54-55A6-F35370D78EAD" name="OtherCounts_Contest_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>7B16C86F-0DB6-52CC-AE2D-82B5298B4E9F</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B70B2867-5089-518D-D081-61287ADA9B39"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1A807EFD-94C6-9AA2-9D81-A4D44C037D06" name="OtherCounts_GpUnit_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>6588BEF1-0385-6579-511B-837D46A20C13</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3CDF7B7E-58D7-1700-C9C3-C6DDC2E5BF52"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FF5E1C94-9211-0D9E-656E-3151019C2CF8" name="CandidateSelection_Party">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Party_ID" id="A578A687-3173-63D5-3E72-FB56D1FC7A1F">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_CandidateSelection_Party_Party_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="2862F6C1-9C98-3179-4816-B4C6CAEA6EBB" referredColumn="ED138DD2-791C-3BBB-2CC2-B7A44CB4ED26"/>
+</associations>
+</Column>
+<Column name="CandidateSelection_ID" id="E9CD47A9-B63B-0953-0E77-B21A753525FD">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_CandidateSelection_Party_CandidateSelection_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="401AC7F5-9CDB-AF5B-7110-715799310256" referredColumn="BDDFE86D-A67C-5FB1-7BFE-53772A708728"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="ED2FBD2A-8668-1AE7-BCF0-C48301C99006" name="CandidateSelection_Party_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A578A687-3173-63D5-3E72-FB56D1FC7A1F"/>
+<colUsage columnID="E9CD47A9-B63B-0953-0E77-B21A753525FD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6F3B2AA7-A422-512B-E99F-7960AC89A05F" name="CandidateSelection_Party_Party_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>DB753DE2-72EC-E92C-5FD5-81960BC6F87F</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A578A687-3173-63D5-3E72-FB56D1FC7A1F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="ED433142-483E-6408-5724-A9ECBCC17395" name="CandidateSelection_Party_CandidateSelection_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>DB753DE2-72EC-E92C-5FD5-81960BC6F87F</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E9CD47A9-B63B-0953-0E77-B21A753525FD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

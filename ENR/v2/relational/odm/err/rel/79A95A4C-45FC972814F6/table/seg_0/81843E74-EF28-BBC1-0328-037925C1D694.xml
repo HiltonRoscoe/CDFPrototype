@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="81843E74-EF28-BBC1-0328-037925C1D694" name="VoteCounts">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>DA385255-8322-5FF8-A0FC-83E0224AD018</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Counts_ID" id="71D73A63-5F79-B594-6E45-790DFDF1F15E">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_VoteCounts_VoteCounts_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="0781E189-1007-27EC-0018-F35AA1F170AF" referredColumn="BA6AC0F0-3A02-9F34-079D-A3E1E62A9D33"/>
+</associations>
+</Column>
+<Column name="Count" id="462F84F7-4206-C883-8061-F2DBAAD61459">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>F37BEE4B-9087-AAD7-2E27-DC86FCC342BB</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_VoteCounts_Count</notNullConstraintName>
+</Column>
+<Column name="ContestSelection_ID" id="0FD91248-E442-246E-A142-33326D02CE8A">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_VoteCounts_ContestSelection_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="F84F67B5-CDD0-6369-0926-A3F650D3EABD" referredColumn="FB41D4B1-FC8C-AFA3-97EB-C19D4A9250C2"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FA1ABD79-17AC-D542-F195-0FC6CC23D092" name="VoteCounts_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="71D73A63-5F79-B594-6E45-790DFDF1F15E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D45B0300-59F2-894A-2C3A-8450E97B3B49" name="VoteCounts_Counts_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>FCDCD9F7-0224-36C9-0EE1-3A6C8410FE97</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="71D73A63-5F79-B594-6E45-790DFDF1F15E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5ADC998B-5B6B-987C-7A56-B66B6EEDBBDD" name="VoteCounts_ContestSelection_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>36516F10-8E92-7DE3-91A1-9ED0BC080945</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0FD91248-E442-246E-A142-33326D02CE8A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

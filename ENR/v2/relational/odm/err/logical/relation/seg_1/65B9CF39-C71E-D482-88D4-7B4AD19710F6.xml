@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="OrderedHeader_OrderedContent" directorySegmentName="seg_1" id="65B9CF39-C71E-D482-88D4-7B4AD19710F6">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:58 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>6BE4F7CB-F1F7-0697-7C4D-CAEA62A3D9DB</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>6FC5025A-FF4B-BD8F-2C24-69F4DF7C7546</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="OrderedHeader"/>
+</propertyMap>
+</Relation>

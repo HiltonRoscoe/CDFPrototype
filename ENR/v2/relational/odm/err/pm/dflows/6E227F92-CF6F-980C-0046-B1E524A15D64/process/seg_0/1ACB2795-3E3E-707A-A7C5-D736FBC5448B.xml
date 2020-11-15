@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Process class="oracle.dbtools.crest.model.design.process.Process" name="ODM Transform" directorySegmentName="seg_0" id="1ACB2795-3E3E-707A-A7C5-D736FBC5448B">
+<createdBy>john</createdBy>
+<createdTime>2020-10-25 18:19:37 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<primary>false</primary>
+<batchMinimumTransactions>1000</batchMinimumTransactions>
+<batchTimeUnit>Second</batchTimeUnit>
+<footNote>Run ODM Transform against generated script to create initial logical model</footNote>
+<frequencyTimeUnit>Day</frequencyTimeUnit>
+<frequencyTimes>0</frequencyTimes>
+<interactiveLongestResponseTime>5</interactiveLongestResponseTime>
+<interactiveResponseTimeUnit>Second</interactiveResponseTimeUnit>
+<mode>Unknown</mode>
+<priority>Low</priority>
+<peakPeriodsString>000000000000000000000000</peakPeriodsString>
+</Process>

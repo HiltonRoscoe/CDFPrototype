@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Person_ContactInformation" directorySegmentName="seg_1" id="C91BB3CD-3549-558D-795D-C111584B7995">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:58 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>843518BC-117C-1117-852F-08B843F26930</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>D8994FBB-8F18-4F13-3A37-3BF0F3D8723B</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="Person"/>
+</propertyMap>
+</Relation>

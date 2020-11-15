@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="ECE0D4F7-3505-84A5-F287-702F5EB1A3A1" containerWithKeyObject="B8CE4E8B-BBC0-9037-D3EA-893CD2F52558" localFKIndex="0E3C2521-394A-8EB2-68F1-8E4AE86F5561" name="Candidate_Person_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>589E2A54-A15B-3854-444C-522CBFD935DB</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<referredTableLongName>Person</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>F500E6EC-22D8-E8DD-EE4E-DDB04258676E</referredTableID>
+<keyObject>694E33FB-EDBA-19F8-B49A-76C877BAE1C8</keyObject>
+<referredKeyID>694E33FB-EDBA-19F8-B49A-76C877BAE1C8</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>Person_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+<propertyMap>
+<property name="fkRole" value="Person"/>
+</propertyMap>
+</FKIndexAssociation>

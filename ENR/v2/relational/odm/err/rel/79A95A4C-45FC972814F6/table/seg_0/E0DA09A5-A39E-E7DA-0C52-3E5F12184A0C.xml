@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E0DA09A5-A39E-E7DA-0C52-3E5F12184A0C" name="ReportingUnit_Person">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Person_ID" id="B65BE506-A0F8-6E92-F1AF-39B61726B934">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_ReportingUnit_Person_Person_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="33768B2B-9AF2-8D35-6ECE-713EEE7FC00A" referredColumn="1BFC387B-DBA1-A40E-6FEE-AF0D582B248B"/>
+</associations>
+</Column>
+<Column name="ReportingUnit_ID" id="5EC16DC8-B0A6-B592-ADE2-404265070334">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_ReportingUnit_Person_ReportingUnit_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="65B9EBE0-7E63-EA7A-D6E5-2D3633A613BA" referredColumn="0867FB8A-BA79-A768-ABFF-79B418E56CC8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="75B169DB-A319-8DBA-B30B-B4877A2CAF06" name="ReportingUnit_Person_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B65BE506-A0F8-6E92-F1AF-39B61726B934"/>
+<colUsage columnID="5EC16DC8-B0A6-B592-ADE2-404265070334"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1E029C23-88AB-5802-65B2-5ACA7DA16ECB" name="ReportingUnit_Person_Person_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>E53A244D-20FF-FE41-885D-1AB34DF4CDFC</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B65BE506-A0F8-6E92-F1AF-39B61726B934"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="79BDA114-DB00-3ECF-1C3D-9ADD1C50D005" name="ReportingUnit_Person_ReportingUnit_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>E53A244D-20FF-FE41-885D-1AB34DF4CDFC</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5EC16DC8-B0A6-B592-ADE2-404265070334"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

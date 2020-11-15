@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9F879C51-F221-8AE6-CED2-91FC63C04974" name="PartyContest">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>007BE037-8B89-2207-6F8A-87872D2BEBD1</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Contest_ID" id="5A0DEE47-167B-5D65-AA97-AA9CC1D659EA">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_PartyContest_PartyContest_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="060D0D5D-EAAF-E62A-FC1C-7552569040E9" referredColumn="44638EC3-3592-2CFE-0D81-E1FBE7EF8F8E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0ADDF529-C546-194E-3961-88A4B1E18BD7" name="PartyContest_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="5A0DEE47-167B-5D65-AA97-AA9CC1D659EA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EFE5A674-5640-483B-6100-C3ADEE34A3BF" name="PartyContest_Contest_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>DDA52479-F479-9C7B-BA39-796557396CDA</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5A0DEE47-167B-5D65-AA97-AA9CC1D659EA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

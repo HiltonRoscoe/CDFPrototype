@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BC8A43D4-7236-9544-5E04-1EB7741CA5E8" containerWithKeyObject="6BCA2F38-3C16-5E71-F61D-03CECC691560" localFKIndex="7ABFD392-03BD-6D81-75D0-16D37E0530ED" name="OrderedContent_BallotStyle_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>E6BBFDC5-9DDB-E51F-E158-2D5CD365E1DB</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<referredTableLongName>BallotStyle</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>B196E66E-BDF9-DE54-B5AE-BB6B4D0D60F3</referredTableID>
+<keyObject>77097EE4-A825-47D1-3FBD-E249B3652FE0</keyObject>
+<referredKeyID>77097EE4-A825-47D1-3FBD-E249B3652FE0</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>BallotStyle_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+<propertyMap>
+<property name="fkRole" value="BallotStyle"/>
+</propertyMap>
+</FKIndexAssociation>

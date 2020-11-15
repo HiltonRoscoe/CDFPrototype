@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4D554E74-5FB0-60DE-2657-1461389F921C" name="OrderedContest_ContestSelection">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ContestSelection_ID" id="017A52D0-6980-4902-6FC9-60EB92AB871D">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_OrderedContest_ContestSelection_ContestSelection_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="1BB53E4A-FA16-8638-932C-2C32E5F8EB18" referredColumn="FB41D4B1-FC8C-AFA3-97EB-C19D4A9250C2"/>
+</associations>
+</Column>
+<Column name="OrderedContest_ID" id="4AD900D0-8643-75CA-2520-F291A5DFBB52">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_OrderedContest_ContestSelection_OrderedContest_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="17C6BB45-59DD-68F2-B9D4-2A7E2EF873F9" referredColumn="CFB7D2A3-3F2E-7809-7BAD-77B310973547"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3B4E6C54-457E-3C13-DCD4-2A63523B4270" name="OrderedContest_ContestSelection_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="017A52D0-6980-4902-6FC9-60EB92AB871D"/>
+<colUsage columnID="4AD900D0-8643-75CA-2520-F291A5DFBB52"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F179996E-EA9F-CC4D-3270-E29775ECCC44" name="OrderedContest_ContestSelection_ContestSelection_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>39E75244-E848-AF29-FF71-6B6FD80DC450</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="017A52D0-6980-4902-6FC9-60EB92AB871D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D5F479EE-C45B-DEFE-45AF-BB61ADBFB670" name="OrderedContest_ContestSelection_OrderedContest_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>39E75244-E848-AF29-FF71-6B6FD80DC450</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4AD900D0-8643-75CA-2520-F291A5DFBB52"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

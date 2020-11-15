@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="54411862-BD29-4084-2BA9-BB0BFE75EA8E" name="CandidateContest_Office">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Office_ID" id="6374814B-6D2B-EAA7-8C05-AD77E80FF619">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_CandidateContest_Office_Office_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="0A2CCE82-4AE7-585F-1525-82D367A989CF" referredColumn="FCDD1C19-2FDE-4DB2-3024-1BD09A4FEA48"/>
+</associations>
+</Column>
+<Column name="CandidateContest_ID" id="98C8188E-D0CB-0400-1858-4574D493AA5E">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_CandidateContest_Office_CandidateContest_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="C4BCE869-4AF8-0726-215F-3ED4AB1899FA" referredColumn="7150F095-43A2-4956-5718-CB9F10576871"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7B7B94D2-44C9-6BDE-D3E0-CC506D435121" name="CandidateContest_Office_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6374814B-6D2B-EAA7-8C05-AD77E80FF619"/>
+<colUsage columnID="98C8188E-D0CB-0400-1858-4574D493AA5E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="174B2934-CBA0-DE6C-3A94-748B197C5DAB" name="CandidateContest_Office_Office_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>2266F4BA-81CC-D665-2075-A56790067A72</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6374814B-6D2B-EAA7-8C05-AD77E80FF619"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E166E0FB-1E0F-7E58-162F-E9F242E784B8" name="CandidateContest_Office_CandidateContest_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>2266F4BA-81CC-D665-2075-A56790067A72</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="98C8188E-D0CB-0400-1858-4574D493AA5E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

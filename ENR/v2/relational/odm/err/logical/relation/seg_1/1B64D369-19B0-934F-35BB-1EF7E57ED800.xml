@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Schedule_Hours" directorySegmentName="seg_1" id="1B64D369-19B0-934F-35BB-1EF7E57ED800">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:58 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>E9403749-3C16-CE32-C5C7-C9FDA0742E60</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>DA988054-8F35-59D2-D0A8-D6203B034CB8</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="Schedule"/>
+</propertyMap>
+</Relation>

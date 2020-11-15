@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="CandidateContest_Office" directorySegmentName="seg_0" id="2266F4BA-81CC-D665-2075-A56790067A72">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:57 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>DBFC4811-A303-6DE5-E15C-C7224140FA8E</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>6EF73C62-0640-E463-3EB4-BBCFE2178EE0</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="CandidateContest"/>
+</propertyMap>
+</Relation>

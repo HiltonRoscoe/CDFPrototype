@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="InternationalizedText_LanguageString" directorySegmentName="seg_0" id="E3359551-EA68-EF6F-C0F3-7AEA0ED58F34">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:57 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<nameOnTarget>Text</nameOnTarget>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>87DBE77B-1E02-CE3E-8AE2-246753DBC465</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>8D23A49F-133F-6BB6-731C-B5D3196AF4E0</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="InternationalizedText"/>
+</propertyMap>
+</Relation>

@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C24E5137-B1AB-4006-A9BD-2BF8EBD7EBA6" name="Coalition_Contest">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Contest_ID" id="67DC4639-B5C2-3B47-59C4-541A83B0244B">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Coalition_Contest_Contest_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="303BB3D0-C467-8CCD-51F4-6CF32B9E68C9" referredColumn="44638EC3-3592-2CFE-0D81-E1FBE7EF8F8E"/>
+</associations>
+</Column>
+<Column name="Coalition_ID" id="09FAEF3B-09EF-77CE-C358-1485987FD7CA">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Coalition_Contest_Coalition_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="95207313-2A5A-0C0F-12FB-70938C1DA3AD" referredColumn="2C5D80F0-6DC1-0A0F-484D-5BA229A047C5"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AA828915-9B33-A0AD-5CD3-D4F94D3A6BE8" name="Coalition_Contest_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="67DC4639-B5C2-3B47-59C4-541A83B0244B"/>
+<colUsage columnID="09FAEF3B-09EF-77CE-C358-1485987FD7CA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="046AE35C-840F-F7F2-FF8B-A52C556E0733" name="Coalition_Contest_Contest_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>D94B832A-DFC9-15EA-98F8-3DD1288DBE38</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="67DC4639-B5C2-3B47-59C4-541A83B0244B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="753E152A-02DC-E1B8-F378-444DEC1B5E02" name="Coalition_Contest_Coalition_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>D94B832A-DFC9-15EA-98F8-3DD1288DBE38</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="09FAEF3B-09EF-77CE-C358-1485987FD7CA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

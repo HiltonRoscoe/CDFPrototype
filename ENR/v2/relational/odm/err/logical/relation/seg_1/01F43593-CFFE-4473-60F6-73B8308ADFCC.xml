@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="SpatialDimension_AnnotatedUri" directorySegmentName="seg_1" id="01F43593-CFFE-4473-60F6-73B8308ADFCC">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:58 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<nameOnTarget>MapUri</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>E1B55BA0-70A4-2441-702C-CDB1A1A6109E</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>9C73C4B1-98ED-FC35-EE89-DCA43F7A25C4</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="SpatialDimension"/>
+</propertyMap>
+</Relation>

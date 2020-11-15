@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="OfficeGroup_Office" directorySegmentName="seg_1" id="56C02ACB-D8B4-BB20-35C1-832F525E09C4">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:58 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>DBFC4811-A303-6DE5-E15C-C7224140FA8E</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>57156EC1-3C43-D3EF-68AF-C083C157B7F9</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="OfficeGroup"/>
+</propertyMap>
+</Relation>

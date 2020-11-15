@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="9E22BDE7-8445-1B7F-3201-B05CB2705FCC" containerWithKeyObject="0C28349E-5C28-3626-B630-BBDE9B38448E" localFKIndex="A7902C17-4D80-C30B-F379-EB9C33F80B95" name="LatLng_ContactInformation_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>E3271E98-D96B-8E3C-6279-F5E61ADE0BC2</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<referredTableLongName>ContactInformation</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>C29F1441-1D0E-7973-D36C-D0C3C0CE13AF</referredTableID>
+<keyObject>6ED1D0DE-7F3F-15FE-E1CB-6644549B6F26</keyObject>
+<referredKeyID>6ED1D0DE-7F3F-15FE-E1CB-6644549B6F26</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>ContactInformation_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+<propertyMap>
+<property name="fkRole" value="LatLng"/>
+</propertyMap>
+</FKIndexAssociation>

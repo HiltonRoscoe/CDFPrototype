@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="16CDA16B-A542-D26A-F5A7-305C984BCD4F" name="Coalition">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>C436C743-25A1-9981-BB92-9537D838FC62</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Party_ID" id="2C5D80F0-6DC1-0A0F-484D-5BA229A047C5">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_Coalition_Coalition_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="4EADB118-722F-4CA8-DA93-C75BB7D60820" referredColumn="ED138DD2-791C-3BBB-2CC2-B7A44CB4ED26"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="253EF0E8-8B6A-B49D-4661-94B8084BDA10" name="Coalition_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="2C5D80F0-6DC1-0A0F-484D-5BA229A047C5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F25522FB-A032-AF2C-91D4-3CB534F9B91F" name="Coalition_Party_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>FCFD5C31-AA02-7EC8-9B81-002477C435F8</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2C5D80F0-6DC1-0A0F-484D-5BA229A047C5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

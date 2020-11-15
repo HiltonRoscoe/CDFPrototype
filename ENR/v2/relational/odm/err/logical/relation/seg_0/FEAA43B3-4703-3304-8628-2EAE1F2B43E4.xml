@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ContactInformation_AnnotatedStringv2" directorySegmentName="seg_0" id="FEAA43B3-4703-3304-8628-2EAE1F2B43E4">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:57 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<nameOnTarget>Phone</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>4FB61DC6-7EA1-2E93-756F-B30C8051D71A</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>843518BC-117C-1117-852F-08B843F26930</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="ContactInformation"/>
+</propertyMap>
+</Relation>

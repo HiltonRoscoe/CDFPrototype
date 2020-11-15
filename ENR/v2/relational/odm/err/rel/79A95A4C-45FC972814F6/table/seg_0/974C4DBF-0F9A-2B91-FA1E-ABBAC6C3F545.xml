@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="974C4DBF-0F9A-2B91-FA1E-ABBAC6C3F545" name="OrderedHeader">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>6FC5025A-FF4B-BD8F-2C24-69F4DF7C7546</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="OrderedContent_ID" id="3BBD894D-E716-5692-E79C-D639B76EA025">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_OrderedHeader_OrderedHeader_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="7602C259-3B7B-7447-414D-1BC575541C4C" referredColumn="A2C5F519-5A0A-8667-8946-DD2DA9D20639"/>
+</associations>
+</Column>
+<Column name="Header_ID" id="955CBF3F-BFBE-CE29-884A-5CC2B91055BA">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_OrderedHeader_Header_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="7CA3927D-5D8D-BE57-3CF3-C8F843F859DB" referredColumn="8F7465C2-455A-5A51-C7D3-EA0A675280B6"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6194C538-FB02-A3A7-BCF9-D267FC023981" name="OrderedHeader_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="3BBD894D-E716-5692-E79C-D639B76EA025"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D1F0989B-2902-F687-1C62-4026B445F584" name="OrderedHeader_OrderedContent_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>CBC03B96-4F57-E3F9-51F6-A5D28284A119</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3BBD894D-E716-5692-E79C-D639B76EA025"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2F5CE70B-04AE-C204-1BF8-BCDD42C05C87" name="OrderedHeader_Header_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>6A7FBD26-53DB-18A7-AFCE-C791FA1B872F</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="955CBF3F-BFBE-CE29-884A-5CC2B91055BA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

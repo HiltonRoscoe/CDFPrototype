@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_1" id="39E800DD-B5A5-66CC-4E53-5443B4CAC1EA" containerWithKeyObject="125EBB93-E7B2-1CBB-F412-8AFB4A537982" localFKIndex="7020A934-59CD-219F-8921-FF83E4697653" name="Term_Office_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>C08BAD10-FAC1-0093-5AFC-424686ECF8BA</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<referredTableLongName>Office</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2951C879-E0E7-C72A-C7E3-A50D46F8118D</referredTableID>
+<keyObject>6351D645-4E19-FB34-8EA7-A7D61033C780</keyObject>
+<referredKeyID>6351D645-4E19-FB34-8EA7-A7D61033C780</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Office_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+<propertyMap>
+<property name="fkRole" value="Term"/>
+</propertyMap>
+</FKIndexAssociation>

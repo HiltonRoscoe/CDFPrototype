@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0C28349E-5C28-3626-B630-BBDE9B38448E" name="LatLng">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>5A6E8B59-2548-8C97-6AE9-81A2108BF208</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Label" id="62FBF248-942B-5FAF-2848-39F2A66406FB">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>69363D66-5005-C3D7-96A7-EF7563D59493</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Latitude" id="63947C88-E316-FFA9-CEB2-834AC48E7613">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>D2206EA6-8954-4557-034B-586B7F9DE2E0</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_LatLng_Latitude</notNullConstraintName>
+</Column>
+<Column name="Longitude" id="C726E782-4DA3-1E3F-8FEA-6D3779EC2226">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>5DE90227-66A0-6A3D-99C2-0744525D0319</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_LatLng_Longitude</notNullConstraintName>
+</Column>
+<Column name="Source" id="B3089445-B539-B312-79EC-3F1328019D62">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>AC2E6169-FE4C-ED1A-7712-46A272F8E763</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LatLng_ID" id="A863E966-E7C9-786B-E1B3-2FBC6F107C67">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_LatLng_LatLng_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="9E22BDE7-8445-1B7F-3201-B05CB2705FCC" referredColumn="CD3DA149-0FFF-DB3C-DC1C-9A793AF35884"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="91F64123-7B42-21ED-6AE7-61C75F80B2EC" name="LatLng_LatLng_ID_IDX">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>E3271E98-D96B-8E3C-6279-F5E61ADE0BC2</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="A863E966-E7C9-786B-E1B3-2FBC6F107C67"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A7902C17-4D80-C30B-F379-EB9C33F80B95" name="LatLng_ContactInformation_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>E3271E98-D96B-8E3C-6279-F5E61ADE0BC2</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A863E966-E7C9-786B-E1B3-2FBC6F107C67"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

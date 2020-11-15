@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Election_CountStatus" directorySegmentName="seg_0" id="51236BF2-540A-6807-F6A3-96737BC5A48B">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:57 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>BFA36EE1-F623-493D-3067-A5F16A27C93A</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>7B3664F4-FF02-681E-6079-46185752D818</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="Election"/>
+</propertyMap>
+</Relation>

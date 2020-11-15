@@ -1,0 +1,64 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B196E66E-BDF9-DE54-B5AE-BB6B4D0D60F3" name="BallotStyle">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>9C31F2BC-63F2-AE5A-29D6-5338CFAD0CE6</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="BallotStyle_ID" id="AEA4A3CF-9CBF-E772-246F-35A222DB2E29">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_BallotStyle_BallotStyle_ID</notNullConstraintName>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+<Column name="Election_ID" id="6E264E1D-B16E-C54A-1535-7C2E95BD6297">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_BallotStyle_Election_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="3120D295-D2E8-C772-EBA3-F97B86387081" referredColumn="AF0D4D2B-84FF-A879-55A3-5FE86296753B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="77097EE4-A825-47D1-3FBD-E249B3652FE0" name="BallotStyle_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="AEA4A3CF-9CBF-E772-246F-35A222DB2E29"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="44497EEF-02A5-B9F3-7BFA-98E8EFBC1CEF" name="BallotStyle_Election_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>75DF4458-8E9E-CE73-96DA-3A5A8D14A257</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6E264E1D-B16E-C54A-1535-7C2E95BD6297"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

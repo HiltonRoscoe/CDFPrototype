@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="BallotMeasureContest_AnnotatedUri" directorySegmentName="seg_0" id="110B110C-1157-4F04-EA34-8F6466E98050">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:57 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<nameOnTarget>InfoUri</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>E1B55BA0-70A4-2441-702C-CDB1A1A6109E</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>113DF4B6-A4DB-3AF2-05E2-C922CD0CABF1</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="BallotMeasureContest"/>
+</propertyMap>
+</Relation>

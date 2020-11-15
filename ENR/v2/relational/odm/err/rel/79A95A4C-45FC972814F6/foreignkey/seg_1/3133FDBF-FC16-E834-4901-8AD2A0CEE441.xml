@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_1" id="3133FDBF-FC16-E834-4901-8AD2A0CEE441" containerWithKeyObject="C7DCAF12-5D50-B1EE-CCD8-6161B6F4804F" localFKIndex="42774786-B3F3-9130-D5AA-5D7B93177982" name="RetentionContest_Office_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>5017A047-575C-65C6-B218-42FD643BE441</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<referredTableLongName>Office</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2951C879-E0E7-C72A-C7E3-A50D46F8118D</referredTableID>
+<keyObject>6351D645-4E19-FB34-8EA7-A7D61033C780</keyObject>
+<referredKeyID>6351D645-4E19-FB34-8EA7-A7D61033C780</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>Office_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+<propertyMap>
+<property name="fkRole" value="Office"/>
+</propertyMap>
+</FKIndexAssociation>

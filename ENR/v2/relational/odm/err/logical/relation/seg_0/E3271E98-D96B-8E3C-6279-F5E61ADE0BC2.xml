@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ContactInformation_LatLng" directorySegmentName="seg_0" id="E3271E98-D96B-8E3C-6279-F5E61ADE0BC2">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:57 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>5A6E8B59-2548-8C97-6AE9-81A2108BF208</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>843518BC-117C-1117-852F-08B843F26930</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="LatLng"/>
+</propertyMap>
+</Relation>

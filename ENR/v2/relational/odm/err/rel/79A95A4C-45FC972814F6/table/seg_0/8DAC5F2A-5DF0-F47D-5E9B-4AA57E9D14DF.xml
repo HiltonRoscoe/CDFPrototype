@@ -1,0 +1,112 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8DAC5F2A-5DF0-F47D-5E9B-4AA57E9D14DF" name="BallotCounts">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>20F856B4-3820-770D-BBB0-984F5D818754</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Counts_ID" id="C67ECE62-DE32-7908-BA32-85EADEDF880C">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_BallotCounts_BallotCounts_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="D9938680-D448-FAF1-F3B7-53BFF0F9B6F2" referredColumn="BA6AC0F0-3A02-9F34-079D-A3E1E62A9D33"/>
+</associations>
+</Column>
+<Column name="BallotsCast" id="054D4920-144A-38DC-6A78-784753177A7C">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>6DE27095-373F-40E5-ED05-F456013FBF5A</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BallotsOutstanding" id="71998B39-2931-8205-131C-7DE491C25C23">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>DB8912A2-97BA-6234-174D-C90BDD16727B</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BallotsRejected" id="8E101DA1-E750-C2BA-706B-9D750F24636D">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>9DA48DE7-32BE-F360-A605-9EED92D68F4E</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Election_ID" id="FA57C047-2960-04E0-A636-9CF02A46E185">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<notNullConstraintName>NNC_BallotCounts_Election_ID</notNullConstraintName>
+<associations>
+<colAssociation fkAssociation="B337F2EB-D1DD-1121-ED52-F27D2D037815" referredColumn="AF0D4D2B-84FF-A879-55A3-5FE86296753B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="49D5E581-658D-8C15-B570-262736A08D8F" name="BallotCounts_PK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="C67ECE62-DE32-7908-BA32-85EADEDF880C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="321D1CE2-0990-4B9D-3AFA-5FD78E9A055D" name="BallotCounts_Counts_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>4E6B302A-0726-9584-7603-7F449C357220</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C67ECE62-DE32-7908-BA32-85EADEDF880C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="02503603-B1B0-5B86-24E1-7B4534B4A2E9" name="BallotCounts_Election_FK">
+<createdBy>john</createdBy>
+<createdTime>2020-10-17 14:51:17 UTC</createdTime>
+<generatorID>BAE0A48C-429A-85EB-D73E-F24B26C9A1EE</generatorID>
+<ownerDesignName>err</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FA57C047-2960-04E0-A636-9CF02A46E185"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

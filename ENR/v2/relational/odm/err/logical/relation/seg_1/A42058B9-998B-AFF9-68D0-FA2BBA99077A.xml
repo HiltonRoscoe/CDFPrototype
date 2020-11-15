@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Person_ExternalIdentifier" directorySegmentName="seg_1" id="A42058B9-998B-AFF9-68D0-FA2BBA99077A">
+<createdBy>john</createdBy>
+<createdTime>2020-10-16 19:20:58 UTC</createdTime>
+<ownerDesignName>err</ownerDesignName>
+<engineerTo>
+<item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>3D8DA7F3-411A-3875-365F-86C54339F73D</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>D8994FBB-8F18-4F13-3A37-3BF0F3D8723B</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+<propertyMap>
+<property name="fkRole" value="Person"/>
+</propertyMap>
+</Relation>
