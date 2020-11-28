@@ -64,7 +64,7 @@
 <nullsAllowed>true</nullsAllowed>
 <use>0</use>
 <logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
-<domain>1EE82458-7D22-B4BF-A7E7-CF6FEAA4F023</domain>
+<domain>CEE3C783-2379-8052-CE22-39BFF223C268</domain>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="PreElectionStatus" id="10031D15-0FF7-AEDE-F963-29C8E0A61993">
@@ -77,7 +77,7 @@
 <nullsAllowed>true</nullsAllowed>
 <use>0</use>
 <logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
-<domain>887783C9-DD58-4AA0-AF65-30E685E9C726</domain>
+<domain>CEE3C783-2379-8052-CE22-39BFF223C268</domain>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>

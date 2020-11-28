@@ -23,8 +23,6 @@
 <item key="79A95A4C-9479-8475-B4EA-45FC972814F6" value="true"/>
 </engineerTo>
 <use>0</use>
-<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
-<domain>AC78F7F2-C31E-2717-B411-C7DD9844C022</domain>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="GeneratedDate" id="609463AB-AD23-EE9F-674E-20C3097A83C5">
@@ -122,7 +120,7 @@
 </engineerTo>
 <use>0</use>
 <logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
-<domain>05831690-321E-290D-8496-6898122F598D</domain>
+<domain>CEE3C783-2379-8052-CE22-39BFF223C268</domain>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="TestType" id="ABC54615-E481-1B40-C147-377C75A04884">
