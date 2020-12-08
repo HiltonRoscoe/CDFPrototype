@@ -3,7 +3,7 @@
 <!-- TOC -->
 
 - [Common Data Formats and the Entity-Relational Model](#common-data-formats-and-the-entity-relational-model)
-    - [Use cases](#use-cases)
+    - [Executive Summary](#executive-summary)
     - [Getting Started](#getting-started)
         - [DDL Support](#ddl-support)
             - [Oracle DDL Notes](#oracle-ddl-notes)
@@ -29,7 +29,7 @@
 
 <!-- /TOC -->
 
-## Use cases
+## Executive Summary
 
 The [NIST Special Publication (SP) 1500 series common data formats](https://nist.ent.sirsi.net/client/en_US/default/search/results?qu=%22Special+Publication+1500%22&te=ILS&lm=NISTPUBS&rt=false%7C%7C%7CSERIES%7C%7C%7CSeries) were developed from a high level UML model ([more here](../mapping/mapping.md)). One advantage of this approach is that many implementation formats can be derived from it. NIST provides JSON and XML schemas, but other formats are possible.
 
@@ -41,7 +41,7 @@ This prototype explores the use of the developed UML models to derive relational
 
 It is recommended to start with the pregenerated SQL Data Definition Language (DDL) scripts. If these scripts do not serve your needs, you can edit the Entity-Relational (logical) or relational model directly using the freely available [Oracle Data Modeler](https://www.oracle.com/tools/downloads/sql-data-modeler-downloads.html) and generate new DDL.
 
-The Relational Database Management System (RDBMS) format specific files are located in the `CVR/relational` and `ENR/v2/relational` directories of this repository, respectively.
+The Relational Database Management System (RDBMS) format specific files are located in the [CVR/relational](../CVR/relational) and [ENR/v2/relational](../ENR/v2/relational) directories of this repository, respectively.
 
 ### DDL Support
 
@@ -49,7 +49,7 @@ DDL scripts have been provided for Oracle and SQL Server. You can also generate 
 
 #### Oracle DDL Notes
 
-- Generates names using underscore notation
+- Generates names using under_score notation
 
 #### SQL Server DDL Notes
 
@@ -61,13 +61,15 @@ This task describes additional, optional tasks that can be performed to customiz
 
 #### Data Type Length
 
-While Entity-Relational (ER) models do not require the length of the data type to be specified, a practical reality of relational databases is that data type length needs to be specified. All string types are mapped to the maximum length allowed by the database. However, you will likely want to adjust the lengths to suit your needs.
+While Entity-Relational (ER) models do not require the length of the data type to be specified, a practical reality of relational databases is that data type length needs to be specified. All String types are mapped to the maximum character length allowed by the database. However, you will likely want to adjust the lengths to suit your needs.
 
 #### Subtype Engineering
 
 The relational model has no concept of hierarchies (i.e. parent/child relationships). However, the concept can be simulated in a variety of ways, described below.
 
-- *Single Table*, subtype hierarchies flattened into a single table, a type discriminat used to determine which attributes should be used.
+> Examples of parent/child relationships in CDFs include `Contest` (parent) and `CandidateContest` (child), or `ContestSelection` (parent) and `BallotMeasureSelection` (child).
+
+- *Single Table*, subtype hierarchies flattened into a single table, a type discriminant used to determine which attributes should be used.
 - *Table per child*, table includes all attributes of child and parent in single table
 - *Table per entity*, maps 1-1 with UML model
 
@@ -84,13 +86,13 @@ The ER and relational models use the second approach. It is strongly recommended
 
 ## Technical Approach
 
-The relational model was mechanically derived from the UML class diagram, using previously developed Model Driven Architecture (MDA) tools. A script was constructed to translate the representations in UML to equivalent structures in ODM's Entity-Relational model. The ER model was forward-engineered to the relational model, and finally DDL generated for each target database.
+The relational model was mechanically derived from the UML class model, using previously developed Model Driven Architecture (MDA) tools. A script was constructed to translate the representations in UML to equivalent structures in ODM's Entity-Relational model. The ER model was forward-engineered to the relational model (either Oracle or SQL Server), and finally DDL generated for each database.
 
 ![Simplified Data Flow](./images/process.svg)
 
 ## Mapping Internals
 
-> Warning: This section assumes a fundamental knowledge of The Entity-Relational and UML Class Models.
+> Warning: This section assumes a fundamental knowledge of The Entity-Relational and UML Class Models. Understanding of this material is **NOT** required to use the prototype.
 
 > This section uses [Barker Entity-Relational notation](https://www.essentialstrategies.com/publications/modeling/barker.htm).
 
