@@ -491,6 +491,7 @@ ALTER TABLE Contest
     CHECK ( VoteVariation IN ('approval', 'borda', 'cumulative', 'majority', 'n-of-m', 'other', 'plurality', 'proportional', 'range', 'rcv', 'super-majority') ) 
 GO
 
+--  ERROR: No Discriminator Column found in Arc FKArc_1 - check constraint cannot be generated
 
 ALTER TABLE Contest ADD CONSTRAINT Contest_PK PRIMARY KEY CLUSTERED (ContestId)
      WITH (
@@ -532,6 +533,7 @@ CREATE TABLE ContestSelection
     )
 GO 
 
+--  ERROR: No Discriminator Column found in Arc FKArc_2 - check constraint cannot be generated
 
 ALTER TABLE ContestSelection ADD CONSTRAINT ContestSelection_PK PRIMARY KEY CLUSTERED (ContestSelectionId)
      WITH (
@@ -556,6 +558,7 @@ ALTER TABLE Counts
     CHECK ( Type IN ('absentee', 'absentee-fwab', 'absentee-in-person', 'absentee-mail', 'early', 'election-day', 'other', 'provisional', 'seats', 'total', 'uocava', 'write-in') ) 
 GO
 
+--  ERROR: No Discriminator Column found in Arc FKArc_3 - check constraint cannot be generated
 
 ALTER TABLE Counts ADD CONSTRAINT Counts_PK PRIMARY KEY CLUSTERED (CountsId)
      WITH (
@@ -803,6 +806,7 @@ CREATE TABLE GpUnit
     )
 GO 
 
+--  ERROR: No Discriminator Column found in Arc FKArc_4 - check constraint cannot be generated
 
 ALTER TABLE GpUnit ADD CONSTRAINT GpUnit_PK PRIMARY KEY CLUSTERED (GpUnitId)
      WITH (
@@ -1003,6 +1007,8 @@ CREATE TABLE OrderedContent
      OrderedHeaderId NUMERIC (28) NOT NULL 
     )
 GO 
+
+--  ERROR: No Discriminator Column found in Arc FKArc_5 - check constraint cannot be generated
 
 ALTER TABLE OrderedContent ADD CONSTRAINT OrderedContent_PK PRIMARY KEY CLUSTERED (OrderedContentId)
      WITH (
@@ -3450,4 +3456,5 @@ GO
 -- 
 -- DROP DATABASE                            0
 -- 
-
+-- ERRORS                                   5
+-- WARNINGS                                 0

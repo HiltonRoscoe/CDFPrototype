@@ -65,7 +65,7 @@ CREATE TABLE ballot_measure_contest_info_uri (
     contest_id        NUMBER NOT NULL
 );
 
-ALTER TABLE ballot_measure_contest_info_uri ADD CONSTRAINT ballot_measure_contest__info_uri_pk PRIMARY KEY ( annotated_uri_id,
+ALTER TABLE ballot_measure_contest_info_uri ADD CONSTRAINT ballot_measure_contest_info_uri_pk PRIMARY KEY ( annotated_uri_id,
                                                                                                              contest_id );
 
 CREATE TABLE ballot_measure_selection (
@@ -83,7 +83,7 @@ CREATE TABLE ballot_measure_selection_external_identifier (
     contest_selection_id    NUMBER NOT NULL
 );
 
-ALTER TABLE ballot_measure_selection_external_identifier ADD CONSTRAINT ballot_measure_selection__external_identifier_pk PRIMARY KEY (
+ALTER TABLE ballot_measure_selection_external_identifier ADD CONSTRAINT ballot_measure_selection_external_identifier_pk PRIMARY KEY (
 external_identifier_id,
                                                                                                                                  contest_selection_id );
 
@@ -99,7 +99,7 @@ CREATE TABLE ballot_style_external_identifier (
     ballot_style_id         NUMBER NOT NULL
 );
 
-ALTER TABLE ballot_style_external_identifier ADD CONSTRAINT ballot_style__external_identifier_pk PRIMARY KEY ( external_identifier_id,
+ALTER TABLE ballot_style_external_identifier ADD CONSTRAINT ballot_style_external_identifier_pk PRIMARY KEY ( external_identifier_id,
                                                                                                                ballot_style_id );
 
 CREATE TABLE ballot_style_gp_unit (
@@ -107,7 +107,7 @@ CREATE TABLE ballot_style_gp_unit (
     ballot_style_id  NUMBER NOT NULL
 );
 
-ALTER TABLE ballot_style_gp_unit ADD CONSTRAINT ballot_style__gp_unit_pk PRIMARY KEY ( gp_unit_id,
+ALTER TABLE ballot_style_gp_unit ADD CONSTRAINT ballot_style_gp_unit_pk PRIMARY KEY ( gp_unit_id,
                                                                                        ballot_style_id );
 
 CREATE TABLE ballot_style_image_uri (
@@ -115,7 +115,7 @@ CREATE TABLE ballot_style_image_uri (
     ballot_style_id   NUMBER NOT NULL
 );
 
-ALTER TABLE ballot_style_image_uri ADD CONSTRAINT ballot_style__image_uri_pk PRIMARY KEY ( annotated_uri_id,
+ALTER TABLE ballot_style_image_uri ADD CONSTRAINT ballot_style_image_uri_pk PRIMARY KEY ( annotated_uri_id,
                                                                                            ballot_style_id );
 
 CREATE TABLE ballot_style_party (
@@ -123,7 +123,7 @@ CREATE TABLE ballot_style_party (
     ballot_style_id  NUMBER NOT NULL
 );
 
-ALTER TABLE ballot_style_party ADD CONSTRAINT ballot_style__party_pk PRIMARY KEY ( party_id,
+ALTER TABLE ballot_style_party ADD CONSTRAINT ballot_style_party_pk PRIMARY KEY ( party_id,
                                                                                    ballot_style_id );
 
 CREATE TABLE candidate (
@@ -157,7 +157,7 @@ ALTER TABLE candidate
         'withdrawn'
     ) );
 
-CREATE UNIQUE INDEX candidate__idx ON
+CREATE UNIQUE INDEX candidate_idx ON
     candidate (
         contact_information_id
     ASC );
@@ -181,7 +181,7 @@ CREATE TABLE candidate_contest_office (
     contest_id  NUMBER NOT NULL
 );
 
-ALTER TABLE candidate_contest_office ADD CONSTRAINT candidate_contest__office_pk PRIMARY KEY ( office_id,
+ALTER TABLE candidate_contest_office ADD CONSTRAINT candidate_contest_office_pk PRIMARY KEY ( office_id,
                                                                                                contest_id );
 
 CREATE TABLE candidate_contest_primary_party (
@@ -189,7 +189,7 @@ CREATE TABLE candidate_contest_primary_party (
     contest_id  NUMBER NOT NULL
 );
 
-ALTER TABLE candidate_contest_primary_party ADD CONSTRAINT candidate_contest__primary_party_pk PRIMARY KEY ( party_id,
+ALTER TABLE candidate_contest_primary_party ADD CONSTRAINT candidate_contest_primary_party_pk PRIMARY KEY ( party_id,
                                                                                                              contest_id );
 
 CREATE TABLE candidate_external_identifier (
@@ -197,7 +197,7 @@ CREATE TABLE candidate_external_identifier (
     candidate_id            NUMBER NOT NULL
 );
 
-ALTER TABLE candidate_external_identifier ADD CONSTRAINT candidate__external_identifier_pk PRIMARY KEY ( external_identifier_id,
+ALTER TABLE candidate_external_identifier ADD CONSTRAINT candidate_external_identifier_pk PRIMARY KEY ( external_identifier_id,
                                                                                                          candidate_id );
 
 CREATE TABLE candidate_selection (
@@ -215,7 +215,7 @@ CREATE TABLE candidate_selection_candidate (
     contest_selection_id  NUMBER NOT NULL
 );
 
-ALTER TABLE candidate_selection_candidate ADD CONSTRAINT candidate_selection__candidate_pk PRIMARY KEY ( candidate_id,
+ALTER TABLE candidate_selection_candidate ADD CONSTRAINT candidate_selection_candidate_pk PRIMARY KEY ( candidate_id,
                                                                                                          contest_selection_id );
 
 CREATE TABLE candidate_selection_endorsement_party (
@@ -223,7 +223,7 @@ CREATE TABLE candidate_selection_endorsement_party (
     contest_selection_id  NUMBER NOT NULL
 );
 
-ALTER TABLE candidate_selection_endorsement_party ADD CONSTRAINT candidate_selection__endorsement_party_pk PRIMARY KEY ( party_id,
+ALTER TABLE candidate_selection_endorsement_party ADD CONSTRAINT candidate_selection_endorsement_party_pk PRIMARY KEY ( party_id,
                                                                                                                          contest_selection_id );
 
 CREATE TABLE coalition (
@@ -240,7 +240,7 @@ CREATE TABLE coalition_contest (
     party_id    NUMBER NOT NULL
 );
 
-ALTER TABLE coalition_contest ADD CONSTRAINT coalition__contest_pk PRIMARY KEY ( contest_id,
+ALTER TABLE coalition_contest ADD CONSTRAINT coalition_contest_pk PRIMARY KEY ( contest_id,
                                                                                  party_id );
 
 CREATE TABLE coalition_party (
@@ -248,7 +248,7 @@ CREATE TABLE coalition_party (
     party_id1  NUMBER NOT NULL
 );
 
-ALTER TABLE coalition_party ADD CONSTRAINT coalition__party_pk PRIMARY KEY ( party_id,
+ALTER TABLE coalition_party ADD CONSTRAINT coalition_party_pk PRIMARY KEY ( party_id,
                                                                              party_id1 );
 
 CREATE TABLE contact_information (
@@ -260,7 +260,7 @@ CREATE TABLE contact_information (
     person_id               NUMBER NOT NULL
 );
 
-CREATE UNIQUE INDEX contact_information__idx ON
+CREATE UNIQUE INDEX contact_information_idx ON
     contact_information (
         lat_lng_id
     ASC );
@@ -280,7 +280,7 @@ CREATE TABLE contact_information_email (
     contact_information_id  NUMBER NOT NULL
 );
 
-ALTER TABLE contact_information_email ADD CONSTRAINT contact_information__email_pk PRIMARY KEY ( annotated_string_id,
+ALTER TABLE contact_information_email ADD CONSTRAINT contact_information_email_pk PRIMARY KEY ( annotated_string_id,
                                                                                                  contact_information_id );
 
 CREATE TABLE contact_information_fax (
@@ -288,7 +288,7 @@ CREATE TABLE contact_information_fax (
     contact_information_id  NUMBER NOT NULL
 );
 
-ALTER TABLE contact_information_fax ADD CONSTRAINT contact_information__fax_pk PRIMARY KEY ( annotated_string_id,
+ALTER TABLE contact_information_fax ADD CONSTRAINT contact_information_fax_pk PRIMARY KEY ( annotated_string_id,
                                                                                              contact_information_id );
 
 CREATE TABLE contact_information_phone (
@@ -296,7 +296,7 @@ CREATE TABLE contact_information_phone (
     contact_information_id  NUMBER NOT NULL
 );
 
-ALTER TABLE contact_information_phone ADD CONSTRAINT contact_information__phone_pk PRIMARY KEY ( annotated_string_id,
+ALTER TABLE contact_information_phone ADD CONSTRAINT contact_information_phone_pk PRIMARY KEY ( annotated_string_id,
                                                                                                  contact_information_id );
 
 CREATE TABLE contact_information_uri (
@@ -304,7 +304,7 @@ CREATE TABLE contact_information_uri (
     contact_information_id  NUMBER NOT NULL
 );
 
-ALTER TABLE contact_information_uri ADD CONSTRAINT contact_information__uri_pk PRIMARY KEY ( annotated_uri_id,
+ALTER TABLE contact_information_uri ADD CONSTRAINT contact_information_uri_pk PRIMARY KEY ( annotated_uri_id,
                                                                                              contact_information_id );
 
 CREATE TABLE contest (
@@ -348,7 +348,7 @@ CREATE TABLE contest_count_status (
     contest_id       NUMBER NOT NULL
 );
 
-ALTER TABLE contest_count_status ADD CONSTRAINT contest__count_status_pk PRIMARY KEY ( count_status_id,
+ALTER TABLE contest_count_status ADD CONSTRAINT contest_count_status_pk PRIMARY KEY ( count_status_id,
                                                                                        contest_id );
 
 CREATE TABLE contest_external_identifier (
@@ -356,7 +356,7 @@ CREATE TABLE contest_external_identifier (
     contest_id              NUMBER NOT NULL
 );
 
-ALTER TABLE contest_external_identifier ADD CONSTRAINT contest__external_identifier_pk PRIMARY KEY ( external_identifier_id,
+ALTER TABLE contest_external_identifier ADD CONSTRAINT contest_external_identifier_pk PRIMARY KEY ( external_identifier_id,
                                                                                                      contest_id );
 
 CREATE TABLE contest_selection (
@@ -365,6 +365,7 @@ CREATE TABLE contest_selection (
     contest_id            NUMBER NOT NULL
 );
 
+--  ERROR: No Discriminator Column found in Arc FKArc_2 - check constraint cannot be generated
 
 ALTER TABLE contest_selection ADD CONSTRAINT contest_selection_pk PRIMARY KEY ( contest_selection_id );
 
@@ -426,6 +427,7 @@ ALTER TABLE counts
         'write-in'
     ) );
 
+--  ERROR: No Discriminator Column found in Arc FKArc_3 - check constraint cannot be generated
 
 ALTER TABLE counts ADD CONSTRAINT counts_pk PRIMARY KEY ( counts_id );
 
@@ -434,7 +436,7 @@ CREATE TABLE counts_device_class (
     counts_id        NUMBER NOT NULL
 );
 
-ALTER TABLE counts_device_class ADD CONSTRAINT counts__device_class_pk PRIMARY KEY ( device_class_id,
+ALTER TABLE counts_device_class ADD CONSTRAINT counts_device_class_pk PRIMARY KEY ( device_class_id,
                                                                                      counts_id );
 
 CREATE TABLE device_class (
@@ -482,7 +484,7 @@ ALTER TABLE election
         'special'
     ) );
 
-CREATE UNIQUE INDEX election__idx ON
+CREATE UNIQUE INDEX election_idx ON
     election (
         contact_information_id
     ASC );
@@ -495,7 +497,7 @@ CREATE TABLE election_administration (
     contact_information_id      NUMBER
 );
 
-CREATE UNIQUE INDEX election_administration__idx ON
+CREATE UNIQUE INDEX election_administration_idx ON
     election_administration (
         contact_information_id
     ASC );
@@ -507,7 +509,7 @@ CREATE TABLE election_administration_election_official_person (
     election_administration_id  NUMBER NOT NULL
 );
 
-ALTER TABLE election_administration_election_official_person ADD CONSTRAINT election_administration__election_official_person_pk PRIMARY
+ALTER TABLE election_administration_election_official_person ADD CONSTRAINT election_administration_election_official_person_pk PRIMARY
 KEY ( person_id,
                                                                                                                                  election_administration_id );
 
@@ -516,7 +518,7 @@ CREATE TABLE election_count_status (
     election_id      NUMBER NOT NULL
 );
 
-ALTER TABLE election_count_status ADD CONSTRAINT election__count_status_pk PRIMARY KEY ( count_status_id,
+ALTER TABLE election_count_status ADD CONSTRAINT election_count_status_pk PRIMARY KEY ( count_status_id,
                                                                                          election_id );
 
 CREATE TABLE election_external_identifier (
@@ -524,7 +526,7 @@ CREATE TABLE election_external_identifier (
     election_id             NUMBER NOT NULL
 );
 
-ALTER TABLE election_external_identifier ADD CONSTRAINT election__external_identifier_pk PRIMARY KEY ( external_identifier_id,
+ALTER TABLE election_external_identifier ADD CONSTRAINT election_external_identifier_pk PRIMARY KEY ( external_identifier_id,
                                                                                                        election_id );
 
 CREATE TABLE election_report (
@@ -565,7 +567,7 @@ CREATE TABLE election_report_external_identifier (
     election_report_id      NUMBER NOT NULL
 );
 
-ALTER TABLE election_report_external_identifier ADD CONSTRAINT election_report__external_identifier_pk PRIMARY KEY ( external_identifier_id,
+ALTER TABLE election_report_external_identifier ADD CONSTRAINT election_report_external_identifier_pk PRIMARY KEY ( external_identifier_id,
                                                                                                                      election_report_id );
 
 CREATE TABLE external_identifier (
@@ -594,6 +596,7 @@ CREATE TABLE gp_unit (
     election_report_id  NUMBER NOT NULL
 );
 
+--  ERROR: No Discriminator Column found in Arc FKArc_4 - check constraint cannot be generated
 
 ALTER TABLE gp_unit ADD CONSTRAINT gp_unit_pk PRIMARY KEY ( gp_unit_id );
 
@@ -602,7 +605,7 @@ CREATE TABLE gp_unit_composing_gp_unit (
     gp_unit_id1  NUMBER NOT NULL
 );
 
-ALTER TABLE gp_unit_composing_gp_unit ADD CONSTRAINT gp_unit__composing_gp_unit_pk PRIMARY KEY ( gp_unit_id,
+ALTER TABLE gp_unit_composing_gp_unit ADD CONSTRAINT gp_unit_composing_gp_unit_pk PRIMARY KEY ( gp_unit_id,
                                                                                                  gp_unit_id1 );
 
 CREATE TABLE gp_unit_external_identifier (
@@ -610,7 +613,7 @@ CREATE TABLE gp_unit_external_identifier (
     gp_unit_id              NUMBER NOT NULL
 );
 
-ALTER TABLE gp_unit_external_identifier ADD CONSTRAINT gp_unit__external_identifier_pk PRIMARY KEY ( external_identifier_id,
+ALTER TABLE gp_unit_external_identifier ADD CONSTRAINT gp_unit_external_identifier_pk PRIMARY KEY ( external_identifier_id,
                                                                                                      gp_unit_id );
 
 CREATE TABLE header (
@@ -626,7 +629,7 @@ CREATE TABLE header_external_identifier (
     header_id               NUMBER NOT NULL
 );
 
-ALTER TABLE header_external_identifier ADD CONSTRAINT header__external_identifier_pk PRIMARY KEY ( external_identifier_id,
+ALTER TABLE header_external_identifier ADD CONSTRAINT header_external_identifier_pk PRIMARY KEY ( external_identifier_id,
                                                                                                    header_id );
 
 CREATE TABLE hours (
@@ -677,12 +680,12 @@ CREATE TABLE office (
     term_id                 NUMBER
 );
 
-CREATE UNIQUE INDEX office__idx ON
+CREATE UNIQUE INDEX office_idx ON
     office (
         contact_information_id
     ASC );
 
-CREATE UNIQUE INDEX office__idxv1 ON
+CREATE UNIQUE INDEX office_idxv1 ON
     office (
         term_id
     ASC );
@@ -694,7 +697,7 @@ CREATE TABLE office_external_identifier (
     office_id               NUMBER NOT NULL
 );
 
-ALTER TABLE office_external_identifier ADD CONSTRAINT office__external_identifier_pk PRIMARY KEY ( external_identifier_id,
+ALTER TABLE office_external_identifier ADD CONSTRAINT office_external_identifier_pk PRIMARY KEY ( external_identifier_id,
                                                                                                    office_id );
 
 CREATE TABLE office_group (
@@ -712,7 +715,7 @@ CREATE TABLE office_group_office (
     office_group_id  NUMBER NOT NULL
 );
 
-ALTER TABLE office_group_office ADD CONSTRAINT office_group__office_pk PRIMARY KEY ( office_id,
+ALTER TABLE office_group_office ADD CONSTRAINT office_group_office_pk PRIMARY KEY ( office_id,
                                                                                      office_group_id );
 
 CREATE TABLE office_office_holder_person (
@@ -720,7 +723,7 @@ CREATE TABLE office_office_holder_person (
     office_id  NUMBER NOT NULL
 );
 
-ALTER TABLE office_office_holder_person ADD CONSTRAINT office__office_holder_person_pk PRIMARY KEY ( person_id,
+ALTER TABLE office_office_holder_person ADD CONSTRAINT office_office_holder_person_pk PRIMARY KEY ( person_id,
                                                                                                      office_id );
 
 CREATE TABLE ordered_content (
@@ -730,6 +733,7 @@ CREATE TABLE ordered_content (
     ordered_header_id    NUMBER NOT NULL
 );
 
+--  ERROR: No Discriminator Column found in Arc FKArc_5 - check constraint cannot be generated
 
 ALTER TABLE ordered_content ADD CONSTRAINT ordered_content_pk PRIMARY KEY ( ordered_content_id );
 
@@ -748,7 +752,7 @@ CREATE TABLE ordered_contest_ordered_contest_selection (
     ordered_content_id    NUMBER NOT NULL
 );
 
-ALTER TABLE ordered_contest_ordered_contest_selection ADD CONSTRAINT ordered_contest__ordered_contest_selection_pk PRIMARY KEY ( contest_selection_id,
+ALTER TABLE ordered_contest_ordered_contest_selection ADD CONSTRAINT ordered_contest_ordered_contest_selection_pk PRIMARY KEY ( contest_selection_id,
                                                                                                                                  ordered_content_id );
 
 CREATE TABLE ordered_header (
@@ -778,7 +782,7 @@ CREATE TABLE other_counts_device_class (
     other_counts_id  NUMBER NOT NULL
 );
 
-ALTER TABLE other_counts_device_class ADD CONSTRAINT other_counts__device_class_pk PRIMARY KEY ( device_class_id,
+ALTER TABLE other_counts_device_class ADD CONSTRAINT other_counts_device_class_pk PRIMARY KEY ( device_class_id,
                                                                                                  other_counts_id );
 
 CREATE TABLE party (
@@ -792,7 +796,7 @@ CREATE TABLE party (
     contact_information_id  NUMBER
 );
 
-CREATE UNIQUE INDEX party__idx ON
+CREATE UNIQUE INDEX party_idx ON
     party (
         contact_information_id
     ASC );
@@ -813,7 +817,7 @@ CREATE TABLE party_external_identifier (
     party_id                NUMBER NOT NULL
 );
 
-ALTER TABLE party_external_identifier ADD CONSTRAINT party__external_identifier_pk PRIMARY KEY ( external_identifier_id,
+ALTER TABLE party_external_identifier ADD CONSTRAINT party_external_identifier_pk PRIMARY KEY ( external_identifier_id,
                                                                                                  party_id );
 
 CREATE TABLE party_leader_person (
@@ -821,7 +825,7 @@ CREATE TABLE party_leader_person (
     party_id   NUMBER NOT NULL
 );
 
-ALTER TABLE party_leader_person ADD CONSTRAINT party__leader_person_pk PRIMARY KEY ( person_id,
+ALTER TABLE party_leader_person ADD CONSTRAINT party_leader_person_pk PRIMARY KEY ( person_id,
                                                                                      party_id );
 
 CREATE TABLE party_logo_uri (
@@ -829,7 +833,7 @@ CREATE TABLE party_logo_uri (
     party_id          NUMBER NOT NULL
 );
 
-ALTER TABLE party_logo_uri ADD CONSTRAINT party__logo_uri_pk PRIMARY KEY ( annotated_uri_id,
+ALTER TABLE party_logo_uri ADD CONSTRAINT party_logo_uri_pk PRIMARY KEY ( annotated_uri_id,
                                                                            party_id );
 
 CREATE TABLE party_party_scope_gp_unit (
@@ -837,7 +841,7 @@ CREATE TABLE party_party_scope_gp_unit (
     party_id    NUMBER NOT NULL
 );
 
-ALTER TABLE party_party_scope_gp_unit ADD CONSTRAINT party__party_scope_gp_unit_pk PRIMARY KEY ( gp_unit_id,
+ALTER TABLE party_party_scope_gp_unit ADD CONSTRAINT party_party_scope_gp_unit_pk PRIMARY KEY ( gp_unit_id,
                                                                                                  party_id );
 
 CREATE TABLE party_registration (
@@ -864,7 +868,7 @@ CREATE TABLE party_selection_party (
     contest_selection_id  NUMBER NOT NULL
 );
 
-ALTER TABLE party_selection_party ADD CONSTRAINT party_selection__party_pk PRIMARY KEY ( party_id,
+ALTER TABLE party_selection_party ADD CONSTRAINT party_selection_party_pk PRIMARY KEY ( party_id,
                                                                                          contest_selection_id );
 
 CREATE TABLE person (
@@ -890,7 +894,7 @@ CREATE TABLE person_external_identifier (
     person_id               NUMBER NOT NULL
 );
 
-ALTER TABLE person_external_identifier ADD CONSTRAINT person__external_identifier_pk PRIMARY KEY ( external_identifier_id,
+ALTER TABLE person_external_identifier ADD CONSTRAINT person_external_identifier_pk PRIMARY KEY ( external_identifier_id,
                                                                                                    person_id );
 
 CREATE TABLE person_middle_name (
@@ -916,7 +920,7 @@ CREATE TABLE reporting_device_device_class (
     gp_unit_id       NUMBER NOT NULL
 );
 
-ALTER TABLE reporting_device_device_class ADD CONSTRAINT reporting_device__device_class_pk PRIMARY KEY ( device_class_id,
+ALTER TABLE reporting_device_device_class ADD CONSTRAINT reporting_device_device_class_pk PRIMARY KEY ( device_class_id,
                                                                                                          gp_unit_id );
 
 CREATE TABLE reporting_unit (
@@ -969,17 +973,17 @@ ALTER TABLE reporting_unit
         'water'
     ) );
 
-CREATE UNIQUE INDEX reporting_unit__idx ON
+CREATE UNIQUE INDEX reporting_unit_idx ON
     reporting_unit (
         contact_information_id
     ASC );
 
-CREATE UNIQUE INDEX reporting_unit__idxv1 ON
+CREATE UNIQUE INDEX reporting_unit_idxv1 ON
     reporting_unit (
         election_administration_id
     ASC );
 
-CREATE UNIQUE INDEX reporting_unit__idxv2 ON
+CREATE UNIQUE INDEX reporting_unit_idxv2 ON
     reporting_unit (
         spatial_dimension_id
     ASC );
@@ -996,7 +1000,7 @@ CREATE TABLE reporting_unit_authority (
 );
 
 ALTER TABLE reporting_unit_authority
-    ADD CONSTRAINT reporting_unit__authority_pk PRIMARY KEY ( person_id,
+    ADD CONSTRAINT reporting_unit_authority_pk PRIMARY KEY ( person_id,
                                                               gp_unit_id,
                                                               reporting_unit_id );
 
@@ -1007,7 +1011,7 @@ CREATE TABLE reporting_unit_count_status (
 );
 
 ALTER TABLE reporting_unit_count_status
-    ADD CONSTRAINT reporting_unit__count_status_pk PRIMARY KEY ( count_status_id,
+    ADD CONSTRAINT reporting_unit_count_status_pk PRIMARY KEY ( count_status_id,
                                                                  gp_unit_id,
                                                                  reporting_unit_id );
 
@@ -1040,7 +1044,7 @@ CREATE TABLE spatial_dimension (
     spatial_extent_id     NUMBER
 );
 
-CREATE UNIQUE INDEX spatial_dimension__idx ON
+CREATE UNIQUE INDEX spatial_dimension_idx ON
     spatial_dimension (
         spatial_extent_id
     ASC );
@@ -1052,7 +1056,7 @@ CREATE TABLE spatial_dimension_map_uri (
     spatial_dimension_id  NUMBER NOT NULL
 );
 
-ALTER TABLE spatial_dimension_map_uri ADD CONSTRAINT spatial_dimension__map_uri_pk PRIMARY KEY ( annotated_uri_id,
+ALTER TABLE spatial_dimension_map_uri ADD CONSTRAINT spatial_dimension_map_uri_pk PRIMARY KEY ( annotated_uri_id,
                                                                                                  spatial_dimension_id );
 
 CREATE TABLE spatial_extent (
@@ -1108,11 +1112,11 @@ ALTER TABLE ballot_counts
         REFERENCES election ( election_id );
 
 ALTER TABLE ballot_measure_contest_info_uri
-    ADD CONSTRAINT ballot_measure_contest__info_uri_annotated_uri_fk FOREIGN KEY ( annotated_uri_id )
+    ADD CONSTRAINT ballot_measure_contest_info_uri_annotated_uri_fk FOREIGN KEY ( annotated_uri_id )
         REFERENCES annotated_uri ( annotated_uri_id );
 
 ALTER TABLE ballot_measure_contest_info_uri
-    ADD CONSTRAINT ballot_measure_contest__info_uri_ballot_measure_contest_fk FOREIGN KEY ( contest_id )
+    ADD CONSTRAINT ballot_measure_contest_info_uri_ballot_measure_contest_fk FOREIGN KEY ( contest_id )
         REFERENCES ballot_measure_contest ( contest_id );
 
 ALTER TABLE ballot_measure_contest
@@ -1120,11 +1124,11 @@ ALTER TABLE ballot_measure_contest
         REFERENCES contest ( contest_id );
 
 ALTER TABLE ballot_measure_selection_external_identifier
-    ADD CONSTRAINT ballot_measure_selection__external_identifier_ballot_measure_selection_fk FOREIGN KEY ( contest_selection_id )
+    ADD CONSTRAINT ballot_measure_selection_external_identifier_ballot_measure_selection_fk FOREIGN KEY ( contest_selection_id )
         REFERENCES ballot_measure_selection ( contest_selection_id );
 
 ALTER TABLE ballot_measure_selection_external_identifier
-    ADD CONSTRAINT ballot_measure_selection__external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
+    ADD CONSTRAINT ballot_measure_selection_external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
         REFERENCES external_identifier ( external_identifier_id );
 
 ALTER TABLE ballot_measure_selection
@@ -1132,35 +1136,35 @@ ALTER TABLE ballot_measure_selection
         REFERENCES contest_selection ( contest_selection_id );
 
 ALTER TABLE ballot_style_external_identifier
-    ADD CONSTRAINT ballot_style__external_identifier_ballot_style_fk FOREIGN KEY ( ballot_style_id )
+    ADD CONSTRAINT ballot_style_external_identifier_ballot_style_fk FOREIGN KEY ( ballot_style_id )
         REFERENCES ballot_style ( ballot_style_id );
 
 ALTER TABLE ballot_style_external_identifier
-    ADD CONSTRAINT ballot_style__external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
+    ADD CONSTRAINT ballot_style_external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
         REFERENCES external_identifier ( external_identifier_id );
 
 ALTER TABLE ballot_style_gp_unit
-    ADD CONSTRAINT ballot_style__gp_unit_ballot_style_fk FOREIGN KEY ( ballot_style_id )
+    ADD CONSTRAINT ballot_style_gp_unit_ballot_style_fk FOREIGN KEY ( ballot_style_id )
         REFERENCES ballot_style ( ballot_style_id );
 
 ALTER TABLE ballot_style_gp_unit
-    ADD CONSTRAINT ballot_style__gp_unit_gp_unit_fk FOREIGN KEY ( gp_unit_id )
+    ADD CONSTRAINT ballot_style_gp_unit_gp_unit_fk FOREIGN KEY ( gp_unit_id )
         REFERENCES gp_unit ( gp_unit_id );
 
 ALTER TABLE ballot_style_image_uri
-    ADD CONSTRAINT ballot_style__image_uri_annotated_uri_fk FOREIGN KEY ( annotated_uri_id )
+    ADD CONSTRAINT ballot_style_image_uri_annotated_uri_fk FOREIGN KEY ( annotated_uri_id )
         REFERENCES annotated_uri ( annotated_uri_id );
 
 ALTER TABLE ballot_style_image_uri
-    ADD CONSTRAINT ballot_style__image_uri_ballot_style_fk FOREIGN KEY ( ballot_style_id )
+    ADD CONSTRAINT ballot_style_image_uri_ballot_style_fk FOREIGN KEY ( ballot_style_id )
         REFERENCES ballot_style ( ballot_style_id );
 
 ALTER TABLE ballot_style_party
-    ADD CONSTRAINT ballot_style__party_ballot_style_fk FOREIGN KEY ( ballot_style_id )
+    ADD CONSTRAINT ballot_style_party_ballot_style_fk FOREIGN KEY ( ballot_style_id )
         REFERENCES ballot_style ( ballot_style_id );
 
 ALTER TABLE ballot_style_party
-    ADD CONSTRAINT ballot_style__party_party_fk FOREIGN KEY ( party_id )
+    ADD CONSTRAINT ballot_style_party_party_fk FOREIGN KEY ( party_id )
         REFERENCES party ( party_id );
 
 ALTER TABLE ballot_style
@@ -1168,11 +1172,11 @@ ALTER TABLE ballot_style
         REFERENCES election ( election_id );
 
 ALTER TABLE candidate_external_identifier
-    ADD CONSTRAINT candidate__external_identifier_candidate_fk FOREIGN KEY ( candidate_id )
+    ADD CONSTRAINT candidate_external_identifier_candidate_fk FOREIGN KEY ( candidate_id )
         REFERENCES candidate ( candidate_id );
 
 ALTER TABLE candidate_external_identifier
-    ADD CONSTRAINT candidate__external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
+    ADD CONSTRAINT candidate_external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
         REFERENCES external_identifier ( external_identifier_id );
 
 ALTER TABLE candidate
@@ -1180,19 +1184,19 @@ ALTER TABLE candidate
         REFERENCES contact_information ( contact_information_id );
 
 ALTER TABLE candidate_contest_office
-    ADD CONSTRAINT candidate_contest__office_candidate_contest_fk FOREIGN KEY ( contest_id )
+    ADD CONSTRAINT candidate_contest_office_candidate_contest_fk FOREIGN KEY ( contest_id )
         REFERENCES candidate_contest ( contest_id );
 
 ALTER TABLE candidate_contest_office
-    ADD CONSTRAINT candidate_contest__office_office_fk FOREIGN KEY ( office_id )
+    ADD CONSTRAINT candidate_contest_office_office_fk FOREIGN KEY ( office_id )
         REFERENCES office ( office_id );
 
 ALTER TABLE candidate_contest_primary_party
-    ADD CONSTRAINT candidate_contest__primary_party_candidate_contest_fk FOREIGN KEY ( contest_id )
+    ADD CONSTRAINT candidate_contest_primary_party_candidate_contest_fk FOREIGN KEY ( contest_id )
         REFERENCES candidate_contest ( contest_id );
 
 ALTER TABLE candidate_contest_primary_party
-    ADD CONSTRAINT candidate_contest__primary_party_party_fk FOREIGN KEY ( party_id )
+    ADD CONSTRAINT candidate_contest_primary_party_party_fk FOREIGN KEY ( party_id )
         REFERENCES party ( party_id );
 
 ALTER TABLE candidate_contest
@@ -1212,19 +1216,19 @@ ALTER TABLE candidate
         REFERENCES person ( person_id );
 
 ALTER TABLE candidate_selection_candidate
-    ADD CONSTRAINT candidate_selection__candidate_candidate_fk FOREIGN KEY ( candidate_id )
+    ADD CONSTRAINT candidate_selection_candidate_candidate_fk FOREIGN KEY ( candidate_id )
         REFERENCES candidate ( candidate_id );
 
 ALTER TABLE candidate_selection_candidate
-    ADD CONSTRAINT candidate_selection__candidate_candidate_selection_fk FOREIGN KEY ( contest_selection_id )
+    ADD CONSTRAINT candidate_selection_candidate_candidate_selection_fk FOREIGN KEY ( contest_selection_id )
         REFERENCES candidate_selection ( contest_selection_id );
 
 ALTER TABLE candidate_selection_endorsement_party
-    ADD CONSTRAINT candidate_selection__endorsement_party_candidate_selection_fk FOREIGN KEY ( contest_selection_id )
+    ADD CONSTRAINT candidate_selection_endorsement_party_candidate_selection_fk FOREIGN KEY ( contest_selection_id )
         REFERENCES candidate_selection ( contest_selection_id );
 
 ALTER TABLE candidate_selection_endorsement_party
-    ADD CONSTRAINT candidate_selection__endorsement_party_party_fk FOREIGN KEY ( party_id )
+    ADD CONSTRAINT candidate_selection_endorsement_party_party_fk FOREIGN KEY ( party_id )
         REFERENCES party ( party_id );
 
 ALTER TABLE candidate_selection
@@ -1232,19 +1236,19 @@ ALTER TABLE candidate_selection
         REFERENCES contest_selection ( contest_selection_id );
 
 ALTER TABLE coalition_contest
-    ADD CONSTRAINT coalition__contest_coalition_fk FOREIGN KEY ( party_id )
+    ADD CONSTRAINT coalition_contest_coalition_fk FOREIGN KEY ( party_id )
         REFERENCES coalition ( party_id );
 
 ALTER TABLE coalition_contest
-    ADD CONSTRAINT coalition__contest_contest_fk FOREIGN KEY ( contest_id )
+    ADD CONSTRAINT coalition_contest_contest_fk FOREIGN KEY ( contest_id )
         REFERENCES contest ( contest_id );
 
 ALTER TABLE coalition_party
-    ADD CONSTRAINT coalition__party_coalition_fk FOREIGN KEY ( party_id1 )
+    ADD CONSTRAINT coalition_party_coalition_fk FOREIGN KEY ( party_id1 )
         REFERENCES coalition ( party_id );
 
 ALTER TABLE coalition_party
-    ADD CONSTRAINT coalition__party_party_fk FOREIGN KEY ( party_id )
+    ADD CONSTRAINT coalition_party_party_fk FOREIGN KEY ( party_id )
         REFERENCES party ( party_id );
 
 ALTER TABLE coalition
@@ -1252,35 +1256,35 @@ ALTER TABLE coalition
         REFERENCES party ( party_id );
 
 ALTER TABLE contact_information_email
-    ADD CONSTRAINT contact_information__email_annotated_string_fk FOREIGN KEY ( annotated_string_id )
+    ADD CONSTRAINT contact_information_email_annotated_string_fk FOREIGN KEY ( annotated_string_id )
         REFERENCES annotated_string ( annotated_string_id );
 
 ALTER TABLE contact_information_email
-    ADD CONSTRAINT contact_information__email_contact_information_fk FOREIGN KEY ( contact_information_id )
+    ADD CONSTRAINT contact_information_email_contact_information_fk FOREIGN KEY ( contact_information_id )
         REFERENCES contact_information ( contact_information_id );
 
 ALTER TABLE contact_information_fax
-    ADD CONSTRAINT contact_information__fax_annotated_string_fk FOREIGN KEY ( annotated_string_id )
+    ADD CONSTRAINT contact_information_fax_annotated_string_fk FOREIGN KEY ( annotated_string_id )
         REFERENCES annotated_string ( annotated_string_id );
 
 ALTER TABLE contact_information_fax
-    ADD CONSTRAINT contact_information__fax_contact_information_fk FOREIGN KEY ( contact_information_id )
+    ADD CONSTRAINT contact_information_fax_contact_information_fk FOREIGN KEY ( contact_information_id )
         REFERENCES contact_information ( contact_information_id );
 
 ALTER TABLE contact_information_phone
-    ADD CONSTRAINT contact_information__phone_annotated_string_fk FOREIGN KEY ( annotated_string_id )
+    ADD CONSTRAINT contact_information_phone_annotated_string_fk FOREIGN KEY ( annotated_string_id )
         REFERENCES annotated_string ( annotated_string_id );
 
 ALTER TABLE contact_information_phone
-    ADD CONSTRAINT contact_information__phone_contact_information_fk FOREIGN KEY ( contact_information_id )
+    ADD CONSTRAINT contact_information_phone_contact_information_fk FOREIGN KEY ( contact_information_id )
         REFERENCES contact_information ( contact_information_id );
 
 ALTER TABLE contact_information_uri
-    ADD CONSTRAINT contact_information__uri_annotated_uri_fk FOREIGN KEY ( annotated_uri_id )
+    ADD CONSTRAINT contact_information_uri_annotated_uri_fk FOREIGN KEY ( annotated_uri_id )
         REFERENCES annotated_uri ( annotated_uri_id );
 
 ALTER TABLE contact_information_uri
-    ADD CONSTRAINT contact_information__uri_contact_information_fk FOREIGN KEY ( contact_information_id )
+    ADD CONSTRAINT contact_information_uri_contact_information_fk FOREIGN KEY ( contact_information_id )
         REFERENCES contact_information ( contact_information_id );
 
 ALTER TABLE contact_information_address_line
@@ -1296,19 +1300,19 @@ ALTER TABLE contact_information
         REFERENCES person ( person_id );
 
 ALTER TABLE contest_count_status
-    ADD CONSTRAINT contest__count_status_contest_fk FOREIGN KEY ( contest_id )
+    ADD CONSTRAINT contest_count_status_contest_fk FOREIGN KEY ( contest_id )
         REFERENCES contest ( contest_id );
 
 ALTER TABLE contest_count_status
-    ADD CONSTRAINT contest__count_status_count_status_fk FOREIGN KEY ( count_status_id )
+    ADD CONSTRAINT contest_count_status_count_status_fk FOREIGN KEY ( count_status_id )
         REFERENCES count_status ( count_status_id );
 
 ALTER TABLE contest_external_identifier
-    ADD CONSTRAINT contest__external_identifier_contest_fk FOREIGN KEY ( contest_id )
+    ADD CONSTRAINT contest_external_identifier_contest_fk FOREIGN KEY ( contest_id )
         REFERENCES contest ( contest_id );
 
 ALTER TABLE contest_external_identifier
-    ADD CONSTRAINT contest__external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
+    ADD CONSTRAINT contest_external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
         REFERENCES external_identifier ( external_identifier_id );
 
 ALTER TABLE contest
@@ -1326,11 +1330,11 @@ ALTER TABLE contest_selection
         REFERENCES contest ( contest_id );
 
 ALTER TABLE counts_device_class
-    ADD CONSTRAINT counts__device_class_counts_fk FOREIGN KEY ( counts_id )
+    ADD CONSTRAINT counts_device_class_counts_fk FOREIGN KEY ( counts_id )
         REFERENCES counts ( counts_id );
 
 ALTER TABLE counts_device_class
-    ADD CONSTRAINT counts__device_class_device_class_fk FOREIGN KEY ( device_class_id )
+    ADD CONSTRAINT counts_device_class_device_class_fk FOREIGN KEY ( device_class_id )
         REFERENCES device_class ( device_class_id );
 
 ALTER TABLE counts
@@ -1338,27 +1342,27 @@ ALTER TABLE counts
         REFERENCES gp_unit ( gp_unit_id );
 
 ALTER TABLE election_count_status
-    ADD CONSTRAINT election__count_status_count_status_fk FOREIGN KEY ( count_status_id )
+    ADD CONSTRAINT election_count_status_count_status_fk FOREIGN KEY ( count_status_id )
         REFERENCES count_status ( count_status_id );
 
 ALTER TABLE election_count_status
-    ADD CONSTRAINT election__count_status_election_fk FOREIGN KEY ( election_id )
+    ADD CONSTRAINT election_count_status_election_fk FOREIGN KEY ( election_id )
         REFERENCES election ( election_id );
 
 ALTER TABLE election_external_identifier
-    ADD CONSTRAINT election__external_identifier_election_fk FOREIGN KEY ( election_id )
+    ADD CONSTRAINT election_external_identifier_election_fk FOREIGN KEY ( election_id )
         REFERENCES election ( election_id );
 
 ALTER TABLE election_external_identifier
-    ADD CONSTRAINT election__external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
+    ADD CONSTRAINT election_external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
         REFERENCES external_identifier ( external_identifier_id );
 
 ALTER TABLE election_administration_election_official_person
-    ADD CONSTRAINT election_administration__election_official_person_election_administration_fk FOREIGN KEY ( election_administration_id )
+    ADD CONSTRAINT election_administration_election_official_person_election_administration_fk FOREIGN KEY ( election_administration_id )
         REFERENCES election_administration ( election_administration_id );
 
 ALTER TABLE election_administration_election_official_person
-    ADD CONSTRAINT election_administration__election_official_person_person_fk FOREIGN KEY ( person_id )
+    ADD CONSTRAINT election_administration_election_official_person_person_fk FOREIGN KEY ( person_id )
         REFERENCES person ( person_id );
 
 ALTER TABLE election_administration
@@ -1374,11 +1378,11 @@ ALTER TABLE election
         REFERENCES election_report ( election_report_id );
 
 ALTER TABLE election_report_external_identifier
-    ADD CONSTRAINT election_report__external_identifier_election_report_fk FOREIGN KEY ( election_report_id )
+    ADD CONSTRAINT election_report_external_identifier_election_report_fk FOREIGN KEY ( election_report_id )
         REFERENCES election_report ( election_report_id );
 
 ALTER TABLE election_report_external_identifier
-    ADD CONSTRAINT election_report__external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
+    ADD CONSTRAINT election_report_external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
         REFERENCES external_identifier ( external_identifier_id );
 
 ALTER TABLE election
@@ -1388,19 +1392,19 @@ ALTER TABLE election
                                     reporting_unit_id );
 
 ALTER TABLE gp_unit_composing_gp_unit
-    ADD CONSTRAINT gp_unit__composing_gp_unit_gp_unit_fk FOREIGN KEY ( gp_unit_id )
+    ADD CONSTRAINT gp_unit_composing_gp_unit_gp_unit_fk FOREIGN KEY ( gp_unit_id )
         REFERENCES gp_unit ( gp_unit_id );
 
 ALTER TABLE gp_unit_composing_gp_unit
-    ADD CONSTRAINT gp_unit__composing_gp_unit_gp_unit_fkv1 FOREIGN KEY ( gp_unit_id1 )
+    ADD CONSTRAINT gp_unit_composing_gp_unit_gp_unit_fkv1 FOREIGN KEY ( gp_unit_id1 )
         REFERENCES gp_unit ( gp_unit_id );
 
 ALTER TABLE gp_unit_external_identifier
-    ADD CONSTRAINT gp_unit__external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
+    ADD CONSTRAINT gp_unit_external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
         REFERENCES external_identifier ( external_identifier_id );
 
 ALTER TABLE gp_unit_external_identifier
-    ADD CONSTRAINT gp_unit__external_identifier_gp_unit_fk FOREIGN KEY ( gp_unit_id )
+    ADD CONSTRAINT gp_unit_external_identifier_gp_unit_fk FOREIGN KEY ( gp_unit_id )
         REFERENCES gp_unit ( gp_unit_id );
 
 ALTER TABLE gp_unit
@@ -1408,11 +1412,11 @@ ALTER TABLE gp_unit
         REFERENCES election_report ( election_report_id );
 
 ALTER TABLE header_external_identifier
-    ADD CONSTRAINT header__external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
+    ADD CONSTRAINT header_external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
         REFERENCES external_identifier ( external_identifier_id );
 
 ALTER TABLE header_external_identifier
-    ADD CONSTRAINT header__external_identifier_header_fk FOREIGN KEY ( header_id )
+    ADD CONSTRAINT header_external_identifier_header_fk FOREIGN KEY ( header_id )
         REFERENCES header ( header_id );
 
 ALTER TABLE header
@@ -1424,19 +1428,19 @@ ALTER TABLE hours
         REFERENCES schedule ( schedule_id );
 
 ALTER TABLE office_external_identifier
-    ADD CONSTRAINT office__external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
+    ADD CONSTRAINT office_external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
         REFERENCES external_identifier ( external_identifier_id );
 
 ALTER TABLE office_external_identifier
-    ADD CONSTRAINT office__external_identifier_office_fk FOREIGN KEY ( office_id )
+    ADD CONSTRAINT office_external_identifier_office_fk FOREIGN KEY ( office_id )
         REFERENCES office ( office_id );
 
 ALTER TABLE office_office_holder_person
-    ADD CONSTRAINT office__office_holder_person_office_fk FOREIGN KEY ( office_id )
+    ADD CONSTRAINT office_office_holder_person_office_fk FOREIGN KEY ( office_id )
         REFERENCES office ( office_id );
 
 ALTER TABLE office_office_holder_person
-    ADD CONSTRAINT office__office_holder_person_person_fk FOREIGN KEY ( person_id )
+    ADD CONSTRAINT office_office_holder_person_person_fk FOREIGN KEY ( person_id )
         REFERENCES person ( person_id );
 
 ALTER TABLE office
@@ -1448,11 +1452,11 @@ ALTER TABLE office
         REFERENCES election_report ( election_report_id );
 
 ALTER TABLE office_group_office
-    ADD CONSTRAINT office_group__office_office_fk FOREIGN KEY ( office_id )
+    ADD CONSTRAINT office_group_office_office_fk FOREIGN KEY ( office_id )
         REFERENCES office ( office_id );
 
 ALTER TABLE office_group_office
-    ADD CONSTRAINT office_group__office_office_group_fk FOREIGN KEY ( office_group_id )
+    ADD CONSTRAINT office_group_office_office_group_fk FOREIGN KEY ( office_group_id )
         REFERENCES office_group ( office_group_id );
 
 ALTER TABLE office_group
@@ -1484,11 +1488,11 @@ ALTER TABLE ordered_content
                                     ordered_header_id );
 
 ALTER TABLE ordered_contest_ordered_contest_selection
-    ADD CONSTRAINT ordered_contest__ordered_contest_selection_contest_selection_fk FOREIGN KEY ( contest_selection_id )
+    ADD CONSTRAINT ordered_contest_ordered_contest_selection_contest_selection_fk FOREIGN KEY ( contest_selection_id )
         REFERENCES contest_selection ( contest_selection_id );
 
 ALTER TABLE ordered_contest_ordered_contest_selection
-    ADD CONSTRAINT ordered_contest__ordered_contest_selection_ordered_contest_fk FOREIGN KEY ( ordered_content_id )
+    ADD CONSTRAINT ordered_contest_ordered_contest_selection_ordered_contest_fk FOREIGN KEY ( ordered_content_id )
         REFERENCES ordered_contest ( ordered_content_id );
 
 ALTER TABLE ordered_contest
@@ -1508,11 +1512,11 @@ ALTER TABLE ordered_header
         REFERENCES ordered_content ( ordered_content_id );
 
 ALTER TABLE other_counts_device_class
-    ADD CONSTRAINT other_counts__device_class_device_class_fk FOREIGN KEY ( device_class_id )
+    ADD CONSTRAINT other_counts_device_class_device_class_fk FOREIGN KEY ( device_class_id )
         REFERENCES device_class ( device_class_id );
 
 ALTER TABLE other_counts_device_class
-    ADD CONSTRAINT other_counts__device_class_other_counts_fk FOREIGN KEY ( other_counts_id )
+    ADD CONSTRAINT other_counts_device_class_other_counts_fk FOREIGN KEY ( other_counts_id )
         REFERENCES other_counts ( other_counts_id );
 
 ALTER TABLE other_counts
@@ -1524,35 +1528,35 @@ ALTER TABLE other_counts
         REFERENCES gp_unit ( gp_unit_id );
 
 ALTER TABLE party_external_identifier
-    ADD CONSTRAINT party__external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
+    ADD CONSTRAINT party_external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
         REFERENCES external_identifier ( external_identifier_id );
 
 ALTER TABLE party_external_identifier
-    ADD CONSTRAINT party__external_identifier_party_fk FOREIGN KEY ( party_id )
+    ADD CONSTRAINT party_external_identifier_party_fk FOREIGN KEY ( party_id )
         REFERENCES party ( party_id );
 
 ALTER TABLE party_leader_person
-    ADD CONSTRAINT party__leader_person_party_fk FOREIGN KEY ( party_id )
+    ADD CONSTRAINT party_leader_person_party_fk FOREIGN KEY ( party_id )
         REFERENCES party ( party_id );
 
 ALTER TABLE party_leader_person
-    ADD CONSTRAINT party__leader_person_person_fk FOREIGN KEY ( person_id )
+    ADD CONSTRAINT party_leader_person_person_fk FOREIGN KEY ( person_id )
         REFERENCES person ( person_id );
 
 ALTER TABLE party_logo_uri
-    ADD CONSTRAINT party__logo_uri_annotated_uri_fk FOREIGN KEY ( annotated_uri_id )
+    ADD CONSTRAINT party_logo_uri_annotated_uri_fk FOREIGN KEY ( annotated_uri_id )
         REFERENCES annotated_uri ( annotated_uri_id );
 
 ALTER TABLE party_logo_uri
-    ADD CONSTRAINT party__logo_uri_party_fk FOREIGN KEY ( party_id )
+    ADD CONSTRAINT party_logo_uri_party_fk FOREIGN KEY ( party_id )
         REFERENCES party ( party_id );
 
 ALTER TABLE party_party_scope_gp_unit
-    ADD CONSTRAINT party__party_scope_gp_unit_gp_unit_fk FOREIGN KEY ( gp_unit_id )
+    ADD CONSTRAINT party_party_scope_gp_unit_gp_unit_fk FOREIGN KEY ( gp_unit_id )
         REFERENCES gp_unit ( gp_unit_id );
 
 ALTER TABLE party_party_scope_gp_unit
-    ADD CONSTRAINT party__party_scope_gp_unit_party_fk FOREIGN KEY ( party_id )
+    ADD CONSTRAINT party_party_scope_gp_unit_party_fk FOREIGN KEY ( party_id )
         REFERENCES party ( party_id );
 
 ALTER TABLE party
@@ -1578,11 +1582,11 @@ ALTER TABLE party_registration
                                     reporting_unit_id );
 
 ALTER TABLE party_selection_party
-    ADD CONSTRAINT party_selection__party_party_fk FOREIGN KEY ( party_id )
+    ADD CONSTRAINT party_selection_party_party_fk FOREIGN KEY ( party_id )
         REFERENCES party ( party_id );
 
 ALTER TABLE party_selection_party
-    ADD CONSTRAINT party_selection__party_party_selection_fk FOREIGN KEY ( contest_selection_id )
+    ADD CONSTRAINT party_selection_party_party_selection_fk FOREIGN KEY ( contest_selection_id )
         REFERENCES party_selection ( contest_selection_id );
 
 ALTER TABLE party_selection
@@ -1590,11 +1594,11 @@ ALTER TABLE party_selection
         REFERENCES contest_selection ( contest_selection_id );
 
 ALTER TABLE person_external_identifier
-    ADD CONSTRAINT person__external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
+    ADD CONSTRAINT person_external_identifier_external_identifier_fk FOREIGN KEY ( external_identifier_id )
         REFERENCES external_identifier ( external_identifier_id );
 
 ALTER TABLE person_external_identifier
-    ADD CONSTRAINT person__external_identifier_person_fk FOREIGN KEY ( person_id )
+    ADD CONSTRAINT person_external_identifier_person_fk FOREIGN KEY ( person_id )
         REFERENCES person ( person_id );
 
 ALTER TABLE person
@@ -1610,11 +1614,11 @@ ALTER TABLE person
         REFERENCES party ( party_id );
 
 ALTER TABLE reporting_device_device_class
-    ADD CONSTRAINT reporting_device__device_class_device_class_fk FOREIGN KEY ( device_class_id )
+    ADD CONSTRAINT reporting_device_device_class_device_class_fk FOREIGN KEY ( device_class_id )
         REFERENCES device_class ( device_class_id );
 
 ALTER TABLE reporting_device_device_class
-    ADD CONSTRAINT reporting_device__device_class_reporting_device_fk FOREIGN KEY ( gp_unit_id )
+    ADD CONSTRAINT reporting_device_device_class_reporting_device_fk FOREIGN KEY ( gp_unit_id )
         REFERENCES reporting_device ( gp_unit_id );
 
 ALTER TABLE reporting_device
@@ -1622,21 +1626,21 @@ ALTER TABLE reporting_device
         REFERENCES gp_unit ( gp_unit_id );
 
 ALTER TABLE reporting_unit_authority
-    ADD CONSTRAINT reporting_unit__authority_person_fk FOREIGN KEY ( person_id )
+    ADD CONSTRAINT reporting_unit_authority_person_fk FOREIGN KEY ( person_id )
         REFERENCES person ( person_id );
 
 ALTER TABLE reporting_unit_authority
-    ADD CONSTRAINT reporting_unit__authority_reporting_unit_fk FOREIGN KEY ( gp_unit_id,
+    ADD CONSTRAINT reporting_unit_authority_reporting_unit_fk FOREIGN KEY ( gp_unit_id,
                                                                              reporting_unit_id )
         REFERENCES reporting_unit ( gp_unit_id,
                                     reporting_unit_id );
 
 ALTER TABLE reporting_unit_count_status
-    ADD CONSTRAINT reporting_unit__count_status_count_status_fk FOREIGN KEY ( count_status_id )
+    ADD CONSTRAINT reporting_unit_count_status_count_status_fk FOREIGN KEY ( count_status_id )
         REFERENCES count_status ( count_status_id );
 
 ALTER TABLE reporting_unit_count_status
-    ADD CONSTRAINT reporting_unit__count_status_reporting_unit_fk FOREIGN KEY ( gp_unit_id,
+    ADD CONSTRAINT reporting_unit_count_status_reporting_unit_fk FOREIGN KEY ( gp_unit_id,
                                                                                 reporting_unit_id )
         REFERENCES reporting_unit ( gp_unit_id,
                                     reporting_unit_id );
@@ -1674,11 +1678,11 @@ ALTER TABLE schedule
         REFERENCES contact_information ( contact_information_id );
 
 ALTER TABLE spatial_dimension_map_uri
-    ADD CONSTRAINT spatial_dimension__map_uri_annotated_uri_fk FOREIGN KEY ( annotated_uri_id )
+    ADD CONSTRAINT spatial_dimension_map_uri_annotated_uri_fk FOREIGN KEY ( annotated_uri_id )
         REFERENCES annotated_uri ( annotated_uri_id );
 
 ALTER TABLE spatial_dimension_map_uri
-    ADD CONSTRAINT spatial_dimension__map_uri_spatial_dimension_fk FOREIGN KEY ( spatial_dimension_id )
+    ADD CONSTRAINT spatial_dimension_map_uri_spatial_dimension_fk FOREIGN KEY ( spatial_dimension_id )
         REFERENCES spatial_dimension ( spatial_dimension_id );
 
 ALTER TABLE spatial_dimension
@@ -1692,6 +1696,30 @@ ALTER TABLE vote_counts
 ALTER TABLE vote_counts
     ADD CONSTRAINT vote_counts_counts_fk FOREIGN KEY ( counts_id )
         REFERENCES counts ( counts_id );
+
+--  ERROR: No Discriminator Column found in Arc FKArc_4 - constraint trigger for Arc cannot be generated 
+
+--  ERROR: No Discriminator Column found in Arc FKArc_4 - constraint trigger for Arc cannot be generated
+
+--  ERROR: No Discriminator Column found in Arc FKArc_3 - constraint trigger for Arc cannot be generated 
+
+--  ERROR: No Discriminator Column found in Arc FKArc_3 - constraint trigger for Arc cannot be generated
+
+--  ERROR: No Discriminator Column found in Arc FKArc_5 - constraint trigger for Arc cannot be generated 
+
+--  ERROR: No Discriminator Column found in Arc FKArc_5 - constraint trigger for Arc cannot be generated
+
+--  ERROR: No Discriminator Column found in Arc FKArc_2 - constraint trigger for Arc cannot be generated 
+
+--  ERROR: No Discriminator Column found in Arc FKArc_2 - constraint trigger for Arc cannot be generated 
+
+--  ERROR: No Discriminator Column found in Arc FKArc_2 - constraint trigger for Arc cannot be generated
+
+--  ERROR: No Discriminator Column found in Arc FKArc_1 - constraint trigger for Arc cannot be generated 
+
+--  ERROR: No Discriminator Column found in Arc FKArc_1 - constraint trigger for Arc cannot be generated 
+
+--  ERROR: No Discriminator Column found in Arc FKArc_1 - constraint trigger for Arc cannot be generated
 
 CREATE SEQUENCE annotated_string_annotated_string_id_seq START WITH 1 NOCACHE ORDER;
 
@@ -2229,4 +2257,6 @@ END;
 -- ORDS DROP SCHEMA                         0
 -- ORDS ENABLE SCHEMA                       0
 -- ORDS ENABLE OBJECT                       0
-
+-- 
+-- ERRORS                                  17
+-- WARNINGS                                 0
