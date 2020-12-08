@@ -41,7 +41,7 @@ This prototype explores the use of the developed UML models to derive relational
 
 It is recommended to start with the pregenerated SQL Data Definition Language (DDL) scripts. If these scripts do not serve your needs, you can edit the Entity-Relational (logical) or relational model directly using the freely available [Oracle Data Modeler](https://www.oracle.com/tools/downloads/sql-data-modeler-downloads.html) and generate new DDL.
 
-The Relational Database Management System (RDBMS) format specific files are located in the `CVR/relational` and `ENR/v2/relational` directories of this repository, respectively.
+The Relational Database Management System (RDBMS) format specific files are located in the [CVR/relational](../CVR/relational) and [ENR/v2/relational](../ENR/v2/relational) directories of this repository, respectively.
 
 ### DDL Support
 
@@ -67,7 +67,7 @@ While Entity-Relational (ER) models do not require the length of the data type t
 
 The relational model has no concept of hierarchies (i.e. parent/child relationships). However, the concept can be simulated in a variety of ways, described below.
 
-- *Single Table*, subtype hierarchies flattened into a single table, a type discriminat used to determine which attributes should be used.
+- *Single Table*, subtype hierarchies flattened into a single table, a type discriminant used to determine which attributes should be used.
 - *Table per child*, table includes all attributes of child and parent in single table
 - *Table per entity*, maps 1-1 with UML model
 
