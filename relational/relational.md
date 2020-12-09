@@ -57,7 +57,7 @@ DDL scripts have been provided for Oracle and SQL Server. You can also generate 
 
 ### Additional Tasks
 
-This task describes additional, optional tasks that can be performed to customize the DDL to meet your individual needs.
+This task describes additional, optional tasks that can be performed to customize the DDL to meet your individual needs. You will need to use the [ODM designs](https://github.com/HiltonRoscoe/CDFOracleDataModels) to generate new DDL.
 
 #### Data Type Length
 
