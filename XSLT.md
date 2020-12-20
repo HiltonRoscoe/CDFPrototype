@@ -16,6 +16,6 @@ Efforts have been made to use new features only when necessary, to ensure compat
 
 | Available Processors | XSLT2 | XSLT3 | License     |
 |----------------------|-------|-------|-------------|
-| Saxon-PE             |       | x     | Open Source |
-| Saxon-EE             |       | SA    | Commercial  |
-| AltovaXML            | SA    |       | Gratis      |
+| [Saxon-HE](https://www.saxonica.com/products/feature-matrix-10.xml)             |       | x     | Open Source |
+| [Saxon-EE](https://www.saxonica.com/products/feature-matrix-10.xml)             |       | SA    | Commercial  |
+| [AltovaXML](http://cdn.sw.altova.com/v2013r2/en/AltovaXMLCmu2013.exe)            | SA    |       | Gratis      |
