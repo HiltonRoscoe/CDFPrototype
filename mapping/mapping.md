@@ -37,7 +37,7 @@ The development of the NIST 1500 series Common Data Formats (CDFs) has followed 
 
 The UML Class Model is a graph data structure. However, the two supported implementation formats (JSON and XML) are hierarchical (also called a tree). All hierarchies must start with a root, which is indicated in the UML model as a class with the `«root»` stereotype applied.
 
-![Root element of the Election Results Reporting CDF](./mapping/ElectionResultsReporting_root.svg)
+![Root element of the Election Results Reporting CDF](./images/ElectionResultsReporting_root.svg)
 
 Figure: Root element of the Election Results Reporting CDF
 
@@ -59,7 +59,7 @@ The UML model uses a number of primitive and specialized types based on the UML 
 UML provides two mechanisms to represent properties between classifiers: attributes and associations.
 
 - Generally, attributes are used for data types (see [Data Type Mapping](#data-type-mapping)) and enumerations.
-- Associations are always used to represented properties between classes
+- Associations are always used to represent properties between classes
 
 ### Associations
 
@@ -67,7 +67,7 @@ In the NIST 1500 CDFs, all associations are directed. A directed association eit
 
 The navigable role end (i.e. the end with the arrow) will always have a multiplicity specified. However, the role name may be omitted. In this case, the role takes the name of the class it refers.
 
-![Directed association with a role name](./mapping/directed_association_role_name.svg)
+![Directed association with a role name](./images/directed_association_role_name.svg)
 
 Figure: A directed association with a role name
 
@@ -97,7 +97,7 @@ Some classes of data may be referenced again and again, for example political pa
 The CDF model represents these references as directed associations between classes.
 
 Here we define a reusable `ReportingUnit` that is referenced by multiple `Contests`.
-![Image of UML Model](MDAExample.png)
+![Image of UML Model](./images/MDAExample.png)
 
 Figure: Representation of a UML Instance using references.
 
@@ -263,7 +263,7 @@ Generalizations in XML are represented using the `xsi:type` attribute.
 </Contest>
 ```
 
-> All elements of the parent class must appear before **any** of the elements for the child class.
+> (XML only) All elements of the parent class must appear before **any** of the elements for the child class.
 
 A namespace declaration must be specified for `xsi`, e.g.
 

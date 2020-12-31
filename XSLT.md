@@ -14,6 +14,8 @@ Many of the developed prototypes use [XSL Transformations (XSLT)](https://www.w3
 
 Efforts have been made to use new features only when necessary, to ensure compatibility with as many processors as possible.
 
+Below is a list processors tested for use by the CDF Prototypes. There are several others available.
+
 | Available Processors | XSLT2 | XSLT3 | License     |
 |----------------------|-------|-------|-------------|
 | [Saxon-HE](https://www.saxonica.com/products/feature-matrix-10.xml)             |       | x     | Open Source |
