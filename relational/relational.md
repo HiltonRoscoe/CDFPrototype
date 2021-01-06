@@ -31,7 +31,7 @@
 
 ## Executive Summary
 
-The [NIST Special Publication (SP) 1500 series common data formats](https://nist.ent.sirsi.net/client/en_US/default/search/results?qu=%22Special+Publication+1500%22&te=ILS&lm=NISTPUBS&rt=false%7C%7C%7CSERIES%7C%7C%7CSeries) were developed from a high level UML model ([more here](../mapping.md)). One advantage of this approach is that many implementation formats can be derived from it. NIST provides JSON and XML schemas, but other formats are possible.
+The [NIST Special Publication (SP) 1500 series common data formats](https://nist.ent.sirsi.net/client/en_US/default/search/results?qu=%22Special+Publication+1500%22&te=ILS&lm=NISTPUBS&rt=false%7C%7C%7CSERIES%7C%7C%7CSeries) were developed from a high level UML model ([more here](../mapping/mapping.md)). One advantage of this approach is that many implementation formats can be derived from it. NIST provides JSON and XML schemas, but other formats are possible.
 
 Although NoSQL has picked up some traction, the vast majority of systems of record (e.g. Election Management System) continue to use the relational (SQL) databases. To interoperate between such systems, it must map not only the syntax of JSON or XML, but also the semantics, or meaning of the data. The difficulty of mapping can be eased somewhat if both the system of record and CDFs use the same conceptual definitions.
 
