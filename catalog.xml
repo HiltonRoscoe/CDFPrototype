@@ -2,8 +2,7 @@
 <!DOCTYPE catalog PUBLIC "-//OASIS//DTD XML Catalogs V1.1//EN" "http://www.oasis-open.org/committees/entity/release/1.1/catalog.dtd">
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <uri name="http://itl.nist.gov/ns/voting/1500-103/v1" uri="https://raw.githubusercontent.com/usnistgov/CastVoteRecords/master/NIST_V0_cast_vote_records.xsd"/>
-    <uri name="http://itl.nist.gov/ns/voting/1500-101/v1" uri="https://raw.githubusercontent.com/usnistgov/ElectionEventLogging/master/NIST_V1_election_event_logging.xsd"/>
-    <!-- need updating -->
-    <uri name="NIST_V2_election_results_reporting.xsd" uri="https://raw.githubusercontent.com/usnistgov/ElectionResultsReporting/829995caa5e174038eb89aefd098d449acbdbd99/NIST_V2_election_results_reporting.xsd"/>
-    <uri name="NIST_V0_voter_records_interchange.xsd" uri="https://raw.githubusercontent.com/usnistgov/VoterRecordsInterchange/master/NIST_V0_voter_records_interchange.xsd"/>        
+    <uri name="http://itl.nist.gov/ns/voting/1500-101/v1" uri="https://raw.githubusercontent.com/usnistgov/ElectionEventLogging/master/NIST_V1_election_event_logging.xsd"/>    
+    <uri name="http://itl.nist.gov/ns/voting/1500-100/v2" uri="https://raw.githubusercontent.com/usnistgov/ElectionResultsReporting/version2/NIST_V2_election_results_reporting.xsd"/>
+    <uri name="http://itl.nist.gov/ns/voting/1500-102/v1" uri="https://raw.githubusercontent.com/usnistgov/VoterRecordsInterchange/master/NIST_V0_voter_records_interchange.xsd"/>        
 </catalog>
