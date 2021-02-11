@@ -6,10 +6,10 @@ MagicDraw Template for Schematron (SchematronMD)
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2"
     xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <sch:ns uri="NIST_V0_cast_vote_records.xsd" prefix="cdf"/>
+    <sch:ns uri="http://itl.nist.gov/ns/voting/1500-103/v1" prefix="cdf"/>
     <sch:ns uri="http://www.w3.org/2001/XMLSchema-instance" prefix="xsi"/>
-    <xsl:import-schema namespace="NIST_V0_cast_vote_records.xsd"
-        schema-location="NIST_V0_cast_vote_records.xsd"/>
+    <xsl:import-schema namespace="http://itl.nist.gov/ns/voting/1500-103/v1"
+        schema-location="https://raw.githubusercontent.com/usnistgov/CastVoteRecords/master/NIST_V0_cast_vote_records.xsd"/>
     <sch:pattern>
         <sch:rule context="element(*, cdf:Candidate)">
             <sch:assert
