@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- DISCLAIMER: This is an example file with containing intentional mistakes, to demonstrate the use of Schematron rulesets. -->
-<ElectionReport xmlns="NIST_V2_election_results_reporting.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="NIST_V2_election_results_reporting.xsd NIST_V2_election_results_reporting.xsd">
+<!-- DISCLAIMER: This is an example file containing intentional mistakes, to demonstrate the use of Schematron rulesets. -->
+<ElectionReport xmlns="http://itl.nist.gov/ns/voting/1500-100/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://itl.nist.gov/ns/voting/1500-100/v2 https://raw.githubusercontent.com/usnistgov/ElectionResultsReporting/version2/NIST_V2_election_results_reporting.xsd">
 	<Election>
 		<Candidate ObjectId="_E2627A55-9636-E811-8104-0050568C2FC0">
 			<BallotName>
