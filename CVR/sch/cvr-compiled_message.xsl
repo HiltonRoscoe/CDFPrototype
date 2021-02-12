@@ -3,12 +3,12 @@
                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                 xmlns:saxon="http://saxon.sf.net/"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:schold="http://www.ascc.net/xml/schematron"
-                xmlns:iso="http://purl.oclc.org/dsdl/schematron"
                 xmlns:xhtml="http://www.w3.org/1999/xhtml"
-                xmlns:cdf="NIST_V0_cast_vote_records.xsd"
+                xmlns:oxy="http://www.oxygenxml.com/schematron/validation"
+                xmlns:cdf="http://itl.nist.gov/ns/voting/1500-103/v1"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                version="2.0"><!--Implementers: please note that overriding process-prolog or process-root is 
+                version="2.0"
+                xml:base="file:/C:/Users/john/Documents/GitHub/CDFPrototype/CVR/sch/cvr.sch_xslt_cascade"><!--Implementers: please note that overriding process-prolog or process-root is 
     the preferred method for meta-stylesheets to use where possible. -->
    <xsl:param name="archiveDirParameter"/>
    <xsl:param name="archiveNameParameter"/>
@@ -19,16 +19,12 @@
    </xsl:variable>
    <!--PHASES-->
    <!--PROLOG-->
-   <xsl:output xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-               method="xml"
-               omit-xml-declaration="no"
-               standalone="yes"
-               indent="yes"/>
+   <xsl:output xmlns:iso="http://purl.oclc.org/dsdl/schematron" method="xml"/>
    <!--XSD TYPES FOR XSLT2-->
    <xsl:import-schema xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                      namespace="NIST_V0_cast_vote_records.xsd"
-                      schema-location="https://raw.githubusercontent.com/usnistgov/CastVoteRecords/14dfe26a9466524624d93345a715ecd3155fd4fd/NIST_V0_cast_vote_records.xsd"/>
+                      namespace="http://itl.nist.gov/ns/voting/1500-103/v1"
+                      schema-location="https://raw.githubusercontent.com/usnistgov/CastVoteRecords/master/NIST_V0_cast_vote_records.xsd"/>
    <!--KEYS AND FUNCTIONS-->
    <!--DEFAULT RULES-->
    <!--MODE: SCHEMATRON-SELECT-FULL-PATH-->
@@ -39,7 +35,17 @@
    <!--MODE: SCHEMATRON-FULL-PATH-->
    <!--This mode can be used to generate an ugly though full XPath for locators-->
    <xsl:template match="*" mode="schematron-get-full-path">
-      <xsl:apply-templates select="parent::*" mode="schematron-get-full-path"/>
+      <xsl:variable name="sameUri">
+         <xsl:value-of select="saxon:system-id() = parent::node()/saxon:system-id()"
+                       use-when="function-available('saxon:system-id')"/>
+         <xsl:value-of select="oxy:system-id(.) = oxy:system-id(parent::node())"
+                       use-when="not(function-available('saxon:system-id')) and function-available('oxy:system-id')"/>
+         <xsl:value-of select="true()"
+                       use-when="not(function-available('saxon:system-id')) and not(function-available('oxy:system-id'))"/>
+      </xsl:variable>
+      <xsl:if test="$sameUri = 'true'">
+         <xsl:apply-templates select="parent::*" mode="schematron-get-full-path"/>
+      </xsl:if>
       <xsl:text>/</xsl:text>
       <xsl:choose>
          <xsl:when test="namespace-uri()=''">
@@ -53,11 +59,13 @@
             <xsl:text>']</xsl:text>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:variable name="preceding"
-                    select="count(preceding-sibling::*[local-name()=local-name(current())                                   and namespace-uri() = namespace-uri(current())])"/>
-      <xsl:text>[</xsl:text>
-      <xsl:value-of select="1+ $preceding"/>
-      <xsl:text>]</xsl:text>
+      <xsl:if test="$sameUri = 'true'">
+         <xsl:variable name="preceding"
+                       select="count(preceding-sibling::*[local-name()=local-name(current())       and namespace-uri() = namespace-uri(current())])"/>
+         <xsl:text>[</xsl:text>
+         <xsl:value-of select="1+ $preceding"/>
+         <xsl:text>]</xsl:text>
+      </xsl:if>
    </xsl:template>
    <xsl:template match="@*" mode="schematron-get-full-path">
       <xsl:apply-templates select="parent::*" mode="schematron-get-full-path"/>
@@ -73,6 +81,34 @@
             <xsl:text>']</xsl:text>
          </xsl:otherwise>
       </xsl:choose>
+   </xsl:template>
+   <xsl:template match="text()" mode="schematron-get-full-path">
+      <xsl:apply-templates select="parent::*" mode="schematron-get-full-path"/>
+      <xsl:text>/</xsl:text>
+      <xsl:text>text()</xsl:text>
+      <xsl:variable name="preceding" select="count(preceding-sibling::text())"/>
+      <xsl:text>[</xsl:text>
+      <xsl:value-of select="1+ $preceding"/>
+      <xsl:text>]</xsl:text>
+   </xsl:template>
+   <xsl:template match="comment()" mode="schematron-get-full-path">
+      <xsl:apply-templates select="parent::*" mode="schematron-get-full-path"/>
+      <xsl:text>/</xsl:text>
+      <xsl:text>comment()</xsl:text>
+      <xsl:variable name="preceding" select="count(preceding-sibling::comment())"/>
+      <xsl:text>[</xsl:text>
+      <xsl:value-of select="1+ $preceding"/>
+      <xsl:text>]</xsl:text>
+   </xsl:template>
+   <xsl:template match="processing-instruction()" mode="schematron-get-full-path">
+      <xsl:apply-templates select="parent::*" mode="schematron-get-full-path"/>
+      <xsl:text>/</xsl:text>
+      <xsl:text>processing-instruction()</xsl:text>
+      <xsl:variable name="preceding"
+                    select="count(preceding-sibling::processing-instruction())"/>
+      <xsl:text>[</xsl:text>
+      <xsl:value-of select="1+ $preceding"/>
+      <xsl:text>]</xsl:text>
    </xsl:template>
    <!--MODE: SCHEMATRON-FULL-PATH-2-->
    <!--This mode can be used to generate prefixed XPath for humans-->
@@ -154,496 +190,397 @@
    <xsl:template match="text()" priority="-1"/>
    <!--SCHEMA SETUP-->
    <xsl:template match="/">
-      <svrl:schematron-output xmlns:svrl="http://purl.oclc.org/dsdl/svrl" title="" schemaVersion="">
-         <xsl:comment>
-            <xsl:value-of select="$archiveDirParameter"/>   
-		 <xsl:value-of select="$archiveNameParameter"/>  
-		 <xsl:value-of select="$fileNameParameter"/>  
-		 <xsl:value-of select="$fileDirParameter"/>
-         </xsl:comment>
-         <svrl:ns-prefix-in-attribute-values uri="NIST_V0_cast_vote_records.xsd" prefix="cdf"/>
-         <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/2001/XMLSchema-instance" prefix="xsi"/>
-         <svrl:active-pattern>
-            <xsl:attribute name="document">
-               <xsl:value-of select="document-uri(/)"/>
-            </xsl:attribute>
-            <xsl:apply-templates/>
-         </svrl:active-pattern>
-         <xsl:apply-templates select="/" mode="M3"/>
-      </svrl:schematron-output>
+      <xsl:apply-templates select="/" mode="M3"/>
    </xsl:template>
    <!--SCHEMATRON PATTERNS-->
    <!--PATTERN -->
    <!--RULE -->
    <xsl:template match="element(*, cdf:Candidate)" priority="1015" mode="M3">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                       context="element(*, cdf:Candidate)"/>
-      <!--ASSERT -->
+
+		<!--ASSERT -->
       <xsl:choose>
          <xsl:when test="count(idref(current()/@ObjectId)[(local-name() = 'CandidateIds' and .. instance of element(*, cdf:CandidateSelection)) or (local-name() = 'CandidateId' and .. instance of element(*, cdf:RetentionContest))]) &gt; 0"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="count(idref(current()/@ObjectId)[(local-name() = 'CandidateIds' and .. instance of element(*, cdf:CandidateSelection)) or (local-name() = 'CandidateId' and .. instance of element(*, cdf:RetentionContest))]) &gt; 0">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>Candidate (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="current()/@ObjectId"/>) must have refereant from
-                CandidateSelection, RetentionContest</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>Candidate (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="current()/@ObjectId"/>
+               <xsl:text>) must have refereant from CandidateSelection, RetentionContest</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
       <!--ASSERT -->
       <xsl:choose>
          <xsl:when test="not(id(cdf:PartyId)[not(. instance of element(*, cdf:Party))])"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(id(cdf:PartyId)[not(. instance of element(*, cdf:Party))])">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>PartyId (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="cdf:PartyId"/>) must point to an element of type
-                Party</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>PartyId (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="cdf:PartyId"/>
+               <xsl:text>) must point to an element of type Party</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M3"/>
+      <xsl:apply-templates select="node()" mode="M3"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="element(*, cdf:CandidateContest)" priority="1014" mode="M3">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                       context="element(*, cdf:CandidateContest)"/>
-      <!--ASSERT -->
+
+		<!--ASSERT -->
       <xsl:choose>
          <xsl:when test="not(id(cdf:PrimaryPartyId)[not(. instance of element(*, cdf:Party))])"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(id(cdf:PrimaryPartyId)[not(. instance of element(*, cdf:Party))])">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>PrimaryPartyId (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="cdf:PrimaryPartyId"/>) must point to an
-                element of type Party</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>PrimaryPartyId (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="cdf:PrimaryPartyId"/>
+               <xsl:text>) must point to an element of type Party</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M3"/>
+      <xsl:apply-templates select="node()" mode="M3"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="element(*, cdf:CandidateSelection)"
                  priority="1013"
                  mode="M3">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                       context="element(*, cdf:CandidateSelection)"/>
-      <!--ASSERT -->
+
+		<!--ASSERT -->
       <xsl:choose>
          <xsl:when test="not(id(cdf:CandidateIds)[not(. instance of element(*, cdf:Candidate))])"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(id(cdf:CandidateIds)[not(. instance of element(*, cdf:Candidate))])">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>CandidateIds (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="cdf:CandidateIds"/>) must point to an element
-                of type Candidate</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>CandidateIds (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="cdf:CandidateIds"/>
+               <xsl:text>) must point to an element of type Candidate</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M3"/>
+      <xsl:apply-templates select="node()" mode="M3"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="element(*, cdf:CastVoteRecordReport)"
                  priority="1012"
                  mode="M3">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                       context="element(*, cdf:CastVoteRecordReport)"/>
-      <!--ASSERT -->
+
+		<!--ASSERT -->
       <xsl:choose>
          <xsl:when test="not(id(cdf:ReportGeneratingDeviceIds)[not(. instance of element(*, cdf:ReportingDevice))])"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(id(cdf:ReportGeneratingDeviceIds)[not(. instance of element(*, cdf:ReportingDevice))])">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>ReportGeneratingDeviceIds (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="cdf:ReportGeneratingDeviceIds"/>)
-                must point to an element of type ReportingDevice</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>ReportGeneratingDeviceIds (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="cdf:ReportGeneratingDeviceIds"/>
+               <xsl:text>) must point to an element of type ReportingDevice</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M3"/>
+      <xsl:apply-templates select="node()" mode="M3"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="element(*, cdf:Contest)" priority="1011" mode="M3">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                       context="element(*, cdf:Contest)"/>
-      <!--ASSERT -->
+
+		<!--ASSERT -->
       <xsl:choose>
          <xsl:when test="count(idref(current()/@ObjectId)[(local-name() = 'ContestId' and .. instance of element(*, cdf:CVRContest))]) &gt; 0"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="count(idref(current()/@ObjectId)[(local-name() = 'ContestId' and .. instance of element(*, cdf:CVRContest))]) &gt; 0">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>Contest (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="current()/@ObjectId"/>) must have refereant from
-                CVRContest</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>Contest (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="current()/@ObjectId"/>
+               <xsl:text>) must have refereant from CVRContest</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M3"/>
+      <xsl:apply-templates select="node()" mode="M3"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="element(*, cdf:ContestSelection)" priority="1010" mode="M3">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                       context="element(*, cdf:ContestSelection)"/>
-      <!--ASSERT -->
+
+		<!--ASSERT -->
       <xsl:choose>
          <xsl:when test="count(idref(current()/@ObjectId)[(local-name() = 'ContestSelectionId' and .. instance of element(*, cdf:CVRContestSelection))]) &gt; 0"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="count(idref(current()/@ObjectId)[(local-name() = 'ContestSelectionId' and .. instance of element(*, cdf:CVRContestSelection))]) &gt; 0">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>ContestSelection (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="current()/@ObjectId"/>) must have refereant
-                from CVRContestSelection</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>ContestSelection (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="current()/@ObjectId"/>
+               <xsl:text>) must have refereant from CVRContestSelection</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M3"/>
+      <xsl:apply-templates select="node()" mode="M3"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="element(*, cdf:CVR)" priority="1009" mode="M3">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="element(*, cdf:CVR)"/>
-      <!--ASSERT -->
+
+		<!--ASSERT -->
       <xsl:choose>
          <xsl:when test="not(id(cdf:CreatingDeviceId)[not(. instance of element(*, cdf:ReportingDevice))])"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(id(cdf:CreatingDeviceId)[not(. instance of element(*, cdf:ReportingDevice))])">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>CreatingDeviceId (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="cdf:CreatingDeviceId"/>) must point to an
-                element of type ReportingDevice</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>CreatingDeviceId (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="cdf:CreatingDeviceId"/>
+               <xsl:text>) must point to an element of type ReportingDevice</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
       <!--ASSERT -->
       <xsl:choose>
          <xsl:when test="not(id(cdf:ElectionId)[not(. instance of element(*, cdf:Election))])"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(id(cdf:ElectionId)[not(. instance of element(*, cdf:Election))])">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>ElectionId (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="cdf:ElectionId"/>) must point to an element of
-                type Election</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>ElectionId (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="cdf:ElectionId"/>
+               <xsl:text>) must point to an element of type Election</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
       <!--ASSERT -->
       <xsl:choose>
          <xsl:when test="not(id(cdf:CurrentSnapshotId)[not(. instance of element(*, cdf:CVRSnapshot))])"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(id(cdf:CurrentSnapshotId)[not(. instance of element(*, cdf:CVRSnapshot))])">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>CurrentSnapshotId (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="cdf:CurrentSnapshotId"/>) must point to an
-                element of type CVRSnapshot</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>CurrentSnapshotId (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="cdf:CurrentSnapshotId"/>
+               <xsl:text>) must point to an element of type CVRSnapshot</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
       <!--ASSERT -->
       <xsl:choose>
          <xsl:when test="not(id(cdf:PartyIds)[not(. instance of element(*, cdf:Party))])"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(id(cdf:PartyIds)[not(. instance of element(*, cdf:Party))])">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>PartyIds (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="cdf:PartyIds"/>) must point to an element of type
-                Party</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>PartyIds (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="cdf:PartyIds"/>
+               <xsl:text>) must point to an element of type Party</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
       <!--ASSERT -->
       <xsl:choose>
          <xsl:when test="not(id(cdf:BallotStyleUnitId)[not(. instance of element(*, cdf:GpUnit))])"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(id(cdf:BallotStyleUnitId)[not(. instance of element(*, cdf:GpUnit))])">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>BallotStyleUnitId (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="cdf:BallotStyleUnitId"/>) must point to an
-                element of type GpUnit</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>BallotStyleUnitId (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="cdf:BallotStyleUnitId"/>
+               <xsl:text>) must point to an element of type GpUnit</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M3"/>
+      <xsl:apply-templates select="node()" mode="M3"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="element(*, cdf:CVRContest)" priority="1008" mode="M3">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                       context="element(*, cdf:CVRContest)"/>
-      <!--ASSERT -->
+
+		<!--ASSERT -->
       <xsl:choose>
          <xsl:when test="not(id(cdf:ContestId)[not(. instance of element(*, cdf:Contest))])"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(id(cdf:ContestId)[not(. instance of element(*, cdf:Contest))])">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>ContestId (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="cdf:ContestId"/>) must point to an element of type
-                Contest</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>ContestId (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="cdf:ContestId"/>
+               <xsl:text>) must point to an element of type Contest</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M3"/>
+      <xsl:apply-templates select="node()" mode="M3"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="element(*, cdf:CVRContestSelection)"
                  priority="1007"
                  mode="M3">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                       context="element(*, cdf:CVRContestSelection)"/>
-      <!--ASSERT -->
+
+		<!--ASSERT -->
       <xsl:choose>
          <xsl:when test="not(id(cdf:ContestSelectionId)[not(. instance of element(*, cdf:ContestSelection))])"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(id(cdf:ContestSelectionId)[not(. instance of element(*, cdf:ContestSelection))])">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>ContestSelectionId (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="cdf:ContestSelectionId"/>) must point to
-                an element of type ContestSelection</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>ContestSelectionId (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="cdf:ContestSelectionId"/>
+               <xsl:text>) must point to an element of type ContestSelection</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M3"/>
+      <xsl:apply-templates select="node()" mode="M3"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="element(*, cdf:CVRSnapshot)" priority="1006" mode="M3">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                       context="element(*, cdf:CVRSnapshot)"/>
-      <!--ASSERT -->
+
+		<!--ASSERT -->
       <xsl:choose>
          <xsl:when test="count(idref(current()/@ObjectId)[(local-name() = 'CurrentSnapshotId' and .. instance of element(*, cdf:CVR))]) &gt; 0"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="count(idref(current()/@ObjectId)[(local-name() = 'CurrentSnapshotId' and .. instance of element(*, cdf:CVR))]) &gt; 0">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>CVRSnapshot (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="current()/@ObjectId"/>) must have refereant from
-                CVR</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>CVRSnapshot (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="current()/@ObjectId"/>
+               <xsl:text>) must have refereant from CVR</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M3"/>
+      <xsl:apply-templates select="node()" mode="M3"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="element(*, cdf:Election)" priority="1005" mode="M3">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                       context="element(*, cdf:Election)"/>
-      <!--ASSERT -->
+
+		<!--ASSERT -->
       <xsl:choose>
          <xsl:when test="count(idref(current()/@ObjectId)[(local-name() = 'ElectionId' and .. instance of element(*, cdf:CVR))]) &gt; 0"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="count(idref(current()/@ObjectId)[(local-name() = 'ElectionId' and .. instance of element(*, cdf:CVR))]) &gt; 0">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>Election (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="current()/@ObjectId"/>) must have refereant from
-                CVR</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>Election (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="current()/@ObjectId"/>
+               <xsl:text>) must have refereant from CVR</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
       <!--ASSERT -->
       <xsl:choose>
          <xsl:when test="not(id(cdf:ElectionScopeId)[not(. instance of element(*, cdf:GpUnit))])"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(id(cdf:ElectionScopeId)[not(. instance of element(*, cdf:GpUnit))])">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>ElectionScopeId (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="cdf:ElectionScopeId"/>) must point to an
-                element of type GpUnit</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>ElectionScopeId (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="cdf:ElectionScopeId"/>
+               <xsl:text>) must point to an element of type GpUnit</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M3"/>
+      <xsl:apply-templates select="node()" mode="M3"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="element(*, cdf:GpUnit)" priority="1004" mode="M3">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                       context="element(*, cdf:GpUnit)"/>
-      <!--ASSERT -->
+
+		<!--ASSERT -->
       <xsl:choose>
          <xsl:when test="count(idref(current()/@ObjectId)[(local-name() = 'ElectionScopeId' and .. instance of element(*, cdf:Election)) or (local-name() = 'BallotStyleUnitId' and .. instance of element(*, cdf:CVR))]) &gt; 0"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="count(idref(current()/@ObjectId)[(local-name() = 'ElectionScopeId' and .. instance of element(*, cdf:Election)) or (local-name() = 'BallotStyleUnitId' and .. instance of element(*, cdf:CVR))]) &gt; 0">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>GpUnit (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="current()/@ObjectId"/>) must have refereant from
-                Election, CVR</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>GpUnit (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="current()/@ObjectId"/>
+               <xsl:text>) must have refereant from Election, CVR</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
       <!--ASSERT -->
       <xsl:choose>
          <xsl:when test="not(id(cdf:ReportingDeviceIds)[not(. instance of element(*, cdf:ReportingDevice))])"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(id(cdf:ReportingDeviceIds)[not(. instance of element(*, cdf:ReportingDevice))])">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>ReportingDeviceIds (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="cdf:ReportingDeviceIds"/>) must point to
-                an element of type ReportingDevice</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>ReportingDeviceIds (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="cdf:ReportingDeviceIds"/>
+               <xsl:text>) must point to an element of type ReportingDevice</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M3"/>
+      <xsl:apply-templates select="node()" mode="M3"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="element(*, cdf:Party)" priority="1003" mode="M3">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="element(*, cdf:Party)"/>
-      <!--ASSERT -->
+
+		<!--ASSERT -->
       <xsl:choose>
          <xsl:when test="count(idref(current()/@ObjectId)[(local-name() = 'PartyIds' and .. instance of element(*, cdf:PartySelection)) or (local-name() = 'PartyIds' and .. instance of element(*, cdf:CVR)) or (local-name() = 'PrimaryPartyId' and .. instance of element(*, cdf:CandidateContest)) or (local-name() = 'PartyId' and .. instance of element(*, cdf:Candidate))]) &gt; 0"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="count(idref(current()/@ObjectId)[(local-name() = 'PartyIds' and .. instance of element(*, cdf:PartySelection)) or (local-name() = 'PartyIds' and .. instance of element(*, cdf:CVR)) or (local-name() = 'PrimaryPartyId' and .. instance of element(*, cdf:CandidateContest)) or (local-name() = 'PartyId' and .. instance of element(*, cdf:Candidate))]) &gt; 0">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>Party (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="current()/@ObjectId"/>) must have refereant from
-                PartySelection, CVR, CandidateContest, Candidate</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>Party (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="current()/@ObjectId"/>
+               <xsl:text>) must have refereant from PartySelection, CVR, CandidateContest, Candidate</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M3"/>
+      <xsl:apply-templates select="node()" mode="M3"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="element(*, cdf:PartySelection)" priority="1002" mode="M3">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                       context="element(*, cdf:PartySelection)"/>
-      <!--ASSERT -->
+
+		<!--ASSERT -->
       <xsl:choose>
          <xsl:when test="not(id(cdf:PartyIds)[not(. instance of element(*, cdf:Party))])"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(id(cdf:PartyIds)[not(. instance of element(*, cdf:Party))])">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>PartyIds (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="cdf:PartyIds"/>) must point to an element of type
-                Party</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>PartyIds (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="cdf:PartyIds"/>
+               <xsl:text>) must point to an element of type Party</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M3"/>
+      <xsl:apply-templates select="node()" mode="M3"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="element(*, cdf:ReportingDevice)" priority="1001" mode="M3">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                       context="element(*, cdf:ReportingDevice)"/>
-      <!--ASSERT -->
+
+		<!--ASSERT -->
       <xsl:choose>
          <xsl:when test="count(idref(current()/@ObjectId)[(local-name() = 'CreatingDeviceId' and .. instance of element(*, cdf:CVR)) or (local-name() = 'ReportingDeviceIds' and .. instance of element(*, cdf:GpUnit)) or (local-name() = 'ReportGeneratingDeviceIds' and .. instance of element(*, cdf:CastVoteRecordReport))]) &gt; 0"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="count(idref(current()/@ObjectId)[(local-name() = 'CreatingDeviceId' and .. instance of element(*, cdf:CVR)) or (local-name() = 'ReportingDeviceIds' and .. instance of element(*, cdf:GpUnit)) or (local-name() = 'ReportGeneratingDeviceIds' and .. instance of element(*, cdf:CastVoteRecordReport))]) &gt; 0">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>ReportingDevice (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="current()/@ObjectId"/>) must have refereant
-                from CVR, GpUnit, CastVoteRecordReport</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>ReportingDevice (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="current()/@ObjectId"/>
+               <xsl:text>) must have refereant from CVR, GpUnit, CastVoteRecordReport</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M3"/>
+      <xsl:apply-templates select="node()" mode="M3"/>
    </xsl:template>
    <!--RULE -->
    <xsl:template match="element(*, cdf:RetentionContest)" priority="1000" mode="M3">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                       context="element(*, cdf:RetentionContest)"/>
-      <!--ASSERT -->
+
+		<!--ASSERT -->
       <xsl:choose>
          <xsl:when test="not(id(cdf:CandidateId)[not(. instance of element(*, cdf:Candidate))])"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(id(cdf:CandidateId)[not(. instance of element(*, cdf:Candidate))])">
-               <xsl:attribute name="location">
-                  <xsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </xsl:attribute>
-               <svrl:text>CandidateId (<xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                                xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                                select="cdf:CandidateId"/>) must point to an element of
-                type Candidate</svrl:text>
-            </svrl:failed-assert>
+            <xsl:message xmlns:iso="http://purl.oclc.org/dsdl/schematron">
+               <xsl:text>CandidateId (</xsl:text>
+               <xsl:value-of xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                             xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+                             select="cdf:CandidateId"/>
+               <xsl:text>) must point to an element of type Candidate</xsl:text>
+            </xsl:message>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:apply-templates select="*" mode="M3"/>
+      <xsl:apply-templates select="node()" mode="M3"/>
    </xsl:template>
    <xsl:template match="text()" priority="-1" mode="M3"/>
    <xsl:template match="@*|node()" priority="-2" mode="M3">
-      <xsl:apply-templates select="*" mode="M3"/>
+      <xsl:apply-templates select="node()" mode="M3"/>
    </xsl:template>
 </xsl:stylesheet>

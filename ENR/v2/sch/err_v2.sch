@@ -6,10 +6,10 @@ MagicDraw Template for Schematron (SchematronMD)
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2"
     xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <sch:ns uri="NIST_V2_election_results_reporting.xsd" prefix="cdf"/>
+    <sch:ns uri="http://itl.nist.gov/ns/voting/1500-100/v2" prefix="cdf"/>
     <sch:ns uri="http://www.w3.org/2001/XMLSchema-instance" prefix="xsi"/>
-    <xsl:import-schema namespace="NIST_V2_election_results_reporting.xsd"
-        schema-location="https://raw.githubusercontent.com/usnistgov/ElectionResultsReporting/829995caa5e174038eb89aefd098d449acbdbd99/NIST_V2_election_results_reporting.xsd"/>
+    <xsl:import-schema namespace="http://itl.nist.gov/ns/voting/1500-100/v2"
+        schema-location="https://raw.githubusercontent.com/usnistgov/ElectionResultsReporting/version2/NIST_V2_election_results_reporting.xsd"/>
     <sch:pattern>
         <sch:rule context="element(*, cdf:BallotStyle)">
             <sch:assert test="not(id(cdf:GpUnitIds)[not(. instance of element(*, cdf:GpUnit))])"
