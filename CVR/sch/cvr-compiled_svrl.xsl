@@ -6,7 +6,7 @@
                 xmlns:schold="http://www.ascc.net/xml/schematron"
                 xmlns:iso="http://purl.oclc.org/dsdl/schematron"
                 xmlns:xhtml="http://www.w3.org/1999/xhtml"
-                xmlns:cdf="NIST_V0_cast_vote_records.xsd"
+                xmlns:cdf="http://itl.nist.gov/ns/voting/1500-103/v1"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 version="2.0"><!--Implementers: please note that overriding process-prolog or process-root is 
     the preferred method for meta-stylesheets to use where possible. -->
@@ -27,8 +27,8 @@
    <!--XSD TYPES FOR XSLT2-->
    <xsl:import-schema xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                      namespace="NIST_V0_cast_vote_records.xsd"
-                      schema-location="https://raw.githubusercontent.com/usnistgov/CastVoteRecords/14dfe26a9466524624d93345a715ecd3155fd4fd/NIST_V0_cast_vote_records.xsd"/>
+                      namespace="http://itl.nist.gov/ns/voting/1500-103/v1"
+                      schema-location="https://raw.githubusercontent.com/usnistgov/CastVoteRecords/master/NIST_V0_cast_vote_records.xsd"/>
    <!--KEYS AND FUNCTIONS-->
    <!--DEFAULT RULES-->
    <!--MODE: SCHEMATRON-SELECT-FULL-PATH-->
@@ -161,7 +161,7 @@
 		 <xsl:value-of select="$fileNameParameter"/>  
 		 <xsl:value-of select="$fileDirParameter"/>
          </xsl:comment>
-         <svrl:ns-prefix-in-attribute-values uri="NIST_V0_cast_vote_records.xsd" prefix="cdf"/>
+         <svrl:ns-prefix-in-attribute-values uri="http://itl.nist.gov/ns/voting/1500-103/v1" prefix="cdf"/>
          <svrl:ns-prefix-in-attribute-values uri="http://www.w3.org/2001/XMLSchema-instance" prefix="xsi"/>
          <svrl:active-pattern>
             <xsl:attribute name="document">

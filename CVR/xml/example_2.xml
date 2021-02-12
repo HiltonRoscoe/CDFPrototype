@@ -1,4 +1,4 @@
-<CastVoteRecordReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="NIST_V0_cast_vote_records.xsd" xsi:schemaLocation="NIST_V0_cast_vote_records.xsd file:///C:/Users/john/Documents/GitHub/CastVoteRecords/NIST_V0_cast_vote_records.xsd">
+<CastVoteRecordReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://itl.nist.gov/ns/voting/1500-103/v1" xsi:schemaLocation="http://itl.nist.gov/ns/voting/1500-103/v1 https://raw.githubusercontent.com/usnistgov/CastVoteRecords/master/NIST_V0_cast_vote_records.xsd">
 	<!-- 5.1 Examples -->
 	<CVR>
 		<BallotImage>
@@ -20,8 +20,7 @@
 			</CVRContest>
 			<Type>original</Type>
 		</CVRSnapshot>
-		<ElectionId>_EL7</ElectionId>
-		<SequenceNumber>1</SequenceNumber>
+		<ElectionId>_EL7</ElectionId>				
 	</CVR>
 	<CVR>
 		<BallotImage>
@@ -43,8 +42,7 @@
 			</CVRContest>
 			<Type>original</Type>
 		</CVRSnapshot>
-		<ElectionId>_EL7</ElectionId>
-		<SequenceNumber>2</SequenceNumber>
+		<ElectionId>_EL7</ElectionId>		
 	</CVR>
 	<CVR>
 		<CurrentSnapshotId>cvr-003</CurrentSnapshotId>
@@ -71,8 +69,7 @@
 			</CVRContest>
 			<Type>interpreted</Type>
 		</CVRSnapshot>
-		<ElectionId>_EL7</ElectionId>
-		<SequenceNumber>1</SequenceNumber>
+		<ElectionId>_EL7</ElectionId>		
 	</CVR>
 	<CVR>
 		<CurrentSnapshotId>cvr-004</CurrentSnapshotId>
@@ -102,8 +99,7 @@
 			</CVRContest>
 			<Type>interpreted</Type>
 		</CVRSnapshot>
-		<ElectionId>_EL7</ElectionId>
-		<SequenceNumber>2</SequenceNumber>
+		<ElectionId>_EL7</ElectionId>		
 	</CVR>
 	<!-- 5.3 Example -->
 	<CVR>
@@ -141,8 +137,7 @@
 			</CVRContest>
 			<Type>original</Type>
 		</CVRSnapshot>
-		<ElectionId>_EL7</ElectionId>
-		<SequenceNumber>61</SequenceNumber>
+		<ElectionId>_EL7</ElectionId>		
 	</CVR>
 	<!-- 5.4 Example -->
 	<CVR>
@@ -191,8 +186,7 @@
 			</CVRContest>
 			<Type>original</Type>
 		</CVRSnapshot>
-		<ElectionId>_EL7</ElectionId>
-		<SequenceNumber>57</SequenceNumber>
+		<ElectionId>_EL7</ElectionId>		
 	</CVR>
 	<Election ObjectId="_EL7">
 		<Candidate ObjectId="_C1CN1">
