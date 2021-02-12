@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="NIST_V2_election_results_reporting.xsd" targetNamespace="NIST_V2_election_results_reporting.xsd" elementFormDefault="qualified" version="2.0">
-	<xs:redefine schemaLocation="NIST_V2_election_results_reporting.xsd">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://itl.nist.gov/ns/voting/1500-100/v2" targetNamespace="http://itl.nist.gov/ns/voting/1500-100/v2" elementFormDefault="qualified" version="2.0">
+	<xs:redefine schemaLocation="https://raw.githubusercontent.com/usnistgov/ElectionResultsReporting/0249b4a9ccef526d431061e50120685596470133/NIST_V2_election_results_reporting.xsd">
 		<xs:complexType name="Candidate">
 			<xs:complexContent>
 				<xs:restriction base="Candidate">
