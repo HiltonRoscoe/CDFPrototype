@@ -65,7 +65,7 @@ By looking at the definition of `Candidate`, we see that `FileDate` and `PersonI
 A redefined schema section starts with a `redefine` element and consists of zero or more types that we want to redefine.
 
 ```xml
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="NIST_V2_election_results_reporting.xsd" targetNamespace="NIST_V2_election_results_reporting.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://itl.nist.gov/ns/voting/1500-100/v2" targetNamespace="http://itl.nist.gov/ns/voting/1500-100/v2" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:redefine schemaLocation="NIST_V2_election_results_reporting.xsd">
         {redefined types}...
     </xs:redefine>
