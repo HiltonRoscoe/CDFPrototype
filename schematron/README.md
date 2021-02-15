@@ -18,7 +18,7 @@ There are multiple ways to run the Schematron rulesets. The compiled Schematron 
 
 ## How to run (AltovaXML)
 
-AltovaXML is a freely availible, common line based tool. AltovaXML can run a schematron ruleset that has been compiled into an `xslt`, e.g. `err_v2-compiled.xsl`. Precompiled rulesets have been provided as part of this repository. AltovaXML is available on Windows only.
+AltovaXML is a freely availible, command line based tool. AltovaXML can run a schematron ruleset that has been compiled into an `xslt`, e.g. `err_v2-compiled.xsl`. Precompiled rulesets have been provided as part of this repository. AltovaXML is available on Windows only.
 
 There are two versions of the compiled schematron files for each CDF. The difference is in how the validation results are provided. Those ending with `_message` generate messages to the standard output (e.g. screen). Those ending with `_svrl` generate results as XML using the SVRL format.
 
@@ -33,7 +33,7 @@ There are two versions of the compiled schematron files for each CDF. The differ
 ```xml
 <xsl:import-schema xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                     xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-                    namespace="NIST_V2_election_results_reporting.xsd"
+                    namespace="http://itl.nist.gov/ns/voting/1500-100/v2"
                     schema-location="file:///{path}"/>
 ```
 
