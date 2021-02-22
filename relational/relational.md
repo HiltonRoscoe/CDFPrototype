@@ -33,7 +33,7 @@
 
 The [NIST Special Publication (SP) 1500 series common data formats](https://nist.ent.sirsi.net/client/en_US/default/search/results?qu=%22Special+Publication+1500%22&te=ILS&lm=NISTPUBS&rt=false%7C%7C%7CSERIES%7C%7C%7CSeries) were developed from a high level UML model ([more here](../mapping/mapping.md)). One advantage of this approach is that many implementation formats can be derived from it. NIST provides JSON and XML schemas, but other formats are possible.
 
-Although NoSQL has picked up some traction, the vast majority of systems of record (e.g. Election Management System) continue to use the relational (SQL) databases. To interoperate between such systems, it must map not only the syntax of JSON or XML, but also the semantics, or meaning of the data. The difficulty of mapping can be eased somewhat if both the system of record and CDFs use the same conceptual definitions.
+Although NoSQL has picked up some traction, the vast majority of systems of record (e.g. Election Management Systems) continue to use relational (SQL) databases. To interoperate between such systems, we must map not only the syntax of JSON or XML, but also the semantics, or meaning of the data. The difficulty of mapping can be eased somewhat if both the system of record and the CDFs use the same conceptual definitions.
 
 This prototype explores the use of the developed UML models to derive relational schemas, such that the same conceptual definitions are shared.
 
@@ -57,11 +57,11 @@ DDL scripts have been provided for Oracle and SQL Server. You can also generate 
 
 ### Additional Tasks
 
-This task describes additional, optional tasks that can be performed to customize the DDL to meet your individual needs. You will need to use the [ODM designs](https://github.com/HiltonRoscoe/CDFOracleDataModels) to generate new DDL.
+This section describes additional, optional tasks that can be performed to customize the DDL to meet your individual needs. You will need to use the [ODM designs](https://github.com/HiltonRoscoe/CDFOracleDataModels) to generate new DDL.
 
 #### Data Type Length
 
-While Entity-Relational (ER) models do not require the length of the data type to be specified, a practical reality of relational databases is that data type length needs to be specified. All String types are mapped to the maximum character length allowed by the database. However, you will likely want to adjust the lengths to suit your needs.
+While Entity-Relational (ER) models do not require the length of the data type to be specified, a practical reality of relational databases is that data type length needs to be set. All String types are mapped to the maximum character length allowed by the database. However, you will likely want to adjust the lengths to suit your needs.
 
 #### Subtype Engineering
 
@@ -79,7 +79,7 @@ The DDL provided as part of this repository uses the *table per entity* approach
 
 Repeating primitives can be mapped one of two ways:
 
-- Each enumeration is given its own entity, with mapping tables to resolve many-to-many
+- Each enumeration is given its own entity, with mapping tables to resolve many-to-many relationship.
 - Each enumeration/attribute combination is given its own entity, with a many to one relationship.
 
 The ER and relational models use the second approach. It is strongly recommended to accept this approach, as the first leads to a much more complex relational model. This setting cannot be changed in Oracle Data Modeler (ODM). Please contact [Hilton Roscoe](mailto:info@hiltonroscoe.com) for customization options.
@@ -137,7 +137,7 @@ In this example, `Election` composes zero or more `Contest`. In the translated E
 
 ### Attributes
 
-UML attributes are mapped to ER attributes, except when the upper multiplicity is greater than 1 or the attribute represent a non-primitive type (i.e. a class). In that case they are mapped to their own entity. This is done to preserve First Normal Form (1NF).
+UML attributes are mapped to ER attributes, except when the upper multiplicity is greater than 1 or the attribute represents a non-primitive type (i.e. a class). In that case they are mapped to their own entity. This is done to preserve First Normal Form (1NF).
 
 #### Primitives and Enumerations
 
@@ -176,8 +176,6 @@ Role mapping `fkRole` is handled as follows:
 |---------           |-----------------|----------|
 |*                   |source           |Class name|
 |1                   |target           |Property name|
-
-Must add handling for many to many manually
 
 #### Example Role Mapping
 
