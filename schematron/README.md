@@ -1,6 +1,6 @@
 # Schematron Rulesets
 
-This document contains instructions to run the schematron rulesets for the Cast Voter Records and Election Results Reporting specifications.
+This document contains instructions to run the Schematron rulesets for the Cast Voter Records and Election Results Reporting specifications.
 
 <!-- TOC -->
 
@@ -14,19 +14,20 @@ This document contains instructions to run the schematron rulesets for the Cast 
 
 <!-- /TOC -->
 
-There are multiple ways to run the Schematron rulesets. The compiled Schematron rulesets can be run with any schema-aware `XSLT2` processor. Additionally the schematron rulesets can be run directly in a tool like `Oxygen`. The Schematron files are located in `CVR/sch` and `ENR/v2/sch` directories of this repository, respectively.
+There are multiple ways to run the Schematron rulesets. The compiled Schematron rulesets can be run with any schema-aware `XSLT2` processor. Additionally the Schematron rulesets can be run directly in a tool like `Oxygen`. The Schematron files are located in `CVR/sch` and `ENR/v2/sch` directories of this repository, respectively.
 
 ## How to run (AltovaXML)
 
-AltovaXML is a freely available, command line based tool. AltovaXML can run a schematron ruleset that has been compiled into an `xslt`, e.g. `err_v2-compiled.xsl`. Precompiled rulesets have been provided as part of this repository. AltovaXML is available on Windows only.
+AltovaXML is a freely available, command line based tool. AltovaXML can run a Schematron ruleset that has been compiled into an `xslt`, e.g. `err_v2-compiled.xsl`. Precompiled rulesets have been provided as part of this repository. AltovaXML is available on Windows platforms only.
 
-There are two versions of the compiled schematron files for each CDF. The difference is in how the validation results are provided. Those ending with `_message` generate messages to the standard output (e.g. screen). Those ending with `_svrl` generate results as XML using the SVRL format.
+There are two versions of the compiled Schematron files for each CDF. The difference is in how the validation results are provided. Those ending with `_message` generate messages to the standard output (i.e. screen). Those ending with `_svrl` generate results as XML using the SVRL format.
 
 > It is recommended to use the SVRL versions of the compiled schematron files. The SVRL versions provide not only the error messages, but contextual details around where the error occurred.
 
 - [Download](http://cdn.sw.altova.com/v2013r2/en/AltovaXMLCmu2013.exe) and install AltovaXML.
 
 > AltovaXML must be in your path or fully qualified. The default installation path for x64 based computers is `C:\Program Files (x86)\Altova\AltovaXML2013`
+> To temporarily add AltovaXML to you windows path, enter `PATH=%PATH%;C:\Program Files (x86)\Altova\AltovaXML2013` in a command prompt.
 
 - (Optional) Change the `xslt` file to point to the fully qualified path of the NIST 1500-xxx schema. AltovaXML does not understand relative file system paths.
 
@@ -37,9 +38,19 @@ There are two versions of the compiled schematron files for each CDF. The differ
                     schema-location="file:///{path}"/>
 ```
 
-> The compiled schematron files reference the `xsd`s found on the NIST GitHub repository. Therefore, this step is optional, however, if the url of the files change or network connectivity is restricted, the transforms will not run correctly.
+> The compiled Schematron files reference the `xsd`s found on the NIST GitHub repository. Therefore, this step is optional, however, if the url of the files change or network connectivity is restricted, the transforms will not run correctly.
 
 - Ensure `xsi:schemaLocation` is specified in the instance file. Failure to do so may cause false negatives.
+
+- Validate the file against the schema before running schematron rules. Run the command having the form of:
+
+```cmd
+{AltovaXML} /validate /in {input_file.xml}
+```
+
+Where `{AltovaXML}` is the path to the `AltovaXML.exe` executable, and `{input_file.xml}` is the path to the XML instance to validate.
+
+This will validate against the file against the schema specified in the `xsi:schemaLocation`. If schema validation is successful, you will receive a message of `The XML data is valid.`
 
 - Run the command having the form of:
 
@@ -47,7 +58,7 @@ There are two versions of the compiled schematron files for each CDF. The differ
 {AltovaXML} /xslt2 {compiled.xsl} /in {input_file.xml} [/out {output_file.xml}]
 ```
 
-Where `{AltovaXML}` is the path to the `AltovaXML.exe` executable, `{compiled.xsl}` is the path to the compiled schematron ruleset, and `{input_file.xml}` is the path to the XML instance to validate. If you are using the SVRL version, set the `/out` flag and `{output_file.xml}` to the path you'd like for the validation report.
+Where `{AltovaXML}` is the path to the `AltovaXML.exe` executable, `{compiled.xsl}` is the path to the compiled Schematron ruleset, and `{input_file.xml}` is the path to the XML instance to validate. If you are using the SVRL version, set the `/out` flag and `{output_file.xml}` to the path you'd like for the validation report.
 
 ```cmd
 PS C:\Program Files (x86)\Altova\AltovaXML2013> .\AltovaXML.exe /xslt2 C:\GitHub\CDFPrototype
@@ -61,7 +72,11 @@ PS C:\Program Files (x86)\Altova\AltovaXML2013> .\AltovaXML.exe /xslt2 C:\GitHub
 
 #### Message Version
 
-If the instance file contains no errors, the command will produce no output.
+If the instance file contains no errors, the command will produce a single message containing:
+
+```
+XSL message: Info:Ruleset is working
+```
 
 If the file contains errors, messages such as the one below will appear.
 
@@ -69,7 +84,7 @@ If the file contains errors, messages such as the one below will appear.
 XSL message: PartyId (_PE2399537F-B641-E811-8104-0050568C2FC0) must point to an element of type Party
 ```
 
-Each error is prefixed with `XSL message` and contains the `ObjectId` context indicating where the error occurred.
+Each error is prefixed with `XSL message` and contains the `ObjectId` or other context indicating where the error occurred.
 
 #### SVRL Version
 
@@ -77,7 +92,7 @@ Output will be directed to the file specified as {output_file.xml}, using the SV
 
 ## How to Run (Oxygen XML)
 
-The commercial XML editor [Oxygen](https://www.oxygenxml.com/download.html) can validate using schematron rulesets directly. Make sure schema-aware validation is enabled and Saxon-EE is used for validation.
+The commercial XML editor [Oxygen](https://www.oxygenxml.com/download.html) can validate using Schematron rulesets directly. Make sure schema-aware validation is enabled and Saxon-EE is used for validation.
 
 ![Schema aware option](./images/schema-aware.png)
 
