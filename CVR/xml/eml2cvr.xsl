@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?altova_samplexml file:///c:/temp/emlforrcv.xml?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:eml="urn:oasis:names:tc:evs:schema:eml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exclude-result-prefixes="eml xsi" xmlns:cdf="NIST_V0_cast_vote_records.xsd" xsi:schemaLocation="NIST_V0_cast_vote_records.xsd file:///C:/Users/john/Documents/GitHub/CastVoteRecords/NIST_V0_cast_vote_records.xsd">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:eml="urn:oasis:names:tc:evs:schema:eml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exclude-result-prefixes="eml xsi" xmlns:cdf="http://itl.nist.gov/ns/voting/1500-103/v1" xsi:schemaLocation="http://itl.nist.gov/ns/voting/1500-103/v1 https://raw.githubusercontent.com/usnistgov/CastVoteRecords/master/NIST_V0_cast_vote_records.xsd">
 	<xsl:output method="xml"/>
 	<xsl:key name="party-by-name" match="eml:AffiliationIdentifier" use="eml:RegisteredName"/>
 	<!-- global mode templates, for reusable object generation -->

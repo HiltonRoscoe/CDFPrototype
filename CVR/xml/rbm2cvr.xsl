@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?altova_samplexml file:///C:/Users/john/Documents/GitHub/RemoteBallotMarking/xml/Nov14-HR-RBM2.xml?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:eml="urn:oasis:names:tc:evs:schema:eml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exclude-result-prefixes="eml rbm xsi" xmlns:cdf="NIST_V0_cast_vote_records.xsd" xmlns:rbm="hr-rbm.xsd" xsi:noNamespaceSchemaLocation="../../../RemoteBallotMarking/xsd/hr-rbm.xsd">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:eml="urn:oasis:names:tc:evs:schema:eml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exclude-result-prefixes="eml rbm xsi" xmlns:cdf="http://itl.nist.gov/ns/voting/1500-103/v1" xmlns:rbm="hr-rbm.xsd" xsi:noNamespaceSchemaLocation="../../../RemoteBallotMarking/xsd/hr-rbm.xsd">
 	<xsl:output method="xml"/>
 	<xsl:key name="party-by-name" match="eml:AffiliationIdentifier" use="eml:RegisteredName"/>
 	<!-- global mode templates, for reusable object generation -->
